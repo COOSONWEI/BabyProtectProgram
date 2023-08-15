@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HealthRunView: View {
     
-    var step: Double
+    var distance: Double
     
     var body: some View {
         ZStack{
@@ -33,7 +33,7 @@ struct HealthRunView: View {
                     Text("跑步距离")
                         .font(.system(size: 11.53))
                         .fontWeight(.bold)
-                    Text("\(step)公里")
+                    Text("\( String(format: "%.2f", distance))公里")
                         .font(.system(size: 13.05))
                         .fontWeight(.bold)
                     
@@ -52,6 +52,6 @@ struct HealthRunView: View {
 
 struct HealthRunView_Previews: PreviewProvider {
     static var previews: some View {
-        HealthRunView(step: 100.0)
+        HealthRunView(distance: 100.0)
     }
 }

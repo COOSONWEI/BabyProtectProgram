@@ -19,7 +19,7 @@ struct HealthView: View {
             HStack{
                 HealthWalkView(step: healthModel.walkStep ?? 0)
                 
-                HealthRunView(step: healthModel.distance ?? 0.0)
+                HealthRunView(distance: healthModel.distance ?? 0.0)
             }
             
             HStack{

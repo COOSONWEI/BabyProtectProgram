@@ -11,6 +11,8 @@ import WatchKit
 struct MenuView: View {
     @StateObject var healthModel: HealthModel
     @StateObject var bluetool = BluetoothModel()
+    @StateObject var beaconModel = BeaconModel()
+    @StateObject var contactsModel = Contacts()
     @State var isContain = false
     var model = ViewModelWatch()
     
@@ -18,7 +20,7 @@ struct MenuView: View {
         
         NavigationStack{
             ZStack{
-                BeaconDetectView(bluetoothModel: bluetool, isContain: $isContain)
+                BeaconDetectView(bluetoothModel: bluetool, beaconsNames: beaconModel, isContain: $isContain)
                     .sheet(isPresented: $isContain, content: {
                         WarningView()
                             .onDisappear(perform: {
@@ -27,11 +29,20 @@ struct MenuView: View {
                                 bluetool.scanForPeripherals()
                             })
                     })
+                
                     .opacity(0)
+                    .task {
+                        do {
+                            try await beaconModel.fetchBeacons()
+                        }catch {
+                            print("fail to loaded")
+                        }
+                    }
+                    
                 VStack(spacing: 15){
                     HStack(spacing: 18){
                         NavigationLink {
-                            CallPhoneView()
+                            CallPhoneView(contactsModel: contactsModel)
                         } label: {
                             MenuRow(image: "CallPhone")
                             
@@ -65,9 +76,14 @@ struct MenuView: View {
                 }
                 .padding(.top)
                 
-               
             }
-           
+        }
+        .task {
+            do{
+                try await contactsModel.fetchContacts()
+            } catch {
+                print("cont FetchIt")
+            }
         }
         
         

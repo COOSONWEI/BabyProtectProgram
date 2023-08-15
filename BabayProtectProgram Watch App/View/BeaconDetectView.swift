@@ -7,9 +7,11 @@
 
 import SwiftUI
 import CoreBluetooth
+import WatchConnectivity
 
 struct BeaconDetectView: View {
     @StateObject var bluetoothModel: BluetoothModel
+    @StateObject var beaconsNames: BeaconModel
     @Binding var isContain: Bool
     
     var body: some View {
@@ -24,14 +26,19 @@ struct BeaconDetectView: View {
                         Text("Rssi: \(bluetoothModel.rssi[key] ?? 0)")
                     }
                     .onAppear {
-                        if bluetoothModel.peripheralNames.values.contains("houseroom") {
-                            print("I Find It ")
-                            bluetoothModel.isStart = false
-                            isContain = true
-                        } else {
-                            bluetoothModel.isStart = true
-                            isContain = false
+                        for beacon in beaconsNames.usefulBeaconNames {
+                            //                            print("beaconName:\(beacon.object(forKey: "beaconsName") as! String)")
+                            if bluetoothModel.peripheralNames.values.contains(beacon) {
+                                vibrateWatch()
+                                print("I Find It ")
+                                bluetoothModel.isStart = false
+                                isContain = true
+                            } else {
+                                bluetoothModel.isStart = true
+                                isContain = false
+                            }
                         }
+                        
                     }
                 }
             }
@@ -39,10 +46,17 @@ struct BeaconDetectView: View {
             
         }
     }
+    
+    func vibrateWatch() {
+           let device = WKInterfaceDevice.current()
+           
+        //使用震动通知功能
+            device.play(.notification)
+       }
 }
 
 struct BeaconDetectView_Previews: PreviewProvider {
     static var previews: some View {
-        BeaconDetectView(bluetoothModel: BluetoothModel(), isContain: .constant(false))
+        BeaconDetectView(bluetoothModel: BluetoothModel(), beaconsNames: BeaconModel(), isContain: .constant(false))
     }
 }

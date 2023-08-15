@@ -19,15 +19,14 @@ struct BabayProtectProgram_Watch_AppApp: App {
 //                ICloudTest(healModel: healthModel)
                     .onAppear {
                         healthModel.requestHealthKitPermissions()
+                        healthModel.fetchSleepData()
                         healthModel.fetchTodayStepCount()
                         healthModel.fetchStaticHeartRate()
                         healthModel.fetchCurrentHeartRate()
-                        healthModel.fetchSleepData()
-                        healthModel.fetchDistancofWalkAndRuning()
                         healthModel.fetchWalkoutTimeAndEnage()
+                        healthModel.fetchDistancofWalkAndRuning()
                     }
             }
-           
            
         }
         

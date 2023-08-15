@@ -77,10 +77,14 @@ extension BluetoothModel: CBCentralManagerDelegate {
                     self.peripheralNames.removeValue(forKey: key)
                 }
             }
-            print("//add device\(Date())")
+//            print("//add device\(Date())")
             if (peripheral.name != nil) {
 //                print("peripheral.name\(peripheral.name)")
+            
             }
+//            if peripherals.count > 50 {
+//                self.scanForPeripherals()
+//            }
         }
     }
 }

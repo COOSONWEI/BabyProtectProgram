@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct MenuRow: View {
+    
     let image: String
+    
     var body: some View {
         Image(image)
             .resizable()
             .frame(width: 75, height:75)
     }
+    
 }
 
 struct MenuRow_Previews: PreviewProvider {

@@ -16,6 +16,7 @@ class HealthModel: NSObject, ObservableObject {
     let healthStore = HKHealthStore()
     
     private var allHealthDataTypes: [HKSampleType] {
+        
         let typeIdentifiers: [String] = [
             HKQuantityTypeIdentifier.stepCount.rawValue,
             HKQuantityTypeIdentifier.heartRate.rawValue,
@@ -24,8 +25,11 @@ class HealthModel: NSObject, ObservableObject {
             HKQuantityTypeIdentifier.distanceWalkingRunning.rawValue,
             HKQuantityTypeIdentifier.activeEnergyBurned.rawValue
         ]
+        
         return typeIdentifiers.compactMap { getSampleType(for: $0) }
+        
     }
+    
     
     //MARK: -运动记录
     //今日、累计、连续
@@ -105,9 +109,10 @@ class HealthModel: NSObject, ObservableObject {
                 for sample in distanceSamples {
                     DispatchQueue.main.async {
                         self.distance = sample.quantity.doubleValue(for: HKUnit.meter())
-                        print("运动距离：\(self.distance) 米")
+                       
                     }
                 }
+                print("运动距离：\(self.distance) 米")
             }
         }
 
@@ -197,11 +202,13 @@ class HealthModel: NSObject, ObservableObject {
                         self.todayTime = workout.duration
                         self.todayCalorie = workout.totalEnergyBurned?.doubleValue(for: HKUnit.calorie()) ?? 0.0
                         
-                        print("运动时间：\(self.todayTime) 秒")
-                        print("运动消耗：\(self.todayCalorie) 卡路里")
                     }
                 }
+               
             }
+            
+            print("运动时间：\(self.todayTime) 秒")
+            print("运动消耗：\(self.todayCalorie) 卡路里")
         }
 
         healthStore.execute(query)

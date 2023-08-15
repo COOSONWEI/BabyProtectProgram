@@ -12,13 +12,13 @@ import WatchKit
 
 struct CallPhoneView: View {
     @State private var contactNames: [String] = []
-    @StateObject private var contactsModel = Contacts()
+    @StateObject var contactsModel: Contacts
     
     var body: some View {
         
         TabView{
-            ForEach(contactsModel.testContacts.indices,id: \.self) {index in
-                CallModifyView(name: contactsModel.testContacts[index].name,phoneNumber: contactsModel.testContacts[index].phoneNumber,index: index,contactsModle: contactsModel)
+            ForEach(contactsModel.contacts.indices,id: \.self) {index in
+                CallModifyView(name: contactsModel.contacts[index].name,phoneNumber: contactsModel.contacts[index].phoneNumber,index: index,contactsModle: contactsModel)
             }
         }
            
@@ -54,6 +54,6 @@ struct CallPhoneView: View {
 
 struct CallPhoneView_Previews: PreviewProvider {
     static var previews: some View {
-        CallPhoneView()
+        CallPhoneView(contactsModel: Contacts())
     }
 }

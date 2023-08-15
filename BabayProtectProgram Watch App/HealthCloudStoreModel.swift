@@ -28,7 +28,6 @@ class HealthiCloudStore: ObservableObject {
         }
         
         print("lalllalalallal")
-        
         DispatchQueue.main.async {
             
                 self.health.sort(by: { (record1, record2) -> Bool in
