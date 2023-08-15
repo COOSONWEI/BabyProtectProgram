@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct InDoorDangerousCard: View {
+    
     let name: String
     var body: some View {
         ZStack{

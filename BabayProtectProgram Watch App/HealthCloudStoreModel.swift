@@ -13,6 +13,7 @@ import CloudKit
 class HealthiCloudStore: ObservableObject {
     
     @Published var health: [CKRecord] = []
+    
     func fetchRestaurants() async throws {
         // Fetch data using Convenience API
         let cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
@@ -25,6 +26,19 @@ class HealthiCloudStore: ObservableObject {
         for record in results.matchResults {
             self.health.append(try record.1.get())
         }
+        
+        print("lalllalalallal")
+        
+        DispatchQueue.main.async {
+            
+                self.health.sort(by: { (record1, record2) -> Bool in
+                    guard let creationDate1 = record1.creationDate, let creationDate2 = record2.creationDate else {
+                        return false
+                    }
+                    return creationDate1 > creationDate2
+                })
+            }
+       
     }
     
     func saveRecordToCloud(health: HealthModel) {

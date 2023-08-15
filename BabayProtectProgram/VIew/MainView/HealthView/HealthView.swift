@@ -51,7 +51,9 @@ struct HealthView: View {
                 HStack{
                     ExerciseCard()
                     VStack{
-                        WalkCard(walkStep: 1)
+                        ForEach(healthDataModel.health.prefix(1),id:\.self){ first in
+                            WalkCard(walkStep: first.object(forKey: "walkStep") as! Int )
+                        }
                         RunCard()
                     }
                 }

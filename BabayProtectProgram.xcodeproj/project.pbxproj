@@ -763,14 +763,14 @@
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "守护想要访问你的健康共享，用于将数据共享给父母，以便他们能够更好地了解的你健康情况";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "守护想要访问你的健康权限，用于更新你的健康数据，以便更好地为你定制更好的健康生活方案";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = baby.demo.BabayProtectProgram;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.lsy.shouhu;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = baby.demo.BabayProtectProgram.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lsy.shouhu.watchkitapp;
 				PRODUCT_NAME = "守护";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -801,14 +801,14 @@
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "守护想要访问你的健康共享，用于将数据共享给父母，以便他们能够更好地了解的你健康情况";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "守护想要访问你的健康权限，用于更新你的健康数据，以便更好地为你定制更好的健康生活方案";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = baby.demo.BabayProtectProgram;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.lsy.shouhu;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = baby.demo.BabayProtectProgram.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lsy.shouhu.watchkitapp;
 				PRODUCT_NAME = "守护";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

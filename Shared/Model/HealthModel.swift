@@ -20,9 +20,9 @@ class HealthModel: NSObject, ObservableObject {
             HKQuantityTypeIdentifier.stepCount.rawValue,
             HKQuantityTypeIdentifier.heartRate.rawValue,
             HKQuantityTypeIdentifier.restingHeartRate.rawValue,
-            HKCategoryTypeIdentifier.sleepAnalysis.rawValue
+            HKCategoryTypeIdentifier.sleepAnalysis.rawValue,
+            HKQuantityTypeIdentifier.distanceWalkingRunning.rawValue
         ]
-        
         return typeIdentifiers.compactMap { getSampleType(for: $0) }
     }
     
@@ -36,7 +36,7 @@ class HealthModel: NSObject, ObservableObject {
     var todayCalorie: Int?
     
     var walkStep: Int?
-    var runStep: Int?
+    var runStep: String?
     
     //MARK: - 心率
     //心率
@@ -89,6 +89,9 @@ class HealthModel: NSObject, ObservableObject {
            healthStore.execute(query)
         
        }
+    
+    //获取运动的距离
+    
     
     //获取心率
     func fetchCurrentHeartRate() {

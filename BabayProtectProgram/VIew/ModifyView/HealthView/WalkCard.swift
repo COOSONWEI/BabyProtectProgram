@@ -56,10 +56,10 @@ struct WalkCard: View {
                             .multilineTextAlignment(.trailing)
                             .foregroundColor(Color(red: 1, green: 0.82, blue: 0.59))
                         HStack{
-                            Text("0")
-                                .font(.system(size: 30))
+                            Text("\(walkStep)")
+                                .font(.system(size: 10))
                                 .fontWeight(.bold)
-                                .minimumScaleFactor(0.2)
+                                .minimumScaleFactor(0.05)
                                 .multilineTextAlignment(.trailing)
                                 .foregroundColor(Color(red: 1, green: 0.82, blue: 0.59))
                             
@@ -69,7 +69,7 @@ struct WalkCard: View {
                                 .minimumScaleFactor(0.2)
                                 .foregroundColor(Color(red: 1, green: 0.82, blue: 0.59))
                         }
-                      
+                        
                     }
                     
                     Image("Walk")
@@ -77,12 +77,7 @@ struct WalkCard: View {
                         .frame(maxWidth: 58, maxHeight: 63)
                         .fixedSize()
                 }
-                
-                
-               
             }
-            
-            
         }
         .frame(maxWidth: 136, maxHeight: 136)
     }
