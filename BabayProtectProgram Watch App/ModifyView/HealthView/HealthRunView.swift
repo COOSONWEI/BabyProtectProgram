@@ -9,7 +9,8 @@ import SwiftUI
 
 struct HealthRunView: View {
     
-    var step: Int
+    var step: Double
+    
     var body: some View {
         ZStack{
             Rectangle()
@@ -32,7 +33,7 @@ struct HealthRunView: View {
                     Text("跑步距离")
                         .font(.system(size: 11.53))
                         .fontWeight(.bold)
-                    Text("\(step)步")
+                    Text("\(step)公里")
                         .font(.system(size: 13.05))
                         .fontWeight(.bold)
                     
@@ -51,6 +52,6 @@ struct HealthRunView: View {
 
 struct HealthRunView_Previews: PreviewProvider {
     static var previews: some View {
-        HealthRunView(step: 0)
+        HealthRunView(step: 100.0)
     }
 }

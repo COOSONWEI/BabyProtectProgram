@@ -21,7 +21,8 @@ class HealthModel: NSObject, ObservableObject {
             HKQuantityTypeIdentifier.heartRate.rawValue,
             HKQuantityTypeIdentifier.restingHeartRate.rawValue,
             HKCategoryTypeIdentifier.sleepAnalysis.rawValue,
-            HKQuantityTypeIdentifier.distanceWalkingRunning.rawValue
+            HKQuantityTypeIdentifier.distanceWalkingRunning.rawValue,
+            HKQuantityTypeIdentifier.activeEnergyBurned.rawValue
         ]
         return typeIdentifiers.compactMap { getSampleType(for: $0) }
     }
@@ -32,11 +33,11 @@ class HealthModel: NSObject, ObservableObject {
     var allDay: Int?
     var consecutiveDay: Int?
     
-    var todayTime: Int?
-    var todayCalorie: Int?
+    var todayTime: TimeInterval?
+    var todayCalorie: Double?
     
     var walkStep: Int?
-    var runStep: String?
+    var distance: Double?
     
     //MARK: - 心率
     //心率
@@ -47,8 +48,8 @@ class HealthModel: NSObject, ObservableObject {
     //MARK: -睡眠数据
     var sleepTime: TimeInterval = 0.0
     
-    //MARK: -体温
-    var bodyTimeperature: Double?
+    //MARK: -体温(这个无法获取了)
+//    var bodyTimeperature: Double?
     
     
     //MARK: -获取相关的健康数据
@@ -91,7 +92,28 @@ class HealthModel: NSObject, ObservableObject {
        }
     
     //获取运动的距离
-    
+    func fetchDistancofWalkAndRuning() {
+        let distanceType = HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!
+
+        let query = HKSampleQuery(sampleType: distanceType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { query, results, error in
+            if let error = error {
+                // 处理错误
+                return
+            }
+
+            if let distanceSamples = results as? [HKQuantitySample] {
+                for sample in distanceSamples {
+                    DispatchQueue.main.async {
+                        self.distance = sample.quantity.doubleValue(for: HKUnit.meter())
+                        print("运动距离：\(self.distance) 米")
+                    }
+                }
+            }
+        }
+
+        healthStore.execute(query)
+
+    }
     
     //获取心率
     func fetchCurrentHeartRate() {
@@ -157,4 +179,32 @@ class HealthModel: NSObject, ObservableObject {
             
             healthStore.execute(query)
         }
+    
+    //获取运动时间和消耗能量
+    func fetchWalkoutTimeAndEnage() {
+        
+        let workoutType = HKObjectType.workoutType()
+        
+        let query = HKSampleQuery(sampleType: workoutType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { query, results, error in
+            if let error = error {
+                // 处理错误
+                return
+            }
+            
+            if let workouts = results as? [HKWorkout] {
+                for workout in workouts {
+                    DispatchQueue.main.async {
+                        self.todayTime = workout.duration
+                        self.todayCalorie = workout.totalEnergyBurned?.doubleValue(for: HKUnit.calorie()) ?? 0.0
+                        
+                        print("运动时间：\(self.todayTime) 秒")
+                        print("运动消耗：\(self.todayCalorie) 卡路里")
+                    }
+                }
+            }
+        }
+
+        healthStore.execute(query)
+
+    }
 }

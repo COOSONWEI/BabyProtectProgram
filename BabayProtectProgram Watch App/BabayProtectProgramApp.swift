@@ -15,14 +15,16 @@ struct BabayProtectProgram_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-//                MenuView(healthModel: healthModel)
-                ICloudTest(healModel: healthModel)
+                MenuView(healthModel: healthModel)
+//                ICloudTest(healModel: healthModel)
                     .onAppear {
                         healthModel.requestHealthKitPermissions()
                         healthModel.fetchTodayStepCount()
                         healthModel.fetchStaticHeartRate()
                         healthModel.fetchCurrentHeartRate()
                         healthModel.fetchSleepData()
+                        healthModel.fetchDistancofWalkAndRuning()
+                        healthModel.fetchWalkoutTimeAndEnage()
                     }
             }
            

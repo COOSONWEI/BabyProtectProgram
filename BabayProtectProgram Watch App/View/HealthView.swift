@@ -15,10 +15,13 @@ struct HealthView: View {
     
     var body: some View {
         VStack{
+            
             HStack{
                 HealthWalkView(step: healthModel.walkStep ?? 0)
-                HealthRunView(step: healthModel.runStep ?? 0)
+                
+                HealthRunView(step: healthModel.distance ?? 0.0)
             }
+            
             HStack{
                 HealthHeartView(rate: healthModel.heartRate ?? 0)
                 HealthRestingheartRateView(rate: healthModel.RestingHeartRate ?? 0)

@@ -46,7 +46,7 @@ class HealthiCloudStore: ObservableObject {
         // Prepare the record to save
         let record = CKRecord(recordType: "HealthData")
         record.setValue(health.walkStep, forKey: "walkStep")
-//        record.setValue(health.runStep, forKey: "runStep")
+//        record.setValue(health.distance, forKey: "distance")
 //        record.setValue(health.sleepTime, forKey: "sleepTime")
 //        record.setValue(health.heartRate, forKey: "heartRate")
 
