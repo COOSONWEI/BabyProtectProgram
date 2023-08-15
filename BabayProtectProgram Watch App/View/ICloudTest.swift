@@ -34,7 +34,7 @@ struct ICloudTest: View {
 //        healthData.sleepTime = healModel.sleepTime
         
         do {
-            print("Save Scuceess...")
+            print(" HealthModel Save Scuceess...")
             try context.save()
            
         }catch {

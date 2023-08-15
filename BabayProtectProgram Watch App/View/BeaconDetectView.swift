@@ -10,8 +10,9 @@ import CoreBluetooth
 import WatchConnectivity
 
 struct BeaconDetectView: View {
+    @Environment(\.managedObjectContext) var context
     @StateObject var bluetoothModel: BluetoothModel
-    @StateObject var beaconsNames: BeaconModel
+    @StateObject var beaconsNames: CloudBeaconModel
     @Binding var isContain: Bool
     
     var body: some View {
@@ -26,25 +27,52 @@ struct BeaconDetectView: View {
                         Text("Rssi: \(bluetoothModel.rssi[key] ?? 0)")
                     }
                     .onAppear {
-                        for beacon in beaconsNames.usefulBeaconNames {
-                            //                            print("beaconName:\(beacon.object(forKey: "beaconsName") as! String)")
-                            if bluetoothModel.peripheralNames.values.contains(beacon) {
-                                vibrateWatch()
-                                print("I Find It ")
-                                bluetoothModel.isStart = false
-                                isContain = true
-                            } else {
-                                bluetoothModel.isStart = true
-                                isContain = false
-                            }
-                        }
-                        
+                        respondBeacon()
                     }
                 }
+                
+               
             }
             .navigationTitle("菜单")
             
         }
+    }
+    
+    func respondBeacon() {
+        for (beacon,_) in beaconsNames.usefulBeaconNames {
+            //                            print("beaconName:\(beacon.object(forKey: "beaconsName") as! String)")
+            if bluetoothModel.peripheralNames.values.contains(beacon) {
+                vibrateWatch()
+                print("I Find It ")
+                save(beacon: beacon)
+                bluetoothModel.isStart = false
+                isContain = true
+            } else {
+                bluetoothModel.isStart = true
+                isContain = false
+            }
+        }
+    }
+    
+//    func sendNotificaiton() {
+//
+//    }
+    
+    private func save(beacon: String) {
+       let beaconData = CloudBeaconModel()
+      
+        beaconData.usefulBeaconNames[beacon] = 1
+        
+        do {
+            print("CloudBeaconModel Save Scuceess...")
+            try context.save()
+           
+        }catch {
+            print("Failed to save the record...")
+            print(error.localizedDescription)
+        }
+        let cloudStore = CloudBeaconModel()
+        cloudStore.saveRecordToCloud(beacon: beaconData, name: beacon)
     }
     
     func vibrateWatch() {
@@ -57,6 +85,6 @@ struct BeaconDetectView: View {
 
 struct BeaconDetectView_Previews: PreviewProvider {
     static var previews: some View {
-        BeaconDetectView(bluetoothModel: BluetoothModel(), beaconsNames: BeaconModel(), isContain: .constant(false))
+        BeaconDetectView(bluetoothModel: BluetoothModel(), beaconsNames: CloudBeaconModel(), isContain: .constant(false))
     }
 }

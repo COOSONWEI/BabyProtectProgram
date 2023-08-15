@@ -11,7 +11,7 @@ import WatchKit
 struct MenuView: View {
     @StateObject var healthModel: HealthModel
     @StateObject var bluetool = BluetoothModel()
-    @StateObject var beaconModel = BeaconModel()
+    @StateObject var beaconModel = CloudBeaconModel()
     @StateObject var contactsModel = Contacts()
     @State var isContain = false
     var model = ViewModelWatch()
@@ -25,7 +25,6 @@ struct MenuView: View {
                         WarningView()
                             .onDisappear(perform: {
                                 isContain = false
-                                bluetool.peripheralNames.removeAll()
                                 bluetool.scanForPeripherals()
                             })
                     })

@@ -78,6 +78,7 @@
 		2F59B0882A866ADA006DA2C8 /* WCSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0872A866ADA006DA2C8 /* WCSessionModel.swift */; };
 		2F8BF85E2A8BB7EA0036FFF1 /* GetBeaconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */; };
 		2F8BF8602A8BE0A20036FFF1 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF85F2A8BE0A20036FFF1 /* NotificationModel.swift */; };
+		2F8BF8622A8BF5FF0036FFF1 /* NotificationTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8612A8BF5FF0036FFF1 /* NotificationTestView.swift */; };
 		2FBA3EDE2A8B7173005CC22B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
 		2FBA3EE02A8B7354005CC22B /* ICloudTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */; };
 		2FBA3EE12A8B78E2005CC22B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
@@ -175,6 +176,7 @@
 		2F59B0892A866C84006DA2C8 /* WatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchModel.swift; sourceTree = "<group>"; };
 		2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBeaconModel.swift; sourceTree = "<group>"; };
 		2F8BF85F2A8BE0A20036FFF1 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		2F8BF8612A8BF5FF0036FFF1 /* NotificationTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTestView.swift; sourceTree = "<group>"; };
 		2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCloudStoreModel.swift; sourceTree = "<group>"; };
 		2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudTest.swift; sourceTree = "<group>"; };
 		2FBA3EE22A8B7B4B005CC22B /* BabayProtectProgram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BabayProtectProgram.entitlements; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 				2F026A9F2A874F78005248EF /* MainView */,
 				2F59B0702A86460F006DA2C8 /* HomeView.swift */,
 				2F59B0802A865D03006DA2C8 /* CustomBar.swift */,
+				2F8BF8612A8BF5FF0036FFF1 /* NotificationTestView.swift */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F59B06C2A8627BE006DA2C8 /* HealthKitSupport.swift in Sources */,
+				2F8BF8622A8BF5FF0036FFF1 /* NotificationTestView.swift in Sources */,
 				2F026AB32A8867F1005248EF /* DangerButtonView.swift in Sources */,
 				2F026AB12A87C3C7005248EF /* AddDangerView.swift in Sources */,
 				2F4BDC432A88C47800D9B447 /* BeaconModel.swift in Sources */,

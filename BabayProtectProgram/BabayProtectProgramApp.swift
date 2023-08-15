@@ -19,15 +19,16 @@ struct BabayProtectProgramApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
+//            HomeView()
+            NotificationTestView()
                 .onAppear {
-                    healthModel.requestHealthKitPermissions()
-                    healthModel.fetchSleepData()
-                    healthModel.fetchTodayStepCount()
-                    healthModel.fetchStaticHeartRate()
-                    healthModel.fetchCurrentHeartRate()
-                    healthModel.fetchWalkoutTimeAndEnage()
-                    healthModel.fetchDistancofWalkAndRuning()
+//                    healthModel.requestHealthKitPermissions()
+//                    healthModel.fetchSleepData()
+//                    healthModel.fetchTodayStepCount()
+//                    healthModel.fetchStaticHeartRate()
+//                    healthModel.fetchCurrentHeartRate()
+//                    healthModel.fetchWalkoutTimeAndEnage()
+//                    healthModel.fetchDistancofWalkAndRuning()
                 }
         }
     }

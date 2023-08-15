@@ -8,10 +8,10 @@
 import Foundation
 import CloudKit
 
-class BeaconModel: ObservableObject {
+class CloudBeaconModel: ObservableObject {
     
     @Published var beaconNames: [CKRecord] = []
-    @Published var usefulBeaconNames: [String] = []
+    @Published var usefulBeaconNames: [String:Int] = [:]
     
     func fetchBeacons() async throws {
         // Fetch data using Convenience API
@@ -28,8 +28,8 @@ class BeaconModel: ObservableObject {
         DispatchQueue.main.async {
             
             for beaconName in self.beaconNames {
-                self.usefulBeaconNames.append(beaconName.object(forKey: "beaconsName") as! String )
-                print(self.usefulBeaconNames)
+                self.usefulBeaconNames.updateValue(0, forKey: beaconName.object(forKey: "beaconsName") as! String)
+//                print(self.usefulBeaconNames)
             }
            
             
@@ -37,6 +37,49 @@ class BeaconModel: ObservableObject {
         print("lalllalalallal")
        
     }
+    
+    func saveRecordToCloud(beacon: CloudBeaconModel, name: String) {
+
+        //  准备保存
+        let record = CKRecord(recordType: "Beacons")
+        let predicate = NSPredicate(format: "name = %@", name)
+        //查询表中内容
+        let query = CKQuery(recordType: "Beacons", predicate: predicate)
+        let queryOperation = CKQueryOperation(query: query)
+
+        queryOperation.recordFetchedBlock = { record in
+            // 在这里处理每个记录
+            // 访问记录的字段并修改它们
+            record["near"] = 1 // 设置新的 touched 值
+        }
+        
+        
+        queryOperation.queryCompletionBlock = { cursor, error in
+            if let error = error {
+                // 处理错误
+            } else {
+                // 完成查询操作，可以在这里执行保存操作
+                let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").publicCloudDatabase
+                //处理成功
+                // Save the record to iCloud
+                publicDatabase.save(record, completionHandler: { (record, error) -> Void  in
+
+                    if error != nil {
+                        print("无法完成保存")
+                        print(error.debugDescription)
+                    }
+
+                    // Remove temp file
+                   
+                })
+            }
+        }
+        
+
+        
+    }
+    
+    
 }
 
 
