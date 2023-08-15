@@ -1,0 +1,933 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F026A942A8671E9005248EF /* BluetoolthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725722A8360A9007A36CE /* BluetoolthModel.swift */; };
+		2F026A972A86726C005248EF /* OutDoorPositionEnterModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026A962A86726C005248EF /* OutDoorPositionEnterModify.swift */; };
+		2F026A982A867475005248EF /* WatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0892A866C84006DA2C8 /* WatchModel.swift */; };
+		2F026A9A2A874723005248EF /* HealthEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026A992A874723005248EF /* HealthEnterView.swift */; };
+		2F026A9C2A87485A005248EF /* InDoorEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026A9B2A87485A005248EF /* InDoorEnterView.swift */; };
+		2F026A9E2A874C42005248EF /* HomeFunctionChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026A9D2A874C42005248EF /* HomeFunctionChooseView.swift */; };
+		2F026AA42A8752C7005248EF /* OutDoorMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AA32A8752C7005248EF /* OutDoorMainView.swift */; };
+		2F026AA62A877332005248EF /* OutDoorFunctionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AA52A877332005248EF /* OutDoorFunctionView.swift */; };
+		2F026AAA2A8773ED005248EF /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AA92A8773ED005248EF /* LocationView.swift */; };
+		2F026AAC2A879952005248EF /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AAB2A879952005248EF /* LocationModel.swift */; };
+		2F026AB12A87C3C7005248EF /* AddDangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AB02A87C3C7005248EF /* AddDangerView.swift */; };
+		2F026AB32A8867F1005248EF /* DangerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AB22A8867F1005248EF /* DangerButtonView.swift */; };
+		2F026AB52A886DC2005248EF /* DangerGeofenceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AB42A886DC2005248EF /* DangerGeofenceCard.swift */; };
+		2F026AB72A8870C0005248EF /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AB62A8870C0005248EF /* Image+Extension.swift */; };
+		2F026AB92A887C29005248EF /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AB82A887C29005248EF /* HealthView.swift */; };
+		2F026ABC2A888275005248EF /* ExerciseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026ABB2A888275005248EF /* ExerciseCard.swift */; };
+		2F026ABE2A889B3E005248EF /* RunCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026ABD2A889B3E005248EF /* RunCard.swift */; };
+		2F026AC02A889B45005248EF /* WalkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026ABF2A889B45005248EF /* WalkCard.swift */; };
+		2F026AC22A889B53005248EF /* SleepCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AC12A889B53005248EF /* SleepCard.swift */; };
+		2F026AC42A889B82005248EF /* MoreInformationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AC32A889B82005248EF /* MoreInformationList.swift */; };
+		2F07254C2A835FC9007A36CE /* BabayProtectProgramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07254B2A835FC9007A36CE /* BabayProtectProgramApp.swift */; };
+		2F07254E2A835FC9007A36CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07254D2A835FC9007A36CE /* ContentView.swift */; };
+		2F0725502A835FCB007A36CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F07254F2A835FCB007A36CE /* Assets.xcassets */; };
+		2F0725532A835FCB007A36CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0725522A835FCB007A36CE /* Preview Assets.xcassets */; };
+		2F0725592A835FCB007A36CE /* 守护.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2F0725582A835FCB007A36CE /* 守护.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2F07255E2A835FCB007A36CE /* BabayProtectProgramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07255D2A835FCB007A36CE /* BabayProtectProgramApp.swift */; };
+		2F0725602A835FCB007A36CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07255F2A835FCB007A36CE /* ContentView.swift */; };
+		2F0725622A835FCC007A36CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0725612A835FCC007A36CE /* Assets.xcassets */; };
+		2F0725652A835FCC007A36CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0725642A835FCC007A36CE /* Preview Assets.xcassets */; };
+		2F0725712A836072007A36CE /* BeaconDetectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725702A836072007A36CE /* BeaconDetectView.swift */; };
+		2F0725732A8360A9007A36CE /* BluetoolthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725722A8360A9007A36CE /* BluetoolthModel.swift */; };
+		2F0725762A8365C1007A36CE /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725752A8365C1007A36CE /* MenuView.swift */; };
+		2F0725792A8368B3007A36CE /* CallPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725782A8368B3007A36CE /* CallPhoneView.swift */; };
+		2F07257B2A836AFB007A36CE /* MenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07257A2A836AFB007A36CE /* MenuRow.swift */; };
+		2F07257F2A83794E007A36CE /* GetContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07257E2A83794E007A36CE /* GetContacts.swift */; };
+		2F0725802A83794E007A36CE /* GetContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07257E2A83794E007A36CE /* GetContacts.swift */; };
+		2F0725832A837C9A007A36CE /* CallModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725822A837C9A007A36CE /* CallModifyView.swift */; };
+		2F0725852A83802C007A36CE /* PhoneNumberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725842A83802C007A36CE /* PhoneNumberModel.swift */; };
+		2F0725872A838824007A36CE /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725862A838824007A36CE /* CustomButtonStyle.swift */; };
+		2F0725892A83A8CD007A36CE /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725882A83A8CD007A36CE /* WarningView.swift */; };
+		2F07258B2A83AE4B007A36CE /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07258A2A83AE4B007A36CE /* AddContactView.swift */; };
+		2F07258E2A83BE32007A36CE /* callContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07258D2A83BE32007A36CE /* callContact.swift */; };
+		2F0725922A83D179007A36CE /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725912A83D179007A36CE /* HealthView.swift */; };
+		2F0725962A84ACDF007A36CE /* HealthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725952A84ACDF007A36CE /* HealthModel.swift */; };
+		2F0725982A860C37007A36CE /* HealthWalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725972A860C37007A36CE /* HealthWalkView.swift */; };
+		2F07259A2A860C5F007A36CE /* HealthHeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725992A860C5F007A36CE /* HealthHeartView.swift */; };
+		2F4BDC362A88AC0000D9B447 /* HeartRateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC352A88AC0000D9B447 /* HeartRateCard.swift */; };
+		2F4BDC382A88AD0700D9B447 /* EmotionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC372A88AD0700D9B447 /* EmotionCard.swift */; };
+		2F4BDC3A2A88B82500D9B447 /* AddInDoorDangerousView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC392A88B82500D9B447 /* AddInDoorDangerousView.swift */; };
+		2F4BDC3D2A88B8CC00D9B447 /* InDoorDangerousCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC3C2A88B8CC00D9B447 /* InDoorDangerousCard.swift */; };
+		2F4BDC3F2A88C12400D9B447 /* EnterUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC3E2A88C12400D9B447 /* EnterUUID.swift */; };
+		2F4BDC432A88C47800D9B447 /* BeaconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC422A88C47800D9B447 /* BeaconModel.swift */; };
+		2F59B0632A86110D006DA2C8 /* SleepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0622A86110D006DA2C8 /* SleepView.swift */; };
+		2F59B0652A8617C7006DA2C8 /* HealthRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0642A8617C7006DA2C8 /* HealthRunView.swift */; };
+		2F59B0672A861847006DA2C8 /* HealthRestingheartRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0662A861847006DA2C8 /* HealthRestingheartRateView.swift */; };
+		2F59B0692A8621CD006DA2C8 /* HealthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725952A84ACDF007A36CE /* HealthModel.swift */; };
+		2F59B06A2A8621D0006DA2C8 /* PhoneNumberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725842A83802C007A36CE /* PhoneNumberModel.swift */; };
+		2F59B06C2A8627BE006DA2C8 /* HealthKitSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B06B2A8627BE006DA2C8 /* HealthKitSupport.swift */; };
+		2F59B06D2A8627BE006DA2C8 /* HealthKitSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B06B2A8627BE006DA2C8 /* HealthKitSupport.swift */; };
+		2F59B0712A86460F006DA2C8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0702A86460F006DA2C8 /* HomeView.swift */; };
+		2F59B0752A8649F7006DA2C8 /* UnConectWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0742A8649F7006DA2C8 /* UnConectWatchView.swift */; };
+		2F59B0782A864A01006DA2C8 /* ConectWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0772A864A01006DA2C8 /* ConectWatchView.swift */; };
+		2F59B07B2A864A4D006DA2C8 /* TextModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B07A2A864A4D006DA2C8 /* TextModify.swift */; };
+		2F59B07C2A864A4D006DA2C8 /* TextModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B07A2A864A4D006DA2C8 /* TextModify.swift */; };
+		2F59B07E2A864D11006DA2C8 /* HomeBGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B07D2A864D11006DA2C8 /* HomeBGView.swift */; };
+		2F59B07F2A864D11006DA2C8 /* HomeBGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B07D2A864D11006DA2C8 /* HomeBGView.swift */; };
+		2F59B0812A865D03006DA2C8 /* CustomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0802A865D03006DA2C8 /* CustomBar.swift */; };
+		2F59B0822A865D03006DA2C8 /* CustomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0802A865D03006DA2C8 /* CustomBar.swift */; };
+		2F59B0882A866ADA006DA2C8 /* WCSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0872A866ADA006DA2C8 /* WCSessionModel.swift */; };
+		2FBA3EDE2A8B7173005CC22B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
+		2FBA3EE02A8B7354005CC22B /* ICloudTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */; };
+		2FBA3EE12A8B78E2005CC22B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2F07255A2A835FCB007A36CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F0725402A835FC9007A36CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F0725572A835FCB007A36CE;
+			remoteInfo = "BabayProtectProgram Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2F07256B2A835FCC007A36CE /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				2F0725592A835FCB007A36CE /* 守护.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2F026A962A86726C005248EF /* OutDoorPositionEnterModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorPositionEnterModify.swift; sourceTree = "<group>"; };
+		2F026A992A874723005248EF /* HealthEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthEnterView.swift; sourceTree = "<group>"; };
+		2F026A9B2A87485A005248EF /* InDoorEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InDoorEnterView.swift; sourceTree = "<group>"; };
+		2F026A9D2A874C42005248EF /* HomeFunctionChooseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFunctionChooseView.swift; sourceTree = "<group>"; };
+		2F026AA32A8752C7005248EF /* OutDoorMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorMainView.swift; sourceTree = "<group>"; };
+		2F026AA52A877332005248EF /* OutDoorFunctionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorFunctionView.swift; sourceTree = "<group>"; };
+		2F026AA92A8773ED005248EF /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		2F026AAB2A879952005248EF /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		2F026AAD2A879F3E005248EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2F026AB02A87C3C7005248EF /* AddDangerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDangerView.swift; sourceTree = "<group>"; };
+		2F026AB22A8867F1005248EF /* DangerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangerButtonView.swift; sourceTree = "<group>"; };
+		2F026AB42A886DC2005248EF /* DangerGeofenceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangerGeofenceCard.swift; sourceTree = "<group>"; };
+		2F026AB62A8870C0005248EF /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
+		2F026AB82A887C29005248EF /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
+		2F026ABB2A888275005248EF /* ExerciseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCard.swift; sourceTree = "<group>"; };
+		2F026ABD2A889B3E005248EF /* RunCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunCard.swift; sourceTree = "<group>"; };
+		2F026ABF2A889B45005248EF /* WalkCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkCard.swift; sourceTree = "<group>"; };
+		2F026AC12A889B53005248EF /* SleepCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepCard.swift; sourceTree = "<group>"; };
+		2F026AC32A889B82005248EF /* MoreInformationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInformationList.swift; sourceTree = "<group>"; };
+		2F0725482A835FC9007A36CE /* BabayProtectProgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabayProtectProgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F07254B2A835FC9007A36CE /* BabayProtectProgramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabayProtectProgramApp.swift; sourceTree = "<group>"; };
+		2F07254D2A835FC9007A36CE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2F07254F2A835FCB007A36CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2F0725522A835FCB007A36CE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2F0725582A835FCB007A36CE /* 守护.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "守护.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F07255D2A835FCB007A36CE /* BabayProtectProgramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabayProtectProgramApp.swift; sourceTree = "<group>"; };
+		2F07255F2A835FCB007A36CE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2F0725612A835FCC007A36CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2F0725642A835FCC007A36CE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2F0725702A836072007A36CE /* BeaconDetectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetectView.swift; sourceTree = "<group>"; };
+		2F0725722A8360A9007A36CE /* BluetoolthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoolthModel.swift; sourceTree = "<group>"; };
+		2F0725752A8365C1007A36CE /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		2F0725782A8368B3007A36CE /* CallPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallPhoneView.swift; sourceTree = "<group>"; };
+		2F07257A2A836AFB007A36CE /* MenuRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRow.swift; sourceTree = "<group>"; };
+		2F07257E2A83794E007A36CE /* GetContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetContacts.swift; sourceTree = "<group>"; };
+		2F0725822A837C9A007A36CE /* CallModifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallModifyView.swift; sourceTree = "<group>"; };
+		2F0725842A83802C007A36CE /* PhoneNumberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberModel.swift; sourceTree = "<group>"; };
+		2F0725862A838824007A36CE /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
+		2F0725882A83A8CD007A36CE /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
+		2F07258A2A83AE4B007A36CE /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
+		2F07258D2A83BE32007A36CE /* callContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = callContact.swift; sourceTree = "<group>"; };
+		2F07258F2A83CB84007A36CE /* BabayProtectProgram Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BabayProtectProgram Watch App.entitlements"; sourceTree = "<group>"; };
+		2F0725902A83CB99007A36CE /* BabayProtectProgram-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BabayProtectProgram-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		2F0725912A83D179007A36CE /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
+		2F0725952A84ACDF007A36CE /* HealthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthModel.swift; sourceTree = "<group>"; };
+		2F0725972A860C37007A36CE /* HealthWalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthWalkView.swift; sourceTree = "<group>"; };
+		2F0725992A860C5F007A36CE /* HealthHeartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthHeartView.swift; sourceTree = "<group>"; };
+		2F4BDC352A88AC0000D9B447 /* HeartRateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateCard.swift; sourceTree = "<group>"; };
+		2F4BDC372A88AD0700D9B447 /* EmotionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionCard.swift; sourceTree = "<group>"; };
+		2F4BDC392A88B82500D9B447 /* AddInDoorDangerousView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInDoorDangerousView.swift; sourceTree = "<group>"; };
+		2F4BDC3C2A88B8CC00D9B447 /* InDoorDangerousCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InDoorDangerousCard.swift; sourceTree = "<group>"; };
+		2F4BDC3E2A88C12400D9B447 /* EnterUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterUUID.swift; sourceTree = "<group>"; };
+		2F4BDC422A88C47800D9B447 /* BeaconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconModel.swift; sourceTree = "<group>"; };
+		2F59B0622A86110D006DA2C8 /* SleepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepView.swift; sourceTree = "<group>"; };
+		2F59B0642A8617C7006DA2C8 /* HealthRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRunView.swift; sourceTree = "<group>"; };
+		2F59B0662A861847006DA2C8 /* HealthRestingheartRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRestingheartRateView.swift; sourceTree = "<group>"; };
+		2F59B06B2A8627BE006DA2C8 /* HealthKitSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSupport.swift; sourceTree = "<group>"; };
+		2F59B0702A86460F006DA2C8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2F59B0742A8649F7006DA2C8 /* UnConectWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnConectWatchView.swift; sourceTree = "<group>"; };
+		2F59B0772A864A01006DA2C8 /* ConectWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConectWatchView.swift; sourceTree = "<group>"; };
+		2F59B07A2A864A4D006DA2C8 /* TextModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModify.swift; sourceTree = "<group>"; };
+		2F59B07D2A864D11006DA2C8 /* HomeBGView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBGView.swift; sourceTree = "<group>"; };
+		2F59B0802A865D03006DA2C8 /* CustomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBar.swift; sourceTree = "<group>"; };
+		2F59B0872A866ADA006DA2C8 /* WCSessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSessionModel.swift; sourceTree = "<group>"; };
+		2F59B0892A866C84006DA2C8 /* WatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchModel.swift; sourceTree = "<group>"; };
+		2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCloudStoreModel.swift; sourceTree = "<group>"; };
+		2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudTest.swift; sourceTree = "<group>"; };
+		2FBA3EE22A8B7B4B005CC22B /* BabayProtectProgram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BabayProtectProgram.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2F0725452A835FC9007A36CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F0725552A835FCB007A36CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F026A9F2A874F78005248EF /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				2F026AA22A874F9C005248EF /* HealthView */,
+				2F026AA12A874F93005248EF /* InDoorView */,
+				2F026AA02A874F8C005248EF /* OutDoorView */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		2F026AA02A874F8C005248EF /* OutDoorView */ = {
+			isa = PBXGroup;
+			children = (
+				2F026AA32A8752C7005248EF /* OutDoorMainView.swift */,
+				2F026AB02A87C3C7005248EF /* AddDangerView.swift */,
+			);
+			path = OutDoorView;
+			sourceTree = "<group>";
+		};
+		2F026AA12A874F93005248EF /* InDoorView */ = {
+			isa = PBXGroup;
+			children = (
+				2F4BDC392A88B82500D9B447 /* AddInDoorDangerousView.swift */,
+				2F4BDC3E2A88C12400D9B447 /* EnterUUID.swift */,
+			);
+			path = InDoorView;
+			sourceTree = "<group>";
+		};
+		2F026AA22A874F9C005248EF /* HealthView */ = {
+			isa = PBXGroup;
+			children = (
+				2F026AB82A887C29005248EF /* HealthView.swift */,
+			);
+			path = HealthView;
+			sourceTree = "<group>";
+		};
+		2F026AA72A87733B005248EF /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				2F59B0742A8649F7006DA2C8 /* UnConectWatchView.swift */,
+				2F59B0772A864A01006DA2C8 /* ConectWatchView.swift */,
+				2F026A962A86726C005248EF /* OutDoorPositionEnterModify.swift */,
+				2F026A992A874723005248EF /* HealthEnterView.swift */,
+				2F026A9B2A87485A005248EF /* InDoorEnterView.swift */,
+				2F026A9D2A874C42005248EF /* HomeFunctionChooseView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		2F026AA82A87734E005248EF /* OutDoorView */ = {
+			isa = PBXGroup;
+			children = (
+				2F026AA52A877332005248EF /* OutDoorFunctionView.swift */,
+				2F026AA92A8773ED005248EF /* LocationView.swift */,
+				2F026AB22A8867F1005248EF /* DangerButtonView.swift */,
+				2F026AB42A886DC2005248EF /* DangerGeofenceCard.swift */,
+			);
+			path = OutDoorView;
+			sourceTree = "<group>";
+		};
+		2F026ABA2A888235005248EF /* HealthView */ = {
+			isa = PBXGroup;
+			children = (
+				2F026ABB2A888275005248EF /* ExerciseCard.swift */,
+				2F026ABD2A889B3E005248EF /* RunCard.swift */,
+				2F026ABF2A889B45005248EF /* WalkCard.swift */,
+				2F026AC12A889B53005248EF /* SleepCard.swift */,
+				2F026AC32A889B82005248EF /* MoreInformationList.swift */,
+				2F4BDC352A88AC0000D9B447 /* HeartRateCard.swift */,
+				2F4BDC372A88AD0700D9B447 /* EmotionCard.swift */,
+			);
+			path = HealthView;
+			sourceTree = "<group>";
+		};
+		2F07253F2A835FC9007A36CE = {
+			isa = PBXGroup;
+			children = (
+				2F07256F2A835FE3007A36CE /* Shared */,
+				2F07254A2A835FC9007A36CE /* BabayProtectProgram */,
+				2F07255C2A835FCB007A36CE /* BabayProtectProgram Watch App */,
+				2F0725492A835FC9007A36CE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2F0725492A835FC9007A36CE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F0725482A835FC9007A36CE /* BabayProtectProgram.app */,
+				2F0725582A835FCB007A36CE /* 守护.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2F07254A2A835FC9007A36CE /* BabayProtectProgram */ = {
+			isa = PBXGroup;
+			children = (
+				2FBA3EE22A8B7B4B005CC22B /* BabayProtectProgram.entitlements */,
+				2F026AAD2A879F3E005248EF /* Info.plist */,
+				2F59B06E2A86456F006DA2C8 /* VIew */,
+				2F07254B2A835FC9007A36CE /* BabayProtectProgramApp.swift */,
+				2F07254D2A835FC9007A36CE /* ContentView.swift */,
+				2F07254F2A835FCB007A36CE /* Assets.xcassets */,
+				2F0725512A835FCB007A36CE /* Preview Content */,
+			);
+			path = BabayProtectProgram;
+			sourceTree = "<group>";
+		};
+		2F0725512A835FCB007A36CE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2F0725522A835FCB007A36CE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2F07255C2A835FCB007A36CE /* BabayProtectProgram Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				2F0725902A83CB99007A36CE /* BabayProtectProgram-Watch-App-Info.plist */,
+				2F07258F2A83CB84007A36CE /* BabayProtectProgram Watch App.entitlements */,
+				2F07258C2A83BE1B007A36CE /* SomeHelpFunctions */,
+				2F0725812A837C76007A36CE /* ModifyView */,
+				2F0725772A8365CF007A36CE /* View */,
+				2F07255D2A835FCB007A36CE /* BabayProtectProgramApp.swift */,
+				2F07255F2A835FCB007A36CE /* ContentView.swift */,
+				2F0725612A835FCC007A36CE /* Assets.xcassets */,
+				2F0725632A835FCC007A36CE /* Preview Content */,
+				2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */,
+			);
+			path = "BabayProtectProgram Watch App";
+			sourceTree = "<group>";
+		};
+		2F0725632A835FCC007A36CE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2F0725642A835FCC007A36CE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2F07256F2A835FE3007A36CE /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				2F0725742A836469007A36CE /* Model */,
+				2F07257E2A83794E007A36CE /* GetContacts.swift */,
+				2F59B06B2A8627BE006DA2C8 /* HealthKitSupport.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		2F0725742A836469007A36CE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2F59B0872A866ADA006DA2C8 /* WCSessionModel.swift */,
+				2F0725722A8360A9007A36CE /* BluetoolthModel.swift */,
+				2F0725842A83802C007A36CE /* PhoneNumberModel.swift */,
+				2F0725952A84ACDF007A36CE /* HealthModel.swift */,
+				2F59B0892A866C84006DA2C8 /* WatchModel.swift */,
+				2F026AAB2A879952005248EF /* LocationModel.swift */,
+				2F4BDC422A88C47800D9B447 /* BeaconModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2F0725772A8365CF007A36CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2F0725752A8365C1007A36CE /* MenuView.swift */,
+				2F0725702A836072007A36CE /* BeaconDetectView.swift */,
+				2F0725782A8368B3007A36CE /* CallPhoneView.swift */,
+				2F07257A2A836AFB007A36CE /* MenuRow.swift */,
+				2F0725882A83A8CD007A36CE /* WarningView.swift */,
+				2F07258A2A83AE4B007A36CE /* AddContactView.swift */,
+				2F0725912A83D179007A36CE /* HealthView.swift */,
+				2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2F0725812A837C76007A36CE /* ModifyView */ = {
+			isa = PBXGroup;
+			children = (
+				2F59B0682A86184D006DA2C8 /* HealthView */,
+				2F0725822A837C9A007A36CE /* CallModifyView.swift */,
+				2F0725862A838824007A36CE /* CustomButtonStyle.swift */,
+			);
+			path = ModifyView;
+			sourceTree = "<group>";
+		};
+		2F07258C2A83BE1B007A36CE /* SomeHelpFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				2F07258D2A83BE32007A36CE /* callContact.swift */,
+			);
+			path = SomeHelpFunctions;
+			sourceTree = "<group>";
+		};
+		2F4BDC3B2A88B8B300D9B447 /* InDoorView */ = {
+			isa = PBXGroup;
+			children = (
+				2F4BDC3C2A88B8CC00D9B447 /* InDoorDangerousCard.swift */,
+			);
+			path = InDoorView;
+			sourceTree = "<group>";
+		};
+		2F59B0682A86184D006DA2C8 /* HealthView */ = {
+			isa = PBXGroup;
+			children = (
+				2F0725972A860C37007A36CE /* HealthWalkView.swift */,
+				2F59B0642A8617C7006DA2C8 /* HealthRunView.swift */,
+				2F0725992A860C5F007A36CE /* HealthHeartView.swift */,
+				2F59B0662A861847006DA2C8 /* HealthRestingheartRateView.swift */,
+				2F59B0622A86110D006DA2C8 /* SleepView.swift */,
+			);
+			path = HealthView;
+			sourceTree = "<group>";
+		};
+		2F59B06E2A86456F006DA2C8 /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				2F59B0732A8649DB006DA2C8 /* ModifyView */,
+				2F59B06F2A8645EE006DA2C8 /* Utilities */,
+				2F026A9F2A874F78005248EF /* MainView */,
+				2F59B0702A86460F006DA2C8 /* HomeView.swift */,
+				2F59B0802A865D03006DA2C8 /* CustomBar.swift */,
+			);
+			path = VIew;
+			sourceTree = "<group>";
+		};
+		2F59B06F2A8645EE006DA2C8 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2F026AB62A8870C0005248EF /* Image+Extension.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		2F59B0732A8649DB006DA2C8 /* ModifyView */ = {
+			isa = PBXGroup;
+			children = (
+				2F4BDC3B2A88B8B300D9B447 /* InDoorView */,
+				2F026ABA2A888235005248EF /* HealthView */,
+				2F026AA82A87734E005248EF /* OutDoorView */,
+				2F026AA72A87733B005248EF /* HomeView */,
+				2F59B07A2A864A4D006DA2C8 /* TextModify.swift */,
+				2F59B07D2A864D11006DA2C8 /* HomeBGView.swift */,
+			);
+			path = ModifyView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F0725472A835FC9007A36CE /* BabayProtectProgram */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F07256C2A835FCC007A36CE /* Build configuration list for PBXNativeTarget "BabayProtectProgram" */;
+			buildPhases = (
+				2F0725442A835FC9007A36CE /* Sources */,
+				2F0725452A835FC9007A36CE /* Frameworks */,
+				2F0725462A835FC9007A36CE /* Resources */,
+				2F07256B2A835FCC007A36CE /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F07255B2A835FCB007A36CE /* PBXTargetDependency */,
+			);
+			name = BabayProtectProgram;
+			productName = BabayProtectProgram;
+			productReference = 2F0725482A835FC9007A36CE /* BabayProtectProgram.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2F0725572A835FCB007A36CE /* BabayProtectProgram Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F0725682A835FCC007A36CE /* Build configuration list for PBXNativeTarget "BabayProtectProgram Watch App" */;
+			buildPhases = (
+				2F0725542A835FCB007A36CE /* Sources */,
+				2F0725552A835FCB007A36CE /* Frameworks */,
+				2F0725562A835FCB007A36CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BabayProtectProgram Watch App";
+			productName = "BabayProtectProgram Watch App";
+			productReference = 2F0725582A835FCB007A36CE /* 守护.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F0725402A835FC9007A36CE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					2F0725472A835FC9007A36CE = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					2F0725572A835FCB007A36CE = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 2F0725432A835FC9007A36CE /* Build configuration list for PBXProject "BabayProtectProgram" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2F07253F2A835FC9007A36CE;
+			productRefGroup = 2F0725492A835FC9007A36CE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F0725472A835FC9007A36CE /* BabayProtectProgram */,
+				2F0725572A835FCB007A36CE /* BabayProtectProgram Watch App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F0725462A835FC9007A36CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F0725532A835FCB007A36CE /* Preview Assets.xcassets in Resources */,
+				2F0725502A835FCB007A36CE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F0725562A835FCB007A36CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F0725652A835FCC007A36CE /* Preview Assets.xcassets in Resources */,
+				2F0725622A835FCC007A36CE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2F0725442A835FC9007A36CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F59B06C2A8627BE006DA2C8 /* HealthKitSupport.swift in Sources */,
+				2F026AB32A8867F1005248EF /* DangerButtonView.swift in Sources */,
+				2F026AB12A87C3C7005248EF /* AddDangerView.swift in Sources */,
+				2F4BDC432A88C47800D9B447 /* BeaconModel.swift in Sources */,
+				2F59B0712A86460F006DA2C8 /* HomeView.swift in Sources */,
+				2F07254E2A835FC9007A36CE /* ContentView.swift in Sources */,
+				2F4BDC3F2A88C12400D9B447 /* EnterUUID.swift in Sources */,
+				2F026A942A8671E9005248EF /* BluetoolthModel.swift in Sources */,
+				2F026ABE2A889B3E005248EF /* RunCard.swift in Sources */,
+				2F026AAA2A8773ED005248EF /* LocationView.swift in Sources */,
+				2F026AB72A8870C0005248EF /* Image+Extension.swift in Sources */,
+				2F026AC42A889B82005248EF /* MoreInformationList.swift in Sources */,
+				2F026A9E2A874C42005248EF /* HomeFunctionChooseView.swift in Sources */,
+				2F026A9C2A87485A005248EF /* InDoorEnterView.swift in Sources */,
+				2F026A972A86726C005248EF /* OutDoorPositionEnterModify.swift in Sources */,
+				2F59B0752A8649F7006DA2C8 /* UnConectWatchView.swift in Sources */,
+				2F59B07B2A864A4D006DA2C8 /* TextModify.swift in Sources */,
+				2F07257F2A83794E007A36CE /* GetContacts.swift in Sources */,
+				2F4BDC3A2A88B82500D9B447 /* AddInDoorDangerousView.swift in Sources */,
+				2F4BDC3D2A88B8CC00D9B447 /* InDoorDangerousCard.swift in Sources */,
+				2F59B0812A865D03006DA2C8 /* CustomBar.swift in Sources */,
+				2F026AB92A887C29005248EF /* HealthView.swift in Sources */,
+				2F07254C2A835FC9007A36CE /* BabayProtectProgramApp.swift in Sources */,
+				2F59B06A2A8621D0006DA2C8 /* PhoneNumberModel.swift in Sources */,
+				2F026AA62A877332005248EF /* OutDoorFunctionView.swift in Sources */,
+				2F59B07E2A864D11006DA2C8 /* HomeBGView.swift in Sources */,
+				2F026AAC2A879952005248EF /* LocationModel.swift in Sources */,
+				2F4BDC382A88AD0700D9B447 /* EmotionCard.swift in Sources */,
+				2F026AB52A886DC2005248EF /* DangerGeofenceCard.swift in Sources */,
+				2F026AA42A8752C7005248EF /* OutDoorMainView.swift in Sources */,
+				2FBA3EE12A8B78E2005CC22B /* HealthCloudStoreModel.swift in Sources */,
+				2F59B0692A8621CD006DA2C8 /* HealthModel.swift in Sources */,
+				2F026AC22A889B53005248EF /* SleepCard.swift in Sources */,
+				2F4BDC362A88AC0000D9B447 /* HeartRateCard.swift in Sources */,
+				2F59B0882A866ADA006DA2C8 /* WCSessionModel.swift in Sources */,
+				2F59B0782A864A01006DA2C8 /* ConectWatchView.swift in Sources */,
+				2F026A9A2A874723005248EF /* HealthEnterView.swift in Sources */,
+				2F026AC02A889B45005248EF /* WalkCard.swift in Sources */,
+				2F026ABC2A888275005248EF /* ExerciseCard.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F0725542A835FCB007A36CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F0725962A84ACDF007A36CE /* HealthModel.swift in Sources */,
+				2F07258E2A83BE32007A36CE /* callContact.swift in Sources */,
+				2F59B0822A865D03006DA2C8 /* CustomBar.swift in Sources */,
+				2F0725832A837C9A007A36CE /* CallModifyView.swift in Sources */,
+				2F0725922A83D179007A36CE /* HealthView.swift in Sources */,
+				2F0725762A8365C1007A36CE /* MenuView.swift in Sources */,
+				2FBA3EDE2A8B7173005CC22B /* HealthCloudStoreModel.swift in Sources */,
+				2FBA3EE02A8B7354005CC22B /* ICloudTest.swift in Sources */,
+				2F07257B2A836AFB007A36CE /* MenuRow.swift in Sources */,
+				2F0725852A83802C007A36CE /* PhoneNumberModel.swift in Sources */,
+				2F0725602A835FCB007A36CE /* ContentView.swift in Sources */,
+				2F0725892A83A8CD007A36CE /* WarningView.swift in Sources */,
+				2F0725872A838824007A36CE /* CustomButtonStyle.swift in Sources */,
+				2F0725982A860C37007A36CE /* HealthWalkView.swift in Sources */,
+				2F0725802A83794E007A36CE /* GetContacts.swift in Sources */,
+				2F07259A2A860C5F007A36CE /* HealthHeartView.swift in Sources */,
+				2F0725712A836072007A36CE /* BeaconDetectView.swift in Sources */,
+				2F59B06D2A8627BE006DA2C8 /* HealthKitSupport.swift in Sources */,
+				2F026A982A867475005248EF /* WatchModel.swift in Sources */,
+				2F07255E2A835FCB007A36CE /* BabayProtectProgramApp.swift in Sources */,
+				2F59B0672A861847006DA2C8 /* HealthRestingheartRateView.swift in Sources */,
+				2F0725732A8360A9007A36CE /* BluetoolthModel.swift in Sources */,
+				2F59B07C2A864A4D006DA2C8 /* TextModify.swift in Sources */,
+				2F59B07F2A864D11006DA2C8 /* HomeBGView.swift in Sources */,
+				2F0725792A8368B3007A36CE /* CallPhoneView.swift in Sources */,
+				2F59B0632A86110D006DA2C8 /* SleepView.swift in Sources */,
+				2F59B0652A8617C7006DA2C8 /* HealthRunView.swift in Sources */,
+				2F07258B2A83AE4B007A36CE /* AddContactView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F07255B2A835FCB007A36CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F0725572A835FCB007A36CE /* BabayProtectProgram Watch App */;
+			targetProxy = 2F07255A2A835FCB007A36CE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2F0725662A835FCC007A36CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2F0725672A835FCC007A36CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		2F0725692A835FCC007A36CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "BabayProtectProgram Watch App/BabayProtectProgram Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BabayProtectProgram Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = YPH9WA3Z7K;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BabayProtectProgram-Watch-App-Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "守护想要访问你的蓝牙权限，以便更好地检测危险标识，保护您的安全。";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "守护想要访问你的蓝牙权限，以便更好地检测危险标识，保护您的安全。";
+				INFOPLIST_KEY_NSContactsUsageDescription = "守护想要获取您的手机联系人，以便你能更好的联系他们";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "守护想要访问你的运动记录，用于方便为您定制更健康的生活习惯";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "守护想要访问你的健康共享，用于将数据共享给父母，以便他们能够更好地了解的你健康情况";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "守护想要访问你的健康权限，用于更新你的健康数据，以便更好地为你定制更好的健康生活方案";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = baby.demo.BabayProtectProgram;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = baby.demo.BabayProtectProgram.watchkitapp;
+				PRODUCT_NAME = "守护";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		2F07256A2A835FCC007A36CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "BabayProtectProgram Watch App/BabayProtectProgram Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BabayProtectProgram Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = YPH9WA3Z7K;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BabayProtectProgram-Watch-App-Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "守护想要访问你的蓝牙权限，以便更好地检测危险标识，保护您的安全。";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "守护想要访问你的蓝牙权限，以便更好地检测危险标识，保护您的安全。";
+				INFOPLIST_KEY_NSContactsUsageDescription = "守护想要获取您的手机联系人，以便你能更好的联系他们";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "守护想要访问你的运动记录，用于方便为您定制更健康的生活习惯";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "守护想要访问你的健康共享，用于将数据共享给父母，以便他们能够更好地了解的你健康情况";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "守护想要访问你的健康权限，用于更新你的健康数据，以便更好地为你定制更好的健康生活方案";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = baby.demo.BabayProtectProgram;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = baby.demo.BabayProtectProgram.watchkitapp;
+				PRODUCT_NAME = "守护";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		2F07256D2A835FCC007A36CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BabayProtectProgram/BabayProtectProgram.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BabayProtectProgram/Preview Content\"";
+				DEVELOPMENT_TEAM = YPH9WA3Z7K;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BabayProtectProgram/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "守护";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "守护想要访问你的位置信息以便外出的时候能够检测你和孩子之间的距离";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "守护想要访问更新你的位置信息";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "守护想要访问更新你的位置信息";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lsy.shouhu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2F07256E2A835FCC007A36CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BabayProtectProgram/BabayProtectProgram.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BabayProtectProgram/Preview Content\"";
+				DEVELOPMENT_TEAM = YPH9WA3Z7K;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BabayProtectProgram/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "守护";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "守护想要访问你的位置信息以便外出的时候能够检测你和孩子之间的距离";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "守护想要访问更新你的位置信息";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "守护想要访问更新你的位置信息";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lsy.shouhu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F0725432A835FC9007A36CE /* Build configuration list for PBXProject "BabayProtectProgram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F0725662A835FCC007A36CE /* Debug */,
+				2F0725672A835FCC007A36CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F0725682A835FCC007A36CE /* Build configuration list for PBXNativeTarget "BabayProtectProgram Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F0725692A835FCC007A36CE /* Debug */,
+				2F07256A2A835FCC007A36CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F07256C2A835FCC007A36CE /* Build configuration list for PBXNativeTarget "BabayProtectProgram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F07256D2A835FCC007A36CE /* Debug */,
+				2F07256E2A835FCC007A36CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2F0725402A835FC9007A36CE /* Project object */;
+}
