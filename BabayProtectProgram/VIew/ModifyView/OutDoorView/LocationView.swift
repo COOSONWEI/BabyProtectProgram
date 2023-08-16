@@ -12,6 +12,7 @@ import CoreLocation
 struct LocationView: View {
     @StateObject var locationModel: LastLocation
     @State private var locationName = ""
+    
     var body: some View {
         ZStack{
             Rectangle()
@@ -27,16 +28,16 @@ struct LocationView: View {
               .cornerRadius(20)
             
             HStack(alignment:.center){
+                
                 Image("landmark")
                     .frame(maxWidth: 24, maxHeight: 24)
                 
-                Text("上海南站")
+                Text("\(locationName)")
                     .font(.system(size: 14))
                     .minimumScaleFactor(0.2)
                 Text("现在的位置")
                     .font(.system(size: 13))
                     .foregroundColor(.black.opacity(0.4))
-                   
                 Spacer()
                 Button {
                     withAnimation {

@@ -16,6 +16,7 @@ struct ConectWatchView: View {
     @State private var enterAddBabyphone = false
     @State var dataInfo = [DataInfo]()
     @State var phone = ""
+    @State private var notAddPhone = false
     var body: some View {
         ZStack{
             //背景
@@ -69,12 +70,21 @@ struct ConectWatchView: View {
                 
                 Button {
                     readData()
+                    
+                    if phone == "" {
+                        notAddPhone = true
+                    }else{
+                       notAddPhone = false
+                    }
                     callContact(phone)
                 } label: {
                     Image(systemName: "phone.circle")
                         .resizable()
                         .frame(maxWidth: 65, maxHeight: 65)
                         .foregroundColor(.white)
+                }
+                .alert(isPresented: $notAddPhone) {
+                    Alert(title: Text("提示"), message: Text("请添加宝贝的电话"))
                 }
                 
                 
@@ -83,7 +93,6 @@ struct ConectWatchView: View {
                     .minimumScaleFactor(0.5)
                     .foregroundColor(.white)
                 
-               
                 VStack{
                     HStack{
                         Text("功能概览")
@@ -185,12 +194,6 @@ struct ConectWatchView: View {
                 
             }
             
-        }
-        .onAppear {
-            // 检测匹配状态并更新变量
-            if DataManager.isFirstRuning() {
-                print("第一次运行")
-            }
         }
         .fullScreenCover(isPresented: $enterAddDangerous) {
             AddDangerView()

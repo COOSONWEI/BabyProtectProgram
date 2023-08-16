@@ -52,7 +52,6 @@ struct AddBabayPhone: View {
             .alert(isPresented: $enterRight) {
                 Alert(title: Text("添加成功"),message: Text("目前的手机号为：\(phone)"))
                 }
-                      
            
         }
         .padding()
