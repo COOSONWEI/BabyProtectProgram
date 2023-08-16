@@ -30,6 +30,7 @@ struct ICloudTest: View {
        let healthData = HealthModel()
       
         healthData.walkStep = healModel.walkStep!
+        
 //        healthData.heartRate = healModel.heartRate!
 //        healthData.sleepTime = healModel.sleepTime
         
@@ -41,6 +42,7 @@ struct ICloudTest: View {
             print("Failed to save the record...")
             print(error.localizedDescription)
         }
+        
         let cloudStore = HealthiCloudStore()
         cloudStore.saveRecordToCloud(health: healthData)
     }

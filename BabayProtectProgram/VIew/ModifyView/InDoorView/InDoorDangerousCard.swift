@@ -31,7 +31,6 @@ struct InDoorDangerousCard: View {
             }
             .padding()
             
-            
         }
         .frame(maxWidth: 354, maxHeight: 100)
     }

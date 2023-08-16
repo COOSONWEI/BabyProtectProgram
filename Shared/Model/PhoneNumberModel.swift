@@ -16,10 +16,17 @@ struct PhoneNumber: Hashable {
     let phoneNumber: String
 }
 
+class phoneNumberModel: ObservableObject {
+    @Published var name = ""
+    @Published var phoneNumber = ""
+}
+
+
 //存放数据的数组
 class Contacts: ObservableObject {
     
     @Published var contanctsData: [CKRecord] = []
+    
     @Published var contacts: [PhoneNumber] = []
     
     //测试用的数据
@@ -37,22 +44,44 @@ class Contacts: ObservableObject {
         for record in results.matchResults {
             self.contanctsData.append(try record.1.get())
         }
+        
         DispatchQueue.main.async {
-            
-            for beaconName in self.contanctsData {
-                
-                if !self.contacts.contains(PhoneNumber(name: beaconName.object(forKey: "name") as! String , phoneNumber: beaconName.object(forKey: "phone") as! String )) {
-                    self.contacts.append(PhoneNumber(name: beaconName.object(forKey: "name") as! String , phoneNumber: beaconName.object(forKey: "phone") as! String ))
+            for contactData in self.contanctsData {
+                if !self.contacts.contains(PhoneNumber(name: contactData.object(forKey: "name") as! String , phoneNumber: contactData.object(forKey: "phone") as! String )) {
+                    self.contacts.append(PhoneNumber(name: contactData.object(forKey: "name") as! String , phoneNumber: contactData.object(forKey: "phone") as! String ))
                     print(self.contacts)
                 }
-                
             }
-           
-            
+            print("fetchPhoneNumber")
         }
+    }
+
+    
+    
+    
+    func saveRecordToCloud(contact: phoneNumberModel) {
+//        print("contact Name: \(contact.name)")
+        // Prepare the record to save
+        let record = CKRecord(recordType: "ContactPerson")
+        record.setValue(contact.name, forKey: "name")
+        record.setValue(contact.phoneNumber, forKey: "phone")
         
-        print("fetchPhoneNumber")
-        
+        // Get the Public iCloud Database
+        let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").publicCloudDatabase
+
+        // Save the record to iCloud
+        publicDatabase.save(record, completionHandler: { (record, error) -> Void  in
+
+            if error != nil {
+                print("无法完成保存")
+                print(error.debugDescription)
+            }else{
+                print("联系人储存成功")
+            }
+
+            // Remove temp file
+           
+        })
     }
 }
 

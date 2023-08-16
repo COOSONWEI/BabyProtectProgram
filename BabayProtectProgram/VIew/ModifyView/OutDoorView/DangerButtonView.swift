@@ -7,11 +7,14 @@
 
 import SwiftUI
 
-//MARK: -添加危险区按钮
+//MARK: -添加联系人电话按钮
 struct DangerButtonView: View {
+    @State private var enterAddContacts = false
+    @StateObject var contacts: Contacts
+    
     var body: some View {
         Button {
-            
+            enterAddContacts.toggle()
         } label: {
             ZStack{
                 Rectangle()
@@ -19,8 +22,10 @@ struct DangerButtonView: View {
                 .foregroundColor(.white)
                 .shadow(color: .black.opacity(0.17), radius: 6.5, x: 3, y: 3)
                 .shadow(color: .black.opacity(0.05), radius: 4, x: 1, y: 1)
+                
                 HStack{
-                    LinearColorText(text: "危险区域添加", colors: [Color(red: 255/255, green: 131/255, blue: 149/255),
+                    
+                    LinearColorText(text: "添加手机号", colors: [Color(red: 255/255, green: 131/255, blue: 149/255),
                                                              Color(red: 255/255, green: 131/255, blue: 149/255)
                                                                        ])
                     Spacer()
@@ -36,7 +41,12 @@ struct DangerButtonView: View {
         .padding(.leading)
         .padding(.trailing)
         .frame(maxHeight: 64)
+        .sheet(isPresented: $enterAddContacts) {
+            EnterContact(contact: contacts)
+                .presentationDetents([.medium,.large])
         }
+        }
+        
     
     
     }
@@ -61,6 +71,6 @@ struct LinearColorText: View {
 
 struct DangerButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        DangerButtonView()
+        DangerButtonView(contacts:Contacts())
     }
 }

@@ -10,6 +10,8 @@ import SwiftUI
 struct AddInDoorDangerousView: View {
     
     @State var back = false
+    @StateObject var beaconModel = BeaconModel()
+    @StateObject var cloudBeaconModel = CloudBeaconModel()
     
     var body: some View {
         
@@ -72,10 +74,13 @@ struct AddInDoorDangerousView: View {
             }
             .padding(.top,-150)
            
-            DangerButtonView()
-                .padding(.leading)
-                .padding(.trailing)
-                .padding(.bottom)
+            AddBeaconButton(beaconModel: beaconModel, cloudModel: cloudBeaconModel)
+            
+//            DangerButtonView(contacts: <#Contacts#>)
+//                .padding(.leading)
+//                .padding(.trailing)
+//                .padding(.bottom)
+            
         }
         .fullScreenCover(isPresented: $back) {
             HomeView()

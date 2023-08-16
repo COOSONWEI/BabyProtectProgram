@@ -10,13 +10,12 @@ import SwiftUI
 
 struct Beacon: Hashable {
     let id = UUID()
-    let uuid: String
     let name: String
 }
 
 //创建信标的数据模型
 class BeaconModel: NSObject, ObservableObject {
-    @Published var beacons = [Beacon]()
+    @Published var  beaconName = Beacon(name: "")
 }
 
 

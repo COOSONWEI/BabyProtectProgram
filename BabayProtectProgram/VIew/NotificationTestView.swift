@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct NotificationTestView: View {
+    
+    @Environment(\.scenePhase) private var scenePhase
+    
     @StateObject private var vm = CloudPushNotificationViewModel()
+    @State var healthCount = 0
+    @StateObject private var healthModel = HealthiCloudStore()
+    
     var body: some View {
         VStack(spacing:   40) {
             Button {
@@ -18,7 +24,8 @@ struct NotificationTestView: View {
             }
             
             Button {
-                vm.subscribeToNotificatoin()
+//                vm.subscribeToNotificatoin()
+                vm.sendNotification(title: "这是一个通知", subtitle: "测试用的", body: "具体内容不知道了")
             } label: {
                 Text("subscribe the notification")
             }
@@ -29,9 +36,40 @@ struct NotificationTestView: View {
                 Text("UnSubscribe the Notification")
             }
 
-
-
         }
+        .onChange(of: scenePhase, perform: { phase in
+                        switch phase {
+                            case .active:
+                            
+                           
+                            
+                            healthModel.fetchHealthdata()
+                            
+                            healthCount =  healthModel.count
+                            
+                            print("healthCount:\(healthCount)")
+                            
+                            case .inactive:
+                                print("Inactive")
+                            case .background:
+                            
+                            healthModel.startFetch()
+                            
+                            Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
+                                print("I am Runing")
+                                if healthCount != healthModel.count {
+                                    print("Send a notification")
+                                    vm.sendNotification(title: "这是一个通知", subtitle: "测试用的", body: "具体内容不知道了")
+                                }
+                                healthCount = healthModel.count
+
+                            }
+                            
+                                print("Background")
+                            default:
+                                print("Unknown scenephase")
+                        }
+                    })
        
     }
 }

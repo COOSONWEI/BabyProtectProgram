@@ -12,6 +12,7 @@ import UIKit
 
 class CloudPushNotificationViewModel:  ObservableObject {
     
+    //请求通知权限
     func requestNotification() {
         let options: UNAuthorizationOptions = [.alert, .badge,.sound]
         UNUserNotificationCenter.current().requestAuthorization(options: options) { success, error in
@@ -26,10 +27,26 @@ class CloudPushNotificationViewModel:  ObservableObject {
             }else{
                 print("Notification permmissions failure.")
             }
-            
         }
     }
     
+    func sendNotification(title: String, subtitle: String ,body: String) {
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.subtitle = subtitle
+        content.body = body
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        print("i send an notification")
+        UNUserNotificationCenter.current().add(request)
+        
+    }
+    
+    
+    //订阅通知
     func subscribeToNotificatoin() {
         let predicate = NSPredicate(value: true)
         //订阅通知的方式
@@ -52,6 +69,7 @@ class CloudPushNotificationViewModel:  ObservableObject {
         
     }
     
+    //取消通知
     func unsubscribeToNotification() {
         CKContainer.default().publicCloudDatabase.delete(withSubscriptionID: "chailds_near_dangerous_objects") { returnedSubscription, returnedError in
             if let error = returnedError {

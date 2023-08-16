@@ -9,7 +9,30 @@ import SwiftUI
 
 struct OtherCard_: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Rectangle()
+              .foregroundColor(.clear)
+             
+              .background(.white)
+              .cornerRadius(15)
+              .shadow(color: .black.opacity(0.1), radius: 8, x: 5, y: 4)
+              .shadow(color: .black.opacity(0.05), radius: 7.5, x: 1, y: 1)
+            
+            VStack{
+                HStack{
+                    Text("敬请期待...")
+                      .font(.system(size: 13))
+                      .fontWeight(.bold)
+                      .minimumScaleFactor(0.2)
+                    Spacer()
+                }
+                .padding()
+                Spacer()
+            }
+              
+        }
+        .frame(maxWidth: 161, maxHeight: 87)
+       
     }
 }
 

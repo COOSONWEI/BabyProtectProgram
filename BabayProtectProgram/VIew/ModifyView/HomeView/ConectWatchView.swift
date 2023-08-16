@@ -140,7 +140,7 @@ struct ConectWatchView: View {
                                   .cornerRadius(17)
                                   .shadow(color: .black.opacity(0.05), radius: 4.5, x: 1, y: 1)
                                   .shadow(color: .black.opacity(0.14), radius: 6, x: 3, y: 3)
-                                Text("添加户外危险区")
+                                Text("添加联系人")
                                     .font(.system(size: 20))
                                     .fontWeight(.black)
                                   .kerning(1)

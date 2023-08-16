@@ -23,8 +23,8 @@ struct AddContactView: View {
             } label: {
                 Text("完成")
             }
-            .alert("输入的手机号错误", isPresented: $isValid) {
-                Text("输入的手机号错误请重新输入")
+            .alert("提示", isPresented: $isValid) {
+                Text("输入的手机号或联系人姓名规格错误请重新输入")
             }
         }
         .navigationTitle("添加联系人")

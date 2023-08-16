@@ -19,8 +19,8 @@ struct BabayProtectProgramApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            HomeView()
-            NotificationTestView()
+            HomeView()
+//            NotificationTestView()
                 .onAppear {
 //                    healthModel.requestHealthKitPermissions()
 //                    healthModel.fetchSleepData()
@@ -34,6 +34,8 @@ struct BabayProtectProgramApp: App {
     }
     
 }
+
+
 
 class BabayProtectProgramWCSession: NSObject,WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {

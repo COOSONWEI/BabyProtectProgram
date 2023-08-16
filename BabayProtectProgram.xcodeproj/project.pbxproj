@@ -79,6 +79,15 @@
 		2F8BF85E2A8BB7EA0036FFF1 /* GetBeaconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */; };
 		2F8BF8602A8BE0A20036FFF1 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF85F2A8BE0A20036FFF1 /* NotificationModel.swift */; };
 		2F8BF8622A8BF5FF0036FFF1 /* NotificationTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8612A8BF5FF0036FFF1 /* NotificationTestView.swift */; };
+		2F8BF8652A8C082A0036FFF1 /* ShoppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8642A8C082A0036FFF1 /* ShoppingView.swift */; };
+		2F8BF8682A8C08930036FFF1 /* WatchShoppingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8672A8C08930036FFF1 /* WatchShoppingCard.swift */; };
+		2F8BF86A2A8C0B4E0036FFF1 /* WatchCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8692A8C0B4E0036FFF1 /* WatchCard.swift */; };
+		2F8BF86C2A8C0F9E0036FFF1 /* BeaconShoppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF86B2A8C0F9E0036FFF1 /* BeaconShoppingView.swift */; };
+		2F8BF86E2A8C11E80036FFF1 /* OtherCard .swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF86D2A8C11E80036FFF1 /* OtherCard .swift */; };
+		2F8BF8702A8C8BC00036FFF1 /* EnterContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF86F2A8C8BC00036FFF1 /* EnterContact.swift */; };
+		2F8BF8732A8CA7E60036FFF1 /* AddBeaconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8722A8CA7E60036FFF1 /* AddBeaconButton.swift */; };
+		2F8BF8742A8CA8A70036FFF1 /* GetBeaconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */; };
+		2F8BF8762A8CAEDD0036FFF1 /* EnterBeaconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8752A8CAEDD0036FFF1 /* EnterBeaconView.swift */; };
 		2FBA3EDE2A8B7173005CC22B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
 		2FBA3EE02A8B7354005CC22B /* ICloudTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */; };
 		2FBA3EE12A8B78E2005CC22B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
@@ -177,6 +186,14 @@
 		2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBeaconModel.swift; sourceTree = "<group>"; };
 		2F8BF85F2A8BE0A20036FFF1 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		2F8BF8612A8BF5FF0036FFF1 /* NotificationTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTestView.swift; sourceTree = "<group>"; };
+		2F8BF8642A8C082A0036FFF1 /* ShoppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingView.swift; sourceTree = "<group>"; };
+		2F8BF8672A8C08930036FFF1 /* WatchShoppingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchShoppingCard.swift; sourceTree = "<group>"; };
+		2F8BF8692A8C0B4E0036FFF1 /* WatchCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCard.swift; sourceTree = "<group>"; };
+		2F8BF86B2A8C0F9E0036FFF1 /* BeaconShoppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconShoppingView.swift; sourceTree = "<group>"; };
+		2F8BF86D2A8C11E80036FFF1 /* OtherCard .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtherCard .swift"; sourceTree = "<group>"; };
+		2F8BF86F2A8C8BC00036FFF1 /* EnterContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterContact.swift; sourceTree = "<group>"; };
+		2F8BF8722A8CA7E60036FFF1 /* AddBeaconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeaconButton.swift; sourceTree = "<group>"; };
+		2F8BF8752A8CAEDD0036FFF1 /* EnterBeaconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterBeaconView.swift; sourceTree = "<group>"; };
 		2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCloudStoreModel.swift; sourceTree = "<group>"; };
 		2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudTest.swift; sourceTree = "<group>"; };
 		2FBA3EE22A8B7B4B005CC22B /* BabayProtectProgram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BabayProtectProgram.entitlements; sourceTree = "<group>"; };
@@ -203,6 +220,7 @@
 		2F026A9F2A874F78005248EF /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				2F8BF8632A8C07FE0036FFF1 /* ShopingView */,
 				2F026AA22A874F9C005248EF /* HealthView */,
 				2F026AA12A874F93005248EF /* InDoorView */,
 				2F026AA02A874F8C005248EF /* OutDoorView */,
@@ -298,6 +316,7 @@
 			children = (
 				2FBA3EE22A8B7B4B005CC22B /* BabayProtectProgram.entitlements */,
 				2F026AAD2A879F3E005248EF /* Info.plist */,
+				2F59B06F2A8645EE006DA2C8 /* Utilities */,
 				2F59B06E2A86456F006DA2C8 /* VIew */,
 				2F07254B2A835FC9007A36CE /* BabayProtectProgramApp.swift */,
 				2F07254D2A835FC9007A36CE /* ContentView.swift */,
@@ -403,6 +422,8 @@
 			isa = PBXGroup;
 			children = (
 				2F4BDC3C2A88B8CC00D9B447 /* InDoorDangerousCard.swift */,
+				2F8BF8722A8CA7E60036FFF1 /* AddBeaconButton.swift */,
+				2F8BF8752A8CAEDD0036FFF1 /* EnterBeaconView.swift */,
 			);
 			path = InDoorView;
 			sourceTree = "<group>";
@@ -423,7 +444,6 @@
 			isa = PBXGroup;
 			children = (
 				2F59B0732A8649DB006DA2C8 /* ModifyView */,
-				2F59B06F2A8645EE006DA2C8 /* Utilities */,
 				2F026A9F2A874F78005248EF /* MainView */,
 				2F59B0702A86460F006DA2C8 /* HomeView.swift */,
 				2F59B0802A865D03006DA2C8 /* CustomBar.swift */,
@@ -443,6 +463,8 @@
 		2F59B0732A8649DB006DA2C8 /* ModifyView */ = {
 			isa = PBXGroup;
 			children = (
+				2F8BF8712A8C8E290036FFF1 /* ContactsView */,
+				2F8BF8662A8C08490036FFF1 /* ShoppingView */,
 				2F4BDC3B2A88B8B300D9B447 /* InDoorView */,
 				2F026ABA2A888235005248EF /* HealthView */,
 				2F026AA82A87734E005248EF /* OutDoorView */,
@@ -459,6 +481,33 @@
 				2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2F8BF8632A8C07FE0036FFF1 /* ShopingView */ = {
+			isa = PBXGroup;
+			children = (
+				2F8BF8642A8C082A0036FFF1 /* ShoppingView.swift */,
+			);
+			path = ShopingView;
+			sourceTree = "<group>";
+		};
+		2F8BF8662A8C08490036FFF1 /* ShoppingView */ = {
+			isa = PBXGroup;
+			children = (
+				2F8BF8672A8C08930036FFF1 /* WatchShoppingCard.swift */,
+				2F8BF8692A8C0B4E0036FFF1 /* WatchCard.swift */,
+				2F8BF86B2A8C0F9E0036FFF1 /* BeaconShoppingView.swift */,
+				2F8BF86D2A8C11E80036FFF1 /* OtherCard .swift */,
+			);
+			path = ShoppingView;
+			sourceTree = "<group>";
+		};
+		2F8BF8712A8C8E290036FFF1 /* ContactsView */ = {
+			isa = PBXGroup;
+			children = (
+				2F8BF86F2A8C8BC00036FFF1 /* EnterContact.swift */,
+			);
+			path = ContactsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -563,6 +612,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F8BF8702A8C8BC00036FFF1 /* EnterContact.swift in Sources */,
 				2F59B06C2A8627BE006DA2C8 /* HealthKitSupport.swift in Sources */,
 				2F8BF8622A8BF5FF0036FFF1 /* NotificationTestView.swift in Sources */,
 				2F026AB32A8867F1005248EF /* DangerButtonView.swift in Sources */,
@@ -577,7 +627,10 @@
 				2F026AB72A8870C0005248EF /* Image+Extension.swift in Sources */,
 				2F026AC42A889B82005248EF /* MoreInformationList.swift in Sources */,
 				2F026A9E2A874C42005248EF /* HomeFunctionChooseView.swift in Sources */,
+				2F8BF8742A8CA8A70036FFF1 /* GetBeaconModel.swift in Sources */,
 				2F026A9C2A87485A005248EF /* InDoorEnterView.swift in Sources */,
+				2F8BF86A2A8C0B4E0036FFF1 /* WatchCard.swift in Sources */,
+				2F8BF8762A8CAEDD0036FFF1 /* EnterBeaconView.swift in Sources */,
 				2F026A972A86726C005248EF /* OutDoorPositionEnterModify.swift in Sources */,
 				2F59B0752A8649F7006DA2C8 /* UnConectWatchView.swift in Sources */,
 				2F59B07B2A864A4D006DA2C8 /* TextModify.swift in Sources */,
@@ -589,12 +642,15 @@
 				2F026AB92A887C29005248EF /* HealthView.swift in Sources */,
 				2F07254C2A835FC9007A36CE /* BabayProtectProgramApp.swift in Sources */,
 				2F59B06A2A8621D0006DA2C8 /* PhoneNumberModel.swift in Sources */,
+				2F8BF86C2A8C0F9E0036FFF1 /* BeaconShoppingView.swift in Sources */,
 				2F026AA62A877332005248EF /* OutDoorFunctionView.swift in Sources */,
+				2F8BF86E2A8C11E80036FFF1 /* OtherCard .swift in Sources */,
 				2F59B07E2A864D11006DA2C8 /* HomeBGView.swift in Sources */,
 				2F026AAC2A879952005248EF /* LocationModel.swift in Sources */,
 				2F4BDC382A88AD0700D9B447 /* EmotionCard.swift in Sources */,
 				2F026AB52A886DC2005248EF /* DangerGeofenceCard.swift in Sources */,
 				2F026AA42A8752C7005248EF /* OutDoorMainView.swift in Sources */,
+				2F8BF8652A8C082A0036FFF1 /* ShoppingView.swift in Sources */,
 				2FBA3EE12A8B78E2005CC22B /* HealthCloudStoreModel.swift in Sources */,
 				2F59B0692A8621CD006DA2C8 /* HealthModel.swift in Sources */,
 				2F026AC22A889B53005248EF /* SleepCard.swift in Sources */,
@@ -603,7 +659,9 @@
 				2F59B0782A864A01006DA2C8 /* ConectWatchView.swift in Sources */,
 				2F026A9A2A874723005248EF /* HealthEnterView.swift in Sources */,
 				2F026AC02A889B45005248EF /* WalkCard.swift in Sources */,
+				2F8BF8732A8CA7E60036FFF1 /* AddBeaconButton.swift in Sources */,
 				2F026ABC2A888275005248EF /* ExerciseCard.swift in Sources */,
+				2F8BF8682A8C08930036FFF1 /* WatchShoppingCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
