@@ -9,7 +9,7 @@ import SwiftUI
 
 //添加最近的位置的情况
 struct LocationView: View {
-    @StateObject var locationModel: LocationModel
+//    @StateObject var locationModel: LocationModel
     var body: some View {
         ZStack{
             Rectangle()
@@ -28,7 +28,7 @@ struct LocationView: View {
                 Image("landmark")
                     .frame(maxWidth: 24, maxHeight: 24)
                 
-                Text(locationModel.locationName ?? "上海南站")
+                Text("上海南站")
                     .font(.system(size: 14))
                     .minimumScaleFactor(0.2)
                 Text("现在的位置")
@@ -38,7 +38,7 @@ struct LocationView: View {
                 Spacer()
                 Button {
                     withAnimation {
-                        locationModel.checkLocationAuthorization()
+//                        locationModel.checkLocationAuthorization()
                     }
                 } label: {
                     Text("刷新")
@@ -56,6 +56,6 @@ struct LocationView: View {
 
 struct LocationView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationView(locationModel: LocationModel())
+        LocationView()
     }
 }

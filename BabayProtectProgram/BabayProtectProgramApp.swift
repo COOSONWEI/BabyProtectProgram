@@ -17,6 +17,7 @@ struct BabayProtectProgramApp: App {
     
     @StateObject var healthModel = HealthModel()
     @StateObject var babyPhone = BabyPhoneModel()
+    @StateObject var vm = CloudPushNotificationViewModel()
     
     var body: some Scene {
         WindowGroup {
@@ -24,7 +25,8 @@ struct BabayProtectProgramApp: App {
 //            NotificationTestView()
                 .onAppear {
                     // 获取数据
-                  
+                    vm.requestNotification()
+                    vm.subscribeToNotificatoin()
                 }
         }
     }

@@ -8,6 +8,7 @@
 import Foundation
 import MapKit
 
+//获取设备的地理位置
 final class LocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager?

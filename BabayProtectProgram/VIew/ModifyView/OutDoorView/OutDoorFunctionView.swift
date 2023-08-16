@@ -9,7 +9,8 @@ import SwiftUI
 
 //MARK: -地图的按钮功能
 struct OutDoorFunctionView: View {
-    var locationModel: LocationModel
+//    var locationModel: LocationModel
+    
     var body: some View {
         ZStack{
             Capsule()
@@ -37,7 +38,7 @@ struct OutDoorFunctionView: View {
                     
                     //添加动画让移动更加的丝滑
                     withAnimation {
-                        locationModel.checkLocationAuthorization()
+//                        locationModel.checkLocationAuthorization()
                     }
                    
                 } label: {
@@ -75,6 +76,6 @@ struct OutDoorFunctionView: View {
 
 struct OutDoorFunctionView_Previews: PreviewProvider {
     static var previews: some View {
-        OutDoorFunctionView(locationModel: LocationModel())
+        OutDoorFunctionView()
     }
 }

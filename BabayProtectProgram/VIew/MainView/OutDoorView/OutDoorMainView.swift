@@ -45,13 +45,13 @@ struct OutDoorMainView: View {
                             .fixedSize()
                     }
                     
-                    LocationView(locationModel: locationModel)
+                    LocationView()
                 }
                 
                 HStack{
                     Spacer()
-                    OutDoorFunctionView(locationModel: locationModel)
-                        .padding(.top,28)
+//                    OutDoorFunctionView(locationModel: locationModel)
+//                        .padding(.top,28)
                 }
                 .padding(.trailing)
                 

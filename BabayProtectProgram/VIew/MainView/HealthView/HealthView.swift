@@ -75,7 +75,6 @@ struct HealthView: View {
                         // 在这里处理错误，例如打印错误信息或者显示错误提示给用户
                         print("Error fetching restaurants: \(error)")
                     }
-                
             }
             .onAppear() {
                 showLoadingIndicator = true

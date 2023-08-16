@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Beacon: Hashable {
     let id = UUID()
-    let name: String
+    var name: String
 }
 
 //创建信标的数据模型

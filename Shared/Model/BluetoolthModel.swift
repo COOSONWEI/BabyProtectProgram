@@ -21,13 +21,12 @@ class BluetoothModel: NSObject, ObservableObject {
     override init() {
         super.init()
         self.centralManager = CBCentralManager(delegate: self, queue: .main)
-        
         // Start the timer when the BluetoothModel is initialized
-            //startScanningTimer()
+        startScanningTimer()
     }
     private func startScanningTimer() {
         // Schedule the timer to scan every 2 seconds
-        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { [weak self] _ in
             if ((self?.isStart) == true) {
                 self?.scanForPeripherals()
             }

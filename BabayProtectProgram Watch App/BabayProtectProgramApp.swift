@@ -11,11 +11,11 @@ import SwiftUI
 struct BabayProtectProgram_Watch_AppApp: App {
     
     @StateObject private var healthModel = HealthModel()
-    
+    @StateObject private var locationModel = LocationModel()
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                MenuView(healthModel: healthModel)
+                MenuView(healthModel: healthModel,locationModel: locationModel)
 //                ICloudTest(healModel: healthModel)
                     .onAppear {
                         healthModel.requestHealthKitPermissions()
@@ -25,6 +25,8 @@ struct BabayProtectProgram_Watch_AppApp: App {
                         healthModel.fetchCurrentHeartRate()
                         healthModel.fetchWalkoutTimeAndEnage()
                         healthModel.fetchDistancofWalkAndRuning()
+                        locationModel.checkIfLocationServiesIsEnabled()
+                        locationModel.checkLocationAuthorization()
                     }
             }
            

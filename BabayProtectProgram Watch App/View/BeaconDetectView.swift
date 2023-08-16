@@ -26,25 +26,28 @@ struct BeaconDetectView: View {
                         Text("UUID:\(key)")
                         Text("Rssi: \(bluetoothModel.rssi[key] ?? 0)")
                     }
-                    .onAppear {
-                        respondBeacon()
+                    .task {
+                        do{
+                           try await respondBeacon()
+                        }catch{
+                            print("加载错误")
+                        }
                     }
+                    
                 }
-                
-               
             }
             .navigationTitle("菜单")
             
         }
     }
     
-    func respondBeacon() {
+    func respondBeacon() async throws{
         for (beacon,_) in beaconsNames.usefulBeaconNames {
             //                            print("beaconName:\(beacon.object(forKey: "beaconsName") as! String)")
             if bluetoothModel.peripheralNames.values.contains(beacon) {
                 vibrateWatch()
                 print("I Find It ")
-                save(beacon: beacon)
+                try await save(beacon: beacon)
                 bluetoothModel.isStart = false
                 isContain = true
             } else {
@@ -58,21 +61,18 @@ struct BeaconDetectView: View {
 //
 //    }
     
-    private func save(beacon: String) {
-       let beaconData = CloudBeaconModel()
-      
-        beaconData.usefulBeaconNames[beacon] = 1
-        
+    private func save(beacon: String) async throws {
+       let beaconData = BeaconModel()
+        beaconData.beaconName.name = beacon
         do {
-            print("CloudBeaconModel Save Scuceess...")
             try context.save()
-           
+            print("CloudBeaconModel Save Scuceess...")
         }catch {
             print("Failed to save the record...")
             print(error.localizedDescription)
         }
         let cloudStore = CloudBeaconModel()
-        cloudStore.changeBeaconRecordToCloud(beacon: beaconData, name: beacon)
+        try await cloudStore.updateBeaconRecord(beaconName: beaconData.beaconName.name)
     }
     
     func vibrateWatch() {

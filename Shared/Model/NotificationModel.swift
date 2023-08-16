@@ -23,7 +23,7 @@ class CloudPushNotificationViewModel:  ObservableObject {
                 DispatchQueue.main.async {
                     UIApplication.shared.registerForRemoteNotifications()
                 }
-               
+                
             }else{
                 print("Notification permmissions failure.")
             }
@@ -50,7 +50,7 @@ class CloudPushNotificationViewModel:  ObservableObject {
     func subscribeToNotificatoin() {
         let predicate = NSPredicate(value: true)
         //订阅通知的方式
-        let subscription = CKQuerySubscription(recordType: "HealthData", predicate: predicate, subscriptionID: "chailds_near", options: .firesOnRecordCreation)
+        let subscription = CKQuerySubscription(recordType: "Beacons", predicate: predicate, subscriptionID: "chailds_near", options: .firesOnRecordUpdate)
         
         let notification = CKSubscription.NotificationInfo()
         notification.title = "你的孩子接近危险物品！！！"

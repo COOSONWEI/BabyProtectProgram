@@ -16,6 +16,7 @@ struct CallModifyView: View {
     let contactsModle: Contacts
     @State var addContact = false
     var body: some View {
+        
         //第一个是录入联系人，后面的是通讯录
         Button {
             callContact(phoneNumber)

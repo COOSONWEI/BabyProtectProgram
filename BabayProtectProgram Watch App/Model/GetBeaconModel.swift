@@ -8,6 +8,16 @@
 import Foundation
 import CloudKit
 
+
+struct BeaconsDataModel {
+    let beaconsName: String
+    let near: Int
+}
+
+class BeaconViewModel: ObservableObject {
+    @Published var beacons = BeaconsDataModel(beaconsName: "", near: 0)
+}
+
 class CloudBeaconModel: ObservableObject {
     
     @Published var beaconNames: [CKRecord] = []
@@ -29,63 +39,25 @@ class CloudBeaconModel: ObservableObject {
             
             for beaconName in self.beaconNames {
                 self.usefulBeaconNames.updateValue(0, forKey: beaconName.object(forKey: "beaconsName") as! String)
-//                print(self.usefulBeaconNames)
+                //                print(self.usefulBeaconNames)
             }
-           
+            
             
         }
         print("lalllalalallal")
-       
+        
     }
     
-    func changeBeaconRecordToCloud(beacon: CloudBeaconModel, name: String) {
-
-        //  准备保存
-        let record = CKRecord(recordType: "Beacons")
-        let predicate = NSPredicate(format: "name = %@", name)
-        //查询表中内容
-        let query = CKQuery(recordType: "Beacons", predicate: predicate)
-        let queryOperation = CKQueryOperation(query: query)
-
-        queryOperation.recordFetchedBlock = { record in
-            // 在这里处理每个记录
-            // 访问记录的字段并修改它们
-            record["near"] = 1 // 设置新的 touched 值
-        }
+    func changeBeaconRecordToCloud(beacon: BeaconModel, name: String) {
         
-        
-        queryOperation.queryCompletionBlock = { cursor, error in
-            if let error = error {
-                // 处理错误
-            } else {
-                // 完成查询操作，可以在这里执行保存操作
-                let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").publicCloudDatabase
-                //处理成功
-                // Save the record to iCloud
-                publicDatabase.save(record, completionHandler: { (record, error) -> Void  in
-
-                    if error != nil {
-                        print("无法完成保存")
-                        print(error.debugDescription)
-                    }
-
-                    // Remove temp file
-                   
-                })
-            }
-        }
-    }
-    
-    func saveNewBeaconToCloud(beaconModel: BeaconModel) {
-//        print("contact Name: \(contact.name)")
         // Prepare the record to save
         let record = CKRecord(recordType: "Beacons")
-        record.setValue(beaconModel.beaconName.name, forKey: "beaconsName")
-        record.setValue(0, forKey: "near")
+        record.setValue(beacon.beaconName.name, forKey: "beaconsName")
+        record.setValue(1, forKey: "near")
         
         // Get the Public iCloud Database
         let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").publicCloudDatabase
-
+        
         // Save the record to iCloud
         publicDatabase.save(record, completionHandler: { (record, error) -> Void  in
             if error != nil {
@@ -94,12 +66,65 @@ class CloudBeaconModel: ObservableObject {
             }else{
                 print("信标储存成功")
             }
-
+            
             // Remove temp file
-           
+            
         })
     }
+    
+    func updateBeaconRecord(beaconName: String) async throws {
+        // Fetch data using Convenience API
+        let cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
+        let publicDatabase = cloudContainer.publicCloudDatabase
+        
+        // 构建查询谓词
+        let predicate = NSPredicate(format: "beaconsName == %@", beaconName)
+        let query = CKQuery(recordType: "Beacons", predicate: predicate)
+        
+        // 执行查询操作
+        let queryResults = try await publicDatabase.records(matching: query)
+        
+        if let recordToUpdate = queryResults.matchResults.first?.1 {
+            // 修改记录中的字段
+            switch recordToUpdate {
+            case .success(let result):
+                result["near"] = 1
+               try await publicDatabase.save(result)
+                print("Record updated successfully.")
+            case .failure(_):
+                 print("修改记录失败")
+            }
+           
+        } else {
+            print("Record not found.")
+        }
+    }
 
+    
+    func saveNewBeaconToCloud(beaconModel: BeaconModel) {
+        //        print("contact Name: \(contact.name)")
+        // Prepare the record to save
+        let record = CKRecord(recordType: "Beacons")
+        record.setValue(beaconModel.beaconName.name, forKey: "beaconsName")
+        record.setValue(0, forKey: "near")
+        
+        // Get the Public iCloud Database
+        let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").publicCloudDatabase
+        
+        // Save the record to iCloud
+        publicDatabase.save(record, completionHandler: { (record, error) -> Void  in
+            if error != nil {
+                print("无法完成保存")
+                print(error.debugDescription)
+            }else{
+                print("信标储存成功")
+            }
+            
+            // Remove temp file
+            
+        })
+    }
+    
     
 }
 

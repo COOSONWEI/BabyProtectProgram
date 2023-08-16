@@ -13,6 +13,9 @@ struct MenuView: View {
     @StateObject var bluetool = BluetoothModel()
     @StateObject var beaconModel = CloudBeaconModel()
     @StateObject var contactsModel = Contacts()
+    @StateObject var locationModel: LocationModel
+    @StateObject var locationCloudStroe = LocationCloudStroe()
+    
     @State var isContain = false
     var model = ViewModelWatch()
     
@@ -28,7 +31,6 @@ struct MenuView: View {
                                 bluetool.scanForPeripherals()
                             })
                     })
-                
                     .opacity(0)
                     .task {
                         do {
@@ -74,7 +76,6 @@ struct MenuView: View {
                     }
                 }
                 .padding(.top)
-                
             }
         }
         .task {
@@ -84,13 +85,29 @@ struct MenuView: View {
                 print("cont FetchIt")
             }
         }
+        .onAppear {
+            Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { tiemr in
+                sendLocationData()
+            }
+        }
+    }
+    
+    func sendLocationData() {
+        let locations = LastLocation()
+        locations.location.latitude = locationModel.userLocation?.latitude ?? 0.0
+        locations.location.longitude = locationModel.userLocation?.longitude ?? 0.0
+        locations.location.street_name = locationModel.locationName ?? "上海南站"
         
+        let locationCloudStore = LocationCloudStroe()
+        locationCloudStore.saveRecordToCloud(location: locations)
+        print("send location data")
         
     }
+    
 }
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView(healthModel: HealthModel())
+        MenuView(healthModel: HealthModel(), locationModel: LocationModel())
     }
 }

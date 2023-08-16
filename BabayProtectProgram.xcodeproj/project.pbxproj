@@ -16,7 +16,6 @@
 		2F026AA42A8752C7005248EF /* OutDoorMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AA32A8752C7005248EF /* OutDoorMainView.swift */; };
 		2F026AA62A877332005248EF /* OutDoorFunctionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AA52A877332005248EF /* OutDoorFunctionView.swift */; };
 		2F026AAA2A8773ED005248EF /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AA92A8773ED005248EF /* LocationView.swift */; };
-		2F026AAC2A879952005248EF /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AAB2A879952005248EF /* LocationModel.swift */; };
 		2F026AB12A87C3C7005248EF /* AddDangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AB02A87C3C7005248EF /* AddDangerView.swift */; };
 		2F026AB32A8867F1005248EF /* DangerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AB22A8867F1005248EF /* DangerButtonView.swift */; };
 		2F026AB52A886DC2005248EF /* DangerGeofenceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AB42A886DC2005248EF /* DangerGeofenceCard.swift */; };
@@ -92,6 +91,11 @@
 		2F8BF87A2A8CB8F20036FFF1 /* AddBabayPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8792A8CB8F20036FFF1 /* AddBabayPhone.swift */; };
 		2F8BF87D2A8CB94E0036FFF1 /* BabyPhoneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF87C2A8CB94E0036FFF1 /* BabyPhoneModel.swift */; };
 		2F8BF87F2A8CBEF80036FFF1 /* CallContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF87E2A8CBEF80036FFF1 /* CallContact.swift */; };
+		2F8BF8822A8CC9FD0036FFF1 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8812A8CC9FD0036FFF1 /* MapViewModel.swift */; };
+		2F8BF8832A8CD7A20036FFF1 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8812A8CC9FD0036FFF1 /* MapViewModel.swift */; };
+		2F8BF8852A8CD7D10036FFF1 /* SendLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8842A8CD7D10036FFF1 /* SendLocation.swift */; };
+		2F8BF8862A8CDA700036FFF1 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AAB2A879952005248EF /* LocationModel.swift */; };
+		2F8BF8872A8CDDA90036FFF1 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AAB2A879952005248EF /* LocationModel.swift */; };
 		2FBA3EDE2A8B7173005CC22B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
 		2FBA3EE02A8B7354005CC22B /* ICloudTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */; };
 		2FBA3EE12A8B78E2005CC22B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
@@ -201,6 +205,8 @@
 		2F8BF8792A8CB8F20036FFF1 /* AddBabayPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBabayPhone.swift; sourceTree = "<group>"; };
 		2F8BF87C2A8CB94E0036FFF1 /* BabyPhoneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyPhoneModel.swift; sourceTree = "<group>"; };
 		2F8BF87E2A8CBEF80036FFF1 /* CallContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallContact.swift; sourceTree = "<group>"; };
+		2F8BF8812A8CC9FD0036FFF1 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		2F8BF8842A8CD7D10036FFF1 /* SendLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendLocation.swift; sourceTree = "<group>"; };
 		2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCloudStoreModel.swift; sourceTree = "<group>"; };
 		2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudTest.swift; sourceTree = "<group>"; };
 		2FBA3EE22A8B7B4B005CC22B /* BabayProtectProgram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BabayProtectProgram.entitlements; sourceTree = "<group>"; };
@@ -321,6 +327,7 @@
 		2F07254A2A835FC9007A36CE /* BabayProtectProgram */ = {
 			isa = PBXGroup;
 			children = (
+				2F8BF8802A8CC9E90036FFF1 /* ViewModel */,
 				2FBA3EE22A8B7B4B005CC22B /* BabayProtectProgram.entitlements */,
 				2F026AAD2A879F3E005248EF /* Info.plist */,
 				2F8BF87B2A8CB93F0036FFF1 /* Model */,
@@ -389,6 +396,7 @@
 				2F026AAB2A879952005248EF /* LocationModel.swift */,
 				2F4BDC422A88C47800D9B447 /* BeaconModel.swift */,
 				2F8BF85F2A8BE0A20036FFF1 /* NotificationModel.swift */,
+				2F8BF8812A8CC9FD0036FFF1 /* MapViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -489,6 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */,
+				2F8BF8842A8CD7D10036FFF1 /* SendLocation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -534,6 +543,13 @@
 				2F8BF87C2A8CB94E0036FFF1 /* BabyPhoneModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2F8BF8802A8CC9E90036FFF1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -642,6 +658,7 @@
 				2F59B06C2A8627BE006DA2C8 /* HealthKitSupport.swift in Sources */,
 				2F8BF8622A8BF5FF0036FFF1 /* NotificationTestView.swift in Sources */,
 				2F026AB32A8867F1005248EF /* DangerButtonView.swift in Sources */,
+				2F8BF8872A8CDDA90036FFF1 /* LocationModel.swift in Sources */,
 				2F8BF87A2A8CB8F20036FFF1 /* AddBabayPhone.swift in Sources */,
 				2F026AB12A87C3C7005248EF /* AddDangerView.swift in Sources */,
 				2F4BDC432A88C47800D9B447 /* BeaconModel.swift in Sources */,
@@ -675,7 +692,6 @@
 				2F026AA62A877332005248EF /* OutDoorFunctionView.swift in Sources */,
 				2F8BF86E2A8C11E80036FFF1 /* OtherCard .swift in Sources */,
 				2F59B07E2A864D11006DA2C8 /* HomeBGView.swift in Sources */,
-				2F026AAC2A879952005248EF /* LocationModel.swift in Sources */,
 				2F4BDC382A88AD0700D9B447 /* EmotionCard.swift in Sources */,
 				2F026AB52A886DC2005248EF /* DangerGeofenceCard.swift in Sources */,
 				2F026AA42A8752C7005248EF /* OutDoorMainView.swift in Sources */,
@@ -691,6 +707,7 @@
 				2F8BF8732A8CA7E60036FFF1 /* AddBeaconButton.swift in Sources */,
 				2F026ABC2A888275005248EF /* ExerciseCard.swift in Sources */,
 				2F8BF8682A8C08930036FFF1 /* WatchShoppingCard.swift in Sources */,
+				2F8BF8822A8CC9FD0036FFF1 /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,6 +715,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F8BF8832A8CD7A20036FFF1 /* MapViewModel.swift in Sources */,
 				2F0725962A84ACDF007A36CE /* HealthModel.swift in Sources */,
 				2F07258E2A83BE32007A36CE /* callContact.swift in Sources */,
 				2F59B0822A865D03006DA2C8 /* CustomBar.swift in Sources */,
@@ -713,6 +731,8 @@
 				2F0725872A838824007A36CE /* CustomButtonStyle.swift in Sources */,
 				2F0725982A860C37007A36CE /* HealthWalkView.swift in Sources */,
 				2F0725802A83794E007A36CE /* GetContacts.swift in Sources */,
+				2F8BF8862A8CDA700036FFF1 /* LocationModel.swift in Sources */,
+				2F8BF8852A8CD7D10036FFF1 /* SendLocation.swift in Sources */,
 				2F07259A2A860C5F007A36CE /* HealthHeartView.swift in Sources */,
 				2F0725712A836072007A36CE /* BeaconDetectView.swift in Sources */,
 				2F59B06D2A8627BE006DA2C8 /* HealthKitSupport.swift in Sources */,
@@ -866,10 +886,12 @@
 				INFOPLIST_FILE = "BabayProtectProgram-Watch-App-Info.plist";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "守护想要访问你的蓝牙权限，以便更好地检测危险标识，保护您的安全。";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "守护想要访问你的蓝牙权限，以便更好地检测危险标识，保护您的安全。";
-				INFOPLIST_KEY_NSContactsUsageDescription = "守护想要获取您的手机联系人，以便你能更好的联系他们";
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "守护想要访问你的运动记录，用于方便为您定制更健康的生活习惯";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "守护想要访问你的健康共享，用于将数据共享给父母，以便他们能够更好地了解的你健康情况";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "守护想要访问你的健康权限，用于更新你的健康数据，以便更好地为你定制更好的健康生活方案";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "守护想要访问你的健康权限，用于更新你的健康数据，以便家长更好的了解你的健康情况";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "守护想要访问你的健康权限，用于更新你的健康数据，以便家长更好的了解你的健康情况";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "守护想要访问你的健康权限，用于更新你的健康数据，以便家长更好的了解你的健康情况";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "守护想要访问你的网络，用来将你的数据同步到iCloud上以便家长获取你的最新数据";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "守护想要访问你的位置权限，以便你进入了危险区域能够提醒你，避免出现安全问题，更好地保证你的安全";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "守护想要访问你的位置权限，以便你进入了危险区域能够提醒你，避免出现安全问题，更好地保证你的安全";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.lsy.shouhu;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
@@ -904,10 +926,12 @@
 				INFOPLIST_FILE = "BabayProtectProgram-Watch-App-Info.plist";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "守护想要访问你的蓝牙权限，以便更好地检测危险标识，保护您的安全。";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "守护想要访问你的蓝牙权限，以便更好地检测危险标识，保护您的安全。";
-				INFOPLIST_KEY_NSContactsUsageDescription = "守护想要获取您的手机联系人，以便你能更好的联系他们";
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "守护想要访问你的运动记录，用于方便为您定制更健康的生活习惯";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "守护想要访问你的健康共享，用于将数据共享给父母，以便他们能够更好地了解的你健康情况";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "守护想要访问你的健康权限，用于更新你的健康数据，以便更好地为你定制更好的健康生活方案";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "守护想要访问你的健康权限，用于更新你的健康数据，以便家长更好的了解你的健康情况";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "守护想要访问你的健康权限，用于更新你的健康数据，以便家长更好的了解你的健康情况";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "守护想要访问你的健康权限，用于更新你的健康数据，以便家长更好的了解你的健康情况";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "守护想要访问你的网络，用来将你的数据同步到iCloud上以便家长获取你的最新数据";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "守护想要访问你的位置权限，以便你进入了危险区域能够提醒你，避免出现安全问题，更好地保证你的安全";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "守护想要访问你的位置权限，以便你进入了危险区域能够提醒你，避免出现安全问题，更好地保证你的安全";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.lsy.shouhu;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
