@@ -38,7 +38,7 @@ class CloudBeaconModel: ObservableObject {
        
     }
     
-    func changeBeaconRecordToCloud(beacon: BeaconModel, name: String) {
+    func changeBeaconRecordToCloud(beacon: CloudBeaconModel, name: String) {
 
         //  准备保存
         let record = CKRecord(recordType: "Beacons")
@@ -74,16 +74,15 @@ class CloudBeaconModel: ObservableObject {
                 })
             }
         }
-        
-
-        
     }
+    
     func saveNewBeaconToCloud(beaconModel: BeaconModel) {
 //        print("contact Name: \(contact.name)")
         // Prepare the record to save
         let record = CKRecord(recordType: "Beacons")
         record.setValue(beaconModel.beaconName.name, forKey: "beaconsName")
-      
+        record.setValue(0, forKey: "near")
+        
         // Get the Public iCloud Database
         let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").publicCloudDatabase
 
@@ -93,7 +92,7 @@ class CloudBeaconModel: ObservableObject {
                 print("无法完成保存")
                 print(error.debugDescription)
             }else{
-                print("联系人储存成功")
+                print("信标储存成功")
             }
 
             // Remove temp file

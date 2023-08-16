@@ -11,7 +11,6 @@ import SwiftUI
 struct AddBeaconButton: View {
     
     @State private var enterAddBeacon = false
-    @StateObject var beaconModel: BeaconModel
     @StateObject var cloudModel: CloudBeaconModel
     
     var body: some View {
@@ -44,7 +43,7 @@ struct AddBeaconButton: View {
         .padding(.trailing)
         .frame(maxHeight: 64)
         .sheet(isPresented: $enterAddBeacon) {
-            EnterBeaconView(beaconModel: beaconModel, cloudModel: cloudModel)
+            EnterBeaconView(cloudModel: cloudModel)
                 .presentationDetents([.medium,.large])
         }
     }
@@ -53,6 +52,6 @@ struct AddBeaconButton: View {
 
 struct AddBeaconButton_Previews: PreviewProvider {
     static var previews: some View {
-        AddBeaconButton(beaconModel: BeaconModel(), cloudModel: CloudBeaconModel())
+        AddBeaconButton(cloudModel: CloudBeaconModel())
     }
 }

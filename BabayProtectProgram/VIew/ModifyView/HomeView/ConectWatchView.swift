@@ -12,7 +12,9 @@ struct ConectWatchView: View {
     @State var enterAddDangerous = false
     
     @State var enterIndoorDangerous = false
+    @StateObject var babyPhone = BabyPhoneModel()
     
+    @State private var enterAddBabyphone = false
     var body: some View {
         ZStack{
             //背景
@@ -65,7 +67,7 @@ struct ConectWatchView: View {
                 }
                 
                 Button {
-                   
+                    callContact(babyPhone.babyphone)
                 } label: {
                     Image(systemName: "phone.circle")
                         .resizable()
@@ -149,7 +151,27 @@ struct ConectWatchView: View {
                             }
                             
                         }
-                        
+                        Button {
+                            enterAddBabyphone = true
+                        } label: {
+                            ZStack{
+                                Rectangle()
+                                  .foregroundColor(.clear)
+                                  .frame(width: 339, height: 73)
+                                  .background(.white)
+                                  .cornerRadius(17)
+                                  .shadow(color: .black.opacity(0.05), radius: 4.5, x: 1, y: 1)
+                                  .shadow(color: .black.opacity(0.14), radius: 6, x: 3, y: 3)
+                                Text("添加宝贝的号码")
+                                    .font(.system(size: 20))
+                                    .fontWeight(.black)
+                                  .kerning(1)
+                                  .foregroundColor(Color(red: 0.31, green: 0.31, blue: 0.31))
+                                  .frame(width: 297.71469, alignment: .topLeading)
+                            }
+                            
+                        }
+                      
                     }
                    
                 }
@@ -172,7 +194,10 @@ struct ConectWatchView: View {
         .fullScreenCover(isPresented: $enterIndoorDangerous) {
             AddInDoorDangerousView()
         }
-        
+        .sheet(isPresented: $enterAddBabyphone) {
+            AddBabayPhone(babyPhone: babyPhone)
+                .presentationDetents([.medium,.large])
+        }
     }
 }
 

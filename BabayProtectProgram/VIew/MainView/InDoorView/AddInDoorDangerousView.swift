@@ -70,17 +70,28 @@ struct AddInDoorDangerousView: View {
             }
             //添加了危险区的卡片（这里先放一个卡片测试）
             ScrollView{
-                InDoorDangerousCard(name: "厨房区域")
+                ForEach(cloudBeaconModel.usefulBeaconNames.keys.sorted(),id:\.self){ key in
+                    InDoorDangerousCard(name: key)
+                }
+                
             }
             .padding(.top,-150)
            
-            AddBeaconButton(beaconModel: beaconModel, cloudModel: cloudBeaconModel)
+            AddBeaconButton(cloudModel: cloudBeaconModel)
             
 //            DangerButtonView(contacts: <#Contacts#>)
 //                .padding(.leading)
 //                .padding(.trailing)
 //                .padding(.bottom)
             
+        }
+        .task {
+            do{
+                try await cloudBeaconModel.fetchBeacons()
+                
+            }catch{
+                print("loading Error")
+            }
         }
         .fullScreenCover(isPresented: $back) {
             HomeView()

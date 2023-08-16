@@ -16,4 +16,4 @@ func callContact(_ contact: String) {
             // 调用 openSystemURL 来触发电话拨号
             WKExtension.shared().openSystemURL(telURL)
         }
-    }
+}

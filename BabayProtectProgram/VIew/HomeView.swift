@@ -13,10 +13,11 @@ struct HomeView: View {
     
     @State private var isWatchPaired = false
     @StateObject var watchModel = ViewModelPhone()
-    
+    @StateObject var babyPhone = BabyPhoneModel()
     var body: some View {
         
         ConectWatchView()
+         
           
         
     }

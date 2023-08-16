@@ -15,20 +15,16 @@ struct BabayProtectProgramApp: App {
             UITableView.appearance().backgroundColor = .clear
     }
     
-   @StateObject var healthModel = HealthModel()
+    @StateObject var healthModel = HealthModel()
+    @StateObject var babyPhone = BabyPhoneModel()
     
     var body: some Scene {
         WindowGroup {
             HomeView()
 //            NotificationTestView()
                 .onAppear {
-//                    healthModel.requestHealthKitPermissions()
-//                    healthModel.fetchSleepData()
-//                    healthModel.fetchTodayStepCount()
-//                    healthModel.fetchStaticHeartRate()
-//                    healthModel.fetchCurrentHeartRate()
-//                    healthModel.fetchWalkoutTimeAndEnage()
-//                    healthModel.fetchDistancofWalkAndRuning()
+                    // 获取数据
+                  
                 }
         }
     }

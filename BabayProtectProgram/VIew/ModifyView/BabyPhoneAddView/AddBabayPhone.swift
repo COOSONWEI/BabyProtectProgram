@@ -1,5 +1,5 @@
 //
-//  EnterBeaconButton.swift
+//  AddBabayPhone.swift
 //  BabayProtectProgram
 //
 //  Created by 韦小新 on 2023/8/16.
@@ -7,15 +7,14 @@
 
 import SwiftUI
 
-struct EnterBeaconView: View {
-   
+struct AddBabayPhone: View {
+    
     //添加上下文存入CoreData
     @Environment(\.managedObjectContext) var context
-    //联系人数据
-    @StateObject var cloudModel: CloudBeaconModel
     
-    @State private var name: String = ""
-    
+    //宝贝的手机号
+    @StateObject var babyPhone: BabyPhoneModel
+    @State private var phone = ""
     @State private var isValid: Bool = false
     
     var body: some View {
@@ -25,7 +24,7 @@ struct EnterBeaconView: View {
                 .font(.largeTitle)
                 .foregroundColor(.pink.opacity(0.2))
             
-            TextField("信标名称", text: $name)
+            TextField("宝贝手机号", text: $phone)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 .background(Color(red: 0.98, green: 0.91, blue: 0.76))
@@ -33,7 +32,8 @@ struct EnterBeaconView: View {
             
             Button(action: {
                 // 添加按钮点击事件
-                addContacts(name: name)
+                addContacts(phone: phone)
+                
             }) {
                 Text("添加")
                     .foregroundColor(.white)
@@ -44,29 +44,41 @@ struct EnterBeaconView: View {
                     .shadow(radius: 3)
             }
             .alert(isPresented: $isValid) {
-                Alert(title: Text("提示"),message: Text("信标名称输入不规范请重新输入"))
+                Alert(title: Text("提示"),message: Text("手机号输入不规范请重新输入"))
             }
         }
         .padding()
     }
     
-    func addContacts(name: String) {
+    func addContacts(phone: String) {
         
-        if name != "" {
-                let contactsModel = BeaconModel()
-                contactsModel.beaconName = Beacon(name: name)
+        if phone != "" {
             
-                let cloudStore = CloudBeaconModel()
-               cloudStore.saveNewBeaconToCloud(beaconModel: contactsModel)
+                babyPhone.babyphone = phone
+                // 保存数据
+                UserDefaults.standard.set(babyPhone.babyphone, forKey: "babyPhone")
+            
+                print(babyPhone.babyphone)
+            
         }else{
             isValid = true
         }
     }
     
+    func validatePhoneNumber(_ number: String) -> Bool {
+        let phoneRegex = "^[0-9]{11}$"
+        let phonePredicate = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+        isValid = phonePredicate.evaluate(with: number)
+        print("judge\(isValid)")
+        return !isValid
+    }
+    
+    
+    
 }
 
-struct EnterBeaconButton_Previews: PreviewProvider {
+struct AddBabayPhone_Previews: PreviewProvider {
     static var previews: some View {
-        EnterBeaconView(cloudModel: CloudBeaconModel())
+        AddBabayPhone(babyPhone: BabyPhoneModel())
     }
 }

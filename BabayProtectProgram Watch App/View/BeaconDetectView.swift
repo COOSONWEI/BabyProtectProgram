@@ -72,7 +72,7 @@ struct BeaconDetectView: View {
             print(error.localizedDescription)
         }
         let cloudStore = CloudBeaconModel()
-        cloudStore.saveRecordToCloud(beacon: beaconData, name: beacon)
+        cloudStore.changeBeaconRecordToCloud(beacon: beaconData, name: beacon)
     }
     
     func vibrateWatch() {
