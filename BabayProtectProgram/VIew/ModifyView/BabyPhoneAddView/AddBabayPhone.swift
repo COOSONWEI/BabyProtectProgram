@@ -13,9 +13,12 @@ struct AddBabayPhone: View {
     @Environment(\.managedObjectContext) var context
     
     //宝贝的手机号
-    @StateObject var babyPhone: BabyPhoneModel
+    @State var babyPhoneArry: [DataInfo] = []
+    @ObservedObject var babyPhone = DataInfo()
+
     @State private var phone = ""
     @State private var isValid: Bool = false
+    @State private var enterRight: Bool = false
     
     var body: some View {
         VStack(spacing: 20) {
@@ -46,23 +49,38 @@ struct AddBabayPhone: View {
             .alert(isPresented: $isValid) {
                 Alert(title: Text("提示"),message: Text("手机号输入不规范请重新输入"))
             }
+            .alert(isPresented: $enterRight) {
+                Alert(title: Text("添加成功"),message: Text("目前的手机号为：\(phone)"))
+                }
+                      
+           
         }
         .padding()
     }
     
     func addContacts(phone: String) {
         
-        if phone != "" {
-            
-                babyPhone.babyphone = phone
+            if validatePhoneNumber(phone) {
+                isValid = true
+                enterRight = false
+            }else{
+                babyPhone.firstuse = 0
+                babyPhone.phone = phone
                 // 保存数据
-                UserDefaults.standard.set(babyPhone.babyphone, forKey: "babyPhone")
+                babyPhoneArry = DataManager.readData()
+                for phoneNumber in  babyPhoneArry {
+                    if phoneNumber.phone != babyPhone.phone {
+                        phoneNumber.phone = babyPhone.phone
+                    }
+                }
+                
+                DataManager.writeDate(dataInfoArr: babyPhoneArry)
+                print("添加联系人成功")
+                isValid = false
+                enterRight = true
+            }
             
-                print(babyPhone.babyphone)
-            
-        }else{
-            isValid = true
-        }
+        
     }
     
     func validatePhoneNumber(_ number: String) -> Bool {
@@ -79,6 +97,6 @@ struct AddBabayPhone: View {
 
 struct AddBabayPhone_Previews: PreviewProvider {
     static var previews: some View {
-        AddBabayPhone(babyPhone: BabyPhoneModel())
+        AddBabayPhone()
     }
 }

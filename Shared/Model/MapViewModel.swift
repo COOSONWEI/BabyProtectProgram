@@ -18,15 +18,23 @@ struct MapLocation {
     var street_name: String
 }
 //最新同步的位置经纬度
-class LastLocation: ObservableObject {
+class LastLocation: ObservableObject,Identifiable {
     @Published var location = MapLocation(latitude: 0.0, longitude: 0.0,street_name: "上海南站")
+    @Published var lastCoordinate = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), latitudinalMeters: 0.5, longitudinalMeters: 0.5)
 }
 
 //获取iCloud上的数据(遵循ObservableObject协议)
 class LocationCloudStroe: ObservableObject {
     //公开发布数据
     @Published var locationRecord: [CKRecord] = []
-    @StateObject var lastLocation = LastLocation()
+    @Published var lastLocation: MKCoordinateRegion =  MKCoordinateRegion()
+    
+    func fetchPolling() {
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
+            self.fetchLocation()
+        }
+        
+    }
     
     //匹配数据从云端
     func fetchRecord() async throws {
@@ -41,26 +49,49 @@ class LocationCloudStroe: ObservableObject {
         for record in results.matchResults {
             self.locationRecord.append(try record.1.get())
         }
-        
-        let sortedRecords = locationRecord.sorted { (record1, record2) -> Bool in
+
+        //将最新的数据存储到另一个数组中（通过主线程来完成该操作）
+        DispatchQueue.main.async {
+            self.locationRecord.sort(by: { (record1, record2) -> Bool in
                 guard let creationDate1 = record1.creationDate,
                       let creationDate2 = record2.creationDate else {
                     return false
                 }
-                return creationDate1 > creationDate2
-            }
-        //获取按时间排好序的位置信息
-        self.locationRecord = sortedRecords
-        
-        //将最新的数据存储到另一个数组中（通过主线程来完成该操作）
-        DispatchQueue.main.async {
-            self.lastLocation.location.latitude = self.locationRecord[0].object(forKey: "latitude") as! CLLocationDegrees
-            self.lastLocation.location.longitude = self.locationRecord[0].object(forKey: "longitude") as! CLLocationDegrees
-            self.lastLocation.location.street_name = self.locationRecord[0].object(forKey: "street_name") as! String
+                return creationDate1 > creationDate2 })
+           
             
+            self.lastLocation = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Double(self.locationRecord[0].object(forKey: "latitude") as! String) ?? 0.0, longitude: Double(self.locationRecord[0].object(forKey: "longitude") as! String) ?? 0.0), latitudinalMeters: 0.5, longitudinalMeters: 0.5)
         }
         print("lalllalalallal")
     }
+    
+   
+    
+    func fetchLocation() {
+        let cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
+        let publicDatabase = cloudContainer.publicCloudDatabase
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "CoreLocations", predicate: predicate)
+        
+        publicDatabase.perform(query, inZoneWith: nil) { (results, error) in
+                if let error = error {
+                    print("Error fetching data from CloudKit: \(error.localizedDescription)")
+                } else if let results = results {
+                    DispatchQueue.main.async {
+                        self.locationRecord = results
+                        print("lalllalalallal")
+                        self.locationRecord.sort(by: { (record1, record2) -> Bool in
+                            guard let creationDate1 = record1.creationDate, let creationDate2 = record2.creationDate else {
+                                return false
+                            }
+                            return creationDate1 > creationDate2
+                        })
+                        self.lastLocation = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Double(self.locationRecord[0].object(forKey: "latitude") as! String) ?? 0.0, longitude: Double(self.locationRecord[0].object(forKey: "longitude") as! String) ?? 0.0), latitudinalMeters: 0.5, longitudinalMeters: 0.5)
+                    }
+                }
+            }
+    }
+    
     //发布数据存储到iCloud中
     func saveRecordToCloud(location: LastLocation) {
 //        print("contact Name: \(contact.name)")

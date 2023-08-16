@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 //添加最近的位置的情况
 struct LocationView: View {
-//    @StateObject var locationModel: LocationModel
+    @StateObject var locationModel: LastLocation
+    @State private var locationName = ""
     var body: some View {
         ZStack{
             Rectangle()
@@ -39,6 +41,21 @@ struct LocationView: View {
                 Button {
                     withAnimation {
 //                        locationModel.checkLocationAuthorization()
+                        
+                        let geocoder = CLGeocoder()
+                        let location = CLLocation(latitude: locationModel.location.latitude, longitude: locationModel.location.longitude)
+                        geocoder.reverseGeocodeLocation(location) { placemarks, error in
+                            if let placemark = placemarks?.first {
+                                if let street = placemark.thoroughfare, let city = placemark.locality {
+                                    self.locationName = "\(street), \(city)"
+                                    print("locationName\(street),\(city)")
+                                } else {
+                                    self.locationName = "Location Not Found"
+                                }
+                            } else {
+                                self.locationName = "Location Not Found"
+                            }
+                        }
                     }
                 } label: {
                     Text("刷新")
@@ -56,6 +73,6 @@ struct LocationView: View {
 
 struct LocationView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationView()
+        LocationView(locationModel: LastLocation())
     }
 }

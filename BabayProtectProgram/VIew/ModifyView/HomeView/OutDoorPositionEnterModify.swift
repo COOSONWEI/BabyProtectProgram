@@ -43,8 +43,6 @@ struct OutDoorPositionEnterModify: View {
         .fullScreenCover(isPresented: $enterOutDoor) {
             OutDoorMainView()
         }
-
-       
     }
 }
 

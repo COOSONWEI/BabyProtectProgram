@@ -96,6 +96,8 @@
 		2F8BF8852A8CD7D10036FFF1 /* SendLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8842A8CD7D10036FFF1 /* SendLocation.swift */; };
 		2F8BF8862A8CDA700036FFF1 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AAB2A879952005248EF /* LocationModel.swift */; };
 		2F8BF8872A8CDDA90036FFF1 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AAB2A879952005248EF /* LocationModel.swift */; };
+		2F8BF8892A8D229A0036FFF1 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8882A8D229A0036FFF1 /* DataManager.swift */; };
+		2F8BF88B2A8D22D40036FFF1 /* DataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF88A2A8D22D40036FFF1 /* DataInfo.swift */; };
 		2FBA3EDE2A8B7173005CC22B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
 		2FBA3EE02A8B7354005CC22B /* ICloudTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */; };
 		2FBA3EE12A8B78E2005CC22B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
@@ -207,6 +209,8 @@
 		2F8BF87E2A8CBEF80036FFF1 /* CallContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallContact.swift; sourceTree = "<group>"; };
 		2F8BF8812A8CC9FD0036FFF1 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		2F8BF8842A8CD7D10036FFF1 /* SendLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendLocation.swift; sourceTree = "<group>"; };
+		2F8BF8882A8D229A0036FFF1 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		2F8BF88A2A8D22D40036FFF1 /* DataInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInfo.swift; sourceTree = "<group>"; };
 		2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCloudStoreModel.swift; sourceTree = "<group>"; };
 		2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudTest.swift; sourceTree = "<group>"; };
 		2FBA3EE22A8B7B4B005CC22B /* BabayProtectProgram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BabayProtectProgram.entitlements; sourceTree = "<group>"; };
@@ -541,6 +545,8 @@
 			isa = PBXGroup;
 			children = (
 				2F8BF87C2A8CB94E0036FFF1 /* BabyPhoneModel.swift */,
+				2F8BF8882A8D229A0036FFF1 /* DataManager.swift */,
+				2F8BF88A2A8D22D40036FFF1 /* DataInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -693,8 +699,10 @@
 				2F8BF86E2A8C11E80036FFF1 /* OtherCard .swift in Sources */,
 				2F59B07E2A864D11006DA2C8 /* HomeBGView.swift in Sources */,
 				2F4BDC382A88AD0700D9B447 /* EmotionCard.swift in Sources */,
+				2F8BF88B2A8D22D40036FFF1 /* DataInfo.swift in Sources */,
 				2F026AB52A886DC2005248EF /* DangerGeofenceCard.swift in Sources */,
 				2F026AA42A8752C7005248EF /* OutDoorMainView.swift in Sources */,
+				2F8BF8892A8D229A0036FFF1 /* DataManager.swift in Sources */,
 				2F8BF8652A8C082A0036FFF1 /* ShoppingView.swift in Sources */,
 				2FBA3EE12A8B78E2005CC22B /* HealthCloudStoreModel.swift in Sources */,
 				2F59B0692A8621CD006DA2C8 /* HealthModel.swift in Sources */,

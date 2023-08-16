@@ -12,9 +12,10 @@ struct ConectWatchView: View {
     @State var enterAddDangerous = false
     
     @State var enterIndoorDangerous = false
-    @StateObject var babyPhone = BabyPhoneModel()
     
     @State private var enterAddBabyphone = false
+    @State var dataInfo = [DataInfo]()
+    @State var phone = ""
     var body: some View {
         ZStack{
             //背景
@@ -67,7 +68,8 @@ struct ConectWatchView: View {
                 }
                 
                 Button {
-                    callContact(babyPhone.babyphone)
+                    readData()
+                    callContact(phone)
                 } label: {
                     Image(systemName: "phone.circle")
                         .resizable()
@@ -186,7 +188,9 @@ struct ConectWatchView: View {
         }
         .onAppear {
             // 检测匹配状态并更新变量
-            
+            if DataManager.isFirstRuning() {
+                print("第一次运行")
+            }
         }
         .fullScreenCover(isPresented: $enterAddDangerous) {
             AddDangerView()
@@ -195,8 +199,16 @@ struct ConectWatchView: View {
             AddInDoorDangerousView()
         }
         .sheet(isPresented: $enterAddBabyphone) {
-            AddBabayPhone(babyPhone: babyPhone)
+            AddBabayPhone()
                 .presentationDetents([.medium,.large])
+        }
+    }
+    
+    private func readData() {
+        //读孩子的电话数据
+        dataInfo = DataManager.readData()
+        for info in dataInfo {
+            phone = info.phone
         }
     }
 }
