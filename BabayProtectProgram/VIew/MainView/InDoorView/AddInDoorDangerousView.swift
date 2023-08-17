@@ -20,8 +20,11 @@ struct AddInDoorDangerousView: View {
                 VStack{
                     Image("InDoorDangerousBG")
                         .resizable()
+                        .scaledToFit()
                         .edgesIgnoringSafeArea(.top)
-                        .fixedSize()
+                        .edgesIgnoringSafeArea(.leading)
+                        .edgesIgnoringSafeArea(.trailing)
+                    
                     Spacer()
                 }
                 
@@ -94,7 +97,15 @@ struct AddInDoorDangerousView: View {
             }
         }
         .fullScreenCover(isPresented: $back) {
-            HomeView()
+            CustomTabView()
+        }
+        .refreshable {
+            do{
+                try await cloudBeaconModel.fetchBeacons()
+                
+            }catch{
+                print("loading Error")
+            }
         }
     }
 }

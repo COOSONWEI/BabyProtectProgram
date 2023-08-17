@@ -45,7 +45,6 @@ class CloudPushNotificationViewModel:  ObservableObject {
         
     }
     
-    
     //订阅通知
     func subscribeToNotificatoin() {
         let predicate = NSPredicate(value: true)
@@ -54,24 +53,23 @@ class CloudPushNotificationViewModel:  ObservableObject {
         
         let notification = CKSubscription.NotificationInfo()
         notification.title = "你的孩子接近危险物品！！！"
-        notification.alertBody = "或许可以打开App给孩子打个电话确认情况！"
+        notification.alertBody = "是否要打开App给孩子打个电话确认情况？"
         notification.soundName = "default"
         
         subscription.notificationInfo = notification
         
-        CKContainer(identifier: "iCloud.com.lsy.shouhu").publicCloudDatabase.save(subscription) { returnedSubscription, returnedError in
+        CKContainer.default().privateCloudDatabase.save(subscription) { returnedSubscription, returnedError in
             if let error = returnedError {
                 print(error.localizedDescription)
             }else {
                 print("Successful subscribed to notification")
             }
         }
-        
     }
     
     //取消通知
     func unsubscribeToNotification() {
-        CKContainer.default().publicCloudDatabase.delete(withSubscriptionID: "chailds_near_dangerous_objects") { returnedSubscription, returnedError in
+        CKContainer.default().privateCloudDatabase.delete(withSubscriptionID: "chailds_near_dangerous_objects") { returnedSubscription, returnedError in
             if let error = returnedError {
                 print(error.localizedDescription)
             }else {

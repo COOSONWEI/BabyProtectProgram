@@ -17,5 +17,9 @@ func getSampleType(for identifier: String) -> HKSampleType? {
         return categoryType
     }
     
+    if identifier == HKWorkoutTypeIdentifier {
+            return HKObjectType.workoutType()
+        }
+   
     return nil
 }

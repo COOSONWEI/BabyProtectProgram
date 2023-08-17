@@ -21,8 +21,11 @@ struct HealthView: View {
             VStack{
                 Image("DnagerousBG")
                     .resizable()
+                    .scaledToFit()
                     .edgesIgnoringSafeArea(.top)
-                    .fixedSize()
+                    .edgesIgnoringSafeArea(.leading)
+                    .edgesIgnoringSafeArea(.trailing)
+                   
                 Spacer()
             }
             
@@ -48,19 +51,26 @@ struct HealthView: View {
                     }
                     .padding(.leading,30)
                 }
-                HStack{
-                    ExerciseCard()
-                    VStack{
-                        ForEach(healthDataModel.health.prefix(1),id:\.self){ first in
-                            WalkCard(walkStep: first.object(forKey: "walkStep") as! Int )
+               
+                ForEach(healthDataModel.health.prefix(1),id:\.self){ first in
+                    HStack{
+                        ExerciseCard(todayTime:  first.object(forKey: "todayTime") as? Double ?? 0.0, todayCalorie: first.object(forKey: "todayCalorie") as? Double ?? 0.0)
+                        
+                        VStack{
+                            
+                            WalkCard(walkStep: first.object(forKey: "walkStep") as? Int ?? 0)
+                            RunCard(distance: first.object(forKey: "distance") as? Double ?? 0.0)
                         }
-                        RunCard()
                     }
                 }
-                
-                SleepCard()
-                    .padding(.leading,20)
-                    .padding(.trailing,20)
+               
+                        
+                ForEach(healthDataModel.health.prefix(1),id:\.self){ first in
+                    SleepCard(sleepTime: first.object(forKey: "sleepTime") as! Double)
+                        .padding(.leading,20)
+                        .padding(.trailing,20)
+                }
+               
                 
                 MoreInformationList()
                     .padding(.leading,20)
@@ -71,6 +81,9 @@ struct HealthView: View {
                 do {
                         try await healthDataModel.fetchRestaurants()
                         showLoadingIndicator = false
+//                    print("walkStep:\(String(describing: healthDataModel.health[0].object(forKey: "walkStep")))")
+//                    print("sleepTime\(String(describing: healthDataModel.health[0].object(forKey: "sleepTime")))")
+                    
                     } catch {
                         // 在这里处理错误，例如打印错误信息或者显示错误提示给用户
                         print("Error fetching restaurants: \(error)")
@@ -94,12 +107,10 @@ struct HealthView: View {
                 ProgressView()
             }
            
-           
-            
         }
         
         .fullScreenCover(isPresented: $back) {
-            HomeView()
+            CustomTabView()
         }
     }
 }

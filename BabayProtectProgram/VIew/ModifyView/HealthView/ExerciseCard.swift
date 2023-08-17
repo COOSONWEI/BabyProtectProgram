@@ -10,6 +10,9 @@ import SwiftUI
 //MARK: -运动记录
 struct ExerciseCard: View {
     //数据
+    let todayTime: Double
+    let todayCalorie: Double
+    
     var body: some View {
         ZStack{
             Rectangle()
@@ -74,7 +77,7 @@ struct ExerciseCard: View {
                             .frame(width: 90, height: 33.42857, alignment: .topLeading)
                         
                         HStack{
-                            Text("\(0)")
+                            Text("\(String(format: "%.2f", todayTime))")
                                 .font(.system(size: 30))
                                 .minimumScaleFactor(0.2)
                                 .multilineTextAlignment(.trailing)
@@ -85,9 +88,7 @@ struct ExerciseCard: View {
                                 .minimumScaleFactor(0.2)
                                 .multilineTextAlignment(.trailing)
                                 .foregroundColor(.white)
-                            
                         }
-                        
                     }
                     
                     VStack(alignment: .leading){
@@ -99,7 +100,7 @@ struct ExerciseCard: View {
                             .frame(width: 90, height: 33.42857, alignment: .topLeading)
                         
                         HStack{
-                            Text("\(0)")
+                            Text("\(String(format: "%.2f", todayCalorie))")
                                 .font(.system(size: 30))
                                 .minimumScaleFactor(0.2)
                                 .multilineTextAlignment(.trailing)
@@ -117,10 +118,6 @@ struct ExerciseCard: View {
                 }
                 .padding(.top,30)
                
-                
-                
-                
-                
             }
             .padding(.leading)
         }
@@ -131,6 +128,6 @@ struct ExerciseCard: View {
 
 struct ExerciseCard_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseCard()
+        ExerciseCard(todayTime: 0.0, todayCalorie: 0.0)
     }
 }

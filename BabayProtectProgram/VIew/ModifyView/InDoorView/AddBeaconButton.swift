@@ -12,6 +12,7 @@ struct AddBeaconButton: View {
     
     @State private var enterAddBeacon = false
     @StateObject var cloudModel: CloudBeaconModel
+
     
     var body: some View {
         Button {

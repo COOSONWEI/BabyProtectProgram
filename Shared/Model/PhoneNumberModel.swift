@@ -34,8 +34,9 @@ class Contacts: ObservableObject {
     
     func fetchContacts() async throws {
         // Fetch data using Convenience API
-        let cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
-        let publicDatabase = cloudContainer.publicCloudDatabase
+        var cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
+        
+        let publicDatabase = cloudContainer.privateCloudDatabase
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "ContactPerson", predicate: predicate)
         
@@ -67,7 +68,7 @@ class Contacts: ObservableObject {
         record.setValue(contact.phoneNumber, forKey: "phone")
         
         // Get the Public iCloud Database
-        let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").publicCloudDatabase
+        let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").privateCloudDatabase
 
         // Save the record to iCloud
         publicDatabase.save(record, completionHandler: { (record, error) -> Void  in

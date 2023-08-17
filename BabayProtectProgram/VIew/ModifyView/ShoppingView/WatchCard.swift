@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct WatchCard: View {
+    
+    let urlString = "https://www.apple.com.cn/apple-watch-series-8/"
+    
     var body: some View {
         ZStack{
            Rectangle()
@@ -28,7 +31,9 @@ struct WatchCard: View {
                     .foregroundColor(.black)
                 
                 Button {
-                    
+                    if let url = URL(string: urlString) {
+                                        UIApplication.shared.open(url)
+                    }
                 } label: {
                     Text("点击购买")
                         .foregroundColor(.white)

@@ -6,3 +6,6 @@
 //
 
 import Foundation
+
+//判断手表和手机是否已经匹配
+

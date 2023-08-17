@@ -9,7 +9,31 @@ import SwiftUI
 
 struct ShoppingView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            VStack{
+                HStack{
+                    Text("SHOUHU")
+                        .font(.system(size: 20))
+                        .fontWeight(.bold)
+                       .multilineTextAlignment(.center)
+                       .foregroundColor(Color(red: 0.13, green: 0.19, blue: 0.25))
+                      .frame(width: 94, alignment: .top)
+                    Spacer()
+                }
+                .padding(.leading)
+            }
+            
+            WatchShoppingCard()
+            HStack{
+                WatchCard()
+                VStack{
+                    BeaconShoppingView()
+                    OtherCard_()
+                }
+            }
+            .padding(.bottom)
+            Spacer()
+        }
     }
 }
 

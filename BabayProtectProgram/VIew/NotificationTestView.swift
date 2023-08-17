@@ -37,39 +37,7 @@ struct NotificationTestView: View {
             }
 
         }
-        .onChange(of: scenePhase, perform: { phase in
-                        switch phase {
-                            case .active:
-                            
-                           
-                            
-                            healthModel.fetchHealthdata()
-                            
-                            healthCount =  healthModel.count
-                            
-                            print("healthCount:\(healthCount)")
-                            
-                            case .inactive:
-                                print("Inactive")
-                            case .background:
-                            
-                            healthModel.startFetch()
-                            
-                            Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
-                                print("I am Runing")
-                                if healthCount != healthModel.count {
-                                    print("Send a notification")
-                                    vm.sendNotification(title: "这是一个通知", subtitle: "测试用的", body: "具体内容不知道了")
-                                }
-                                healthCount = healthModel.count
-
-                            }
-                            
-                                print("Background")
-                            default:
-                                print("Unknown scenephase")
-                        }
-                    })
+    
        
     }
 }

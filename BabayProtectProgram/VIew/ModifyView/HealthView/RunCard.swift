@@ -11,6 +11,7 @@ import SwiftUI
 
 struct RunCard: View {
     //数据
+    let distance: Double
     
     var body: some View {
         ZStack{
@@ -56,14 +57,14 @@ struct RunCard: View {
                             .multilineTextAlignment(.trailing)
                             .foregroundColor(Color(red: 1, green: 0.82, blue: 0.59))
                         HStack{
-                            Text("0")
+                            Text("\(String(format: "%.2f", distance))")
                                 .font(.system(size: 30))
                                 .fontWeight(.bold)
                                 .minimumScaleFactor(0.2)
                                 .multilineTextAlignment(.trailing)
                                 .foregroundColor(Color(red: 1, green: 0.82, blue: 0.59))
                             
-                            Text("米")
+                            Text("公里")
                                 .font(.system(size: 15))
                                 .fontWeight(.bold)
                                 .minimumScaleFactor(0.2)
@@ -90,6 +91,6 @@ struct RunCard: View {
 
 struct RunCard_Previews: PreviewProvider {
     static var previews: some View {
-        RunCard()
+        RunCard(distance: 0)
     }
 }

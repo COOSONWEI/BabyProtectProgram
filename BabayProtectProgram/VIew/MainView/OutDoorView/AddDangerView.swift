@@ -13,15 +13,17 @@ struct AddDangerView: View {
     @StateObject var phoneModel: Contacts = Contacts()
     
     var body: some View {
-        
         ZStack {
             VStack{
                     ZStack {
                         VStack{
                             Image("DnagerousBG")
                                 .resizable()
+                                .scaledToFit()
                                 .edgesIgnoringSafeArea(.top)
-                                .fixedSize()
+                                .edgesIgnoringSafeArea(.leading)
+                                .edgesIgnoringSafeArea(.trailing)
+                              
                             Spacer()
                         }
                         
@@ -105,7 +107,7 @@ struct AddDangerView: View {
                     isLoading = true
                 })
                 .fullScreenCover(isPresented: $back) {
-                    HomeView()
+                    CustomTabView()
             }
             
             if isLoading {

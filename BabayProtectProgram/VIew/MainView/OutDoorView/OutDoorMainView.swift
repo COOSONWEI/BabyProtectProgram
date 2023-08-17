@@ -19,7 +19,7 @@ struct OutDoorMainView: View {
     
     @State private var selectedPlace: MKPointAnnotation?
     @State private var showSettings = false
-    
+    @State private var isNill = false
     //it's test data
     var locations = [
             Location(name: "Location 1", coordinate: CLLocationCoordinate2D(latitude: 31.145506764721492, longitude: 121.31609839130479)),
@@ -31,9 +31,12 @@ struct OutDoorMainView: View {
             Map(coordinateRegion: $lastLocation.lastCoordinate, interactionModes: .all, showsUserLocation: true, userTrackingMode: .none, annotationItems: locations) { item in
               
                 MapMarker(coordinate: item.coordinate,tint: .pink)
-
+                
             }
             .ignoresSafeArea()
+            .alert(isPresented: $isNill) {
+                Alert(title: Text("提示"), message: Text("请在Watch端打开“守护”App进行第一次数据同步"))
+            }
             
 //            Map(coordinateRegion: $lastLocation.lastCoordinate, showsUserLocation: true, userTrackingMode: .constant(.follow), annotations: [])
 //                        .onAppear {
@@ -80,9 +83,14 @@ struct OutDoorMainView: View {
         .task {
             do {
                 try await locationVM.fetchRecord()
-                lastLocation.lastCoordinate = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Double(locationVM.locationRecord[0].object(forKey: "latitude") as! String) ?? 0.0, longitude: Double(locationVM.locationRecord[0].object(forKey: "longitude") as! String) ?? 0.0), latitudinalMeters: 0.5, longitudinalMeters: 0.5)
-                print( "lastLocation.lastCoordinate\(lastLocation.lastCoordinate)")
-                print("loading successful")
+                if locationVM.locationRecord.count < 1 {
+                    isNill = true
+                }else{
+                    lastLocation.lastCoordinate = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Double(locationVM.locationRecord[0].object(forKey: "latitude") as! String) ?? 0.0, longitude: Double(locationVM.locationRecord[0].object(forKey: "longitude") as! String) ?? 0.0), latitudinalMeters: 0.5, longitudinalMeters: 0.5)
+                    print( "lastLocation.lastCoordinate\(lastLocation.lastCoordinate)")
+                    print("loading successful")
+                }
+                
             } catch {
                 print("loading false")
             }
@@ -91,7 +99,7 @@ struct OutDoorMainView: View {
             locationVM.fetchPolling()
         })
         .fullScreenCover(isPresented: $back) {
-            HomeView()
+            CustomTabView()
         }
     }
         

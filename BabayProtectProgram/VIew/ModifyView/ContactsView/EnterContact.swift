@@ -9,7 +9,6 @@ import SwiftUI
 
 //添加联系人界面(同步到watch端)
 struct EnterContact: View {
-    
     //添加上下文存入CoreData
     @Environment(\.managedObjectContext) var context
     //联系人数据
@@ -18,12 +17,10 @@ struct EnterContact: View {
     @State private var name: String = ""
     @State private var phoneNumber: String = ""
     @State var isFalseEnter = false
-    
     @State private var isValid: Bool = false
     
     var body: some View {
         VStack(spacing: 20) {
-            
             Image(systemName: "phone.fill")
                 .font(.largeTitle)
                 .foregroundColor(.pink.opacity(0.2))
@@ -57,6 +54,10 @@ struct EnterContact: View {
             .alert(isPresented: $isValid) {
                 Alert(title: Text("提示"),message: Text("名称或手机号输入不规范请重新输入"))
             }
+            .alert(isPresented: $isFalseEnter) {
+                Alert(title: Text("提示"),message: Text("添加联系人成功"))
+            }
+            
         }
         .padding()
     }
@@ -71,9 +72,11 @@ struct EnterContact: View {
                 contactsModel.phoneNumber = phone
                 let cloudStore = Contacts()
                 cloudStore.saveRecordToCloud(contact: contactsModel)
+                isFalseEnter = true
             }
         }else{
-            isValid = true
+            isValid = false
+            isFalseEnter = false
         }
     }
     
@@ -84,8 +87,6 @@ struct EnterContact: View {
         isValid = phonePredicate.evaluate(with: number)
         return isValid
     }
-    
-    
 }
 
 struct EnterContact_Previews: PreviewProvider {

@@ -10,13 +10,14 @@ import SwiftUI
 struct ConectWatchView: View {
     
     @State var enterAddDangerous = false
-    
     @State var enterIndoorDangerous = false
-    
     @State private var enterAddBabyphone = false
+    
     @State var dataInfo = [DataInfo]()
     @State var phone = ""
     @State private var notAddPhone = false
+    @State private var isNill = false
+    
     var body: some View {
         ZStack{
             //背景
@@ -191,10 +192,19 @@ struct ConectWatchView: View {
                 .padding(.trailing,30)
                 
                 Spacer()
-                
             }
-            
         }
+        .alert(isPresented: $isNill) {
+            Alert(title: Text("提示"), message: Text("请在Watch端打开“守护”App进行第一次数据同步"))
+        }
+        .onAppear(perform: {
+            if DataManager.isFirstRuning() {
+                print("第一次运行程序")
+                isNill = true
+            }else{
+                isNill = false
+            }
+        })
         .fullScreenCover(isPresented: $enterAddDangerous) {
             AddDangerView()
         }

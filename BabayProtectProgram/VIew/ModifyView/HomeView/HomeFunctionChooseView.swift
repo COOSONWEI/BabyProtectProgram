@@ -13,7 +13,7 @@ struct HomeFunctionChooseView: View {
             HStack(spacing: 33){
                 OutDoorPositionEnterModify()
                 HealthEnterView()
-                InDoorEnterView()
+//                InDoorEnterView()
             }
         }
     }

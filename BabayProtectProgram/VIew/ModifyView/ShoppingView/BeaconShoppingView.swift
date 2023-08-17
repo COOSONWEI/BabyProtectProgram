@@ -25,11 +25,9 @@ struct BeaconShoppingView: View {
                        Image("Beacons")
                         .resizable()
                         .fixedSize()
-                        
                 }
-                    
+                
             }
-            
             VStack(alignment: .leading){
                 Text("蓝牙信标")
                     .font(.system(size: 7.48755))
@@ -41,17 +39,18 @@ struct BeaconShoppingView: View {
                     .fontWeight(.bold)
                     .foregroundColor(.black)
                 
-                Button {
-                    
-                } label: {
-                    Text("点击购买")
-                        .foregroundColor(.white)
-                        .minimumScaleFactor(0.2)
-                        .padding(1)
-                }
-                .background(.blue)
-                .cornerRadius(5)
-                .frame(maxWidth: 32, maxHeight: 12)
+//                Button {
+//
+//                } label: {
+//                    Text("点击购买")
+//                        .foregroundColor(.white)
+//                        .minimumScaleFactor(0.2)
+//                        .padding(1)
+//                }
+//                .background(.blue)
+//                .cornerRadius(5)
+//                .frame(maxWidth: 32, maxHeight: 12)
+                
                 Spacer()
             }
             .padding(.top)

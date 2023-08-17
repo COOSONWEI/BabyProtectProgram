@@ -26,7 +26,7 @@ class CloudBeaconModel: ObservableObject {
     func fetchBeacons() async throws {
         // Fetch data using Convenience API
         let cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
-        let publicDatabase = cloudContainer.publicCloudDatabase
+        let publicDatabase = cloudContainer.privateCloudDatabase
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "Beacons", predicate: predicate)
         
@@ -56,7 +56,7 @@ class CloudBeaconModel: ObservableObject {
         record.setValue(1, forKey: "near")
         
         // Get the Public iCloud Database
-        let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").publicCloudDatabase
+        let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").privateCloudDatabase
         
         // Save the record to iCloud
         publicDatabase.save(record, completionHandler: { (record, error) -> Void  in
@@ -75,7 +75,7 @@ class CloudBeaconModel: ObservableObject {
     func updateBeaconRecord(beaconName: String) async throws {
         // Fetch data using Convenience API
         let cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
-        let publicDatabase = cloudContainer.publicCloudDatabase
+        let publicDatabase = cloudContainer.privateCloudDatabase
         
         // 构建查询谓词
         let predicate = NSPredicate(format: "beaconsName == %@", beaconName)
@@ -109,7 +109,7 @@ class CloudBeaconModel: ObservableObject {
         record.setValue(0, forKey: "near")
         
         // Get the Public iCloud Database
-        let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").publicCloudDatabase
+        let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").privateCloudDatabase
         
         // Save the record to iCloud
         publicDatabase.save(record, completionHandler: { (record, error) -> Void  in

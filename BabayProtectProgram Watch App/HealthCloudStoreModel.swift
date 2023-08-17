@@ -13,7 +13,7 @@ import CloudKit
 class HealthiCloudStore: ObservableObject {
     
     @Published var health: [CKRecord] = []
-    @Published var count: Int = 0
+    @Published var healthData = HealthModel()
     
     func startFetch()  {
             // 创建定时器，每隔一段时间触发一次查询操作
@@ -26,8 +26,8 @@ class HealthiCloudStore: ObservableObject {
     
      func fetchRestaurants() async throws {
         // Fetch data using Convenience API
-        let cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
-        let publicDatabase = cloudContainer.publicCloudDatabase
+         let cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
+        let publicDatabase = cloudContainer.privateCloudDatabase
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "HealthData", predicate: predicate)
         
@@ -38,7 +38,7 @@ class HealthiCloudStore: ObservableObject {
         }
         
         
-        print("lalllalalallal")
+         print("lalllalalallal:\(health.count)")
         DispatchQueue.main.async {
                 self.health.sort(by: { (record1, record2) -> Bool in
                     guard let creationDate1 = record1.creationDate, let creationDate2 = record2.creationDate else {
@@ -46,14 +46,13 @@ class HealthiCloudStore: ObservableObject {
                     }
                     return creationDate1 > creationDate2
                 })
-                self.count = self.health.count
-            }
+        }
     }
     
     func fetchHealthdata() {
        // Fetch data using Convenience API
-       let cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
-       let publicDatabase = cloudContainer.publicCloudDatabase
+        let cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
+       let publicDatabase = cloudContainer.privateCloudDatabase
        let predicate = NSPredicate(value: true)
        let query = CKQuery(recordType: "HealthData", predicate: predicate)
        
@@ -70,7 +69,7 @@ class HealthiCloudStore: ObservableObject {
                             }
                             return creationDate1 > creationDate2
                         })
-                        self.count = self.health.count
+                        print("health:(\(self.health)")
                     }
                 }
             }
@@ -79,16 +78,20 @@ class HealthiCloudStore: ObservableObject {
    
     
     func saveRecordToCloud(health: HealthModel) {
-
+        
         // Prepare the record to save
         let record = CKRecord(recordType: "HealthData")
         record.setValue(health.walkStep, forKey: "walkStep")
-//        record.setValue(health.distance, forKey: "distance")
-//        record.setValue(health.sleepTime, forKey: "sleepTime")
-//        record.setValue(health.heartRate, forKey: "heartRate")
-
+        record.setValue(health.distance, forKey: "distance")
+        record.setValue(health.sleepTime, forKey: "sleepTime")
+        record.setValue(health.heartRate, forKey: "heartRate")
+        record.setValue(health.RestingHeartRate, forKey: "restingHeartRate")
+        record.setValue(health.todayCalorie, forKey: "todayCalorie")
+        record.setValue(health.todayTime, forKey: "todayTime")
+        
+        
         // Get the Public iCloud Database
-        let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").publicCloudDatabase
+        let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").privateCloudDatabase
 
         // Save the record to iCloud
         publicDatabase.save(record, completionHandler: { (record, error) -> Void  in
@@ -96,8 +99,10 @@ class HealthiCloudStore: ObservableObject {
             if error != nil {
                 print("无法完成保存")
                 print(error.debugDescription)
+            }else{
+                print("健康数据储存成功")
             }
-
+            
             // Remove temp file
            
         })

@@ -10,6 +10,7 @@ import SwiftUI
 //MARK: -睡眠质量
 struct SleepCard: View {
     //数据
+    let sleepTime: Double
     
     var body: some View {
         
@@ -45,7 +46,7 @@ struct SleepCard: View {
                       .foregroundColor(.white)
                     Spacer()
                     HStack(alignment: .center){
-                        Text("11")
+                        Text("\(Int(sleepTime)/60/60)")
                             .font(.system(size: 28))
                             .fontWeight(.bold)
                           .kerning(3)
@@ -61,7 +62,7 @@ struct SleepCard: View {
                           .multilineTextAlignment(.trailing)
                           .foregroundColor(.white)
                         
-                        Text("4")
+                        Text("\(Int(sleepTime) % 60)")
                             .font(.system(size: 28))
                             .fontWeight(.bold)
                           .kerning(3)
@@ -94,6 +95,6 @@ struct SleepCard: View {
 
 struct SleepCard_Previews: PreviewProvider {
     static var previews: some View {
-        SleepCard()
+        SleepCard(sleepTime: 10.0)
     }
 }

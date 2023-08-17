@@ -17,6 +17,7 @@ struct EnterBeaconView: View {
     @State private var name: String = ""
     
     @State private var isValid: Bool = false
+    @State private var isFalseEnter = false
     
     var body: some View {
         VStack(spacing: 20) {
@@ -46,6 +47,10 @@ struct EnterBeaconView: View {
             .alert(isPresented: $isValid) {
                 Alert(title: Text("提示"),message: Text("信标名称输入不规范请重新输入"))
             }
+            .alert(isPresented: $isFalseEnter) {
+                Alert(title: Text("提示"),message: Text("信标添加成功"))
+            }
+            
         }
         .padding()
     }
@@ -57,9 +62,11 @@ struct EnterBeaconView: View {
                 contactsModel.beaconName = Beacon(name: name)
             
                 let cloudStore = CloudBeaconModel()
-               cloudStore.saveNewBeaconToCloud(beaconModel: contactsModel)
+                cloudStore.saveNewBeaconToCloud(beaconModel: contactsModel)
+                isFalseEnter = true
         }else{
             isValid = true
+            isFalseEnter = false
         }
     }
     

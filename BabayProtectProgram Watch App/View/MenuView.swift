@@ -16,6 +16,8 @@ struct MenuView: View {
     @StateObject var locationModel: LocationModel
     @StateObject var locationCloudStroe = LocationCloudStroe()
     
+    @StateObject var healehCloudStore = HealthiCloudStore()
+    
     @State var isContain = false
     var model = ViewModelWatch()
     
@@ -58,22 +60,22 @@ struct MenuView: View {
                         .frame(width: 75, height:75)
                     }
                    
-                    HStack(spacing:18){
-                        NavigationLink {
-                           
-                        } label: {
-                            MenuRow(image: "Message")
-                        }
-                        .frame(width: 75, height:75)
-
-                        NavigationLink {
-                            
-                        } label: {
-                           MenuRow(image: "CallFast")
-                        }
-                        .frame(width: 75, height:75)
-                        
-                    }
+//                    HStack(spacing:18){
+//                        NavigationLink {
+//
+//                        } label: {
+//                            MenuRow(image: "Message")
+//                        }
+//                        .frame(width: 75, height:75)
+//
+//                        NavigationLink {
+//
+//                        } label: {
+//                           MenuRow(image: "CallFast")
+//                        }
+//                        .frame(width: 75, height:75)
+//
+//                    }
                 }
                 .padding(.top)
             }
@@ -89,6 +91,7 @@ struct MenuView: View {
             Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { tiemr in
                 sendLocationData()
             }
+           sendHealthData()
         }
     }
     
@@ -102,6 +105,22 @@ struct MenuView: View {
         locationCloudStore.saveRecordToCloud(location: locations)
         print("send location data")
         
+    }
+    
+    func sendHealthData() {
+        let healthData = HealthModel()
+        healthData.walkStep = healthModel.walkStep
+        healthData.distance = healthModel.distance
+        healthData.heartRate = healthModel.heartRate
+        healthData.RestingHeartRate = healthModel.RestingHeartRate
+        healthData.sleepTime = healthModel.sleepTime
+        healthData.todayCalorie = healthModel.todayCalorie
+        healthData.todayTime = healthModel.todayTime
+        
+        let healthCloudStore = HealthiCloudStore()
+        healthCloudStore.saveRecordToCloud(health: healthData)
+        print("send health data")
+        print(" \(healthData.walkStep),\(healthData.distance ),\(healthData.heartRate  ),\(healthData.RestingHeartRate ),\(healthData.sleepTime),\(healthData.todayCalorie ),\(healthData.todayTime)")
     }
     
 }

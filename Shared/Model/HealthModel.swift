@@ -23,7 +23,7 @@ class HealthModel: NSObject, ObservableObject {
             HKQuantityTypeIdentifier.restingHeartRate.rawValue,
             HKCategoryTypeIdentifier.sleepAnalysis.rawValue,
             HKQuantityTypeIdentifier.distanceWalkingRunning.rawValue,
-            HKQuantityTypeIdentifier.activeEnergyBurned.rawValue
+            HKWorkoutTypeIdentifier
         ]
         
         return typeIdentifiers.compactMap { getSampleType(for: $0) }
@@ -37,7 +37,7 @@ class HealthModel: NSObject, ObservableObject {
     var allDay: Int?
     var consecutiveDay: Int?
     
-    var todayTime: TimeInterval?
+    var todayTime: Double?
     var todayCalorie: Double?
     
     var walkStep: Int?
@@ -50,7 +50,7 @@ class HealthModel: NSObject, ObservableObject {
     var RestingHeartRate: Int?
     
     //MARK: -睡眠数据
-    var sleepTime: TimeInterval = 0.0
+    var sleepTime: Double = 0.0
     
     //MARK: -体温(这个无法获取了)
 //    var bodyTimeperature: Double?
@@ -98,27 +98,38 @@ class HealthModel: NSObject, ObservableObject {
     //获取运动的距离
     func fetchDistancofWalkAndRuning() {
         let distanceType = HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!
-
-        let query = HKSampleQuery(sampleType: distanceType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { query, results, error in
+        
+        // 创建一个今天的日期范围
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        let predicate = HKQuery.predicateForSamples(withStart: today, end: Date(), options: .strictStartDate)
+        
+        let query = HKSampleQuery(sampleType: distanceType, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { query, results, error in
             if let error = error {
                 // 处理错误
                 return
             }
-
+            
             if let distanceSamples = results as? [HKQuantitySample] {
+                var totalDistanceInMeters: Double = 0.0
+                
                 for sample in distanceSamples {
-                    DispatchQueue.main.async {
-                        self.distance = sample.quantity.doubleValue(for: HKUnit.meter())
-                       
-                    }
+                    totalDistanceInMeters += sample.quantity.doubleValue(for: HKUnit.meter())
                 }
-                print("运动距离：\(self.distance) 米")
+                
+                let totalDistanceInKilometers = totalDistanceInMeters / 1000.0
+                let formattedDistance = String(format: "%.2f", totalDistanceInKilometers)
+                
+                DispatchQueue.main.async {
+                    self.distance = Double(formattedDistance)
+                }
+                print("今天的运动距离：\(formattedDistance) 公里")
             }
         }
-
+        
         healthStore.execute(query)
-
     }
+
     
     //获取心率
     func fetchCurrentHeartRate() {
@@ -185,33 +196,66 @@ class HealthModel: NSObject, ObservableObject {
             healthStore.execute(query)
         }
     
+  
+//    func fetchWalkoutTimeAndEnage() {
+//
+//        let workoutType = HKObjectType.workoutType()
+//
+//        let query = HKSampleQuery(sampleType: workoutType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { query, results, error in
+//            if let error = error {
+//                // 处理错误
+//                print("获取错误")
+//                return
+//            }
+//
+//            if let workouts = results as? [HKWorkout] {
+//                for workout in workouts {
+//                    DispatchQueue.main.async {
+//                        self.todayTime = workout.duration
+//                        self.todayCalorie = workout.totalEnergyBurned?.doubleValue(for: HKUnit.calorie()) ?? 0.0
+//
+//                    }
+//                }
+//
+//            }
+//            print("运动时间：\(self.todayTime) 秒")
+//
+//            print("运动消耗：\(self.todayCalorie) 卡路里")
+//        }
+//
+//        healthStore.execute(query)
+//
+//    }
+    
     //获取运动时间和消耗能量
     func fetchWalkoutTimeAndEnage() {
-        
-        let workoutType = HKObjectType.workoutType()
-        
-        let query = HKSampleQuery(sampleType: workoutType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { query, results, error in
-            if let error = error {
-                // 处理错误
-                return
-            }
-            
-            if let workouts = results as? [HKWorkout] {
-                for workout in workouts {
-                    DispatchQueue.main.async {
-                        self.todayTime = workout.duration
-                        self.todayCalorie = workout.totalEnergyBurned?.doubleValue(for: HKUnit.calorie()) ?? 0.0
-                        
-                    }
+            let workoutType = HKObjectType.workoutType()
+
+            let calendar = Calendar.current
+            let startDate = calendar.startOfDay(for: Date())
+            let endDate = calendar.date(byAdding: .day, value: 1, to: startDate)!
+
+            let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
+
+            let query = HKSampleQuery(sampleType: workoutType, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { query, results, error in
+                if let error = error {
+                    // 处理错误
+                    print("获取错误")
+                    return
                 }
-               
+
+                if let workouts = results as? [HKWorkout] {
+                    for workout in workouts {
+                        self.todayTime! += workout.duration
+                        if let energyBurned = workout.totalEnergyBurned {
+                            self.todayCalorie! += energyBurned.doubleValue(for: HKUnit.kilocalorie())
+                        }
+                    }
+                    print("今日运动时间：\(self.todayTime) 秒")
+                    print("今日运动消耗：\(self.todayCalorie) 卡路里")
+                }
             }
-            
-            print("运动时间：\(self.todayTime) 秒")
-            print("运动消耗：\(self.todayCalorie) 卡路里")
+        
+            healthStore.execute(query)
         }
-
-        healthStore.execute(query)
-
-    }
 }

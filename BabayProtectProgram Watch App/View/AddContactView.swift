@@ -13,7 +13,7 @@ struct AddContactView: View {
     @State private var contactNumber: String = ""
     @StateObject var contacts: Contacts
     @State private var isValid: Bool = true
-    
+    @State private var isFalseEnter = false
     var body: some View {
         VStack{
             TextField("请填写联系人的姓名", text: $contactName)
@@ -26,6 +26,9 @@ struct AddContactView: View {
             .alert("提示", isPresented: $isValid) {
                 Text("输入的手机号或联系人姓名规格错误请重新输入")
             }
+            .alert(isPresented: $isFalseEnter) {
+                Alert(title: Text("提示"),message: Text("信标添加成功"))
+            }
         }
         .navigationTitle("添加联系人")
         
@@ -35,6 +38,11 @@ struct AddContactView: View {
         //输入判断
         if validatePhoneNumber(phoneNumber) {
             contacts.contacts.append(PhoneNumber(name: name, phoneNumber: phoneNumber))
+            isValid = false
+            isFalseEnter = true
+        }else{
+            isValid = true
+            isFalseEnter = false
         }
     }
     
