@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F026A942A8671E9005248EF /* BluetoolthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725722A8360A9007A36CE /* BluetoolthModel.swift */; };
 		2F026A972A86726C005248EF /* OutDoorPositionEnterModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026A962A86726C005248EF /* OutDoorPositionEnterModify.swift */; };
 		2F026A982A867475005248EF /* WatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0892A866C84006DA2C8 /* WatchModel.swift */; };
 		2F026A9A2A874723005248EF /* HealthEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026A992A874723005248EF /* HealthEnterView.swift */; };
@@ -57,7 +56,6 @@
 		2F4BDC3A2A88B82500D9B447 /* AddInDoorDangerousView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC392A88B82500D9B447 /* AddInDoorDangerousView.swift */; };
 		2F4BDC3D2A88B8CC00D9B447 /* InDoorDangerousCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC3C2A88B8CC00D9B447 /* InDoorDangerousCard.swift */; };
 		2F4BDC3F2A88C12400D9B447 /* EnterUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC3E2A88C12400D9B447 /* EnterUUID.swift */; };
-		2F4BDC432A88C47800D9B447 /* BeaconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC422A88C47800D9B447 /* BeaconModel.swift */; };
 		2F59B0632A86110D006DA2C8 /* SleepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0622A86110D006DA2C8 /* SleepView.swift */; };
 		2F59B0652A8617C7006DA2C8 /* HealthRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0642A8617C7006DA2C8 /* HealthRunView.swift */; };
 		2F59B0672A861847006DA2C8 /* HealthRestingheartRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0662A861847006DA2C8 /* HealthRestingheartRateView.swift */; };
@@ -72,8 +70,7 @@
 		2F59B07C2A864A4D006DA2C8 /* TextModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B07A2A864A4D006DA2C8 /* TextModify.swift */; };
 		2F59B07E2A864D11006DA2C8 /* HomeBGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B07D2A864D11006DA2C8 /* HomeBGView.swift */; };
 		2F59B07F2A864D11006DA2C8 /* HomeBGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B07D2A864D11006DA2C8 /* HomeBGView.swift */; };
-		2F59B0812A865D03006DA2C8 /* CustomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0802A865D03006DA2C8 /* CustomBar.swift */; };
-		2F59B0822A865D03006DA2C8 /* CustomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0802A865D03006DA2C8 /* CustomBar.swift */; };
+		2F59B0812A865D03006DA2C8 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0802A865D03006DA2C8 /* CustomTabView.swift */; };
 		2F59B0882A866ADA006DA2C8 /* WCSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0872A866ADA006DA2C8 /* WCSessionModel.swift */; };
 		2F8BF85E2A8BB7EA0036FFF1 /* GetBeaconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */; };
 		2F8BF8602A8BE0A20036FFF1 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF85F2A8BE0A20036FFF1 /* NotificationModel.swift */; };
@@ -87,7 +84,6 @@
 		2F8BF8732A8CA7E60036FFF1 /* AddBeaconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8722A8CA7E60036FFF1 /* AddBeaconButton.swift */; };
 		2F8BF8742A8CA8A70036FFF1 /* GetBeaconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */; };
 		2F8BF8762A8CAEDD0036FFF1 /* EnterBeaconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8752A8CAEDD0036FFF1 /* EnterBeaconView.swift */; };
-		2F8BF8772A8CB6760036FFF1 /* BeaconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC422A88C47800D9B447 /* BeaconModel.swift */; };
 		2F8BF87A2A8CB8F20036FFF1 /* AddBabayPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8792A8CB8F20036FFF1 /* AddBabayPhone.swift */; };
 		2F8BF87D2A8CB94E0036FFF1 /* BabyPhoneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF87C2A8CB94E0036FFF1 /* BabyPhoneModel.swift */; };
 		2F8BF87F2A8CBEF80036FFF1 /* CallContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF87E2A8CBEF80036FFF1 /* CallContact.swift */; };
@@ -98,8 +94,11 @@
 		2F8BF8872A8CDDA90036FFF1 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AAB2A879952005248EF /* LocationModel.swift */; };
 		2F8BF8892A8D229A0036FFF1 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8882A8D229A0036FFF1 /* DataManager.swift */; };
 		2F8BF88B2A8D22D40036FFF1 /* DataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF88A2A8D22D40036FFF1 /* DataInfo.swift */; };
+		2F8BF88C2A8D53340036FFF1 /* BeaconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC422A88C47800D9B447 /* BeaconModel.swift */; };
+		2F8BF88D2A8D53350036FFF1 /* BeaconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC422A88C47800D9B447 /* BeaconModel.swift */; };
+		2F8BF88E2A8D53A70036FFF1 /* ICloudTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */; };
+		2F8BF8902A8DAE190036FFF1 /* iPhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF88F2A8DAE190036FFF1 /* iPhoneViewModel.swift */; };
 		2FBA3EDE2A8B7173005CC22B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
-		2FBA3EE02A8B7354005CC22B /* ICloudTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */; };
 		2FBA3EE12A8B78E2005CC22B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -190,7 +189,7 @@
 		2F59B0772A864A01006DA2C8 /* ConectWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConectWatchView.swift; sourceTree = "<group>"; };
 		2F59B07A2A864A4D006DA2C8 /* TextModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModify.swift; sourceTree = "<group>"; };
 		2F59B07D2A864D11006DA2C8 /* HomeBGView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBGView.swift; sourceTree = "<group>"; };
-		2F59B0802A865D03006DA2C8 /* CustomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBar.swift; sourceTree = "<group>"; };
+		2F59B0802A865D03006DA2C8 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		2F59B0872A866ADA006DA2C8 /* WCSessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSessionModel.swift; sourceTree = "<group>"; };
 		2F59B0892A866C84006DA2C8 /* WatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchModel.swift; sourceTree = "<group>"; };
 		2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBeaconModel.swift; sourceTree = "<group>"; };
@@ -211,6 +210,7 @@
 		2F8BF8842A8CD7D10036FFF1 /* SendLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendLocation.swift; sourceTree = "<group>"; };
 		2F8BF8882A8D229A0036FFF1 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		2F8BF88A2A8D22D40036FFF1 /* DataInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInfo.swift; sourceTree = "<group>"; };
+		2F8BF88F2A8DAE190036FFF1 /* iPhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPhoneViewModel.swift; sourceTree = "<group>"; };
 		2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCloudStoreModel.swift; sourceTree = "<group>"; };
 		2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudTest.swift; sourceTree = "<group>"; };
 		2FBA3EE22A8B7B4B005CC22B /* BabayProtectProgram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BabayProtectProgram.entitlements; sourceTree = "<group>"; };
@@ -466,7 +466,7 @@
 				2F59B0732A8649DB006DA2C8 /* ModifyView */,
 				2F026A9F2A874F78005248EF /* MainView */,
 				2F59B0702A86460F006DA2C8 /* HomeView.swift */,
-				2F59B0802A865D03006DA2C8 /* CustomBar.swift */,
+				2F59B0802A865D03006DA2C8 /* CustomTabView.swift */,
 				2F8BF8612A8BF5FF0036FFF1 /* NotificationTestView.swift */,
 			);
 			path = VIew;
@@ -554,6 +554,7 @@
 		2F8BF8802A8CC9E90036FFF1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2F8BF88F2A8DAE190036FFF1 /* iPhoneViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -667,12 +668,11 @@
 				2F8BF8872A8CDDA90036FFF1 /* LocationModel.swift in Sources */,
 				2F8BF87A2A8CB8F20036FFF1 /* AddBabayPhone.swift in Sources */,
 				2F026AB12A87C3C7005248EF /* AddDangerView.swift in Sources */,
-				2F4BDC432A88C47800D9B447 /* BeaconModel.swift in Sources */,
+				2F8BF8902A8DAE190036FFF1 /* iPhoneViewModel.swift in Sources */,
 				2F59B0712A86460F006DA2C8 /* HomeView.swift in Sources */,
 				2F8BF87D2A8CB94E0036FFF1 /* BabyPhoneModel.swift in Sources */,
 				2F07254E2A835FC9007A36CE /* ContentView.swift in Sources */,
 				2F4BDC3F2A88C12400D9B447 /* EnterUUID.swift in Sources */,
-				2F026A942A8671E9005248EF /* BluetoolthModel.swift in Sources */,
 				2F026ABE2A889B3E005248EF /* RunCard.swift in Sources */,
 				2F026AAA2A8773ED005248EF /* LocationView.swift in Sources */,
 				2F026AB72A8870C0005248EF /* Image+Extension.swift in Sources */,
@@ -690,7 +690,7 @@
 				2F8BF8602A8BE0A20036FFF1 /* NotificationModel.swift in Sources */,
 				2F4BDC3A2A88B82500D9B447 /* AddInDoorDangerousView.swift in Sources */,
 				2F4BDC3D2A88B8CC00D9B447 /* InDoorDangerousCard.swift in Sources */,
-				2F59B0812A865D03006DA2C8 /* CustomBar.swift in Sources */,
+				2F59B0812A865D03006DA2C8 /* CustomTabView.swift in Sources */,
 				2F026AB92A887C29005248EF /* HealthView.swift in Sources */,
 				2F07254C2A835FC9007A36CE /* BabayProtectProgramApp.swift in Sources */,
 				2F59B06A2A8621D0006DA2C8 /* PhoneNumberModel.swift in Sources */,
@@ -708,6 +708,7 @@
 				2F59B0692A8621CD006DA2C8 /* HealthModel.swift in Sources */,
 				2F026AC22A889B53005248EF /* SleepCard.swift in Sources */,
 				2F4BDC362A88AC0000D9B447 /* HeartRateCard.swift in Sources */,
+				2F8BF88C2A8D53340036FFF1 /* BeaconModel.swift in Sources */,
 				2F59B0882A866ADA006DA2C8 /* WCSessionModel.swift in Sources */,
 				2F59B0782A864A01006DA2C8 /* ConectWatchView.swift in Sources */,
 				2F026A9A2A874723005248EF /* HealthEnterView.swift in Sources */,
@@ -726,12 +727,10 @@
 				2F8BF8832A8CD7A20036FFF1 /* MapViewModel.swift in Sources */,
 				2F0725962A84ACDF007A36CE /* HealthModel.swift in Sources */,
 				2F07258E2A83BE32007A36CE /* callContact.swift in Sources */,
-				2F59B0822A865D03006DA2C8 /* CustomBar.swift in Sources */,
 				2F0725832A837C9A007A36CE /* CallModifyView.swift in Sources */,
 				2F0725922A83D179007A36CE /* HealthView.swift in Sources */,
 				2F0725762A8365C1007A36CE /* MenuView.swift in Sources */,
 				2FBA3EDE2A8B7173005CC22B /* HealthCloudStoreModel.swift in Sources */,
-				2FBA3EE02A8B7354005CC22B /* ICloudTest.swift in Sources */,
 				2F07257B2A836AFB007A36CE /* MenuRow.swift in Sources */,
 				2F0725852A83802C007A36CE /* PhoneNumberModel.swift in Sources */,
 				2F0725602A835FCB007A36CE /* ContentView.swift in Sources */,
@@ -747,10 +746,11 @@
 				2F026A982A867475005248EF /* WatchModel.swift in Sources */,
 				2F07255E2A835FCB007A36CE /* BabayProtectProgramApp.swift in Sources */,
 				2F8BF85E2A8BB7EA0036FFF1 /* GetBeaconModel.swift in Sources */,
-				2F8BF8772A8CB6760036FFF1 /* BeaconModel.swift in Sources */,
+				2F8BF88D2A8D53350036FFF1 /* BeaconModel.swift in Sources */,
 				2F59B0672A861847006DA2C8 /* HealthRestingheartRateView.swift in Sources */,
 				2F0725732A8360A9007A36CE /* BluetoolthModel.swift in Sources */,
 				2F59B07C2A864A4D006DA2C8 /* TextModify.swift in Sources */,
+				2F8BF88E2A8D53A70036FFF1 /* ICloudTest.swift in Sources */,
 				2F59B07F2A864D11006DA2C8 /* HomeBGView.swift in Sources */,
 				2F0725792A8368B3007A36CE /* CallPhoneView.swift in Sources */,
 				2F59B0632A86110D006DA2C8 /* SleepView.swift in Sources */,
