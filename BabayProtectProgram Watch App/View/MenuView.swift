@@ -112,8 +112,6 @@ struct MenuView: View {
         
     }
     
-    
-    
 }
 
 struct MenuView_Previews: PreviewProvider {

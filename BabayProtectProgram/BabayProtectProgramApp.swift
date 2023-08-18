@@ -21,7 +21,8 @@ struct BabayProtectProgramApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CustomTabView()
+//            CustomTabView()  //主视图
+            DrawingHistoryView()  //地图测试视图
 //            NotificationTestView()
                 .onAppear {
                     // 获取数据
