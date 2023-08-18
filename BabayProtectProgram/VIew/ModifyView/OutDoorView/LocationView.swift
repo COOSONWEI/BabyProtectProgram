@@ -42,7 +42,6 @@ struct LocationView: View {
                 Button {
                     withAnimation {
 //                        locationModel.checkLocationAuthorization()
-                        
                         let geocoder = CLGeocoder()
                         let location = CLLocation(latitude: locationModel.location.latitude, longitude: locationModel.location.longitude)
                         geocoder.reverseGeocodeLocation(location) { placemarks, error in

@@ -72,6 +72,11 @@
 		2F59B07F2A864D11006DA2C8 /* HomeBGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B07D2A864D11006DA2C8 /* HomeBGView.swift */; };
 		2F59B0812A865D03006DA2C8 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0802A865D03006DA2C8 /* CustomTabView.swift */; };
 		2F59B0882A866ADA006DA2C8 /* WCSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59B0872A866ADA006DA2C8 /* WCSessionModel.swift */; };
+		2F5F14DA2A8E2B0B00C31F4B /* GeofencingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F14D92A8E2B0B00C31F4B /* GeofencingModel.swift */; };
+		2F5F14DB2A8E2B0B00C31F4B /* GeofencingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F14D92A8E2B0B00C31F4B /* GeofencingModel.swift */; };
+		2F5F14E12A8E777300C31F4B /* MapCoorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F14E02A8E777300C31F4B /* MapCoorder.swift */; };
+		2F5F14E32A8F06BD00C31F4B /* moveToApple.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2F5F14E22A8F06BD00C31F4B /* moveToApple.gpx */; };
+		2F5F14E52A8F121500C31F4B /* StreeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F14E42A8F121500C31F4B /* StreeName.swift */; };
 		2F8BF85E2A8BB7EA0036FFF1 /* GetBeaconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */; };
 		2F8BF8602A8BE0A20036FFF1 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF85F2A8BE0A20036FFF1 /* NotificationModel.swift */; };
 		2F8BF8622A8BF5FF0036FFF1 /* NotificationTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8612A8BF5FF0036FFF1 /* NotificationTestView.swift */; };
@@ -91,7 +96,6 @@
 		2F8BF8832A8CD7A20036FFF1 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8812A8CC9FD0036FFF1 /* MapViewModel.swift */; };
 		2F8BF8852A8CD7D10036FFF1 /* SendLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8842A8CD7D10036FFF1 /* SendLocation.swift */; };
 		2F8BF8862A8CDA700036FFF1 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AAB2A879952005248EF /* LocationModel.swift */; };
-		2F8BF8872A8CDDA90036FFF1 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F026AAB2A879952005248EF /* LocationModel.swift */; };
 		2F8BF8892A8D229A0036FFF1 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8882A8D229A0036FFF1 /* DataManager.swift */; };
 		2F8BF88B2A8D22D40036FFF1 /* DataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF88A2A8D22D40036FFF1 /* DataInfo.swift */; };
 		2F8BF88C2A8D53340036FFF1 /* BeaconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC422A88C47800D9B447 /* BeaconModel.swift */; };
@@ -192,6 +196,10 @@
 		2F59B0802A865D03006DA2C8 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		2F59B0872A866ADA006DA2C8 /* WCSessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSessionModel.swift; sourceTree = "<group>"; };
 		2F59B0892A866C84006DA2C8 /* WatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchModel.swift; sourceTree = "<group>"; };
+		2F5F14D92A8E2B0B00C31F4B /* GeofencingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofencingModel.swift; sourceTree = "<group>"; };
+		2F5F14E02A8E777300C31F4B /* MapCoorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoorder.swift; sourceTree = "<group>"; };
+		2F5F14E22A8F06BD00C31F4B /* moveToApple.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = moveToApple.gpx; sourceTree = "<group>"; };
+		2F5F14E42A8F121500C31F4B /* StreeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreeName.swift; sourceTree = "<group>"; };
 		2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBeaconModel.swift; sourceTree = "<group>"; };
 		2F8BF85F2A8BE0A20036FFF1 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		2F8BF8612A8BF5FF0036FFF1 /* NotificationTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTestView.swift; sourceTree = "<group>"; };
@@ -331,6 +339,7 @@
 		2F07254A2A835FC9007A36CE /* BabayProtectProgram */ = {
 			isa = PBXGroup;
 			children = (
+				2F5F14DF2A8E768500C31F4B /* Controller */,
 				2F8BF8802A8CC9E90036FFF1 /* ViewModel */,
 				2FBA3EE22A8B7B4B005CC22B /* BabayProtectProgram.entitlements */,
 				2F026AAD2A879F3E005248EF /* Info.plist */,
@@ -401,6 +410,7 @@
 				2F4BDC422A88C47800D9B447 /* BeaconModel.swift */,
 				2F8BF85F2A8BE0A20036FFF1 /* NotificationModel.swift */,
 				2F8BF8812A8CC9FD0036FFF1 /* MapViewModel.swift */,
+				2F5F14D92A8E2B0B00C31F4B /* GeofencingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -497,6 +507,15 @@
 			path = ModifyView;
 			sourceTree = "<group>";
 		};
+		2F5F14DF2A8E768500C31F4B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2F5F14E02A8E777300C31F4B /* MapCoorder.swift */,
+				2F5F14E22A8F06BD00C31F4B /* moveToApple.gpx */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		2F8BF85C2A8BB7DC0036FFF1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,6 +566,7 @@
 				2F8BF87C2A8CB94E0036FFF1 /* BabyPhoneModel.swift */,
 				2F8BF8882A8D229A0036FFF1 /* DataManager.swift */,
 				2F8BF88A2A8D22D40036FFF1 /* DataInfo.swift */,
+				2F5F14E42A8F121500C31F4B /* StreeName.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -641,6 +661,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F0725532A835FCB007A36CE /* Preview Assets.xcassets in Resources */,
+				2F5F14E32A8F06BD00C31F4B /* moveToApple.gpx in Resources */,
 				2F0725502A835FCB007A36CE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -665,7 +686,6 @@
 				2F59B06C2A8627BE006DA2C8 /* HealthKitSupport.swift in Sources */,
 				2F8BF8622A8BF5FF0036FFF1 /* NotificationTestView.swift in Sources */,
 				2F026AB32A8867F1005248EF /* DangerButtonView.swift in Sources */,
-				2F8BF8872A8CDDA90036FFF1 /* LocationModel.swift in Sources */,
 				2F8BF87A2A8CB8F20036FFF1 /* AddBabayPhone.swift in Sources */,
 				2F026AB12A87C3C7005248EF /* AddDangerView.swift in Sources */,
 				2F8BF8902A8DAE190036FFF1 /* iPhoneViewModel.swift in Sources */,
@@ -686,9 +706,11 @@
 				2F59B0752A8649F7006DA2C8 /* UnConectWatchView.swift in Sources */,
 				2F59B07B2A864A4D006DA2C8 /* TextModify.swift in Sources */,
 				2F07257F2A83794E007A36CE /* GetContacts.swift in Sources */,
+				2F5F14DA2A8E2B0B00C31F4B /* GeofencingModel.swift in Sources */,
 				2F8BF87F2A8CBEF80036FFF1 /* CallContact.swift in Sources */,
 				2F8BF8602A8BE0A20036FFF1 /* NotificationModel.swift in Sources */,
 				2F4BDC3A2A88B82500D9B447 /* AddInDoorDangerousView.swift in Sources */,
+				2F5F14E12A8E777300C31F4B /* MapCoorder.swift in Sources */,
 				2F4BDC3D2A88B8CC00D9B447 /* InDoorDangerousCard.swift in Sources */,
 				2F59B0812A865D03006DA2C8 /* CustomTabView.swift in Sources */,
 				2F026AB92A887C29005248EF /* HealthView.swift in Sources */,
@@ -712,6 +734,7 @@
 				2F59B0882A866ADA006DA2C8 /* WCSessionModel.swift in Sources */,
 				2F59B0782A864A01006DA2C8 /* ConectWatchView.swift in Sources */,
 				2F026A9A2A874723005248EF /* HealthEnterView.swift in Sources */,
+				2F5F14E52A8F121500C31F4B /* StreeName.swift in Sources */,
 				2F026AC02A889B45005248EF /* WalkCard.swift in Sources */,
 				2F8BF8732A8CA7E60036FFF1 /* AddBeaconButton.swift in Sources */,
 				2F026ABC2A888275005248EF /* ExerciseCard.swift in Sources */,
@@ -752,6 +775,7 @@
 				2F59B07C2A864A4D006DA2C8 /* TextModify.swift in Sources */,
 				2F8BF88E2A8D53A70036FFF1 /* ICloudTest.swift in Sources */,
 				2F59B07F2A864D11006DA2C8 /* HomeBGView.swift in Sources */,
+				2F5F14DB2A8E2B0B00C31F4B /* GeofencingModel.swift in Sources */,
 				2F0725792A8368B3007A36CE /* CallPhoneView.swift in Sources */,
 				2F59B0632A86110D006DA2C8 /* SleepView.swift in Sources */,
 				2F59B0652A8617C7006DA2C8 /* HealthRunView.swift in Sources */,

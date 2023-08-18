@@ -16,23 +16,29 @@ struct OutDoorMainView: View {
 //    @StateObject private var locationModel = LocationModel()
     @StateObject private var locationVM = LocationCloudStroe()
     @StateObject  var lastLocation = LastLocation()
-    
+    @StateObject var streeName = StreeName()
     @State private var selectedPlace: MKPointAnnotation?
     @State private var showSettings = false
     @State private var isNill = false
+    
+    @State var zoomState = false
+    @State var zoomChild = false
+    
     //it's test data
     var locations = [
             Location(name: "Location 1", coordinate: CLLocationCoordinate2D(latitude: 31.145506764721492, longitude: 121.31609839130479)),
             Location(name: "Location 2", coordinate: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4294)),
             // Add more locations...
         ]
+    
     var body: some View {
         ZStack{
-            Map(coordinateRegion: $lastLocation.lastCoordinate, interactionModes: .all, showsUserLocation: true, userTrackingMode: .none, annotationItems: locations) { item in
-              
-                MapMarker(coordinate: item.coordinate,tint: .pink)
-                
-            }
+//            Map(coordinateRegion: $lastLocation.lastCoordinate, interactionModes: .all, showsUserLocation: true, userTrackingMode: .none, annotationItems: locations) { item in
+//
+//                MapMarker(coordinate: item.coordinate,tint: .pink)
+//
+//            }
+            LocationMapView(streeName: streeName, childLocation: lastLocation, zoomState: $zoomState, zoomChild: $zoomChild)
             .ignoresSafeArea()
             .alert(isPresented: $isNill) {
                 Alert(title: Text("提示"), message: Text("请在Watch端打开“守护”App进行第一次数据同步"))
@@ -63,8 +69,9 @@ struct OutDoorMainView: View {
                 
                 HStack{
                     Spacer()
-//                    OutDoorFunctionView(locationModel: locationModel)
-//                        .padding(.top,28)
+                    OutDoorFunctionView(zoomLocation: $zoomState,zoomChild: $zoomChild)
+                    
+                        .padding(.top,28)
                 }
                 .padding(.trailing)
                 
@@ -110,6 +117,47 @@ struct Location: Identifiable {
     let id = UUID()
     let name: String
     let coordinate: CLLocationCoordinate2D
+}
+
+
+struct LocationMapView: UIViewControllerRepresentable {
+    @StateObject var streeName: StreeName
+    @StateObject var childLocation: LastLocation
+    @Binding var zoomState: Bool
+    @Binding var zoomChild: Bool
+    let geofencations = [
+        GeoFencingViewModel(coordinate: CLLocationCoordinate2D(latitude: 37.3349285, longitude: -122.011033), radius: 1000, identifier: "Apple", note: "Enter", eventType: .onEnter)
+    ]
+    
+    func makeUIViewController(context: Context) -> some UIViewController {
+        let view = UIViewController()
+        context.coordinator.checkIfLocationServiesIsEnabled()
+        context.coordinator.viewController = view
+        
+        context.coordinator.addRadiusOverlay(forGeotification: geofencations)
+        
+        context.coordinator.checkLocationAuthorization()
+        context.coordinator.loadUI()
+        
+//        view.view.backgroundColor = .red
+        return view
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
+        if zoomState {
+            context.coordinator.zoomLocation()
+        }
+        
+        if zoomChild {
+            context.coordinator.zoomToChildLocation(lastLocation: childLocation)
+        }
+        
+    }
+    
+    func makeCoordinator() -> MapViewCoordinator {
+        MapViewCoordinator(geofencings: geofencations,streeName: streeName)
+    }
 }
 
 

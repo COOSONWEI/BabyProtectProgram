@@ -52,27 +52,24 @@ struct HealthView: View {
                     .padding(.leading,30)
                 }
                
-                ForEach(healthDataModel.health.prefix(1),id:\.self){ first in
-                    HStack{
-                        ExerciseCard(todayTime:  first.object(forKey: "todayTime") as? Double ?? 0.0, todayCalorie: first.object(forKey: "todayCalorie") as? Double ?? 0.0)
+                HStack{
+                    ExerciseCard(todayTime: healthDataModel.health.count > 0 ?  healthDataModel.health[0].object(forKey: "todayTime") as! Double : 0.0, todayCalorie: healthDataModel.health.count > 0 ? healthDataModel.health[0].object(forKey: "todayCalorie") as! Double : 0.0)
+                    
+                    VStack{
                         
-                        VStack{
-                            
-                            WalkCard(walkStep: first.object(forKey: "walkStep") as? Int ?? 0)
-                            RunCard(distance: first.object(forKey: "distance") as? Double ?? 0.0)
-                        }
+                        WalkCard(walkStep: healthDataModel.health.count > 0 ? healthDataModel.health[0].object(forKey: "walkStep") as! Int : 0)
+                        
+                        RunCard(distance: healthDataModel.health.count > 0 ? healthDataModel.health[0].object(forKey: "distance") as! Double : 0.0)
                     }
                 }
                
                         
-                ForEach(healthDataModel.health.prefix(1),id:\.self){ first in
-                    SleepCard(sleepTime: first.object(forKey: "sleepTime") as! Double)
-                        .padding(.leading,20)
-                        .padding(.trailing,20)
-                }
+                SleepCard(sleepTime: healthDataModel.health.count > 0 ? healthDataModel.health[0].object(forKey: "sleepTime") as! Double : 0)
+                    .padding(.leading,20)
+                    .padding(.trailing,20)
                
                 
-                MoreInformationList()
+                MoreInformationList(rate: healthDataModel.health.count > 0 ? healthDataModel.health[0].object(forKey: "heartRate") as! Int : 0)
                     .padding(.leading,20)
                     .padding(.trailing,20)
                     .padding(.bottom,20)

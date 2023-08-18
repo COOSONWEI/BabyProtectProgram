@@ -40,7 +40,7 @@ class LocationCloudStroe: ObservableObject {
     func fetchRecord() async throws {
         // 从云端匹配数据
         let cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
-        let publicDatabase = cloudContainer.publicCloudDatabase
+        let publicDatabase = cloudContainer.privateCloudDatabase
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "CoreLocations", predicate: predicate)
         
@@ -59,8 +59,9 @@ class LocationCloudStroe: ObservableObject {
                 }
                 return creationDate1 > creationDate2 })
            
-            
-            self.lastLocation = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Double(self.locationRecord[0].object(forKey: "latitude") as! String) ?? 0.0, longitude: Double(self.locationRecord[0].object(forKey: "longitude") as! String) ?? 0.0), latitudinalMeters: 0.5, longitudinalMeters: 0.5)
+            if self.locationRecord.count > 0 {
+                self.lastLocation = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Double(self.locationRecord[0].object(forKey: "latitude") as! String) ?? 0.0, longitude: Double(self.locationRecord[0].object(forKey: "longitude") as! String) ?? 0.0), latitudinalMeters: 0.5, longitudinalMeters: 0.5)
+            }
         }
         print("lalllalalallal")
     }
@@ -99,6 +100,7 @@ class LocationCloudStroe: ObservableObject {
     func saveRecordToCloud(location: LastLocation) {
 //        print("contact Name: \(contact.name)")
         // Prepare the record to save
+        print("location is \(location)")
         let record = CKRecord(recordType: "CoreLocations")
         record.setValue(String(location.location.latitude), forKey: "latitude")
         record.setValue(String(location.location.longitude), forKey: "longitude")
@@ -116,6 +118,7 @@ class LocationCloudStroe: ObservableObject {
                 
             }else{
                 print("位置储存成功")
+               
             }
 
             // Remove temp file

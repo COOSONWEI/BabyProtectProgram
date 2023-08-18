@@ -9,6 +9,9 @@ import SwiftUI
 
 //MARK: -更多健康信息
 struct MoreInformationList: View {
+    
+    let rate: Int?
+    
     var body: some View {
         ZStack{
             Rectangle()
@@ -19,7 +22,7 @@ struct MoreInformationList: View {
               .shadow(color: .black.opacity(0.09), radius: 5, x: 4, y: 5)
             
             ScrollView{
-               HeartRateCard()
+                HeartRateCard(rate: rate ?? 0)
                EmotionCard()
             }
             .padding()
@@ -31,6 +34,6 @@ struct MoreInformationList: View {
 
 struct MoreInformationList_Previews: PreviewProvider {
     static var previews: some View {
-        MoreInformationList()
+        MoreInformationList(rate: 0)
     }
 }

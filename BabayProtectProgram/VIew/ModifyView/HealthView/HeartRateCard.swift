@@ -9,6 +9,8 @@ import SwiftUI
 
 //MARK: -心率情况
 struct HeartRateCard: View {
+    let rate: Int
+    let healthDataModel: HealthiCloudStore = HealthiCloudStore()
     //数据
     var body: some View {
         VStack {
@@ -28,7 +30,7 @@ struct HeartRateCard: View {
                             
                             
                     }
-                    Text("宝贝心率正常！")
+                    Text(healthDataModel.health.count > 0 ? "宝贝心率正常" : "数据同步失败")
                       
                         .font(.system(size: 15))
                         .minimumScaleFactor(0.2)
@@ -37,7 +39,7 @@ struct HeartRateCard: View {
                 }
                 Spacer()
                 HStack{
-                    Text("100")
+                   Text("\(rate)")
                         .font(.system(size: 25))
                         .fontWeight(.bold)
                       .multilineTextAlignment(.trailing)
@@ -57,6 +59,6 @@ struct HeartRateCard: View {
 
 struct HeartRateCard_Previews: PreviewProvider {
     static var previews: some View {
-        HeartRateCard()
+        HeartRateCard(rate: 0)
     }
 }

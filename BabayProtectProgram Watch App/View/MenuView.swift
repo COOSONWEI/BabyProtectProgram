@@ -100,6 +100,7 @@ struct MenuView: View {
         locations.location.latitude = locationModel.userLocation?.latitude ?? 0.0
         locations.location.longitude = locationModel.userLocation?.longitude ?? 0.0
         locations.location.street_name = locationModel.locationName ?? "上海南站"
+        print("lastLocation \(locations.location)")
         
         let locationCloudStore = LocationCloudStroe()
         locationCloudStore.saveRecordToCloud(location: locations)
