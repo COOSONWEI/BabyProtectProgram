@@ -8,20 +8,21 @@
 import SwiftUI
 
 struct WarningView: View {
-    
+    let dangerousType: DangerousType
+    let phone: String
     var body: some View {
         //这里分为程序运行中和后台运行的两个通知方式
         VStack {
-            Text("请勿触碰危险物品!")
+            Text(dangerousType == .beacon ? "请勿触碰危险物品!" : "请勿接近危险区")
                 .multilineTextAlignment(.center)
-            Image("Endanger")
+            Image(dangerousType == .beacon ? "Endanger" : "Danger")
                 .resizable()
                 .scaledToFit()
             Text("打电话给爸爸妈妈")
             Spacer()
             Button {
                 //这里后面要重新设计
-                callContact("19184494122")
+                callContact(phone)
             } label: {
                 ZStack{
                     Rectangle().fill(Color(red: 66/255, green: 92/255, blue: 247/255))
@@ -42,6 +43,6 @@ struct WarningView: View {
 
 struct WarningView_Previews: PreviewProvider {
     static var previews: some View {
-        WarningView()
+        WarningView(dangerousType: .geofencation, phone: "1")
     }
 }

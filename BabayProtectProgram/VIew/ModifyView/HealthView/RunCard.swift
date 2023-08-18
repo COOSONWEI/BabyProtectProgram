@@ -41,7 +41,7 @@ struct RunCard: View {
             
             VStack(alignment:.leading){
                 
-                Text("详细记录")
+                Text("今天记录")
                     .font(.system(size: 24))
                     .fontWeight(.bold)
                     .foregroundColor(.white)
@@ -58,7 +58,7 @@ struct RunCard: View {
                             .foregroundColor(Color(red: 1, green: 0.82, blue: 0.59))
                         HStack{
                             Text("\(String(format: "%.2f", distance))")
-                                .font(.system(size: 30))
+                                .font(.system(size: 15))
                                 .fontWeight(.bold)
                                 .minimumScaleFactor(0.2)
                                 .multilineTextAlignment(.trailing)
@@ -85,7 +85,7 @@ struct RunCard: View {
             
             
         }
-        .frame(maxWidth: 136, maxHeight: 136)
+        .frame(maxWidth: 160, maxHeight: 160)
     }
 }
 

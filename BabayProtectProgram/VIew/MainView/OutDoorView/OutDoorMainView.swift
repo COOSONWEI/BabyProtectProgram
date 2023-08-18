@@ -14,7 +14,7 @@ struct OutDoorMainView: View {
     
     @State var back = false
 //    @StateObject private var locationModel = LocationModel()
-    @StateObject private var locationVM = LocationCloudStroe()
+    @StateObject  var locationVM = LocationCloudStroe()
     @StateObject  var lastLocation = LastLocation()
     @StateObject var streeName = StreeName()
     @State private var selectedPlace: MKPointAnnotation?
@@ -69,8 +69,7 @@ struct OutDoorMainView: View {
                 
                 HStack{
                     Spacer()
-                    OutDoorFunctionView(zoomLocation: $zoomState,zoomChild: $zoomChild)
-                    
+                    OutDoorFunctionView(zoomLocation: $zoomState,zoomChild: $zoomChild,locatinoModel: locationVM)
                         .padding(.top,28)
                 }
                 .padding(.trailing)
@@ -78,18 +77,11 @@ struct OutDoorMainView: View {
                 Spacer()
             }
             
-//
-//            Button("View Settings") {
-//                        showSettings = true
-//                    }
-//                    .sheet(isPresented: $showSettings) {
-//                        AddDangerView()
-//                            .presentationDetents([.medium, .large])
-//            }
         }
         .task {
             do {
                 try await locationVM.fetchRecord()
+                print("locationVM.locationRecord.count\(locationVM.locationRecord.count)")
                 if locationVM.locationRecord.count < 1 {
                     isNill = true
                 }else{

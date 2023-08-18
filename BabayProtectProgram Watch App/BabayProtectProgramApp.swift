@@ -10,8 +10,8 @@ import SwiftUI
 @main
 struct BabayProtectProgram_Watch_AppApp: App {
     
-    @StateObject private var healthModel = HealthModel()
-    @StateObject private var locationModel = LocationModel()
+    @StateObject  var healthModel = HealthModel()
+    @StateObject  var locationModel = LocationModel()
     
     var body: some Scene {
         WindowGroup {
@@ -28,10 +28,32 @@ struct BabayProtectProgram_Watch_AppApp: App {
                         healthModel.fetchDistancofWalkAndRuning()
                         locationModel.checkIfLocationServiesIsEnabled()
                         locationModel.checkLocationAuthorization()
+                        DispatchQueue.main.asyncAfter(deadline: .now()+5){
+                            sendHealthData()
+                        }
+                       
                     }
             }
            
         }
         
+    }
+    
+    func sendHealthData() {
+        let healthData = HealthModel()
+        healthData.walkStep = healthModel.walkStep
+        healthData.distance = healthModel.distance
+        healthData.heartRate = healthModel.heartRate
+        healthData.RestingHeartRate = healthModel.RestingHeartRate
+        healthData.sleepTime = healthModel.sleepTime
+        healthData.todayCalorie = healthModel.todayCalorie
+        healthData.todayTime = healthModel.todayTime
+        
+        print("healthDate:\(healthModel.heartRate)")
+        
+        let healthCloudStore = HealthiCloudStore()
+        healthCloudStore.saveRecordToCloud(health: healthData)
+        print("send health data")
+        print("healthdata: \(healthData.walkStep),\(healthData.distance ),\(healthData.heartRate  ),\(healthData.RestingHeartRate ),\(healthData.sleepTime),\(healthData.todayCalorie ),\(healthData.todayTime)")
     }
 }

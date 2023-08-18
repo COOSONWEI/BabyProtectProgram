@@ -30,12 +30,15 @@ struct HeartRateCard: View {
                             
                             
                     }
-                    Text(healthDataModel.health.count > 0 ? "宝贝心率正常" : "数据同步失败")
+                    Text(rate > 0 ? "宝贝心率正常" : "数据同步失败")
                       
                         .font(.system(size: 15))
                         .minimumScaleFactor(0.2)
                       .multilineTextAlignment(.trailing)
                       .foregroundColor(.black)
+                      .onAppear {
+                          healthHeart()
+                      }
                 }
                 Spacer()
                 HStack{
@@ -54,6 +57,10 @@ struct HeartRateCard: View {
             }
             Divider()
         }
+    }
+    
+    func healthHeart() {
+        print("the health Rate = \(healthDataModel.health.count)")
     }
 }
 

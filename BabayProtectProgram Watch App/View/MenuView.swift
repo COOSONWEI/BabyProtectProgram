@@ -15,6 +15,8 @@ struct MenuView: View {
     @StateObject var contactsModel = Contacts()
     @StateObject var locationModel: LocationModel
     @StateObject var locationCloudStroe = LocationCloudStroe()
+    @State var dangerType = DangerousType.self
+    @StateObject var locationManager = LocationManager()
     
     @StateObject var healehCloudStore = HealthiCloudStore()
     
@@ -27,7 +29,7 @@ struct MenuView: View {
             ZStack{
                 BeaconDetectView(bluetoothModel: bluetool, beaconsNames: beaconModel, isContain: $isContain)
                     .sheet(isPresented: $isContain, content: {
-                        WarningView()
+                        WarningView(dangerousType: .beacon, phone: contactsModel.contacts.count > 0 ? contactsModel.contacts[0].phoneNumber : "请添加号码")
                             .onDisappear(perform: {
                                 isContain = false
                                 bluetool.scanForPeripherals()
@@ -79,6 +81,9 @@ struct MenuView: View {
                 }
                 .padding(.top)
             }
+            .sheet(isPresented: $locationManager.reginLocation.isEnter) {
+                WarningView(dangerousType: .geofencation, phone: contactsModel.contacts.count > 0 ? contactsModel.contacts[0].phoneNumber : "请添加号码")
+            }
         }
         .task {
             do{
@@ -91,7 +96,6 @@ struct MenuView: View {
             Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { tiemr in
                 sendLocationData()
             }
-           sendHealthData()
         }
     }
     
@@ -108,21 +112,7 @@ struct MenuView: View {
         
     }
     
-    func sendHealthData() {
-        let healthData = HealthModel()
-        healthData.walkStep = healthModel.walkStep
-        healthData.distance = healthModel.distance
-        healthData.heartRate = healthModel.heartRate
-        healthData.RestingHeartRate = healthModel.RestingHeartRate
-        healthData.sleepTime = healthModel.sleepTime
-        healthData.todayCalorie = healthModel.todayCalorie
-        healthData.todayTime = healthModel.todayTime
-        
-        let healthCloudStore = HealthiCloudStore()
-        healthCloudStore.saveRecordToCloud(health: healthData)
-        print("send health data")
-        print(" \(healthData.walkStep),\(healthData.distance ),\(healthData.heartRate  ),\(healthData.RestingHeartRate ),\(healthData.sleepTime),\(healthData.todayCalorie ),\(healthData.todayTime)")
-    }
+    
     
 }
 

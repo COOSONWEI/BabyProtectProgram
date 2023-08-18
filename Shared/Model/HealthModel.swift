@@ -7,6 +7,7 @@
 
 import Foundation
 import HealthKit
+import SwiftUI
 
 //健康信息的数据模型
 //这里涉及到运动记录、运动步数、运动消耗掉的卡路里、体温情况、心率、睡眠情况
@@ -33,24 +34,24 @@ class HealthModel: NSObject, ObservableObject {
     
     //MARK: -运动记录
     //今日、累计、连续
-    var alltime: Int?
-    var allDay: Int?
-    var consecutiveDay: Int?
+    @Published var alltime: Int?
+    @Published var allDay: Int?
+    @Published var consecutiveDay: Int?
     
-    var todayTime: Double?
-    var todayCalorie: Double?
+    @Published var todayTime: Double?
+    @Published var todayCalorie: Double?
     
-    var walkStep: Int?
-    var distance: Double?
+    @Published var walkStep: Int?
+    @Published var distance: Double?
     
     //MARK: - 心率
     //心率
-    var heartRate: Int?
+    @Published var heartRate: Int?
     //静息心率
-    var RestingHeartRate: Int?
+    @Published var RestingHeartRate: Int?
     
     //MARK: -睡眠数据
-    var sleepTime: Double = 0.0
+    @Published var sleepTime: Double = 0.0
     
     //MARK: -体温(这个无法获取了)
 //    var bodyTimeperature: Double?
@@ -152,6 +153,10 @@ class HealthModel: NSObject, ObservableObject {
         
         healthStore.execute(query)
     }
+    
+    
+
+    
     
     //获取静息心率
     func fetchStaticHeartRate() {

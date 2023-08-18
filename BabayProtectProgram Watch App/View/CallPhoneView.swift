@@ -21,9 +21,6 @@ struct CallPhoneView: View {
                 CallModifyView(name: contactsModel.contacts[index].name,phoneNumber: contactsModel.contacts[index].phoneNumber,index: index,contactsModle: contactsModel)
             }
         }
-           
-       
-        
     }
     
     //获取手机通讯录联系人

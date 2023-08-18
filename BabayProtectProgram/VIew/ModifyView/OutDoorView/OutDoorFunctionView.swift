@@ -12,7 +12,8 @@ struct OutDoorFunctionView: View {
 //    var locationModel: LocationModel
     @Binding var zoomLocation: Bool
     @Binding var zoomChild: Bool
-    let locatinoModel = LocationCloudStroe()
+    @StateObject var locatinoModel: LocationCloudStroe
+    
     @State var showAlert = false
     var body: some View {
         ZStack{
@@ -22,8 +23,9 @@ struct OutDoorFunctionView: View {
             
             VStack{
                 Button {
+                    print("locatinoModel.locationRecord.count:--\(locatinoModel.locationRecord.count)")
                     if locatinoModel.locationRecord.count > 0 {
-                        zoomChild = true
+                            zoomChild = true
                         DispatchQueue.main.asyncAfter(deadline: .now()+1){
                             zoomChild = false
                         }

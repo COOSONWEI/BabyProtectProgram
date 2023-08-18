@@ -77,6 +77,12 @@
 		2F5F14E12A8E777300C31F4B /* MapCoorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F14E02A8E777300C31F4B /* MapCoorder.swift */; };
 		2F5F14E32A8F06BD00C31F4B /* moveToApple.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2F5F14E22A8F06BD00C31F4B /* moveToApple.gpx */; };
 		2F5F14E52A8F121500C31F4B /* StreeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F14E42A8F121500C31F4B /* StreeName.swift */; };
+		2F5F14E82A8F359100C31F4B /* TheDangerousType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F14E72A8F359100C31F4B /* TheDangerousType.swift */; };
+		2F5F14EA2A8F391A00C31F4B /* GeoDetectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F14E92A8F391A00C31F4B /* GeoDetectView.swift */; };
+		2F5F14EC2A8F40A100C31F4B /* GeoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F14EB2A8F40A100C31F4B /* GeoTest.swift */; };
+		2F5F14EE2A8F41CA00C31F4B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F14ED2A8F41CA00C31F4B /* LocationManager.swift */; };
+		2F5F14EF2A8F714500C31F4B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
+		2F5F14F12A8F8A0C00C31F4B /* GeoCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F14F02A8F8A0C00C31F4B /* GeoCloudStoreModel.swift */; };
 		2F8BF85E2A8BB7EA0036FFF1 /* GetBeaconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */; };
 		2F8BF8602A8BE0A20036FFF1 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF85F2A8BE0A20036FFF1 /* NotificationModel.swift */; };
 		2F8BF8622A8BF5FF0036FFF1 /* NotificationTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8612A8BF5FF0036FFF1 /* NotificationTestView.swift */; };
@@ -102,7 +108,6 @@
 		2F8BF88D2A8D53350036FFF1 /* BeaconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC422A88C47800D9B447 /* BeaconModel.swift */; };
 		2F8BF88E2A8D53A70036FFF1 /* ICloudTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */; };
 		2F8BF8902A8DAE190036FFF1 /* iPhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF88F2A8DAE190036FFF1 /* iPhoneViewModel.swift */; };
-		2FBA3EDE2A8B7173005CC22B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
 		2FBA3EE12A8B78E2005CC22B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -200,6 +205,11 @@
 		2F5F14E02A8E777300C31F4B /* MapCoorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoorder.swift; sourceTree = "<group>"; };
 		2F5F14E22A8F06BD00C31F4B /* moveToApple.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = moveToApple.gpx; sourceTree = "<group>"; };
 		2F5F14E42A8F121500C31F4B /* StreeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreeName.swift; sourceTree = "<group>"; };
+		2F5F14E72A8F359100C31F4B /* TheDangerousType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheDangerousType.swift; sourceTree = "<group>"; };
+		2F5F14E92A8F391A00C31F4B /* GeoDetectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoDetectView.swift; sourceTree = "<group>"; };
+		2F5F14EB2A8F40A100C31F4B /* GeoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoTest.swift; sourceTree = "<group>"; };
+		2F5F14ED2A8F41CA00C31F4B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		2F5F14F02A8F8A0C00C31F4B /* GeoCloudStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCloudStoreModel.swift; sourceTree = "<group>"; };
 		2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBeaconModel.swift; sourceTree = "<group>"; };
 		2F8BF85F2A8BE0A20036FFF1 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		2F8BF8612A8BF5FF0036FFF1 /* NotificationTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTestView.swift; sourceTree = "<group>"; };
@@ -365,6 +375,7 @@
 		2F07255C2A835FCB007A36CE /* BabayProtectProgram Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				2F5F14E62A8F357A00C31F4B /* Utilites */,
 				2F8BF85C2A8BB7DC0036FFF1 /* Model */,
 				2F0725902A83CB99007A36CE /* BabayProtectProgram-Watch-App-Info.plist */,
 				2F07258F2A83CB84007A36CE /* BabayProtectProgram Watch App.entitlements */,
@@ -375,7 +386,6 @@
 				2F07255F2A835FCB007A36CE /* ContentView.swift */,
 				2F0725612A835FCC007A36CE /* Assets.xcassets */,
 				2F0725632A835FCC007A36CE /* Preview Content */,
-				2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */,
 			);
 			path = "BabayProtectProgram Watch App";
 			sourceTree = "<group>";
@@ -409,6 +419,8 @@
 				2F026AAB2A879952005248EF /* LocationModel.swift */,
 				2F4BDC422A88C47800D9B447 /* BeaconModel.swift */,
 				2F8BF85F2A8BE0A20036FFF1 /* NotificationModel.swift */,
+				2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */,
+				2F5F14F02A8F8A0C00C31F4B /* GeoCloudStoreModel.swift */,
 				2F8BF8812A8CC9FD0036FFF1 /* MapViewModel.swift */,
 				2F5F14D92A8E2B0B00C31F4B /* GeofencingModel.swift */,
 			);
@@ -426,6 +438,8 @@
 				2F07258A2A83AE4B007A36CE /* AddContactView.swift */,
 				2F0725912A83D179007A36CE /* HealthView.swift */,
 				2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */,
+				2F5F14E92A8F391A00C31F4B /* GeoDetectView.swift */,
+				2F5F14EB2A8F40A100C31F4B /* GeoTest.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -516,11 +530,20 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		2F5F14E62A8F357A00C31F4B /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
+				2F5F14E72A8F359100C31F4B /* TheDangerousType.swift */,
+			);
+			path = Utilites;
+			sourceTree = "<group>";
+		};
 		2F8BF85C2A8BB7DC0036FFF1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */,
 				2F8BF8842A8CD7D10036FFF1 /* SendLocation.swift */,
+				2F5F14ED2A8F41CA00C31F4B /* LocationManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -753,18 +776,19 @@
 				2F0725832A837C9A007A36CE /* CallModifyView.swift in Sources */,
 				2F0725922A83D179007A36CE /* HealthView.swift in Sources */,
 				2F0725762A8365C1007A36CE /* MenuView.swift in Sources */,
-				2FBA3EDE2A8B7173005CC22B /* HealthCloudStoreModel.swift in Sources */,
 				2F07257B2A836AFB007A36CE /* MenuRow.swift in Sources */,
 				2F0725852A83802C007A36CE /* PhoneNumberModel.swift in Sources */,
 				2F0725602A835FCB007A36CE /* ContentView.swift in Sources */,
 				2F0725892A83A8CD007A36CE /* WarningView.swift in Sources */,
 				2F0725872A838824007A36CE /* CustomButtonStyle.swift in Sources */,
+				2F5F14E82A8F359100C31F4B /* TheDangerousType.swift in Sources */,
 				2F0725982A860C37007A36CE /* HealthWalkView.swift in Sources */,
 				2F0725802A83794E007A36CE /* GetContacts.swift in Sources */,
 				2F8BF8862A8CDA700036FFF1 /* LocationModel.swift in Sources */,
 				2F8BF8852A8CD7D10036FFF1 /* SendLocation.swift in Sources */,
 				2F07259A2A860C5F007A36CE /* HealthHeartView.swift in Sources */,
 				2F0725712A836072007A36CE /* BeaconDetectView.swift in Sources */,
+				2F5F14EC2A8F40A100C31F4B /* GeoTest.swift in Sources */,
 				2F59B06D2A8627BE006DA2C8 /* HealthKitSupport.swift in Sources */,
 				2F026A982A867475005248EF /* WatchModel.swift in Sources */,
 				2F07255E2A835FCB007A36CE /* BabayProtectProgramApp.swift in Sources */,
@@ -775,11 +799,15 @@
 				2F59B07C2A864A4D006DA2C8 /* TextModify.swift in Sources */,
 				2F8BF88E2A8D53A70036FFF1 /* ICloudTest.swift in Sources */,
 				2F59B07F2A864D11006DA2C8 /* HomeBGView.swift in Sources */,
+				2F5F14F12A8F8A0C00C31F4B /* GeoCloudStoreModel.swift in Sources */,
+				2F5F14EA2A8F391A00C31F4B /* GeoDetectView.swift in Sources */,
 				2F5F14DB2A8E2B0B00C31F4B /* GeofencingModel.swift in Sources */,
 				2F0725792A8368B3007A36CE /* CallPhoneView.swift in Sources */,
+				2F5F14EF2A8F714500C31F4B /* HealthCloudStoreModel.swift in Sources */,
 				2F59B0632A86110D006DA2C8 /* SleepView.swift in Sources */,
 				2F59B0652A8617C7006DA2C8 /* HealthRunView.swift in Sources */,
 				2F07258B2A83AE4B007A36CE /* AddContactView.swift in Sources */,
+				2F5F14EE2A8F41CA00C31F4B /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

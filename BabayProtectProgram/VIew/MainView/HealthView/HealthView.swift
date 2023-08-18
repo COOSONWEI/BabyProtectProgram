@@ -15,6 +15,8 @@ struct HealthView: View {
     @State private var showLoadingIndicator = false
     
     @State var back = false
+   
+    
     var body: some View {
         ZStack{
             
@@ -52,24 +54,27 @@ struct HealthView: View {
                     .padding(.leading,30)
                 }
                
-                HStack{
-                    ExerciseCard(todayTime: healthDataModel.health.count > 0 ?  healthDataModel.health[0].object(forKey: "todayTime") as! Double : 0.0, todayCalorie: healthDataModel.health.count > 0 ? healthDataModel.health[0].object(forKey: "todayCalorie") as! Double : 0.0)
+           
+//                    ExerciseCard(todayTime: healthDataModel.health.count > 0 ?  healthDataModel.health[0].object(forKey: "todayTime") as! Double : 0.0, todayCalorie: healthDataModel.health.count > 0 ? healthDataModel.health[0].object(forKey: "todayCalorie") as! Double : 0.0)
                     
-                    VStack{
+                    HStack{
                         
-                        WalkCard(walkStep: healthDataModel.health.count > 0 ? healthDataModel.health[0].object(forKey: "walkStep") as! Int : 0)
+                        WalkCard(walkStep: healthDataModel.walkStep)
                         
-                        RunCard(distance: healthDataModel.health.count > 0 ? healthDataModel.health[0].object(forKey: "distance") as! Double : 0.0)
+                        Spacer()
+                        RunCard(distance: healthDataModel.distance)
                     }
-                }
+                    .padding(.leading,20)
+                    .padding(.trailing,20)
+                
                
                         
-                SleepCard(sleepTime: healthDataModel.health.count > 0 ? healthDataModel.health[0].object(forKey: "sleepTime") as! Double : 0)
+                SleepCard(sleepTime: healthDataModel.sleepTime)
                     .padding(.leading,20)
                     .padding(.trailing,20)
                
                 
-                MoreInformationList(rate: healthDataModel.health.count > 0 ? healthDataModel.health[0].object(forKey: "heartRate") as! Int : 0)
+                MoreInformationList(rate: healthDataModel.heartRate)
                     .padding(.leading,20)
                     .padding(.trailing,20)
                     .padding(.bottom,20)
@@ -78,7 +83,8 @@ struct HealthView: View {
                 do {
                         try await healthDataModel.fetchRestaurants()
                         showLoadingIndicator = false
-//                    print("walkStep:\(String(describing: healthDataModel.health[0].object(forKey: "walkStep")))")
+                       
+//                       print("walkStep:\(String(describing: healthDataModel.health[0].object(forKey: "walkStep")))")
 //                    print("sleepTime\(String(describing: healthDataModel.health[0].object(forKey: "sleepTime")))")
                     
                     } catch {
@@ -110,7 +116,11 @@ struct HealthView: View {
             CustomTabView()
         }
     }
-}
+
+    }
+    
+    
+
 
 struct HealthView_Previews: PreviewProvider {
     static var previews: some View {

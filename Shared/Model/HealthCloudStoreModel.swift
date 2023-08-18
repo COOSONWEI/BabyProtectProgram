@@ -14,6 +14,10 @@ class HealthiCloudStore: ObservableObject {
     
     @Published var health: [CKRecord] = []
     @Published var healthData = HealthModel()
+    @Published var walkStep = 0
+    @Published var distance: Double = 0.0
+    @Published var sleepTime: Double = 0.0
+    @Published var heartRate: Int = 0
     
     func startFetch()  {
             // 创建定时器，每隔一段时间触发一次查询操作
@@ -44,9 +48,31 @@ class HealthiCloudStore: ObservableObject {
                     guard let creationDate1 = record1.creationDate, let creationDate2 = record2.creationDate else {
                         return false
                     }
+                    print(creationDate1)
                     return creationDate1 > creationDate2
                 })
+            
+           
+            if !self.health.isEmpty, let latestRecord = self.health.first {
+                self.walkStep = latestRecord.object(forKey: "walkStep") as? Int ?? 0
+                self.distance = latestRecord.object(forKey: "distance") as? Double ?? 0.0
+                self.heartRate = latestRecord.object(forKey: "heartRate") as? Int ?? 0
+                self.sleepTime = latestRecord.object(forKey: "sleepTime") as? Double ?? 0.0
+                
+                print("healthCount: \(self.health.count)")
+                print("Latest health data:")
+                print("walkStep: \(self.walkStep)")
+                print("distance: \(self.distance)")
+                print("heartRate: \(self.heartRate)")
+                print("sleepTime: \(self.sleepTime)")
+            } else {
+                print("No health data available or empty array.")
+            }
+            
         }
+//         print(health)
+////         walkStep = self.health.first?.object(forKey: "walkStep") as! Int
+//         print("health.count\(self.health.count)")
     }
     
     func fetchHealthdata() {
@@ -69,14 +95,11 @@ class HealthiCloudStore: ObservableObject {
                             }
                             return creationDate1 > creationDate2
                         })
-                        print("health:(\(self.health)")
+                        print("healthCounttt:(\(self.health)")
                     }
                 }
             }
    }
-    
-   
-    
     func saveRecordToCloud(health: HealthModel) {
         
         // Prepare the record to save

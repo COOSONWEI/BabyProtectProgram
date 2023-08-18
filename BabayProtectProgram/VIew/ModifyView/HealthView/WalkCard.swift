@@ -40,7 +40,7 @@ struct WalkCard: View {
             
             VStack(alignment:.leading){
                 
-                Text("详细记录")
+                Text("今日记录")
                     .font(.system(size: 24))
                     .fontWeight(.bold)
                     .foregroundColor(.white)
@@ -57,9 +57,9 @@ struct WalkCard: View {
                             .foregroundColor(Color(red: 1, green: 0.82, blue: 0.59))
                         HStack{
                             Text("\(walkStep)")
-                                .font(.system(size: 10))
+                                .font(.system(size: 15))
                                 .fontWeight(.bold)
-                                .minimumScaleFactor(0.05)
+                                .minimumScaleFactor(0.2)
                                 .multilineTextAlignment(.trailing)
                                 .foregroundColor(Color(red: 1, green: 0.82, blue: 0.59))
                             
@@ -79,7 +79,7 @@ struct WalkCard: View {
                 }
             }
         }
-        .frame(maxWidth: 136, maxHeight: 136)
+        .frame(maxWidth: 160, maxHeight: 160)
     }
 }
 
