@@ -17,9 +17,10 @@ struct MenuView: View {
     @StateObject var locationCloudStroe = LocationCloudStroe()
     @State var dangerType = DangerousType.self
     @StateObject var locationManager = LocationManager()
-    
+
     @StateObject var healehCloudStore = HealthiCloudStore()
-    
+    @StateObject var dataInfo = DataInfo()
+    @State var dataInfos: [DataInfo] = []
     @State var isContain = false
     var model = ViewModelWatch()
     
@@ -62,22 +63,14 @@ struct MenuView: View {
                         .frame(width: 75, height:75)
                     }
                    
-//                    HStack(spacing:18){
-//                        NavigationLink {
-//
-//                        } label: {
-//                            MenuRow(image: "Message")
-//                        }
-//                        .frame(width: 75, height:75)
-//
-//                        NavigationLink {
-//
-//                        } label: {
-//                           MenuRow(image: "CallFast")
-//                        }
-//                        .frame(width: 75, height:75)
-//
-//                    }
+                    NavigationLink{
+                        GeoTest()
+                    } label: {
+                        Image(systemName: "globe")
+                            .resizable()
+                            .frame(width: 75, height: 75)
+                    }
+                    .frame(width: 75, height:75)
                 }
                 .padding(.top)
             }
@@ -100,8 +93,24 @@ struct MenuView: View {
             Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { tiemr in
                 sendLocationData()
             }
+            
+            readTheData()
+            if DataManager.isFirstRuning() {
+                print("yes")
+            }else{
+                sendLocationData()
+            }
+            
         }
     }
+    
+    func readTheData() {
+        for info in DataManager.readData() {
+            print("DataManager: --\(info.location)")
+        }
+        print("datacount: \(DataManager.readData().count)")
+    }
+    
     
     func sendLocationData() {
         let locations = LastLocation()
@@ -109,10 +118,16 @@ struct MenuView: View {
         locations.location.longitude = locationModel.userLocation?.longitude ?? 0.0
         locations.location.street_name = locationModel.locationName ?? "上海南站"
         print("lastLocation \(locations.location)")
-        
+        dataInfo.location = CLLocationCoordinate2D(latitude: locations.location.latitude, longitude: locations.location.longitude)
+        dataInfos.append(dataInfo)
         let locationCloudStore = LocationCloudStroe()
         locationCloudStore.saveRecordToCloud(location: locations)
         print("send location data")
+        
+        DataManager.writeDate(dataInfoArr: dataInfos)
+        print("DataManagerCount: -- \(dataInfos.count)")
+        
+       
     }
     
 }

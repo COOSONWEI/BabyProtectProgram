@@ -89,6 +89,7 @@
 		2F5F14FA2A90483B00C31F4B /* HistoryPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F14F92A90483B00C31F4B /* HistoryPathViewController.swift */; };
 		2F5F14FC2A90711300C31F4B /* TransportButtonSyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F14FB2A90711300C31F4B /* TransportButtonSyle.swift */; };
 		2F5FD7C02A90A0D200F03E64 /* MapViewWaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5FD7BF2A90A0D200F03E64 /* MapViewWaper.swift */; };
+		2F5FD7C22A90A52000F03E64 /* Datamanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5FD7C12A90A52000F03E64 /* Datamanager.swift */; };
 		2F8BF85E2A8BB7EA0036FFF1 /* GetBeaconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */; };
 		2F8BF8602A8BE0A20036FFF1 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF85F2A8BE0A20036FFF1 /* NotificationModel.swift */; };
 		2F8BF8622A8BF5FF0036FFF1 /* NotificationTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8612A8BF5FF0036FFF1 /* NotificationTestView.swift */; };
@@ -222,6 +223,7 @@
 		2F5F14F92A90483B00C31F4B /* HistoryPathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPathViewController.swift; sourceTree = "<group>"; };
 		2F5F14FB2A90711300C31F4B /* TransportButtonSyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportButtonSyle.swift; sourceTree = "<group>"; };
 		2F5FD7BF2A90A0D200F03E64 /* MapViewWaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewWaper.swift; sourceTree = "<group>"; };
+		2F5FD7C12A90A52000F03E64 /* Datamanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datamanager.swift; sourceTree = "<group>"; };
 		2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBeaconModel.swift; sourceTree = "<group>"; };
 		2F8BF85F2A8BE0A20036FFF1 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		2F8BF8612A8BF5FF0036FFF1 /* NotificationTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTestView.swift; sourceTree = "<group>"; };
@@ -560,6 +562,7 @@
 			isa = PBXGroup;
 			children = (
 				2F5FD7BF2A90A0D200F03E64 /* MapViewWaper.swift */,
+				2F8BF8882A8D229A0036FFF1 /* DataManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */,
 				2F8BF8842A8CD7D10036FFF1 /* SendLocation.swift */,
 				2F5F14ED2A8F41CA00C31F4B /* LocationManager.swift */,
+				2F5FD7C12A90A52000F03E64 /* Datamanager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -613,7 +617,6 @@
 			isa = PBXGroup;
 			children = (
 				2F8BF87C2A8CB94E0036FFF1 /* BabyPhoneModel.swift */,
-				2F8BF8882A8D229A0036FFF1 /* DataManager.swift */,
 				2F8BF88A2A8D22D40036FFF1 /* DataInfo.swift */,
 				2F5F14E42A8F121500C31F4B /* StreeName.swift */,
 			);
@@ -805,6 +808,7 @@
 				2F8BF8832A8CD7A20036FFF1 /* MapViewModel.swift in Sources */,
 				2F0725962A84ACDF007A36CE /* HealthModel.swift in Sources */,
 				2F07258E2A83BE32007A36CE /* callContact.swift in Sources */,
+				2F5FD7C22A90A52000F03E64 /* Datamanager.swift in Sources */,
 				2F0725832A837C9A007A36CE /* CallModifyView.swift in Sources */,
 				2F0725922A83D179007A36CE /* HealthView.swift in Sources */,
 				2F0725762A8365C1007A36CE /* MenuView.swift in Sources */,
