@@ -77,9 +77,13 @@ class DataManager {
     static func writeDate(dataInfoArr: [DataInfo]) {
         let dataFilePath:String = NSHomeDirectory() + "/Documents/location_data.plist"
         var dateCountInfoDicArr: Array<[String: String]> = []
+        
         for info in dataInfoArr {
+            
             dateCountInfoDicArr.append(getReadDataItem(dataInfo: info))
+            
         }
+        
         NSArray(array: dateCountInfoDicArr).write(toFile: dataFilePath, atomically: true)
         print("写入数据成功")
     }

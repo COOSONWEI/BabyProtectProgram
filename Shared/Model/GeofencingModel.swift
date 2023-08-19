@@ -17,11 +17,14 @@ class GeoFencingViewModel: NSObject, ObservableObject, MKAnnotation {
         case onEnter = "onEntery"
     }
     
+    
     //编码的键的类型
     // 目前是经纬度，范围半径、id（这里可以理解为围栏的名称）
     enum CodingKeys: String, CodingKey {
         case latitude, longitude, radius, identifier, note, eventType
     }
+    
+    
     
     // 地理围栏的属性
     var coordinate: CLLocationCoordinate2D

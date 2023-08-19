@@ -20,7 +20,6 @@ struct BeaconDetectView: View {
         NavigationView {
             List{
                 ForEach(Array(bluetoothModel.peripheralNames.keys),id:\.self){ key in
-                    
                     VStack{
                         Text("name:\(bluetoothModel.peripheralNames[key] ?? "")")
                         Text("UUID:\(key)")
@@ -33,11 +32,9 @@ struct BeaconDetectView: View {
                             print("加载错误")
                         }
                     }
-                    
                 }
             }
             .navigationTitle("菜单")
-            
         }
     }
     
@@ -57,9 +54,7 @@ struct BeaconDetectView: View {
         }
     }
     
-//    func sendNotificaiton() {
-//
-//    }
+    
     
     private func save(beacon: String) async throws {
        let beaconData = BeaconModel()
@@ -77,7 +72,7 @@ struct BeaconDetectView: View {
     
     func vibrateWatch() {
            let device = WKInterfaceDevice.current()
-           
+        
         //使用震动通知功能
             device.play(.notification)
        }

@@ -126,7 +126,7 @@ class HealthiCloudStore: ObservableObject {
                 print("健康数据储存成功")
             }
             
-            // Remove temp file
+            
            
         })
     }

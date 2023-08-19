@@ -50,19 +50,19 @@ class CloudPushNotificationViewModel:  ObservableObject {
         let predicate = NSPredicate(value: true)
         //订阅通知的方式
         let subscription = CKQuerySubscription(recordType: "Beacons", predicate: predicate, subscriptionID: "chailds_near", options: .firesOnRecordUpdate)
-        let geoFencationSubsciption = CKQuerySubscription(recordType: "GeoDanger", predicate: predicate, subscriptionID: "child_enter_geofencation",options: .firesOnRecordUpdate)
+        let geoFencationSubsciption = CKQuerySubscription(recordType: "GeoDangers", predicate: predicate, subscriptionID: "child_enter_geofencations",options: .firesOnRecordCreation)
         
         //订阅室内危险区通知
         let notification = CKSubscription.NotificationInfo()
         notification.title = "您的孩子接近危险物品！！！"
         notification.alertBody = "是否要打开App给孩子打个电话确认情况？"
         notification.soundName = "default"
-    
+        
         subscription.notificationInfo = notification
         
         //订阅地理围栏
         let geoNotifation = CKSubscription.NotificationInfo()
-        notification.title = "您的孩子在危险附近！！！"
+        notification.title = "您的孩子在危险区附近！！！"
         notification.alertBody = "是否要打开App查看孩子位置和情况？"
         notification.soundName = "default"
         
@@ -86,9 +86,6 @@ class CloudPushNotificationViewModel:  ObservableObject {
         }
         
     }
-    
-    
-    
     
     //取消通知
     func unsubscribeToNotification() {

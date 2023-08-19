@@ -22,6 +22,7 @@ struct MenuView: View {
     @StateObject var dataInfo = DataInfo()
     @State var dataInfos: [DataInfo] = []
     @State var isContain = false
+    @StateObject var geoCloudStore = GeoCloudStoreModel()
     var model = ViewModelWatch()
     
     var body: some View {
@@ -63,32 +64,34 @@ struct MenuView: View {
                         .frame(width: 75, height:75)
                     }
                    
-                    NavigationLink{
-                        GeoTest()
-                    } label: {
-                        Image(systemName: "globe")
-                            .resizable()
-                            .frame(width: 75, height: 75)
-                    }
-                    .frame(width: 75, height:75)
+
                 }
                 .padding(.top)
             }
             .sheet(isPresented: $locationManager.reginLocation.isEnter) {
                 WarningView(dangerousType: .geofencation, phone: contactsModel.contacts.count > 0 ? contactsModel.contacts[0].phoneNumber : "请添加号码")
                     .onAppear {
-                        let geoCloudStore = GeoCloudStoreModel()
                         geoCloudStore.sendTheInformation(locationManager: locationManager)
+                       
                     }
             }
         }
         .task {
-            do{
+            do {
                 try await contactsModel.fetchContacts()
+                print("Contacts fetched successfully")
             } catch {
-                print("cont FetchIt")
+                print("Error fetching contacts: \(error)")
+            }
+
+            do {
+                try await geoCloudStore.fetchInformation()
+                print("Geo information fetched successfully")
+            } catch {
+                print("Error fetching geo information: \(error)")
             }
         }
+       
         .onAppear {
             Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { tiemr in
                 sendLocationData()

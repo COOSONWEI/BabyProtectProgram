@@ -46,6 +46,7 @@ class Contacts: ObservableObject {
             self.contanctsData.append(try record.1.get())
         }
         
+        
         DispatchQueue.main.async {
             for contactData in self.contanctsData {
                 if !self.contacts.contains(PhoneNumber(name: contactData.object(forKey: "name") as! String , phoneNumber: contactData.object(forKey: "phone") as! String )) {
@@ -57,6 +58,7 @@ class Contacts: ObservableObject {
         }
     }
 
+    
     
     
     

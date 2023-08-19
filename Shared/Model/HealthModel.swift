@@ -91,6 +91,7 @@ class HealthModel: NSObject, ObservableObject {
                        print("self.walkStep \( self.walkStep))")
                    }
                }
+
            }
            healthStore.execute(query)
         

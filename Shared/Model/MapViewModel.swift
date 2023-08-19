@@ -12,17 +12,20 @@ import CloudKit
 import CoreLocation
 import UIKit
 
+
 //地图位置的数据结构(经纬度坐标)
 struct MapLocation {
     var latitude: CLLocationDegrees
     var longitude: CLLocationDegrees
     var street_name: String
 }
+
 //最新同步的位置经纬度
 class LastLocation: ObservableObject,Identifiable {
     @Published var location = MapLocation(latitude: 0.0, longitude: 0.0,street_name: "上海南站")
     @Published var lastCoordinate = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), latitudinalMeters: 0.5, longitudinalMeters: 0.5)
 }
+
 
 
 
