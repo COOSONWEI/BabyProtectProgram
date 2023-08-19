@@ -10,6 +10,7 @@ import MapKit
 import SwiftUI
 import CloudKit
 import CoreLocation
+import UIKit
 
 //地图位置的数据结构(经纬度坐标)
 struct MapLocation {
@@ -23,11 +24,17 @@ class LastLocation: ObservableObject,Identifiable {
     @Published var lastCoordinate = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), latitudinalMeters: 0.5, longitudinalMeters: 0.5)
 }
 
+
+
 //获取iCloud上的数据(遵循ObservableObject协议)
 class LocationCloudStroe: ObservableObject {
     //公开发布数据
     @Published var locationRecord: [CKRecord] = []
+    
     @Published var lastLocation: MKCoordinateRegion =  MKCoordinateRegion()
+    
+    @Published var streeName = ""
+    
     
     func fetchPolling() {
         Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
@@ -61,6 +68,8 @@ class LocationCloudStroe: ObservableObject {
            
             if self.locationRecord.count > 0 {
                 self.lastLocation = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Double(self.locationRecord[0].object(forKey: "latitude") as! String) ?? 0.0, longitude: Double(self.locationRecord[0].object(forKey: "longitude") as! String) ?? 0.0), latitudinalMeters: 0.5, longitudinalMeters: 0.5)
+                self.streeName = self.locationRecord[0].object(forKey: "street_name") as! String
+                print("streeName:\(self.streeName)")
             }
         }
         print("lalllalalallal")

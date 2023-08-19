@@ -83,6 +83,10 @@ struct MenuView: View {
             }
             .sheet(isPresented: $locationManager.reginLocation.isEnter) {
                 WarningView(dangerousType: .geofencation, phone: contactsModel.contacts.count > 0 ? contactsModel.contacts[0].phoneNumber : "请添加号码")
+                    .onAppear {
+                        let geoCloudStore = GeoCloudStoreModel()
+                        geoCloudStore.sendTheInformation(locationManager: locationManager)
+                    }
             }
         }
         .task {
@@ -109,7 +113,6 @@ struct MenuView: View {
         let locationCloudStore = LocationCloudStroe()
         locationCloudStore.saveRecordToCloud(location: locations)
         print("send location data")
-        
     }
     
 }

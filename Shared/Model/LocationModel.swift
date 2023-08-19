@@ -9,7 +9,7 @@ import Foundation
 import MapKit
 
 //获取设备的地理位置
-final class LocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+class LocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager?
     @Published var userLocation: CLLocationCoordinate2D?
@@ -54,12 +54,17 @@ final class LocationModel: NSObject, ObservableObject, CLLocationManagerDelegate
                 let geocoder = CLGeocoder()
                 let location = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
                 geocoder.reverseGeocodeLocation(location) { placemarks, error in
+                    if let error = error {
+                           print("Error calculating directions: \(error.localizedDescription)")
+                           return
+                       }
                     if let placemark = placemarks?.first {
+                        print("placemark: \(placemark)")
                         if let street = placemark.thoroughfare, let city = placemark.locality {
                             self.locationName = "\(street), \(city)"
                             print("locationName\(street),\(city)")
                         } else {
-                            self.locationName = "Location Not Found"
+                            self.locationName = "\(placemark)"
                         }
                     } else {
                         self.locationName = "Location Not Found"

@@ -60,10 +60,9 @@ class CloudPushNotificationViewModel:  ObservableObject {
     
         subscription.notificationInfo = notification
         
-        
         //订阅地理围栏
         let geoNotifation = CKSubscription.NotificationInfo()
-        notification.title = "您的孩子在危险区附近！！！"
+        notification.title = "您的孩子在危险附近！！！"
         notification.alertBody = "是否要打开App查看孩子位置和情况？"
         notification.soundName = "default"
         
@@ -78,7 +77,7 @@ class CloudPushNotificationViewModel:  ObservableObject {
             }
         }
         
-        CKContainer.default().privateCloudDatabase.save(subscription) { returnedSubscription, returnError in
+        CKContainer.default().privateCloudDatabase.save(geoFencationSubsciption) { returnedSubscription, returnError in
             if let error = returnError {
                 print(error.localizedDescription)
             }else{

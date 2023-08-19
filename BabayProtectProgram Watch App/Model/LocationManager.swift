@@ -21,7 +21,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @Published var userLocation: CLLocationCoordinate2D?
     @Published var reginLocation = ReginLocation()
-    let geoCloudStoreModel = GeoCloudStoreModel()
+    
     override init() {
         super.init()
         setupLocationManager()
@@ -61,7 +61,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             if  distance < 100 {
                 print("I am enter the dangerous")
                 reginLocation.isEnter = true
-                geoCloudStoreModel.sendTheInformation(locationManager: self)
+               
             }else{
                 print("I am leave the dangerous")
                 reginLocation.isEnter = false

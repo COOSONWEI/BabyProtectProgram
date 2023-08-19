@@ -11,7 +11,9 @@ import CoreLocation
 //添加最近的位置的情况
 struct LocationView: View {
     @StateObject var locationModel: LastLocation
+    
     @State private var locationName = ""
+    @StateObject var locationCloudStroe: LocationCloudStroe
     
     var body: some View {
         ZStack{
@@ -31,11 +33,11 @@ struct LocationView: View {
                 
                 Image("landmark")
                     .frame(maxWidth: 24, maxHeight: 24)
-                
+                //获取实例显示街区信息
                 Text("\(locationName)")
                     .font(.system(size: 14))
                     .minimumScaleFactor(0.2)
-                Text("现在的位置")
+                Text("孩子现在的位置")
                     .font(.system(size: 13))
                     .foregroundColor(.black.opacity(0.4))
                 Spacer()
@@ -44,18 +46,24 @@ struct LocationView: View {
 //                        locationModel.checkLocationAuthorization()
                         let geocoder = CLGeocoder()
                         let location = CLLocation(latitude: locationModel.location.latitude, longitude: locationModel.location.longitude)
-                        geocoder.reverseGeocodeLocation(location) { placemarks, error in
-                            if let placemark = placemarks?.first {
-                                if let street = placemark.thoroughfare, let city = placemark.locality {
-                                    self.locationName = "\(street), \(city)"
-                                    print("locationName\(street),\(city)")
-                                } else {
-                                    self.locationName = "Location Not Found"
-                                }
-                            } else {
-                                self.locationName = "Location Not Found"
-                            }
+                        let parts = locationCloudStroe.streeName.components(separatedBy: " @ ")
+                        if let firstPart = parts.first {
+                            self.locationName = firstPart
                         }
+                       
+                        print("self.locationName\(self.locationName)")
+//                        geocoder.reverseGeocodeLocation(location) { placemarks, error in
+//                            if let placemark = placemarks?.first {
+//                                if let street = placemark.thoroughfare, let city = placemark.locality {
+//                                    self.locationName = "\(street), \(city)"
+//                                    print("locationName\(street),\(city)")
+//                                } else {
+//                                    self.locationName = "Location Not Found"
+//                                }
+//                            } else {
+//                                self.locationName = "Location Not Found"
+//                            }
+//                        }
                     }
                 } label: {
                     Text("刷新")
@@ -73,6 +81,6 @@ struct LocationView: View {
 
 struct LocationView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationView(locationModel: LastLocation())
+        LocationView(locationModel: LastLocation(), locationCloudStroe: LocationCloudStroe())
     }
 }
