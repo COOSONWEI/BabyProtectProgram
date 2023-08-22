@@ -99,37 +99,37 @@ struct OutDoorFunctionsView: View {
             .padding(.trailing)
             
             
-            ZStack{
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .background(.white)
-                    .cornerRadius(20)
-                    .shadow(radius: 3)
-                HStack(alignment:.top){
-                    VStack(alignment:.leading){
-                        Text("历史轨迹")
-                            .font(.system(size: 24))
-                            .fontWeight(.bold)
-                            .minimumScaleFactor(0.2)
-                            .foregroundColor(.black)
-                        
-                        Text("实时记录宝贝活动轨迹，快去看看吧")
-                            .font(.system(size: 14))
-                            .fontWeight(.bold)
-                            .lineLimit(nil)
-                            .foregroundColor(Color(red: 0.4, green: 0.4, blue: 0.41))
-                            .padding(.top)
-                    }
-                    .padding(.leading)
-                    
-                    Image("HistoryPath")
-                        .resizable()
-                        .scaledToFit()
-                }
-            }
-            .frame(maxHeight: 132)
-            .padding(.leading)
-            .padding(.trailing)
+//            ZStack{
+//                Rectangle()
+//                    .foregroundColor(.clear)
+//                    .background(.white)
+//                    .cornerRadius(20)
+//                    .shadow(radius: 3)
+//                HStack(alignment:.top){
+//                    VStack(alignment:.leading){
+//                        Text("历史轨迹")
+//                            .font(.system(size: 24))
+//                            .fontWeight(.bold)
+//                            .minimumScaleFactor(0.2)
+//                            .foregroundColor(.black)
+//                        
+//                        Text("实时记录宝贝活动轨迹，快去看看吧")
+//                            .font(.system(size: 14))
+//                            .fontWeight(.bold)
+//                            .lineLimit(nil)
+//                            .foregroundColor(Color(red: 0.4, green: 0.4, blue: 0.41))
+//                            .padding(.top)
+//                    }
+//                    .padding(.leading)
+//                    
+//                    Image("HistoryPath")
+//                        .resizable()
+//                        .scaledToFit()
+//                }
+//            }
+//            .frame(maxHeight: 132)
+//            .padding(.leading)
+//            .padding(.trailing)
             
             
         }

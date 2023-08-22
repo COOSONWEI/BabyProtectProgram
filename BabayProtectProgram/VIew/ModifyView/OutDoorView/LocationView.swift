@@ -12,7 +12,7 @@ import CoreLocation
 struct LocationView: View {
     @StateObject var locationModel: LastLocation
     
-    @State private var locationName = ""
+    @State var locationName = ""
     @StateObject var locationCloudStroe: LocationCloudStroe
     
     var body: some View {
@@ -34,24 +34,38 @@ struct LocationView: View {
                 Image("landmark")
                     .frame(maxWidth: 24, maxHeight: 24)
                 //获取实例显示街区信息
-                Text("\(locationName)")
-                    .font(.system(size: 14))
-                    .minimumScaleFactor(0.2)
-                Text("孩子现在的位置")
+                
+                Text(locationName != "" ? locationName : "您孩子现在的位置")
                     .font(.system(size: 13))
-                    .foregroundColor(.black.opacity(0.4))
+                    .foregroundColor(.black.opacity(locationName != "" ? 1 : 0.4))
+                    
+               
+                   
                 Spacer()
                 Button {
                     withAnimation {
 //                        locationModel.checkLocationAuthorization()
                         let geocoder = CLGeocoder()
-                        let location = CLLocation(latitude: locationModel.location.latitude, longitude: locationModel.location.longitude)
-                        let parts = locationCloudStroe.streeName.components(separatedBy: " @ ")
-                        if let firstPart = parts.first {
-                            self.locationName = firstPart
+                        let location = CLLocation(latitude: locationModel.lastCoordinate.center.latitude, longitude: locationModel.lastCoordinate.center.longitude)
+                        geocoder.reverseGeocodeLocation(location) { placemarks, error in
+                            if let error = error {
+                                   print("Error calculating directions: \(error.localizedDescription)")
+                                locationName = "Location Not Found"
+                                   return
+                               }
+                            if let placemark = placemarks?.first {
+                                print("placemark: \(placemark)")
+                                if let street = placemark.thoroughfare, let city = placemark.locality {
+                                    self.locationName = "\(street), \(city)"
+                                    print("locationName\(street),\(city)")
+                                } else {
+                                    self.locationName = "\(placemark)"
+                                }
+                            }
                         }
+
                        
-                        print("self.locationName\(self.locationName)")
+                       
 //                        geocoder.reverseGeocodeLocation(location) { placemarks, error in
 //                            if let placemark = placemarks?.first {
 //                                if let street = placemark.thoroughfare, let city = placemark.locality {

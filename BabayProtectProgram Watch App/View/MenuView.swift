@@ -23,6 +23,9 @@ struct MenuView: View {
     @State var dataInfos: [DataInfo] = []
     @State var isContain = false
     @StateObject var geoCloudStore = GeoCloudStoreModel()
+    
+    @State var noContact = false
+    
     var model = ViewModelWatch()
     
     var body: some View {
@@ -49,7 +52,7 @@ struct MenuView: View {
                 VStack(spacing: 15){
                     HStack(spacing: 18){
                         NavigationLink {
-                            CallPhoneView(contactsModel: contactsModel)
+                            CallPhoneView(contactsModel: contactsModel, noContact: $noContact)
                         } label: {
                             MenuRow(image: "CallPhone")
                             
@@ -79,6 +82,11 @@ struct MenuView: View {
         .task {
             do {
                 try await contactsModel.fetchContacts()
+                if contactsModel.contacts.count > 0 {
+                    noContact = false
+                }else{
+                    noContact = true
+                }
                 print("Contacts fetched successfully")
             } catch {
                 print("Error fetching contacts: \(error)")

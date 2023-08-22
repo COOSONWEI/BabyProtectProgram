@@ -23,10 +23,10 @@ struct MoreInformationList: View {
             
             ScrollView{
                 HeartRateCard(rate: rate ?? 0)
-               EmotionCard()
+                EmotionCard(rate: rate ?? 0)
             }
             .padding()
-         
+            
         }
         
     }

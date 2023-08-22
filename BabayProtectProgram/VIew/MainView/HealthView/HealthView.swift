@@ -15,7 +15,7 @@ struct HealthView: View {
     @State private var showLoadingIndicator = false
     
     @State var back = false
-   
+    @State var fetchTrue = true
     
     var body: some View {
         ZStack{
@@ -78,14 +78,21 @@ struct HealthView: View {
                     .padding(.leading,20)
                     .padding(.trailing,20)
                     .padding(.bottom,20)
+                    .alert(isPresented: $fetchTrue) {
+                        Alert(title: Text("数据同步失败"), message: Text("请在绑定的Apple Watch中开启“守护”的健康访问权限，同步您孩子的健康数据，我们将使用这些健康信息，以便您更好地了解孩子的运动情况和健康状况。"))
+                          
+                    }
             }
             .task {
                 do {
                         try await healthDataModel.fetchRestaurants()
+                    if healthDataModel.heartRate > 0 {
+                        fetchTrue = false
+                    }else{
+                        fetchTrue = true
+                    }
                         showLoadingIndicator = false
                        
-//                       print("walkStep:\(String(describing: healthDataModel.health[0].object(forKey: "walkStep")))")
-//                    print("sleepTime\(String(describing: healthDataModel.health[0].object(forKey: "sleepTime")))")
                     
                     } catch {
                         // 在这里处理错误，例如打印错误信息或者显示错误提示给用户

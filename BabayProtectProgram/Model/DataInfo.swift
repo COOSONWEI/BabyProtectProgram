@@ -11,5 +11,5 @@ class DataInfo: ObservableObject {
     //是否是第一次打开应用
     @Published var firstuse: Int = -1
     //电话内容
-    @Published var phone: String = ""
+    @Published var phone: String? = nil
 }

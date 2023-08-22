@@ -24,7 +24,7 @@ struct BabayProtectProgram_Watch_AppApp: App {
                         healthModel.fetchTodayStepCount()
                         healthModel.fetchStaticHeartRate()
                         healthModel.fetchCurrentHeartRate()
-                        healthModel.fetchWalkoutTimeAndEnage()
+//                        healthModel.fetchWalkoutTimeAndEnage()
                         healthModel.fetchDistancofWalkAndRuning()
                         locationModel.checkIfLocationServiesIsEnabled()
                         locationModel.checkLocationAuthorization()
@@ -46,14 +46,14 @@ struct BabayProtectProgram_Watch_AppApp: App {
         healthData.heartRate = healthModel.heartRate
         healthData.RestingHeartRate = healthModel.RestingHeartRate
         healthData.sleepTime = healthModel.sleepTime
-        healthData.todayCalorie = healthModel.todayCalorie
-        healthData.todayTime = healthModel.todayTime
+//        healthData.todayCalorie = healthModel.todayCalorie
+//        healthData.todayTime = healthModel.todayTime
         
         print("healthDate:\(healthModel.heartRate)")
         
         let healthCloudStore = HealthiCloudStore()
         healthCloudStore.saveRecordToCloud(health: healthData)
         print("send health data")
-        print("healthdata: \(healthData.walkStep),\(healthData.distance ),\(healthData.heartRate  ),\(healthData.RestingHeartRate ),\(healthData.sleepTime),\(healthData.todayCalorie ),\(healthData.todayTime)")
+//        print("healthdata: \(healthData.walkStep),\(healthData.distance ),\(healthData.heartRate  ),\(healthData.RestingHeartRate ),\(healthData.sleepTime),\(healthData.todayCalorie ),\(healthData.todayTime)")
     }
 }

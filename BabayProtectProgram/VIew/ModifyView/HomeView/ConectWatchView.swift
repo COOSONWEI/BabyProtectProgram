@@ -15,7 +15,7 @@ struct ConectWatchView: View {
     
     @State var dataInfo = [DataInfo]()
     @State var phone = ""
-    @State private var notAddPhone = false
+    @State var notAddPhone = false
     @State private var isNill = false
     
     var body: some View {
@@ -71,21 +71,20 @@ struct ConectWatchView: View {
                 
                 Button {
                     readData()
-                    
+                    print("phone = \(phone)")
                     if phone == "" {
+                        print("lalala")
                         notAddPhone = true
                     }else{
-                       notAddPhone = false
+                        notAddPhone = false
+                        callContact(phone)
                     }
-                    callContact(phone)
+                  
                 } label: {
                     Image(systemName: "phone.circle")
                         .resizable()
                         .frame(maxWidth: 65, maxHeight: 65)
                         .foregroundColor(.white)
-                }
-                .alert(isPresented: $notAddPhone) {
-                    Alert(title: Text("提示"), message: Text("请添加宝贝的电话"))
                 }
                 
                 
@@ -161,7 +160,6 @@ struct ConectWatchView: View {
                                   .foregroundColor(Color(red: 0.31, green: 0.31, blue: 0.31))
                                   .frame(width: 297.71469, alignment: .topLeading)
                             }
-                            
                         }
                         Button {
                             enterAddBabyphone = true
@@ -197,6 +195,10 @@ struct ConectWatchView: View {
         .alert(isPresented: $isNill) {
             Alert(title: Text("提示"), message: Text("请在Watch端打开“守护”App进行第一次数据同步"))
         }
+        .alert(isPresented: $notAddPhone) {
+           
+            Alert(title: Text("提示"), message: Text("请添加宝贝的电话"))
+        }
         .onAppear(perform: {
             if DataManager.isFirstRuning() {
                 print("第一次运行程序")
@@ -221,7 +223,7 @@ struct ConectWatchView: View {
         //读孩子的电话数据
         dataInfo = DataManager.readData()
         for info in dataInfo {
-            phone = info.phone
+            phone = info.phone ?? ""
         }
     }
 }

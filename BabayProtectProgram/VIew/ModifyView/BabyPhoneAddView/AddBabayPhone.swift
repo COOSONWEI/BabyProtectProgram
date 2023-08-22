@@ -19,7 +19,7 @@ struct AddBabayPhone: View {
     @State private var phone = ""
     @State private var isValid: Bool = false
     @State private var enterRight: Bool = false
-    
+    @State private var enterFalse: Bool = false
     var body: some View {
         VStack(spacing: 20) {
             
@@ -46,22 +46,22 @@ struct AddBabayPhone: View {
                     .cornerRadius(20)
                     .shadow(radius: 3)
             }
-            .alert(isPresented: $isValid) {
+            .alert(isPresented: $enterFalse) {
                 Alert(title: Text("提示"),message: Text("手机号输入不规范请重新输入"))
             }
             .alert(isPresented: $enterRight) {
                 Alert(title: Text("添加成功"),message: Text("目前的手机号为：\(phone)"))
                 }
-           
         }
         .padding()
     }
     
     func addContacts(phone: String) {
         
-            if validatePhoneNumber(phone) {
+            if !validatePhoneNumber(phone) {
                 isValid = true
                 enterRight = false
+                enterFalse = true
             }else{
                 babyPhone.firstuse = 0
                 babyPhone.phone = phone
@@ -87,7 +87,7 @@ struct AddBabayPhone: View {
         let phonePredicate = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
         isValid = phonePredicate.evaluate(with: number)
         print("judge\(isValid)")
-        return !isValid
+        return isValid
     }
     
     

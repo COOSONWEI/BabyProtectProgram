@@ -9,6 +9,8 @@ import SwiftUI
 
 //MARK: -宝贝心情
 struct EmotionCard: View {
+    let rate: Int
+    
     var body: some View {
         VStack {
             HStack{
@@ -25,17 +27,19 @@ struct EmotionCard: View {
                             .resizable()
                             .fixedSize()
                     }
-                    Text("宝贝现在很开心！")
-                      
+                    Text(rate > 0 ? "宝贝现在很开心" : "缺少数据，无法推断")
                         .font(.system(size: 15))
                         .minimumScaleFactor(0.2)
                         .multilineTextAlignment(.trailing)
+                        .lineLimit(nil)
                         .foregroundColor(.black)
                 }
                 Spacer()
-               Image("Happy")
+                Image(rate > 0 ? "Happy" : "NotFound")
                     .resizable()
+                    .frame(maxWidth: 65, maxHeight: 65)
                     .fixedSize()
+                    
             }
             Divider()
         }
@@ -44,6 +48,6 @@ struct EmotionCard: View {
 
 struct EmotionCard_Previews: PreviewProvider {
     static var previews: some View {
-        EmotionCard()
+        EmotionCard(rate: 0)
     }
 }

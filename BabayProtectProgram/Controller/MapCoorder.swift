@@ -189,7 +189,6 @@ extension MapViewCoordinator: MKMapViewDelegate {
             return ploygon
         }
         
-        
         return MKOverlayRenderer(overlay: overlay)
     }
     

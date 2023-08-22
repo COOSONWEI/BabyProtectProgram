@@ -25,7 +25,8 @@ struct EnterBeaconView: View {
             Image(systemName: "phone.fill")
                 .font(.largeTitle)
                 .foregroundColor(.pink.opacity(0.2))
-            
+            Text("请添加放在对应区域的信标名称，AppleWatch会自动同步该信息，靠近该区域识别到信标信号的时候会提醒您，您的孩子进入了该危险区域，请您留意孩子当前的状态")
+                
             TextField("信标名称", text: $name)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
@@ -48,9 +49,8 @@ struct EnterBeaconView: View {
                 Alert(title: Text("提示"),message: Text("信标名称输入不规范请重新输入"))
             }
             .alert(isPresented: $isFalseEnter) {
-                Alert(title: Text("提示"),message: Text("信标添加成功"))
+                Alert(title: Text("提示"),message: Text("信标添加成功,请下滑刷新一下界面，同步数据"))
             }
-            
         }
         .padding()
     }

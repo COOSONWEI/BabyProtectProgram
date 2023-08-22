@@ -72,15 +72,15 @@ struct OutDoorFunctionView: View {
 
                 Divider()
                 
-                Image("battery")
-                    .resizable()
-                    .frame(maxWidth: 32, maxHeight: 32)
-                    .fixedSize()
-                
-                Text("0")
-                    .font(.system(size: 9))
-                    .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
-                    .minimumScaleFactor(0.2)
+//                Image("battery")
+//                    .resizable()
+//                    .frame(maxWidth: 32, maxHeight: 32)
+//                    .fixedSize()
+//
+//                Text("0")
+//                    .font(.system(size: 9))
+//                    .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
+//                    .minimumScaleFactor(0.2)
                 
                 
             }

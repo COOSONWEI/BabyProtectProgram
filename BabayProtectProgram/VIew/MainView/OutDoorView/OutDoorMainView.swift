@@ -73,29 +73,30 @@ struct OutDoorMainView: View {
                 Spacer()
             }
             
-            VStack{
-                Spacer()
-                if showNavBar {
-                    OutDoorFunctionsView(mapView: mapVieWrappr, childLocation: lastLocation, walking: $walking, bus: $byBus, car: $byCar)
-                    .frame(height: 200)
-                    .background(Color.white)
-                    .transition(.move(edge: .bottom))
-                }
-            }
-            .gesture(
-                DragGesture()
-                    .onChanged { value in
-                        if value.translation.height < -50 {
-                            withAnimation {
-                                showNavBar = true
-                            }
-                        } else if value.translation.height > 50 {
-                            withAnimation {
-                                showNavBar = false
-                            }
-                        }
-                    }
-            )
+            //MARK: 地图导航界面
+//            VStack{
+//                Spacer()
+//                if showNavBar {
+//                    OutDoorFunctionsView(mapView: mapVieWrappr, childLocation: lastLocation, walking: $walking, bus: $byBus, car: $byCar)
+//                    .frame(height: 200)
+//                    .background(Color.white)
+//                    .transition(.move(edge: .bottom))
+//                }
+//            }
+//            .gesture(
+//                DragGesture()
+//                    .onChanged { value in
+//                        if value.translation.height < -50 {
+//                            withAnimation {
+//                                showNavBar = true
+//                            }
+//                        } else if value.translation.height > 50 {
+//                            withAnimation {
+//                                showNavBar = false
+//                            }
+//                        }
+//                    }
+//            )
            
     
         }

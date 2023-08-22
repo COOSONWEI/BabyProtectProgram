@@ -24,7 +24,7 @@ class HealthModel: NSObject, ObservableObject {
             HKQuantityTypeIdentifier.restingHeartRate.rawValue,
             HKCategoryTypeIdentifier.sleepAnalysis.rawValue,
             HKQuantityTypeIdentifier.distanceWalkingRunning.rawValue,
-            HKWorkoutTypeIdentifier
+//            HKWorkoutTypeIdentifier
         ]
         
         return typeIdentifiers.compactMap { getSampleType(for: $0) }

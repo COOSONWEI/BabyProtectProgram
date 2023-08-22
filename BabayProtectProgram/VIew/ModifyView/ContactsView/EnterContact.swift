@@ -55,11 +55,13 @@ struct EnterContact: View {
                 Alert(title: Text("提示"),message: Text("名称或手机号输入不规范请重新输入"))
             }
             .alert(isPresented: $isFalseEnter) {
-                Alert(title: Text("提示"),message: Text("添加联系人成功"))
+                Alert(title: Text("提示"),message: Text("添加联系人成功，请刷新一下同步数据"))
             }
             
         }
         .padding()
+        
+       
     }
     
     func addContacts(name: String, phone: String) {

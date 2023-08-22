@@ -30,7 +30,7 @@ struct HeartRateCard: View {
                             
                             
                     }
-                    Text(rate > 0 ? "宝贝心率正常" : "数据同步失败")
+                    Text(rate > 0 ? "宝贝心率正常" : "心率数据获取失败")
                       
                         .font(.system(size: 15))
                         .minimumScaleFactor(0.2)
