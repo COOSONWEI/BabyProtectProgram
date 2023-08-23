@@ -33,13 +33,13 @@ struct MenuView: View {
         NavigationStack{
             ZStack{
                 BeaconDetectView(bluetoothModel: bluetool, beaconsNames: beaconModel, isContain: $isContain)
-                    .sheet(isPresented: $isContain, content: {
-                        WarningView(dangerousType: .beacon, phone: contactsModel.contacts.count > 0 ? contactsModel.contacts[0].phoneNumber : "请添加号码")
-                            .onDisappear(perform: {
-                                isContain = false
-                                bluetool.scanForPeripherals()
-                            })
-                    })
+//                    .sheet(isPresented: $isContain, content: {
+//                        WarningView(dangerousType: .beacon, phone: contactsModel.contacts.count > 0 ? contactsModel.contacts[0].phoneNumber : "请添加号码")
+//                            .onDisappear(perform: {
+//                                isContain = false
+//                                bluetool.scanForPeripherals()
+//                            })
+//                    })
                     .opacity(0)
                     .task {
                         do {
@@ -71,13 +71,13 @@ struct MenuView: View {
                 }
                 .padding(.top)
             }
-            .sheet(isPresented: $locationManager.reginLocation.isEnter) {
-                WarningView(dangerousType: .geofencation, phone: contactsModel.contacts.count > 0 ? contactsModel.contacts[0].phoneNumber : "请添加号码")
-                    .onAppear {
-                        geoCloudStore.sendTheInformation(locationManager: locationManager)
-                       
-                    }
-            }
+//            .sheet(isPresented: $locationManager.reginLocation.isEnter) {
+//                WarningView(dangerousType: .geofencation, phone: contactsModel.contacts.count > 0 ? contactsModel.contacts[0].phoneNumber : "请添加号码")
+//                    .onAppear {
+//                        geoCloudStore.sendTheInformation(locationManager: locationManager)
+//                       
+//                    }
+//            }
         }
         .task {
             do {

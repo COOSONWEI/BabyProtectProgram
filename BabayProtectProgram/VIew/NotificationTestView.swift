@@ -24,8 +24,8 @@ struct NotificationTestView: View {
             }
             
             Button {
-//                vm.subscribeToNotificatoin()
-                vm.sendNotification(title: "这是一个通知", subtitle: "测试用的", body: "具体内容不知道了")
+                vm.subscribeToNotificatoin()
+                vm.sendNotification(title: "您的孩子正在危险水域附近", subtitle: "", body: "是否检查打开App查看孩子目前的位置和情况")
             } label: {
                 Text("subscribe the notification")
             }
@@ -36,6 +36,23 @@ struct NotificationTestView: View {
                 Text("UnSubscribe the Notification")
             }
 
+            Button {
+                vm.fetchSubscriptions { subscriptionsByID, error in
+                    if let error = error {
+                        print("Error fetching subscriptions: \(error.localizedDescription)")
+                    } else if let subscriptionsByID = subscriptionsByID {
+                        for (subscriptionID, subscription) in subscriptionsByID {
+                            print("Subscription ID: \(subscriptionID)")
+                            // 这里可以根据 subscriptionID 判断用户订阅了哪些通知
+                            // 例如，subscriptionID == "chailds_near" 表示订阅了Beacons通知
+                            // subscriptionID == "child_enter_geofencations" 表示订阅了GeoDangers通知
+                        }
+                    }
+                }
+
+            } label: {
+                Text("check the Notification")
+            }
         }
     
        

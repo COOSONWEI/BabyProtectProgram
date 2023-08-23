@@ -51,6 +51,14 @@
 		2F0725962A84ACDF007A36CE /* HealthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725952A84ACDF007A36CE /* HealthModel.swift */; };
 		2F0725982A860C37007A36CE /* HealthWalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725972A860C37007A36CE /* HealthWalkView.swift */; };
 		2F07259A2A860C5F007A36CE /* HealthHeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0725992A860C5F007A36CE /* HealthHeartView.swift */; };
+		2F1FE99D2A94D51D0063A700 /* FIrstEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE99C2A94D51D0063A700 /* FIrstEnterView.swift */; };
+		2F1FE9A22A9594250063A700 /* CallPhoneButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9A12A9594250063A700 /* CallPhoneButtonView.swift */; };
+		2F1FE9A42A9598BC0063A700 /* ConectSuccessfulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9A32A9598BC0063A700 /* ConectSuccessfulView.swift */; };
+		2F1FE9A62A95B1210063A700 /* NewCustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9A52A95B1210063A700 /* NewCustomTabView.swift */; };
+		2F1FE9A82A95CAD10063A700 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9A72A95CAD10063A700 /* AddButton.swift */; };
+		2F1FE9AB2A95DB370063A700 /* InDoorDangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9AA2A95DB370063A700 /* InDoorDangerView.swift */; };
+		2F1FE9AD2A95E0B70063A700 /* AddBeaconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9AC2A95E0B70063A700 /* AddBeaconView.swift */; };
+		2F1FE9AF2A96005D0063A700 /* ContactAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9AE2A96005D0063A700 /* ContactAddView.swift */; };
 		2F4BDC362A88AC0000D9B447 /* HeartRateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC352A88AC0000D9B447 /* HeartRateCard.swift */; };
 		2F4BDC382A88AD0700D9B447 /* EmotionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC372A88AD0700D9B447 /* EmotionCard.swift */; };
 		2F4BDC3A2A88B82500D9B447 /* AddInDoorDangerousView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC392A88B82500D9B447 /* AddInDoorDangerousView.swift */; };
@@ -190,6 +198,14 @@
 		2F0725952A84ACDF007A36CE /* HealthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthModel.swift; sourceTree = "<group>"; };
 		2F0725972A860C37007A36CE /* HealthWalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthWalkView.swift; sourceTree = "<group>"; };
 		2F0725992A860C5F007A36CE /* HealthHeartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthHeartView.swift; sourceTree = "<group>"; };
+		2F1FE99C2A94D51D0063A700 /* FIrstEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIrstEnterView.swift; sourceTree = "<group>"; };
+		2F1FE9A12A9594250063A700 /* CallPhoneButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallPhoneButtonView.swift; sourceTree = "<group>"; };
+		2F1FE9A32A9598BC0063A700 /* ConectSuccessfulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConectSuccessfulView.swift; sourceTree = "<group>"; };
+		2F1FE9A52A95B1210063A700 /* NewCustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCustomTabView.swift; sourceTree = "<group>"; };
+		2F1FE9A72A95CAD10063A700 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		2F1FE9AA2A95DB370063A700 /* InDoorDangerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InDoorDangerView.swift; sourceTree = "<group>"; };
+		2F1FE9AC2A95E0B70063A700 /* AddBeaconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeaconView.swift; sourceTree = "<group>"; };
+		2F1FE9AE2A96005D0063A700 /* ContactAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAddView.swift; sourceTree = "<group>"; };
 		2F4BDC352A88AC0000D9B447 /* HeartRateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateCard.swift; sourceTree = "<group>"; };
 		2F4BDC372A88AD0700D9B447 /* EmotionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionCard.swift; sourceTree = "<group>"; };
 		2F4BDC392A88B82500D9B447 /* AddInDoorDangerousView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInDoorDangerousView.swift; sourceTree = "<group>"; };
@@ -312,6 +328,7 @@
 				2F026A992A874723005248EF /* HealthEnterView.swift */,
 				2F026A9B2A87485A005248EF /* InDoorEnterView.swift */,
 				2F026A9D2A874C42005248EF /* HomeFunctionChooseView.swift */,
+				2F1FE9A12A9594250063A700 /* CallPhoneButtonView.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -479,12 +496,39 @@
 			path = SomeHelpFunctions;
 			sourceTree = "<group>";
 		};
+		2F1FE99B2A94D5090063A700 /* FirstEnterView */ = {
+			isa = PBXGroup;
+			children = (
+				2F1FE99C2A94D51D0063A700 /* FIrstEnterView.swift */,
+			);
+			path = FirstEnterView;
+			sourceTree = "<group>";
+		};
+		2F1FE99E2A94F1C00063A700 /* NewHomeView */ = {
+			isa = PBXGroup;
+			children = (
+				2F1FE9A32A9598BC0063A700 /* ConectSuccessfulView.swift */,
+				2F1FE9A72A95CAD10063A700 /* AddButton.swift */,
+			);
+			path = NewHomeView;
+			sourceTree = "<group>";
+		};
+		2F1FE9A92A95DB170063A700 /* NewAddView */ = {
+			isa = PBXGroup;
+			children = (
+				2F1FE9AA2A95DB370063A700 /* InDoorDangerView.swift */,
+				2F1FE9AE2A96005D0063A700 /* ContactAddView.swift */,
+			);
+			path = NewAddView;
+			sourceTree = "<group>";
+		};
 		2F4BDC3B2A88B8B300D9B447 /* InDoorView */ = {
 			isa = PBXGroup;
 			children = (
 				2F4BDC3C2A88B8CC00D9B447 /* InDoorDangerousCard.swift */,
 				2F8BF8722A8CA7E60036FFF1 /* AddBeaconButton.swift */,
 				2F8BF8752A8CAEDD0036FFF1 /* EnterBeaconView.swift */,
+				2F1FE9AC2A95E0B70063A700 /* AddBeaconView.swift */,
 			);
 			path = InDoorView;
 			sourceTree = "<group>";
@@ -508,6 +552,7 @@
 				2F026A9F2A874F78005248EF /* MainView */,
 				2F59B0702A86460F006DA2C8 /* HomeView.swift */,
 				2F59B0802A865D03006DA2C8 /* CustomTabView.swift */,
+				2F1FE9A52A95B1210063A700 /* NewCustomTabView.swift */,
 				2F8BF8612A8BF5FF0036FFF1 /* NotificationTestView.swift */,
 			);
 			path = VIew;
@@ -526,6 +571,9 @@
 		2F59B0732A8649DB006DA2C8 /* ModifyView */ = {
 			isa = PBXGroup;
 			children = (
+				2F1FE9A92A95DB170063A700 /* NewAddView */,
+				2F1FE99E2A94F1C00063A700 /* NewHomeView */,
+				2F1FE99B2A94D5090063A700 /* FirstEnterView */,
 				2F8BF8782A8CB8D80036FFF1 /* BabyPhoneAddView */,
 				2F8BF8712A8C8E290036FFF1 /* ContactsView */,
 				2F8BF8662A8C08490036FFF1 /* ShoppingView */,
@@ -737,20 +785,24 @@
 			files = (
 				2F8BF8702A8C8BC00036FFF1 /* EnterContact.swift in Sources */,
 				2F59B06C2A8627BE006DA2C8 /* HealthKitSupport.swift in Sources */,
+				2F1FE9A82A95CAD10063A700 /* AddButton.swift in Sources */,
 				2F8BF8622A8BF5FF0036FFF1 /* NotificationTestView.swift in Sources */,
 				2F026AB32A8867F1005248EF /* DangerButtonView.swift in Sources */,
 				2F8BF87A2A8CB8F20036FFF1 /* AddBabayPhone.swift in Sources */,
 				2F026AB12A87C3C7005248EF /* AddDangerView.swift in Sources */,
 				2F8BF8902A8DAE190036FFF1 /* iPhoneViewModel.swift in Sources */,
+				2F1FE9AF2A96005D0063A700 /* ContactAddView.swift in Sources */,
 				2F59B0712A86460F006DA2C8 /* HomeView.swift in Sources */,
 				2F8BF87D2A8CB94E0036FFF1 /* BabyPhoneModel.swift in Sources */,
 				2F07254E2A835FC9007A36CE /* ContentView.swift in Sources */,
 				2F4BDC3F2A88C12400D9B447 /* EnterUUID.swift in Sources */,
 				2F026ABE2A889B3E005248EF /* RunCard.swift in Sources */,
+				2F1FE9A22A9594250063A700 /* CallPhoneButtonView.swift in Sources */,
 				2F026AAA2A8773ED005248EF /* LocationView.swift in Sources */,
 				2F026AB72A8870C0005248EF /* Image+Extension.swift in Sources */,
 				2F5F14F62A8FDD4C00C31F4B /* DrawingHistoryPath.swift in Sources */,
 				2F026AC42A889B82005248EF /* MoreInformationList.swift in Sources */,
+				2F1FE9AD2A95E0B70063A700 /* AddBeaconView.swift in Sources */,
 				2F026A9E2A874C42005248EF /* HomeFunctionChooseView.swift in Sources */,
 				2F5FD7C02A90A0D200F03E64 /* MapViewWaper.swift in Sources */,
 				2F8BF8742A8CA8A70036FFF1 /* GetBeaconModel.swift in Sources */,
@@ -768,8 +820,10 @@
 				2F5F14FA2A90483B00C31F4B /* HistoryPathViewController.swift in Sources */,
 				2F8BF8602A8BE0A20036FFF1 /* NotificationModel.swift in Sources */,
 				2F4BDC3A2A88B82500D9B447 /* AddInDoorDangerousView.swift in Sources */,
+				2F1FE9AB2A95DB370063A700 /* InDoorDangerView.swift in Sources */,
 				2F5F14E12A8E777300C31F4B /* MapCoorder.swift in Sources */,
 				2F4BDC3D2A88B8CC00D9B447 /* InDoorDangerousCard.swift in Sources */,
+				2F1FE9A42A9598BC0063A700 /* ConectSuccessfulView.swift in Sources */,
 				2F59B0812A865D03006DA2C8 /* CustomTabView.swift in Sources */,
 				2F026AB92A887C29005248EF /* HealthView.swift in Sources */,
 				2F07254C2A835FC9007A36CE /* BabayProtectProgramApp.swift in Sources */,
@@ -783,10 +837,12 @@
 				2F026AB52A886DC2005248EF /* DangerGeofenceCard.swift in Sources */,
 				2F026AA42A8752C7005248EF /* OutDoorMainView.swift in Sources */,
 				2F8BF8892A8D229A0036FFF1 /* DataManager.swift in Sources */,
+				2F1FE99D2A94D51D0063A700 /* FIrstEnterView.swift in Sources */,
 				2F8BF8652A8C082A0036FFF1 /* ShoppingView.swift in Sources */,
 				2FBA3EE12A8B78E2005CC22B /* HealthCloudStoreModel.swift in Sources */,
 				2F59B0692A8621CD006DA2C8 /* HealthModel.swift in Sources */,
 				2F026AC22A889B53005248EF /* SleepCard.swift in Sources */,
+				2F1FE9A62A95B1210063A700 /* NewCustomTabView.swift in Sources */,
 				2F4BDC362A88AC0000D9B447 /* HeartRateCard.swift in Sources */,
 				2F8BF88C2A8D53340036FFF1 /* BeaconModel.swift in Sources */,
 				2F59B0882A866ADA006DA2C8 /* WCSessionModel.swift in Sources */,

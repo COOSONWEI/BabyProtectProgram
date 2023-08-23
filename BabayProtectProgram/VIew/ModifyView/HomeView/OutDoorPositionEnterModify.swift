@@ -11,16 +11,16 @@ import SwiftUI
 struct OutDoorPositionEnterModify: View {
     @State var enterOutDoor = false
     var body: some View {
-        Button {
-            enterOutDoor.toggle()
-        } label: {
+       
             ZStack{
                 Rectangle()
                   .foregroundColor(.clear)
                   
                   .background(Color(red: 0.31, green: 0.31, blue: 0.31))
                   .cornerRadius(17)
-                  .shadow(color: .black.opacity(0.25), radius: 4.5, x: 4, y: 4)
+                  .shadow(color: .black.opacity(0.05), radius: 3, x: 6, y: 6)
+                  .shadow(color: .black.opacity(0.1), radius: 5.5, x: 1, y: 1)
+
                 
                 HStack{
                     VStack(alignment: .leading){
@@ -39,10 +39,14 @@ struct OutDoorPositionEnterModify: View {
                 
             }
             .frame(width: 144, height: 144)
-        }
-        .fullScreenCover(isPresented: $enterOutDoor) {
-            OutDoorMainView()
-        }
+        
+
+         
+    
+        
+
+               
+        
     }
 }
 

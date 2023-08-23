@@ -74,7 +74,7 @@ struct AddInDoorDangerousView: View {
             //添加了危险区的卡片（这里先放一个卡片测试）
             ScrollView{
                 ForEach(cloudBeaconModel.usefulBeaconNames.keys.sorted(),id:\.self){ key in
-                    InDoorDangerousCard(name: key)
+//                    InDoorDangerousCard(name: key)
                 }
                 
             }

@@ -15,7 +15,6 @@ struct EnterBeaconView: View {
     @StateObject var cloudModel: CloudBeaconModel
     
     @State private var name: String = ""
-    
     @State private var isValid: Bool = false
     @State private var isFalseEnter = false
     
@@ -59,11 +58,12 @@ struct EnterBeaconView: View {
         
         if name != "" {
                 let contactsModel = BeaconModel()
-                contactsModel.beaconName = Beacon(name: name)
+            contactsModel.beaconName = Beacon(name: name, subTitle: "")
             
                 let cloudStore = CloudBeaconModel()
                 cloudStore.saveNewBeaconToCloud(beaconModel: contactsModel)
                 isFalseEnter = true
+            
         }else{
             isValid = true
             isFalseEnter = false

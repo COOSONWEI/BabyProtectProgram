@@ -12,9 +12,11 @@ struct HealthView: View {
     //数据
     @StateObject var healthDataModel: HealthiCloudStore = HealthiCloudStore()
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @State private var showLoadingIndicator = false
     
-    @State var back = false
+
     @State var fetchTrue = true
     
     var body: some View {
@@ -36,7 +38,7 @@ struct HealthView: View {
                 VStack{
                     HStack{
                         Button {
-                            back.toggle()
+                            presentationMode.wrappedValue.dismiss()
                         } label: {
                             Image("dgBackBT")
                                 .resizable()
@@ -97,6 +99,7 @@ struct HealthView: View {
                     } catch {
                         // 在这里处理错误，例如打印错误信息或者显示错误提示给用户
                         print("Error fetching restaurants: \(error)")
+                        showLoadingIndicator = false
                     }
             }
             .onAppear() {
@@ -109,6 +112,7 @@ struct HealthView: View {
                     } catch {
                         // 在这里处理错误，例如打印错误信息或者显示错误提示给用户
                         print("Error fetching restaurants: \(error)")
+                        showLoadingIndicator = false
                     }
                 
             }
@@ -118,10 +122,7 @@ struct HealthView: View {
             }
            
         }
-        
-        .fullScreenCover(isPresented: $back) {
-            CustomTabView()
-        }
+        .navigationBarBackButtonHidden(true)
     }
 
     }

@@ -19,6 +19,7 @@ struct ConectWatchView: View {
     @State private var isNill = false
     
     var body: some View {
+        
         ZStack{
             //背景
             VStack{

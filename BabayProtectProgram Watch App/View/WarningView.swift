@@ -13,7 +13,7 @@ struct WarningView: View {
     var body: some View {
         //这里分为程序运行中和后台运行的两个通知方式
         VStack {
-            Text(dangerousType == .beacon ? "请勿触碰危险物品!" : "请勿接近危险区")
+            Text(dangerousType == .beacon ? "请勿靠近阳台!" : "请勿接近危险区")
                 .multilineTextAlignment(.center)
             Image(dangerousType == .beacon ? "Endanger" : "Danger")
                 .resizable()

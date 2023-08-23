@@ -35,7 +35,7 @@ class LocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         case .denied:
             print("you have denied thi s app location permission, go into setting to change it")
         case .authorizedAlways, .authorizedWhenInUse:
-            mapRegion = MKCoordinateRegion(center: locationManager.location!.coordinate,span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+//            mapRegion = MKCoordinateRegion(center: locationManager.location!.coordinate,span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
             print("check the location: \(mapRegion)")
         @unknown default:
             break

@@ -10,7 +10,7 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
-struct NavigationView: UIViewControllerRepresentable {
+struct NavigationsView: UIViewControllerRepresentable {
     
     let sourceCoordinate = CLLocationCoordinate2D(latitude: 39.916345, longitude: 116.397155)
     let destinationCoordinate = CLLocationCoordinate2D(latitude: 31.234040, longitude: 121.474366)
@@ -37,7 +37,7 @@ struct NavigationView: UIViewControllerRepresentable {
 struct DrawingHistoryView: View {
     
     var body: some View {
-        NavigationView()
+        NavigationsView()
             .ignoresSafeArea()
     }
     

@@ -15,13 +15,16 @@ struct BeaconsDataModel {
 }
 
 class BeaconViewModel: ObservableObject {
+    
     @Published var beacons = BeaconsDataModel(beaconsName: "", near: 0)
+    
 }
 
 class CloudBeaconModel: ObservableObject {
     
     @Published var beaconNames: [CKRecord] = []
     @Published var usefulBeaconNames: [String:Int] = [:]
+    @Published var usefulbeaconsubTitle: [String:String] =  [:]
     
     func fetchBeacons() async throws {
         // Fetch data using Convenience API
@@ -35,13 +38,14 @@ class CloudBeaconModel: ObservableObject {
         for record in results.matchResults {
             self.beaconNames.append(try record.1.get())
         }
+        
         DispatchQueue.main.async {
             
             for beaconName in self.beaconNames {
+                
                 self.usefulBeaconNames.updateValue(0, forKey: beaconName.object(forKey: "beaconsName") as! String)
-                //                print(self.usefulBeaconNames)
+//                self.usefulbeaconsubTitle.updateValue(beaconName.object(forKey: "subName") as! String, forKey: beaconName.object(forKey: "beaconsName") as! String)
             }
-            
             
         }
         print("lalllalalallal")
@@ -106,6 +110,8 @@ class CloudBeaconModel: ObservableObject {
         // Prepare the record to save
         let record = CKRecord(recordType: "Beacons")
         record.setValue(beaconModel.beaconName.name, forKey: "beaconsName")
+        record.setValue(beaconModel.beaconName.subTitle, forKey: "subName")
+        
         record.setValue(0, forKey: "near")
         
         // Get the Public iCloud Database

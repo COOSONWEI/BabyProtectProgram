@@ -11,11 +11,10 @@ import SwiftUI
 struct HealthEnterView: View {
     
     @State var enterHealthDtect = false
+   
     
     var body: some View {
-        Button {
-            enterHealthDtect.toggle()
-        } label: {
+       
         
             ZStack{
                 Rectangle()
@@ -23,7 +22,8 @@ struct HealthEnterView: View {
                  
                   .background(Color(red: 1, green: 0.53, blue: 0.59))
                   .cornerRadius(17)
-                  .shadow(color: .black.opacity(0.25), radius: 5.5, x: 4, y: 6)
+                  .shadow(color: .black.opacity(0.05), radius: 3, x: 6, y: 6)
+                  .shadow(color: .black.opacity(0.1), radius: 5.5, x: 1, y: 1)
                 HStack{
                     VStack(alignment:.leading){
                         Text("健康检测")
@@ -40,12 +40,6 @@ struct HealthEnterView: View {
                 
             }
             .frame(width: 144, height: 144)
-            
-        }
-        .fullScreenCover(isPresented: $enterHealthDtect) {
-            HealthView()
-        }
-
         
     }
 }

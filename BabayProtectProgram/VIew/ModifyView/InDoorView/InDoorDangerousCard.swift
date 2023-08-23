@@ -10,24 +10,30 @@ import SwiftUI
 struct InDoorDangerousCard: View {
     
     let name: String
+    let subView: String
+    
     var body: some View {
         ZStack{
-            Rectangle()
-            .foregroundColor(.clear)
-            .background(.white)
-            .cornerRadius(15)
-            .shadow(color: .black.opacity(0.17), radius: 6.5, x: 3, y: 3)
-            .shadow(color: .black.opacity(0.05), radius: 4, x: 1, y: 1)
             
             HStack{
-                Text(name)
-                    .font(.system(size: 27))
-                    .fontWeight(.black)
-                    .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
+                Image("circle.badge.exclamationmark 1")
+                
+                VStack(alignment:.leading){
+                    
+                    Text(name)
+                        .font(.system(size: 17))
+                        .fontWeight(.black)
+                        .foregroundColor(.black)
+                    
+                    Text(subView)
+                        .font(.system(size: 12))
+                        .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
+                    
+                }
+                
+                
                 Spacer()
-                Image("DangerousLogo")
-                    .resizable()
-                    .fixedSize()
+              
             }
             .padding()
             
@@ -39,6 +45,6 @@ struct InDoorDangerousCard: View {
 
 struct InDoorDangerousCard_Previews: PreviewProvider {
     static var previews: some View {
-        InDoorDangerousCard(name: "厨房区域")
+        InDoorDangerousCard(name: "厨房区域", subView: "烧伤危险")
     }
 }

@@ -50,7 +50,7 @@ class CloudPushNotificationViewModel:  ObservableObject {
         let predicate = NSPredicate(value: true)
         //订阅通知的方式
         let subscription = CKQuerySubscription(recordType: "Beacons", predicate: predicate, subscriptionID: "chailds_near", options: .firesOnRecordUpdate)
-        let geoFencationSubsciption = CKQuerySubscription(recordType: "GeoDangers", predicate: predicate, subscriptionID: "child_enter_geofencations",options: .firesOnRecordCreation)
+        let geoFencationSubsciption = CKQuerySubscription(recordType: "GeoDangers", predicate: predicate, subscriptionID: "child_near_geofencations",options: .firesOnRecordUpdate)
         
         //订阅室内危险区通知
         let notification = CKSubscription.NotificationInfo()
@@ -62,12 +62,11 @@ class CloudPushNotificationViewModel:  ObservableObject {
         
         //订阅地理围栏
         let geoNotifation = CKSubscription.NotificationInfo()
-        notification.title = "您的孩子在危险区附近！！！"
+        notification.title = "您的孩子在水域附近！！！"
         notification.alertBody = "是否要打开App查看孩子位置和情况？"
         notification.soundName = "default"
         
         geoFencationSubsciption.notificationInfo = geoNotifation
-        
         
         CKContainer.default().privateCloudDatabase.save(subscription) { returnedSubscription, returnedError in
             if let error = returnedError {
@@ -89,7 +88,7 @@ class CloudPushNotificationViewModel:  ObservableObject {
     
     //取消通知
     func unsubscribeToNotification() {
-        CKContainer.default().privateCloudDatabase.delete(withSubscriptionID: "chailds_near_dangerous_objects") { returnedSubscription, returnedError in
+        CKContainer.default().privateCloudDatabase.delete(withSubscriptionID: "child_enter_geofencations") { returnedSubscription, returnedError in
             if let error = returnedError {
                 print(error.localizedDescription)
             }else {
@@ -98,6 +97,19 @@ class CloudPushNotificationViewModel:  ObservableObject {
         }
     }
     
+    func fetchSubscriptions(completion: @escaping ([CKSubscription.ID: CKSubscription]?, Error?) -> Void) {
+        let operation = CKFetchSubscriptionsOperation(subscriptionIDs: ["chailds_near","child_near_geofencations"])
+        operation.fetchSubscriptionCompletionBlock = { subscriptionsByID, error in
+            completion(subscriptionsByID, error)
+        }
+        CKContainer.default().privateCloudDatabase.add(operation)
+    }
+
+    
+
+    // 调用上述方法来获取用户订阅信息
+    
+
 }
 
 

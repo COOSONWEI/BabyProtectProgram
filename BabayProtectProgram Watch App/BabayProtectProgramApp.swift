@@ -12,7 +12,7 @@ struct BabayProtectProgram_Watch_AppApp: App {
     
     @StateObject  var healthModel = HealthModel()
     @StateObject  var locationModel = LocationModel()
-    
+
     var body: some Scene {
         WindowGroup {
             NavigationStack {
