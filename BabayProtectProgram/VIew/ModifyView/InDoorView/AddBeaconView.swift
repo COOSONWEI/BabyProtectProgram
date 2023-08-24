@@ -64,11 +64,11 @@ struct AddBeaconView: View {
                         
                         withAnimation {
                             
-//                            show = false
-                            
+                            show = false
+                            isValid = true
+                            showAlert = true
                         }
-                       isValid = true
-                        showAlert = true
+                      
                       print("isValid\(isValid)")
                         
                     } label: {
@@ -83,24 +83,20 @@ struct AddBeaconView: View {
                             .cornerRadius(8)
                             )
                     }
-                    .background(.black)
-                    .alert(isPresented: $isValid) {
-                        Alert(
-                            title: Text("Alert Title"),
-                            message: Text("This is an alert message."),
-                            primaryButton: .default(Text("OK")),
-                            secondaryButton: .cancel()
-                        )
-                    }
+                    
                     Button {
                         
                         withAnimation {
-//                            show = false
+                            if  addBeacons(name: beaconName, subTitle: beaconSubName) {
+                                show = false
+                                isFalseEnter = true
+                            }else{
+                                isValid = true
+                            }
                         }
-                        
-                        isFalseEnter = true
+                       
                         print("isFalseEnter\(isFalseEnter)")
-                        addBeacons(name: beaconName, subTitle: beaconSubName)
+                       
                         
                     } label: {
                         Text("确定添加")
@@ -110,14 +106,14 @@ struct AddBeaconView: View {
                             .background(Color(red: 0.99, green: 0.65, blue: 0.64))
                             .cornerRadius(8)
                     }
-                    .background(.black)
+                    
                 }
-                .alert(isPresented: $isValid) {
-                    Alert(title: Text("提示"),message: Text("信标名称输入不规范请重新输入"))
-                }
-                .alert(isPresented: $isFalseEnter) {
-                    Alert(title: Text("提示"),message: Text("信标添加成功,请下滑刷新一下界面，同步数据"))
-                }
+//                .alert(isPresented: $isValid) {
+//                    Alert(title: Text("提示"),message: Text("信标名称输入不规范请重新输入"))
+//                }
+//                .alert(isPresented: $isFalseEnter) {
+//                    Alert(title: Text("提示"),message: Text("信标添加成功,请下滑刷新一下界面，同步数据"))
+//                }
                
             }
             .alert(isPresented: $isValid) {
@@ -132,7 +128,7 @@ struct AddBeaconView: View {
         .background(.clear)
     }
     
-    func addBeacons(name: String, subTitle: String) {
+    func addBeacons(name: String, subTitle: String) -> Bool {
         
         if name != "" {
             
@@ -144,13 +140,14 @@ struct AddBeaconView: View {
             print("add True")
             
             isFalseEnter = true
-            
+            return true
         }else{
             
             isValid = true
             
             isFalseEnter = false
             
+            return false
         }
     }
 }

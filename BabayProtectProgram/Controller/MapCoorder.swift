@@ -38,6 +38,7 @@ class MapViewCoordinator: NSObject, CLLocationManagerDelegate {
         
     }
     
+    
     //创建一个方法为所有的围栏添加半圆颜色
     func addRadiusOverlay(forGeotification geotification: [GeoFencingViewModel]) {
         for geofencing in geofencings {
@@ -106,6 +107,7 @@ class MapViewCoordinator: NSObject, CLLocationManagerDelegate {
     //定位自己的位置
     func zoomLocation() {
         mapView.zoomToLocation(mapView.userLocation.location)
+        print("locations is =====\(mapView.userLocation.coordinate)")
     }
     
     //定位孩子的位置
@@ -157,7 +159,7 @@ class MapViewCoordinator: NSObject, CLLocationManagerDelegate {
                 if let placemark = placemarks?.first {
                     if let street = placemark.thoroughfare, let city = placemark.locality {
                         self.streeName.streeName = "\(street), \(city)"
-                        print("locationName\(street),\(city)")
+                        print("locationNamesss\(street),\(city)")
                     } else {
                         self.streeName.streeName = "Location Not Found"
                     }

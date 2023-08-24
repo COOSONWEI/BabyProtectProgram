@@ -59,6 +59,8 @@
 		2F1FE9AB2A95DB370063A700 /* InDoorDangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9AA2A95DB370063A700 /* InDoorDangerView.swift */; };
 		2F1FE9AD2A95E0B70063A700 /* AddBeaconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9AC2A95E0B70063A700 /* AddBeaconView.swift */; };
 		2F1FE9AF2A96005D0063A700 /* ContactAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9AE2A96005D0063A700 /* ContactAddView.swift */; };
+		2F1FE9B12A96FCF70063A700 /* AddPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9B02A96FCF70063A700 /* AddPhoneNumber.swift */; };
+		2F1FE9B32A97309F0063A700 /* StreeNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9B22A97309F0063A700 /* StreeNameView.swift */; };
 		2F4BDC362A88AC0000D9B447 /* HeartRateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC352A88AC0000D9B447 /* HeartRateCard.swift */; };
 		2F4BDC382A88AD0700D9B447 /* EmotionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC372A88AD0700D9B447 /* EmotionCard.swift */; };
 		2F4BDC3A2A88B82500D9B447 /* AddInDoorDangerousView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC392A88B82500D9B447 /* AddInDoorDangerousView.swift */; };
@@ -206,6 +208,8 @@
 		2F1FE9AA2A95DB370063A700 /* InDoorDangerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InDoorDangerView.swift; sourceTree = "<group>"; };
 		2F1FE9AC2A95E0B70063A700 /* AddBeaconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeaconView.swift; sourceTree = "<group>"; };
 		2F1FE9AE2A96005D0063A700 /* ContactAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAddView.swift; sourceTree = "<group>"; };
+		2F1FE9B02A96FCF70063A700 /* AddPhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhoneNumber.swift; sourceTree = "<group>"; };
+		2F1FE9B22A97309F0063A700 /* StreeNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreeNameView.swift; sourceTree = "<group>"; };
 		2F4BDC352A88AC0000D9B447 /* HeartRateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateCard.swift; sourceTree = "<group>"; };
 		2F4BDC372A88AD0700D9B447 /* EmotionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionCard.swift; sourceTree = "<group>"; };
 		2F4BDC392A88B82500D9B447 /* AddInDoorDangerousView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInDoorDangerousView.swift; sourceTree = "<group>"; };
@@ -342,6 +346,7 @@
 				2F026AB42A886DC2005248EF /* DangerGeofenceCard.swift */,
 				2F5F14F32A8FDA9500C31F4B /* OutDoorFunctionsView.swift */,
 				2F5F14FB2A90711300C31F4B /* TransportButtonSyle.swift */,
+				2F1FE9B22A97309F0063A700 /* StreeNameView.swift */,
 			);
 			path = OutDoorView;
 			sourceTree = "<group>";
@@ -649,6 +654,7 @@
 			isa = PBXGroup;
 			children = (
 				2F8BF86F2A8C8BC00036FFF1 /* EnterContact.swift */,
+				2F1FE9B02A96FCF70063A700 /* AddPhoneNumber.swift */,
 			);
 			path = ContactsView;
 			sourceTree = "<group>";
@@ -785,6 +791,7 @@
 			files = (
 				2F8BF8702A8C8BC00036FFF1 /* EnterContact.swift in Sources */,
 				2F59B06C2A8627BE006DA2C8 /* HealthKitSupport.swift in Sources */,
+				2F1FE9B32A97309F0063A700 /* StreeNameView.swift in Sources */,
 				2F1FE9A82A95CAD10063A700 /* AddButton.swift in Sources */,
 				2F8BF8622A8BF5FF0036FFF1 /* NotificationTestView.swift in Sources */,
 				2F026AB32A8867F1005248EF /* DangerButtonView.swift in Sources */,
@@ -850,6 +857,7 @@
 				2F026A9A2A874723005248EF /* HealthEnterView.swift in Sources */,
 				2F5F14E52A8F121500C31F4B /* StreeName.swift in Sources */,
 				2F026AC02A889B45005248EF /* WalkCard.swift in Sources */,
+				2F1FE9B12A96FCF70063A700 /* AddPhoneNumber.swift in Sources */,
 				2F8BF8732A8CA7E60036FFF1 /* AddBeaconButton.swift in Sources */,
 				2F026ABC2A888275005248EF /* ExerciseCard.swift in Sources */,
 				2F8BF8682A8C08930036FFF1 /* WatchShoppingCard.swift in Sources */,

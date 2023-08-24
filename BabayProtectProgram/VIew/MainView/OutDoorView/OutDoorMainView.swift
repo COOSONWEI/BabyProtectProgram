@@ -86,6 +86,13 @@ struct OutDoorMainView: View {
                     .padding(.trailing)
                     
                     Spacer()
+                    
+                    Button {
+                        openMapsNavigation(destination: lastLocation.lastCoordinate.center)
+                    } label: {
+                        Text("To Map")
+                    }
+
                 }
                 
                 //MARK: 地图导航界面
@@ -136,10 +143,17 @@ struct OutDoorMainView: View {
     //            locationVM.fetchPolling()
             })
            
-        
         .navigationBarBackButtonHidden(true)
     }
         
+    func openMapsNavigation(destination coordinate: CLLocationCoordinate2D) {
+        let destinationPlacemark = MKPlacemark(coordinate: coordinate)
+        let destinationItem = MKMapItem(placemark: destinationPlacemark)
+        destinationItem.name = "您孩子的位置"
+        
+        let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+        MKMapItem.openMaps(with: [destinationItem], launchOptions: options)
+    }
     
 }
 

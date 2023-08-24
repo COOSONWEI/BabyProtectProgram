@@ -8,7 +8,6 @@
 import Foundation
 import CloudKit
 
-
 struct BeaconsDataModel {
     let beaconsName: String
     let near: Int
@@ -29,7 +28,7 @@ class CloudBeaconModel: ObservableObject {
     func fetchBeacons() async throws {
         // Fetch data using Convenience API
         let cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
-        let publicDatabase = cloudContainer.privateCloudDatabase
+        let publicDatabase = cloudContainer.publicCloudDatabase
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "Beacons", predicate: predicate)
         
@@ -39,11 +38,20 @@ class CloudBeaconModel: ObservableObject {
             self.beaconNames.append(try record.1.get())
         }
         
+        print("beaconNames\(beaconNames)")
+        
         DispatchQueue.main.async {
             
             for beaconName in self.beaconNames {
                 
                 self.usefulBeaconNames.updateValue(0, forKey: beaconName.object(forKey: "beaconsName") as! String)
+                
+                if beaconName.object(forKey: "subName") as? String != nil {
+                    self.usefulbeaconsubTitle.updateValue(beaconName.object(forKey: "subName") as! String, forKey: beaconName.object(forKey: "beaconsName") as! String)
+                    print("usefulbeaconsubTitle\(self.usefulbeaconsubTitle)")
+                }
+               
+                
 //                self.usefulbeaconsubTitle.updateValue(beaconName.object(forKey: "subName") as! String, forKey: beaconName.object(forKey: "beaconsName") as! String)
             }
             
@@ -111,11 +119,10 @@ class CloudBeaconModel: ObservableObject {
         let record = CKRecord(recordType: "Beacons")
         record.setValue(beaconModel.beaconName.name, forKey: "beaconsName")
         record.setValue(beaconModel.beaconName.subTitle, forKey: "subName")
-        
         record.setValue(0, forKey: "near")
         
         // Get the Public iCloud Database
-        let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").privateCloudDatabase
+        let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").publicCloudDatabase
         
         // Save the record to iCloud
         publicDatabase.save(record, completionHandler: { (record, error) -> Void  in
@@ -130,6 +137,38 @@ class CloudBeaconModel: ObservableObject {
             
         })
     }
+    
+    //删除对应的记录
+    func deleteBeaconsWithNames(_ beaconNames: [String]) async {
+            let cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
+            let publicDatabase = cloudContainer.publicCloudDatabase
+            
+            for beaconName in beaconNames {
+                // 构建查询谓词
+                let predicate = NSPredicate(format: "beaconsName == %@", beaconName)
+                let query = CKQuery(recordType: "Beacons", predicate: predicate)
+                
+                // 执行查询操作
+                do {
+                    let queryResults = try await publicDatabase.records(matching: query)
+                    if let recordToDelete = try? queryResults.matchResults.first?.1.get() {
+                        // 删除记录
+                        do {
+                            
+                            try await publicDatabase.deleteRecord(withID: recordToDelete.recordID)
+                            
+                            print("Record deleted successfully for beacon: \(beaconName)")
+                        } catch {
+                            print("Failed to delete record for beacon: \(beaconName), error: \(error)")
+                        }
+                    } else {
+                        print("Record not found for beacon: \(beaconName)")
+                    }
+                } catch {
+                    print("Error querying records for beacon: \(beaconName), error: \(error)")
+                }
+            }
+        }
     
     
 }

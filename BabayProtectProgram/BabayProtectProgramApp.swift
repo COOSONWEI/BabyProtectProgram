@@ -23,8 +23,9 @@ struct BabayProtectProgramApp: App {
         WindowGroup {
 //            CustomTabView()  //主视图
 //            DrawingHistoryView()  //地图测试视图
-//            ConectSuccessfulView()
-            NotificationTestView()
+            NewCustomTabView()
+//            NotificationTestView()
+//            StreeNameView()
                 .onAppear {
                     // 获取数据
                     vm.requestNotification()

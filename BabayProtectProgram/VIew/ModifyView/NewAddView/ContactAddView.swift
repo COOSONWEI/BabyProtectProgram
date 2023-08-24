@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContactAddView: View {
-    @StateObject var cloudBeaconModel = CloudBeaconModel()
+    
+    @StateObject var contacts = Contacts()
     
     @State private var items: [String] = ["Item 1", "Item 2", "Item 3"]
     
@@ -23,23 +24,31 @@ struct ContactAddView: View {
                     
                     List{
 //                        cloudBeaconModel.usefulBeaconNames.keys.sorted()
-                        ForEach(items.sorted(),id:\.self){ key in
+                        ForEach(contacts.contacts,id:\.self){ data in
                             
-                            InDoorDangerousCard(name: key, subView: "烧伤危险")
-                            
+                            DangerGeofenceCard(name: data.name, phone: data.phoneNumber)
+                          
                         }
                         .onDelete(perform: deleteItem)
                         
                     }
                     .listStyle(.plain)
                     
-                    AddDangerousButton(sheetView: $show)
-                    
+                    AddPhoneNumber(sheetView: $show)
                 }
+                
               
-                AddBeaconView(show: $show, cloudModel: cloudBeaconModel, showAlert: .constant(false))
-                    .offset(y: -50)
-                    .opacity(show ? 1 : 0)
+//                AddBeaconView(show: $show, cloudModel: cloudBeaconModel, showAlert: .constant(false))
+//                    .offset(y: -50)
+//                    .opacity(show ? 1 : 0)
+                
+            }
+            .task {
+                do{
+                    try await contacts.fetchContacts()
+                }catch{
+                    print("lalalal")
+                }
             }
         
     }

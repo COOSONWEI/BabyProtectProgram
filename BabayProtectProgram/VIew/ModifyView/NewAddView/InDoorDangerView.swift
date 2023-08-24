@@ -26,12 +26,17 @@ struct InDoorDangerView: View {
                 
                 List{
                     //                        cloudBeaconModel.usefulBeaconNames.keys.sorted()
-                    ForEach(cloudBeaconModel.usefulbeaconsubTitle.keys.sorted(),id:\.self){ key in
+                    ForEach(cloudBeaconModel.usefulBeaconNames.keys.sorted(),id:\.self){ key in
                         
-                        InDoorDangerousCard(name: key, subView: cloudBeaconModel.usefulbeaconsubTitle[key] ?? "")
+                        InDoorDangerousCard(name: key, subView: cloudBeaconModel.usefulbeaconsubTitle[key] ?? "烧伤危险")
                         
                     }
-                    .onDelete(perform: deleteItem)
+                    
+                    .onDelete { offsets in
+                        Task {
+                            await self.deleteBeacons(at: offsets)
+                        }
+                    }
                     
                 }
                 .listStyle(.plain)
@@ -40,27 +45,44 @@ struct InDoorDangerView: View {
                 
             }
             AddBeaconView(show: $show, cloudModel: cloudBeaconModel,showAlert: $showAlert)
+                .opacity(show ? 1 : 0)
         
-            Button("Show Alert") {
-//                showAlert = true
-            }
-            .background(.black)
-            .padding()
-            .alert(isPresented: $showAlert) {
-                Alert(
-                    title: Text("Alert Title"),
-                    message: Text("This is an alert message."),
-                    primaryButton: .default(Text("OK")),
-                    secondaryButton: .cancel()
-                )
-            }
+//            Button("Show Alert") {
+////                showAlert = true
+//            }
+//            .background(.black)
+//            .padding()
+//            .alert(isPresented: $showAlert) {
+//                Alert(
+//                    title: Text("Alert Title"),
+//                    message: Text("This is an alert message."),
+//                    primaryButton: .default(Text("OK")),
+//                    secondaryButton: .cancel()
+//                )
+//            }
             
-            //                AddBeaconView(show: $show, cloudModel: cloudBeaconModel)
-            //                    .offset(y: -50)
+            
+        
             
             
         }
-        
+        .task {
+            
+            do {
+                try await cloudBeaconModel.fetchBeacons()
+                
+            }catch{
+                print("Error")
+            }
+        }
+        .refreshable {
+            do {
+                try await cloudBeaconModel.fetchBeacons()
+                
+            }catch{
+                print("Error")
+            }
+        }
         
         
         
@@ -69,6 +91,12 @@ struct InDoorDangerView: View {
     
     func deleteItem(at offsets: IndexSet) {
         items.remove(atOffsets: offsets)
+    }
+    
+    func deleteBeacons(at offsets: IndexSet) async {
+        let beaconNamesToDelete = offsets.map { cloudBeaconModel.beaconNames[$0].object(forKey: "beaconsName") as? String ?? "" }
+        
+        await cloudBeaconModel.deleteBeaconsWithNames(beaconNamesToDelete)
     }
 }
 

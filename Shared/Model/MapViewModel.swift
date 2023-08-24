@@ -50,7 +50,7 @@ class LocationCloudStroe: ObservableObject {
     func fetchRecord() async throws {
         // 从云端匹配数据
         let cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
-        let publicDatabase = cloudContainer.privateCloudDatabase
+        let publicDatabase = cloudContainer.publicCloudDatabase
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "CoreLocations", predicate: predicate)
         
@@ -119,7 +119,7 @@ class LocationCloudStroe: ObservableObject {
         record.setValue(String(location.location.street_name), forKey: "street_name")
         
         // Get the Public iCloud Database
-        let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").privateCloudDatabase
+        let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").publicCloudDatabase
 
         // Save the record to iCloud
         publicDatabase.save(record, completionHandler: { (record, error) -> Void  in

@@ -23,7 +23,7 @@ struct HealthView: View {
         ZStack{
             
             VStack{
-                Image("DnagerousBG")
+                Image("HealthBG")
                     .resizable()
                     .scaledToFit()
                     .edgesIgnoringSafeArea(.top)

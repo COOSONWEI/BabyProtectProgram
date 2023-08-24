@@ -13,14 +13,46 @@ struct NewCustomTabView: View {
    
             TabView{
                 ConectSuccessfulView()
-                
                     .tabItem {
-                        ZStack{
+               
                             Image(systemName: "house")
                             Text("首页")
-                        }
+                        
+                    }
+                
+                VStack{
+                    Text("游戏")
+                }
+                    .tabItem {
+                      
+                            
+                            Image(systemName: "gamecontroller")
+                            Text("游戏")
+                        
+                    }
+                
+                VStack{
+                    Text("信息")
+                }
+                    .tabItem {
+                      
+                            Image(systemName: "message")
+                            Text("信息")
+                        
+                    }
+                
+                VStack{
+                    ShoppingView()
+                }
+                    .tabItem {
+                       
+                            Image(systemName: "bag")
+                            Text("商店")
+                        
                     }
             }
+        //设定颜色
+//            .tint(Color(.red))
            
         
         

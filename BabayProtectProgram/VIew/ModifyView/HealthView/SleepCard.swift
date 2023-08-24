@@ -17,8 +17,7 @@ struct SleepCard: View {
         ZStack{
             Rectangle()
               .foregroundColor(.clear)
-             
-              .background(Color(red: 0.69, green: 0.39, blue: 1))
+              .background(Color(red: 159/255, green: 157/255, blue: 243/255))
               .cornerRadius(20)
             
             VStack(alignment:.leading){
@@ -28,7 +27,7 @@ struct SleepCard: View {
                         .fontWeight(.bold)
                         .minimumScaleFactor(0.2)
                       .multilineTextAlignment(.trailing)
-                      .foregroundColor(Color(red: 1, green: 0.98, blue: 0.98))
+                      .foregroundColor(.white)
                     
                     Image("Sleep")
                         .resizable()

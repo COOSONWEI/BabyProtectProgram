@@ -11,7 +11,7 @@ import CoreLocation
 //添加最近的位置的情况
 struct LocationView: View {
     @StateObject var locationModel: LastLocation
-    
+
     @State var locationName = ""
     @StateObject var locationCloudStroe: LocationCloudStroe
     
@@ -39,14 +39,13 @@ struct LocationView: View {
                     .font(.system(size: 13))
                     .foregroundColor(.black.opacity(locationName != "" ? 1 : 0.4))
                     
-               
-                   
                 Spacer()
                 Button {
                     withAnimation {
 //                        locationModel.checkLocationAuthorization()
                         let geocoder = CLGeocoder()
                         let location = CLLocation(latitude: locationModel.lastCoordinate.center.latitude, longitude: locationModel.lastCoordinate.center.longitude)
+                        print("location === \(location)")
                         geocoder.reverseGeocodeLocation(location) { placemarks, error in
                             if let error = error {
                                    print("Error calculating directions: \(error.localizedDescription)")
@@ -56,16 +55,16 @@ struct LocationView: View {
                             if let placemark = placemarks?.first {
                                 print("placemark: \(placemark)")
                                 if let street = placemark.thoroughfare, let city = placemark.locality {
+                                    print("lalalalllnihaoya")
                                     self.locationName = "\(street), \(city)"
-                                    print("locationName\(street),\(city)")
+                                    print("locationNames\(street),\(city)")
                                 } else {
                                     self.locationName = "\(placemark)"
                                 }
+                                self.locationName = getLocationStreetName(inputString: self.locationName)
                             }
                         }
 
-                       
-                       
 //                        geocoder.reverseGeocodeLocation(location) { placemarks, error in
 //                            if let placemark = placemarks?.first {
 //                                if let street = placemark.thoroughfare, let city = placemark.locality {
@@ -90,6 +89,19 @@ struct LocationView: View {
             .padding()
         }
         .frame(maxWidth: 327, maxHeight: 50)
+    }
+    
+    func getLocationStreetName(inputString: String) -> String {
+        let components = inputString.components(separatedBy: " @ ")
+
+        if components.count >= 2 {
+            let address = components[0]
+            print("Address: \(address)")
+            return address
+        } else {
+            print("Invalid input string format")
+        }
+        return "Not Found Text"
     }
 }
 
