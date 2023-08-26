@@ -10,7 +10,6 @@ import SwiftUI
 struct NewCustomTabView: View {
     var body: some View {
         
-   
             TabView{
                 ConectSuccessfulView()
                     .tabItem {
@@ -21,14 +20,13 @@ struct NewCustomTabView: View {
                     }
                 
                 VStack{
-                    Text("游戏")
+                    GameMainView()
                 }
                     .tabItem {
-                      
-                            
+                    
                             Image(systemName: "gamecontroller")
                             Text("游戏")
-                        
+                    
                     }
                 
                 VStack{
@@ -58,6 +56,7 @@ struct NewCustomTabView: View {
         
     }
 }
+
 
 struct NewCustomTabView_Previews: PreviewProvider {
     static var previews: some View {

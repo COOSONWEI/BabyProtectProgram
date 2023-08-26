@@ -61,6 +61,23 @@
 		2F1FE9AF2A96005D0063A700 /* ContactAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9AE2A96005D0063A700 /* ContactAddView.swift */; };
 		2F1FE9B12A96FCF70063A700 /* AddPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9B02A96FCF70063A700 /* AddPhoneNumber.swift */; };
 		2F1FE9B32A97309F0063A700 /* StreeNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9B22A97309F0063A700 /* StreeNameView.swift */; };
+		2F1FE9B72A974EA20063A700 /* NewMapTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9B62A974EA20063A700 /* NewMapTestView.swift */; };
+		2F1FE9B92A9750460063A700 /* DanagerousListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9B82A9750460063A700 /* DanagerousListView.swift */; };
+		2F1FE9BB2A9750AE0063A700 /* DangerousListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9BA2A9750AE0063A700 /* DangerousListCard.swift */; };
+		2F1FE9BD2A97893E0063A700 /* TriviaDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9BC2A97893E0063A700 /* TriviaDataModel.swift */; };
+		2F1FE9C12A978A860063A700 /* QAGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9C02A978A860063A700 /* QAGameView.swift */; };
+		2F1FE9C42A9797F70063A700 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9C32A9797F70063A700 /* SuccessView.swift */; };
+		2F1FE9C62A9798000063A700 /* FalseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9C52A9798000063A700 /* FalseView.swift */; };
+		2F1FE9C82A97B7760063A700 /* GameMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9C72A97B7760063A700 /* GameMainView.swift */; };
+		2F1FE9CB2A983AC40063A700 /* ChoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9CA2A983AC40063A700 /* ChoseView.swift */; };
+		2F1FE9CD2A9871BA0063A700 /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9CC2A9871BA0063A700 /* BackButtonView.swift */; };
+		2F1FE9EB2A98AA900063A700 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9EA2A98AA900063A700 /* LoginView.swift */; };
+		2F1FE9ED2A98CACD0063A700 /* EmailLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9EC2A98CACD0063A700 /* EmailLoginView.swift */; };
+		2F1FE9F02A997E7D0063A700 /* BeaconConectTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9EF2A997E7D0063A700 /* BeaconConectTestView.swift */; };
+		2F1FE9F32A997EEC0063A700 /* BlueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9F22A997EEC0063A700 /* BlueModel.swift */; };
+		2F1FE9F52A99DD690063A700 /* NewBeaconTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9F42A99DD690063A700 /* NewBeaconTestView.swift */; };
+		2F1FE9F72A99F0B20063A700 /* ConnectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9F62A99F0B20063A700 /* ConnectDetailView.swift */; };
+		2F1FE9F92A99F81C0063A700 /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE9F82A99F81C0063A700 /* TransferService.swift */; };
 		2F4BDC362A88AC0000D9B447 /* HeartRateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC352A88AC0000D9B447 /* HeartRateCard.swift */; };
 		2F4BDC382A88AD0700D9B447 /* EmotionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC372A88AD0700D9B447 /* EmotionCard.swift */; };
 		2F4BDC3A2A88B82500D9B447 /* AddInDoorDangerousView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BDC392A88B82500D9B447 /* AddInDoorDangerousView.swift */; };
@@ -210,6 +227,23 @@
 		2F1FE9AE2A96005D0063A700 /* ContactAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAddView.swift; sourceTree = "<group>"; };
 		2F1FE9B02A96FCF70063A700 /* AddPhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhoneNumber.swift; sourceTree = "<group>"; };
 		2F1FE9B22A97309F0063A700 /* StreeNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreeNameView.swift; sourceTree = "<group>"; };
+		2F1FE9B62A974EA20063A700 /* NewMapTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMapTestView.swift; sourceTree = "<group>"; };
+		2F1FE9B82A9750460063A700 /* DanagerousListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DanagerousListView.swift; sourceTree = "<group>"; };
+		2F1FE9BA2A9750AE0063A700 /* DangerousListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangerousListCard.swift; sourceTree = "<group>"; };
+		2F1FE9BC2A97893E0063A700 /* TriviaDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaDataModel.swift; sourceTree = "<group>"; };
+		2F1FE9C02A978A860063A700 /* QAGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAGameView.swift; sourceTree = "<group>"; };
+		2F1FE9C32A9797F70063A700 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
+		2F1FE9C52A9798000063A700 /* FalseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FalseView.swift; sourceTree = "<group>"; };
+		2F1FE9C72A97B7760063A700 /* GameMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMainView.swift; sourceTree = "<group>"; };
+		2F1FE9CA2A983AC40063A700 /* ChoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoseView.swift; sourceTree = "<group>"; };
+		2F1FE9CC2A9871BA0063A700 /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
+		2F1FE9EA2A98AA900063A700 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2F1FE9EC2A98CACD0063A700 /* EmailLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginView.swift; sourceTree = "<group>"; };
+		2F1FE9EF2A997E7D0063A700 /* BeaconConectTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconConectTestView.swift; sourceTree = "<group>"; };
+		2F1FE9F22A997EEC0063A700 /* BlueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueModel.swift; sourceTree = "<group>"; };
+		2F1FE9F42A99DD690063A700 /* NewBeaconTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBeaconTestView.swift; sourceTree = "<group>"; };
+		2F1FE9F62A99F0B20063A700 /* ConnectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectDetailView.swift; sourceTree = "<group>"; };
+		2F1FE9F82A99F81C0063A700 /* TransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferService.swift; sourceTree = "<group>"; };
 		2F4BDC352A88AC0000D9B447 /* HeartRateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateCard.swift; sourceTree = "<group>"; };
 		2F4BDC372A88AD0700D9B447 /* EmotionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionCard.swift; sourceTree = "<group>"; };
 		2F4BDC392A88B82500D9B447 /* AddInDoorDangerousView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInDoorDangerousView.swift; sourceTree = "<group>"; };
@@ -301,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				2F026AA32A8752C7005248EF /* OutDoorMainView.swift */,
+				2F1FE9B62A974EA20063A700 /* NewMapTestView.swift */,
 				2F026AB02A87C3C7005248EF /* AddDangerView.swift */,
 			);
 			path = OutDoorView;
@@ -347,6 +382,8 @@
 				2F5F14F32A8FDA9500C31F4B /* OutDoorFunctionsView.swift */,
 				2F5F14FB2A90711300C31F4B /* TransportButtonSyle.swift */,
 				2F1FE9B22A97309F0063A700 /* StreeNameView.swift */,
+				2F1FE9B82A9750460063A700 /* DanagerousListView.swift */,
+				2F1FE9BA2A9750AE0063A700 /* DangerousListCard.swift */,
 			);
 			path = OutDoorView;
 			sourceTree = "<group>";
@@ -387,6 +424,8 @@
 		2F07254A2A835FC9007A36CE /* BabayProtectProgram */ = {
 			isa = PBXGroup;
 			children = (
+				2F1FE9F12A997ED80063A700 /* TeestModel */,
+				2F1FE9EE2A997E630063A700 /* TestView */,
 				2F5FD7BE2A90A0BD00F03E64 /* Data */,
 				2F5F14DF2A8E768500C31F4B /* Controller */,
 				2F8BF8802A8CC9E90036FFF1 /* ViewModel */,
@@ -527,6 +566,75 @@
 			path = NewAddView;
 			sourceTree = "<group>";
 		};
+		2F1FE9BE2A978A660063A700 /* GameView */ = {
+			isa = PBXGroup;
+			children = (
+				2F1FE9C22A9797DA0063A700 /* FeedBackView */,
+				2F1FE9BF2A978A700063A700 /* QAGame */,
+			);
+			path = GameView;
+			sourceTree = "<group>";
+		};
+		2F1FE9BF2A978A700063A700 /* QAGame */ = {
+			isa = PBXGroup;
+			children = (
+				2F1FE9C02A978A860063A700 /* QAGameView.swift */,
+			);
+			path = QAGame;
+			sourceTree = "<group>";
+		};
+		2F1FE9C22A9797DA0063A700 /* FeedBackView */ = {
+			isa = PBXGroup;
+			children = (
+				2F1FE9C32A9797F70063A700 /* SuccessView.swift */,
+				2F1FE9C52A9798000063A700 /* FalseView.swift */,
+			);
+			path = FeedBackView;
+			sourceTree = "<group>";
+		};
+		2F1FE9C92A983AAB0063A700 /* GameMainView */ = {
+			isa = PBXGroup;
+			children = (
+				2F1FE9C72A97B7760063A700 /* GameMainView.swift */,
+				2F1FE9CA2A983AC40063A700 /* ChoseView.swift */,
+			);
+			path = GameMainView;
+			sourceTree = "<group>";
+		};
+		2F1FE9E82A98A7EA0063A700 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				2F1FE9EA2A98AA900063A700 /* LoginView.swift */,
+				2F1FE9EC2A98CACD0063A700 /* EmailLoginView.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		2F1FE9E92A98A8270063A700 /* RegisterView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RegisterView;
+			sourceTree = "<group>";
+		};
+		2F1FE9EE2A997E630063A700 /* TestView */ = {
+			isa = PBXGroup;
+			children = (
+				2F1FE9EF2A997E7D0063A700 /* BeaconConectTestView.swift */,
+				2F1FE9F42A99DD690063A700 /* NewBeaconTestView.swift */,
+				2F1FE9F62A99F0B20063A700 /* ConnectDetailView.swift */,
+			);
+			path = TestView;
+			sourceTree = "<group>";
+		};
+		2F1FE9F12A997ED80063A700 /* TeestModel */ = {
+			isa = PBXGroup;
+			children = (
+				2F1FE9F22A997EEC0063A700 /* BlueModel.swift */,
+			);
+			path = TeestModel;
+			sourceTree = "<group>";
+		};
 		2F4BDC3B2A88B8B300D9B447 /* InDoorView */ = {
 			isa = PBXGroup;
 			children = (
@@ -569,6 +677,7 @@
 				2F026AB62A8870C0005248EF /* Image+Extension.swift */,
 				2F8BF87E2A8CBEF80036FFF1 /* CallContact.swift */,
 				2F5F14F52A8FDD4C00C31F4B /* DrawingHistoryPath.swift */,
+				2F1FE9CC2A9871BA0063A700 /* BackButtonView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -576,6 +685,10 @@
 		2F59B0732A8649DB006DA2C8 /* ModifyView */ = {
 			isa = PBXGroup;
 			children = (
+				2F1FE9E92A98A8270063A700 /* RegisterView */,
+				2F1FE9E82A98A7EA0063A700 /* LoginView */,
+				2F1FE9C92A983AAB0063A700 /* GameMainView */,
+				2F1FE9BE2A978A660063A700 /* GameView */,
 				2F1FE9A92A95DB170063A700 /* NewAddView */,
 				2F1FE99E2A94F1C00063A700 /* NewHomeView */,
 				2F1FE99B2A94D5090063A700 /* FirstEnterView */,
@@ -616,6 +729,7 @@
 			children = (
 				2F5FD7BF2A90A0D200F03E64 /* MapViewWaper.swift */,
 				2F8BF8882A8D229A0036FFF1 /* DataManager.swift */,
+				2F1FE9BC2A97893E0063A700 /* TriviaDataModel.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -673,6 +787,7 @@
 				2F8BF87C2A8CB94E0036FFF1 /* BabyPhoneModel.swift */,
 				2F8BF88A2A8D22D40036FFF1 /* DataInfo.swift */,
 				2F5F14E42A8F121500C31F4B /* StreeName.swift */,
+				2F1FE9F82A99F81C0063A700 /* TransferService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -792,8 +907,11 @@
 				2F8BF8702A8C8BC00036FFF1 /* EnterContact.swift in Sources */,
 				2F59B06C2A8627BE006DA2C8 /* HealthKitSupport.swift in Sources */,
 				2F1FE9B32A97309F0063A700 /* StreeNameView.swift in Sources */,
+				2F1FE9B92A9750460063A700 /* DanagerousListView.swift in Sources */,
+				2F1FE9C42A9797F70063A700 /* SuccessView.swift in Sources */,
 				2F1FE9A82A95CAD10063A700 /* AddButton.swift in Sources */,
 				2F8BF8622A8BF5FF0036FFF1 /* NotificationTestView.swift in Sources */,
+				2F1FE9F52A99DD690063A700 /* NewBeaconTestView.swift in Sources */,
 				2F026AB32A8867F1005248EF /* DangerButtonView.swift in Sources */,
 				2F8BF87A2A8CB8F20036FFF1 /* AddBabayPhone.swift in Sources */,
 				2F026AB12A87C3C7005248EF /* AddDangerView.swift in Sources */,
@@ -806,6 +924,7 @@
 				2F026ABE2A889B3E005248EF /* RunCard.swift in Sources */,
 				2F1FE9A22A9594250063A700 /* CallPhoneButtonView.swift in Sources */,
 				2F026AAA2A8773ED005248EF /* LocationView.swift in Sources */,
+				2F1FE9ED2A98CACD0063A700 /* EmailLoginView.swift in Sources */,
 				2F026AB72A8870C0005248EF /* Image+Extension.swift in Sources */,
 				2F5F14F62A8FDD4C00C31F4B /* DrawingHistoryPath.swift in Sources */,
 				2F026AC42A889B82005248EF /* MoreInformationList.swift in Sources */,
@@ -819,6 +938,7 @@
 				2F8BF8762A8CAEDD0036FFF1 /* EnterBeaconView.swift in Sources */,
 				2F026A972A86726C005248EF /* OutDoorPositionEnterModify.swift in Sources */,
 				2F5F14F42A8FDA9500C31F4B /* OutDoorFunctionsView.swift in Sources */,
+				2F1FE9F32A997EEC0063A700 /* BlueModel.swift in Sources */,
 				2F59B0752A8649F7006DA2C8 /* UnConectWatchView.swift in Sources */,
 				2F59B07B2A864A4D006DA2C8 /* TextModify.swift in Sources */,
 				2F07257F2A83794E007A36CE /* GetContacts.swift in Sources */,
@@ -827,6 +947,7 @@
 				2F5F14FA2A90483B00C31F4B /* HistoryPathViewController.swift in Sources */,
 				2F8BF8602A8BE0A20036FFF1 /* NotificationModel.swift in Sources */,
 				2F4BDC3A2A88B82500D9B447 /* AddInDoorDangerousView.swift in Sources */,
+				2F1FE9C82A97B7760063A700 /* GameMainView.swift in Sources */,
 				2F1FE9AB2A95DB370063A700 /* InDoorDangerView.swift in Sources */,
 				2F5F14E12A8E777300C31F4B /* MapCoorder.swift in Sources */,
 				2F4BDC3D2A88B8CC00D9B447 /* InDoorDangerousCard.swift in Sources */,
@@ -834,6 +955,7 @@
 				2F59B0812A865D03006DA2C8 /* CustomTabView.swift in Sources */,
 				2F026AB92A887C29005248EF /* HealthView.swift in Sources */,
 				2F07254C2A835FC9007A36CE /* BabayProtectProgramApp.swift in Sources */,
+				2F1FE9BB2A9750AE0063A700 /* DangerousListCard.swift in Sources */,
 				2F59B06A2A8621D0006DA2C8 /* PhoneNumberModel.swift in Sources */,
 				2F8BF86C2A8C0F9E0036FFF1 /* BeaconShoppingView.swift in Sources */,
 				2F026AA62A877332005248EF /* OutDoorFunctionView.swift in Sources */,
@@ -841,23 +963,33 @@
 				2F59B07E2A864D11006DA2C8 /* HomeBGView.swift in Sources */,
 				2F4BDC382A88AD0700D9B447 /* EmotionCard.swift in Sources */,
 				2F8BF88B2A8D22D40036FFF1 /* DataInfo.swift in Sources */,
+				2F1FE9C12A978A860063A700 /* QAGameView.swift in Sources */,
+				2F1FE9F92A99F81C0063A700 /* TransferService.swift in Sources */,
 				2F026AB52A886DC2005248EF /* DangerGeofenceCard.swift in Sources */,
 				2F026AA42A8752C7005248EF /* OutDoorMainView.swift in Sources */,
 				2F8BF8892A8D229A0036FFF1 /* DataManager.swift in Sources */,
 				2F1FE99D2A94D51D0063A700 /* FIrstEnterView.swift in Sources */,
 				2F8BF8652A8C082A0036FFF1 /* ShoppingView.swift in Sources */,
 				2FBA3EE12A8B78E2005CC22B /* HealthCloudStoreModel.swift in Sources */,
+				2F1FE9CD2A9871BA0063A700 /* BackButtonView.swift in Sources */,
 				2F59B0692A8621CD006DA2C8 /* HealthModel.swift in Sources */,
 				2F026AC22A889B53005248EF /* SleepCard.swift in Sources */,
+				2F1FE9C62A9798000063A700 /* FalseView.swift in Sources */,
 				2F1FE9A62A95B1210063A700 /* NewCustomTabView.swift in Sources */,
+				2F1FE9F72A99F0B20063A700 /* ConnectDetailView.swift in Sources */,
 				2F4BDC362A88AC0000D9B447 /* HeartRateCard.swift in Sources */,
 				2F8BF88C2A8D53340036FFF1 /* BeaconModel.swift in Sources */,
+				2F1FE9BD2A97893E0063A700 /* TriviaDataModel.swift in Sources */,
 				2F59B0882A866ADA006DA2C8 /* WCSessionModel.swift in Sources */,
+				2F1FE9CB2A983AC40063A700 /* ChoseView.swift in Sources */,
 				2F59B0782A864A01006DA2C8 /* ConectWatchView.swift in Sources */,
 				2F026A9A2A874723005248EF /* HealthEnterView.swift in Sources */,
 				2F5F14E52A8F121500C31F4B /* StreeName.swift in Sources */,
 				2F026AC02A889B45005248EF /* WalkCard.swift in Sources */,
 				2F1FE9B12A96FCF70063A700 /* AddPhoneNumber.swift in Sources */,
+				2F1FE9EB2A98AA900063A700 /* LoginView.swift in Sources */,
+				2F1FE9F02A997E7D0063A700 /* BeaconConectTestView.swift in Sources */,
+				2F1FE9B72A974EA20063A700 /* NewMapTestView.swift in Sources */,
 				2F8BF8732A8CA7E60036FFF1 /* AddBeaconButton.swift in Sources */,
 				2F026ABC2A888275005248EF /* ExerciseCard.swift in Sources */,
 				2F8BF8682A8C08930036FFF1 /* WatchShoppingCard.swift in Sources */,

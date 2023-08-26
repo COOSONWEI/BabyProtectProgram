@@ -10,55 +10,83 @@ import SwiftUI
 struct FIrstEnterView: View {
     @State var enterTheHomeView = false
     var body: some View {
-        ZStack{
-            Image("EnterBG")
-                .ignoresSafeArea()
-            
-            VStack(alignment:.center) {
-                Image("EnterLogo")
+        NavigationView{
+            ZStack{
+                Image("EnterBG")
+                    .resizable()
+                    .edgesIgnoringSafeArea(.top)
+                    .ignoresSafeArea()
                 
-                
-                Text("守护")
-                    .font(.custom("SF Pro", size: 40))
-                    .fontWeight(.bold)
-                    .foregroundColor(Color(red: 0.14, green: 0.15, blue: 0.18))
-                    .foregroundColor(Color(red: 0.14, green: 0.15, blue: 0.18))
-                
-                Text("PROTECTION")
-                    .font(.custom("SF Pro", size: 25))
-                  .kerning(3.75)
-                  .foregroundColor(Color(red: 0.14, green: 0.15, blue: 0.18))
-                
-                
-                
-                Button {
+                VStack(alignment:.center) {
+                    Image("EnterLogo")
                     
-                } label: {
                     
-                        Text("ENTER")
-                            .font(.custom("SF Pro", size: 20))
-                            .fontWeight(.bold)
-                          .kerning(1.2)
-                          .multilineTextAlignment(.center)
-                          .foregroundColor(.white)
+                    Text("守护")
+                        .font(.custom("SF Pro", size: 40))
+                        .fontWeight(.bold)
+                        .foregroundColor(Color(red: 0.14, green: 0.15, blue: 0.18))
+                        .foregroundColor(Color(red: 0.14, green: 0.15, blue: 0.18))
+                    
+                    Text("PROTECTION")
+                        .font(.custom("SF Pro", size: 25))
+                        .kerning(3.75)
+                        .foregroundColor(Color(red: 0.14, green: 0.15, blue: 0.18))
                     
                 }
-                .background(
-                    Capsule()
-                    .padding(.horizontal, 52)
-                    .padding(.vertical, 16)
-                    .frame(width: 276, height: 55, alignment: .center)
-                    .background(Color(red: 0.1, green: 0.11, blue: 0.2))
-                    .cornerRadius(40)
-                    .shadow(color: Color(red: 0.1, green: 0.11, blue: 0.2).opacity(0.1), radius: 15, x: 0, y: 20)
-                    
-                )
-                .padding(.top,60)
-              
+                .padding(.bottom,150)
                 
+                
+                VStack{
+                    Spacer()
+                    //注册页面
+                    NavigationLink {
+//                        ConectSuccessfulView()
+                        
+                    } label: {
+                        
+                        ZStack{
+                            Capsule()
+                                .foregroundColor(Color(red: 0.1, green: 0.11, blue: 0.2))
+                                .cornerRadius(40)
+                                .frame(width: 276, height: 55, alignment: .center)
+                            
+                                .shadow(color: Color(red: 0.1, green: 0.11, blue: 0.2).opacity(0.1), radius: 15, x: 0, y: 20)
+                            
+                            Text("开启守护")
+                                .font(.custom("SF Pro", size: 20))
+                                .fontWeight(.bold)
+                                .kerning(1.2)
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(.white)
+                            
+                        }
+                        
+                    }
+                    
+                    //登录页面
+                    NavigationLink {
+                        
+                        LoginView()
+                        
+                    } label: {
+                        Text("我已有账号")
+                            .font(.system(size: 18))
+                            .fontWeight(.bold)
+                          .kerning(1.08)
+                          .multilineTextAlignment(.center)
+                          .foregroundColor(Color(red: 0.32, green: 0.32, blue: 0.32))
+                        
+                          .padding(.top)
+                    }
+
+                    
+                    
+                }
+                .padding(.bottom,150)
                 
             }
         }
+      
     }
 }
 

@@ -16,51 +16,26 @@ struct AddPhoneNumber: View {
         
         ZStack{
             
-            
             Button {
                 
                 withAnimation {
                     sheetView = true
+                    print("sheetView = \(sheetView)")
                 }
                 
             } label: {
                 
                 HStack{
-                    Image("circle.badge.plus 2")
+                    Image(systemName: "plus")
                         .resizable()
-                        .frame(maxWidth: 33, maxHeight: 30)
-                    
-                    VStack(alignment:.leading){
-                        
-                        Text("添加联系人")
-                            .font(Font.custom("SF Pro Display", size: 17))
-                            .fontWeight(.semibold)
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(.black)
-                        
-                        Text("点击添加新的联系人")
-                            .font(Font.custom("SF Pro Display", size: 15))
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(Color(red: 0.53, green: 0.53, blue: 0.51))
-                        
-                    }
-                    
-                    Spacer()
-                    
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                    
+                        .scaledToFill()
                 }
                 .padding()
-                .frame(maxWidth: 343)
-                .background(.white)
-                .cornerRadius(10)
+                .background(Circle().foregroundColor(.white))
                 .shadow(color: .black.opacity(0.05), radius: 2, x: 4, y: 4)
                 .shadow(color: .black.opacity(0.05), radius: 5, x: 1, y: 1)
             }
+            .frame(maxWidth: 48, maxHeight: 48)
             
             
             

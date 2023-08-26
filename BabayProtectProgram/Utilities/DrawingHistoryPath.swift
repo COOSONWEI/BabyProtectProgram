@@ -20,6 +20,7 @@ struct NavigationsView: UIViewControllerRepresentable {
         context.coordinator.viewController = view
         context.coordinator.loadUI()
         context.coordinator.drawThePath()
+        
         return view
     }
    

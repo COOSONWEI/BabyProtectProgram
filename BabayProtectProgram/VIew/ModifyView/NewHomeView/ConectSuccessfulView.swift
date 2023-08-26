@@ -55,6 +55,7 @@ struct ConectSuccessfulView: View {
                             }
                             
                         }
+                        
                     }
                     
                     HStack{
@@ -70,34 +71,31 @@ struct ConectSuccessfulView: View {
                         
                     }
                     
-                    ScrollView(showsIndicators: false){
-                        
+                 
                         NavigationLink {
                             InDoorDangerView()
                                 .navigationTitle("室内危险")
                         } label: {
-                            AddButton(name: "添加信标")
+                            AddButton(name: "添加室内信标")
                         }
+                        .frame(maxHeight: 50)
 
+                    
+                    Divider()
                         NavigationLink {
                             
                             ContactAddView()
-                                .navigationTitle("添加手表联系人")
+                                .navigationTitle("联系人")
                             
                         } label: {
                             AddButton(name: "添加联系人")
                         }
+                        .frame(maxHeight: 50)
                         
                         
-//                        NavigationLink {
-//
-//                        } label: {
-//                            AddButton(name: "添加宝贝电话")
-//                        }
                         
-                        
-                    }
-                    .frame(maxHeight: 200)
+                    
+                   
                     
                     
                 }

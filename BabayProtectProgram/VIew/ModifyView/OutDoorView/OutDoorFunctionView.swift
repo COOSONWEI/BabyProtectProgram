@@ -13,7 +13,7 @@ struct OutDoorFunctionView: View {
     @Binding var zoomLocation: Bool
     @Binding var zoomChild: Bool
     @StateObject var locatinoModel: LocationCloudStroe
-    
+    let action: () -> Void
     @State var showAlert = false
     var body: some View {
         ZStack{
@@ -58,8 +58,10 @@ struct OutDoorFunctionView: View {
                     }
                     
                 } label: {
-                    Image("location")
+                    
+                    Image(systemName: "location")
                         .resizable()
+                        .foregroundColor(Color(red: 108/255, green: 108/255, blue: 108/255))
                         .frame(maxWidth: 32, maxHeight: 32)
                         .fixedSize()
                     
@@ -71,6 +73,21 @@ struct OutDoorFunctionView: View {
                     .minimumScaleFactor(0.2)
 
                 Divider()
+                
+                Button(action: action) {
+                    Image(systemName: "map")
+                        .resizable()
+                        .foregroundColor(Color(red: 108/255, green: 108/255, blue: 108/255))
+                        .frame(maxWidth: 32, maxHeight: 32)
+                        .fixedSize()
+                }
+                Text("前往孩子所在位置")
+                    .font(.system(size: 9))
+                    .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
+                    .lineLimit(nil)
+               
+                    
+
                 
 //                Image("battery")
 //                    .resizable()

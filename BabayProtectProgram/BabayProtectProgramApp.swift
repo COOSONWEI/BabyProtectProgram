@@ -10,6 +10,7 @@ import WatchConnectivity
 
 @main
 struct BabayProtectProgramApp: App {
+    
     init() {
             // 修改全局的 List 样式
             UITableView.appearance().backgroundColor = .clear
@@ -18,14 +19,16 @@ struct BabayProtectProgramApp: App {
     @StateObject var healthModel = HealthModel()
     @StateObject var babyPhone = BabyPhoneModel()
     @StateObject var vm = CloudPushNotificationViewModel()
-    
+    @StateObject var blueModel = BluetoothModel()
     var body: some Scene {
         WindowGroup {
 //            CustomTabView()  //主视图
 //            DrawingHistoryView()  //地图测试视图
-            NewCustomTabView()
-//            NotificationTestView()
-//            StreeNameView()
+//            NewCustomTabView()
+//            FIrstEnterView()
+//            NotificationTestView()//订阅测试视图
+    
+            BeaconDetectView(bluetoothModel: blueModel)
                 .onAppear {
                     // 获取数据
                     vm.requestNotification()

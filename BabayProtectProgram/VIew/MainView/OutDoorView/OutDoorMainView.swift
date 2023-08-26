@@ -44,7 +44,7 @@ struct OutDoorMainView: View {
     @State var byBus = false
     
     @State var showNavBar = true
-    
+    @State var jumptotheLocation = false
     
     //it's test data
     var locations = [
@@ -56,7 +56,7 @@ struct OutDoorMainView: View {
     var body: some View {
        
             ZStack{
-                LocationMapView(streeName: streeName, childLocation: lastLocation, mapViewWrapper: mapVieWrappr, zoomState: $zoomState, zoomChild: $zoomChild,byWalking: $walking,byCar: $byCar,byBus: $byBus)
+                LocationMapView(streeName: streeName, childLocation: lastLocation, mapViewWrapper: mapVieWrappr, zoomState: $zoomState, zoomChild: $zoomChild, jumptotheLocation: $jumptotheLocation,byWalking: $walking,byCar: $byCar,byBus: $byBus)
                 .ignoresSafeArea()
                 .alert(isPresented: $isNill) {
                     Alert(title: Text("提示"), message: Text("请在Watch端打开“守护”App进行第一次数据同步"))
@@ -80,45 +80,43 @@ struct OutDoorMainView: View {
                     
                     HStack{
                         Spacer()
-                        OutDoorFunctionView(zoomLocation: $zoomState,zoomChild: $zoomChild,locatinoModel: locationVM)
+                        OutDoorFunctionView(zoomLocation: $zoomState,zoomChild: $zoomChild,locatinoModel: locationVM){
+                            openMapsNavigation(destination: lastLocation.lastCoordinate.center)
+                        }
                             .padding(.top,28)
                     }
                     .padding(.trailing)
                     
                     Spacer()
                     
-                    Button {
-                        openMapsNavigation(destination: lastLocation.lastCoordinate.center)
-                    } label: {
-                        Text("To Map")
-                    }
+                  
 
                 }
                 
                 //MARK: 地图导航界面
-    //            VStack{
-    //                Spacer()
-    //                if showNavBar {
-    //                    OutDoorFunctionsView(mapView: mapVieWrappr, childLocation: lastLocation, walking: $walking, bus: $byBus, car: $byCar)
-    //                    .frame(height: 200)
-    //                    .background(Color.white)
-    //                    .transition(.move(edge: .bottom))
-    //                }
-    //            }
-    //            .gesture(
-    //                DragGesture()
-    //                    .onChanged { value in
-    //                        if value.translation.height < -50 {
-    //                            withAnimation {
-    //                                showNavBar = true
-    //                            }
-    //                        } else if value.translation.height > 50 {
-    //                            withAnimation {
-    //                                showNavBar = false
-    //                            }
-    //                        }
-    //                    }
-    //            )
+                VStack{
+                    Spacer()
+                    if showNavBar {
+                        DanagerousListView(jumptotheLocation: $jumptotheLocation)
+                        .frame(height: 200)
+                        .background(Color.white)
+                        .transition(.move(edge: .bottom))
+                    }
+                }
+                .gesture(
+                    DragGesture()
+                        .onChanged { value in
+                            if value.translation.height < -50 {
+                                withAnimation {
+                                    showNavBar = true
+                                }
+                            } else if value.translation.height > 50 {
+                                withAnimation {
+                                    showNavBar = false
+                                }
+                            }
+                        }
+                )
                
         
             }
@@ -170,15 +168,34 @@ struct LocationMapView: UIViewControllerRepresentable {
     @StateObject var mapViewWrapper: MapViewWrapper
     @Binding var zoomState: Bool
     @Binding var zoomChild: Bool
-    
+    @Binding var jumptotheLocation: Bool
     @Binding var byWalking: Bool
     @Binding var byCar: Bool
     @Binding var byBus: Bool
     
-  
-    
     let geofencations = [
-        GeoFencingViewModel(coordinate: CLLocationCoordinate2D(latitude: 37.3349285, longitude: -122.011033), radius: 1000, identifier: "Apple", note: "Enter", eventType: .onEnter)
+      
+        GeoFencingViewModel(coordinate: CLLocationCoordinate2D(latitude:  31.23856, longitude: 121.50623), radius: 100, identifier: "lujiazui", note: "Enter", eventType: .onEnter)
+    ]
+    
+
+
+    
+    let geos = [
+        [CLLocationCoordinate2D(latitude: 31.23827, longitude:  121.50628),
+         CLLocationCoordinate2D(latitude: 31.23830, longitude:  121.50583),
+         CLLocationCoordinate2D(latitude: 31.23817, longitude: 121.50550),
+         CLLocationCoordinate2D(latitude: 31.23836, longitude: 121.50555),
+         CLLocationCoordinate2D(latitude:  31.23846, longitude: 121.50573),
+         CLLocationCoordinate2D(latitude:   31.23846, longitude: 121.50573),
+         CLLocationCoordinate2D(latitude:  31.23866, longitude: 121.50578),
+         CLLocationCoordinate2D(latitude:   31.23868, longitude: 121.50590),
+         CLLocationCoordinate2D(latitude: 31.23924, longitude: 121.50599),
+         CLLocationCoordinate2D(latitude:  31.23917, longitude: 121.50610),
+         CLLocationCoordinate2D(latitude:     31.23817, longitude: 121.50695),
+         CLLocationCoordinate2D(latitude:   31.23813, longitude: 121.50687)
+    
+        ]
     ]
     
     func makeUIViewController(context: Context) -> some UIViewController {
@@ -187,12 +204,12 @@ struct LocationMapView: UIViewControllerRepresentable {
         context.coordinator.viewController = view
         context.coordinator.mapView = mapViewWrapper.mapVew
         context.coordinator.checkIfLocationServiesIsEnabled()
-        context.coordinator.addRadiusOverlay(forGeotification: geofencations)
+        context.coordinator.addChildAnnotaion(childLocation: childLocation.lastCoordinate.center)
+        context.coordinator.addPolylineOverlay(forGeotification: geos)
         
         context.coordinator.checkLocationAuthorization()
         context.coordinator.loadUI()
-        context.coordinator.addChildAnnotaion(childLocation: childLocation.lastCoordinate.center)
-      
+        
 //        view.view.backgroundColor = .red
         return view
     }
@@ -221,16 +238,20 @@ struct LocationMapView: UIViewControllerRepresentable {
 //            context.coordinator.mapView.removeOverlays(context.coordinator.mapView.overlays )
 //        }
         
+        if jumptotheLocation {
+            context.coordinator.addGeoAnnotation(geoLocaiton: geofencations[0].coordinate)
+            context.coordinator.zoomToDanagerousLocation(location: geofencations[0])
+//            context.coordinator.addRadiusOverlay(forGeotification: geofencations)
+            
+            
+        }
+        
         if byBus {
             context.coordinator.navigationFunction(transportation: .transit, yourLocation: context.coordinator.mapView.userLocation.coordinate,childLocation: childLocation.lastCoordinate.center)
-        }else{
-            context.coordinator.mapView.removeOverlays(context.coordinator.mapView.overlays )
         }
         
         if byCar {
             context.coordinator.navigationFunction(transportation: .automobile, yourLocation: context.coordinator.mapView.userLocation.coordinate,childLocation: childLocation.lastCoordinate.center)
-        }else {
-            context.coordinator.mapView.removeOverlays(context.coordinator.mapView.overlays )
         }
         
     }

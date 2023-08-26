@@ -86,6 +86,42 @@ class Contacts: ObservableObject {
            
         })
     }
+    
+    
+    //删除对应的记录
+    func deleteContactsNames(_ contactsName: [String]) async {
+            let cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
+            let publicDatabase = cloudContainer.privateCloudDatabase
+            
+            for beaconName in contactsName {
+                // 构建查询谓词
+                let predicate = NSPredicate(format: "name == %@", beaconName)
+                let query = CKQuery(recordType: "ContactPerson", predicate: predicate)
+                
+                
+                // 执行查询操作
+                do {
+                    let queryResults = try await publicDatabase.records(matching: query)
+                    if let recordToDelete = try? queryResults.matchResults.first?.1.get() {
+                        // 删除记录
+                        print("recordToDelete == \(recordToDelete)")
+                        do {
+                            try await publicDatabase.deleteRecord(withID: recordToDelete.recordID)
+                            
+                            print("Record deleted successfully for beacon: \(beaconName)")
+                            
+                        } catch {
+                            print("Failed to delete record for beacon: \(beaconName), error: \(error)")
+                        }
+                    } else {
+                        print("Record not found for beacon: \(beaconName)")
+                    }
+                } catch {
+                    print("Error querying records for name: \(beaconName), error: \(error)")
+                }
+            }
+        }
+    
 }
 
 

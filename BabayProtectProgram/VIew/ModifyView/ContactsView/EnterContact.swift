@@ -42,6 +42,7 @@ struct EnterContact: View {
             Button(action: {
                 // 添加按钮点击事件
                 addContacts(name: name, phone: phoneNumber)
+                
             }) {
                 Text("添加")
                     .foregroundColor(.white)

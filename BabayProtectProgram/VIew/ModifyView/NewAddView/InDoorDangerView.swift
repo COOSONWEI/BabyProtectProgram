@@ -13,6 +13,8 @@ struct InDoorDangerView: View {
     
     @State private var items: [String] = ["Item 1", "Item 2", "Item 3"]
     
+//    @Environment(\.presentationMode) var presentationMode
+    
     @State var show = false
     @State var isValid = false
     @State var isFalse = false
@@ -33,6 +35,7 @@ struct InDoorDangerView: View {
                     }
                     
                     .onDelete { offsets in
+                        print("offsets = \(offsets)")
                         Task {
                             await self.deleteBeacons(at: offsets)
                         }
@@ -66,6 +69,10 @@ struct InDoorDangerView: View {
             
             
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading:
+                    BackButtonView()
+        )
         .task {
             
             do {

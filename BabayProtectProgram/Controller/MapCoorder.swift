@@ -43,32 +43,56 @@ class MapViewCoordinator: NSObject, CLLocationManagerDelegate {
     func addRadiusOverlay(forGeotification geotification: [GeoFencingViewModel]) {
         for geofencing in geofencings {
             mapView.addOverlay(MKCircle(center: geofencing.coordinate, radius: geofencing.radius))
-            print("addGeo")
+         
             startMonitoring(geofencing: geofencing)
+            
         }
+    }
+    
+    func addPolylineOverlay(forGeotification geotifications: [[CLLocationCoordinate2D]]) {
+        
+        for geo in geotifications {
+            mapView.addOverlay(MKPolygon(coordinates: geo, count: geo.count))
+            print("添加多边形成功")
+        }
+        
     }
     
     //创建一个创建孩子位置的Annotation
     func addChildAnnotaion(childLocation: CLLocationCoordinate2D) {
+        
         mapView.removeAnnotations(mapView.annotations)
         let childAnnotation = MKPointAnnotation()
         childAnnotation.coordinate = childLocation
         childAnnotation.title = "您的孩子"
         mapView.addAnnotation(childAnnotation)
+        
     }
     
+    //创建地理围栏的Annotation
+    func addGeoAnnotation(geoLocaiton: CLLocationCoordinate2D) {
+        mapView.removeAnnotations(mapView.annotations)
+        let childAnnotation = MKPointAnnotation()
+        childAnnotation.coordinate = geoLocaiton
+        childAnnotation.title = "危险水域"
+        mapView.addAnnotation(childAnnotation)
+    }
     func startMonitoring(geofencing: GeoFencingViewModel) {
         let fenceRegion = geofencing.region
         locationManager?.startMonitoring(for: fenceRegion)
     }
     
+    
     func checkIfLocationServiesIsEnabled(){
+        
         locationManager = CLLocationManager()
         locationManager!.delegate = self
         mapView.delegate = self
         locationManager!.requestAlwaysAuthorization()
         locationManager!.startUpdatingLocation()
+        
     }
+    
     
     func checkLocationAuthorization() {
         guard let locationManager = locationManager else {return}
@@ -114,6 +138,13 @@ class MapViewCoordinator: NSObject, CLLocationManagerDelegate {
     func zoomToChildLocation(lastLocation: LastLocation) {
         mapView.zoomToLocation(CLLocation(latitude: lastLocation.lastCoordinate.center.latitude, longitude: lastLocation.lastCoordinate.center.longitude))
         print("lastLocation: \(lastLocation.lastCoordinate)")
+    }
+    
+    
+    //定位到当前选中的危险区的位置
+    func zoomToDanagerousLocation(location: GeoFencingViewModel) {
+        mapView.zoomToLocation(CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude))
+        
     }
     
     
@@ -183,10 +214,16 @@ extension MapViewCoordinator: MKMapViewDelegate {
         if overlay is MKCircle {
             let circleRenderer = MKCircleRenderer(overlay: overlay)
             circleRenderer.lineWidth = 1.0
-            circleRenderer.strokeColor = .purple
+            circleRenderer.strokeColor = .red
             circleRenderer.fillColor = UIColor.purple.withAlphaComponent(0.4)
             print("添加OVERLay成功了")
             return circleRenderer
+        }
+        
+        if overlay is MKPolygon{
+            let polygonRender = MKPolygonRenderer(overlay: overlay)
+            polygonRender.fillColor = UIColor.red.withAlphaComponent(0.5)
+            return polygonRender
         }
         
         if overlay is MKPolyline {
