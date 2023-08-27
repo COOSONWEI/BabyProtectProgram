@@ -11,6 +11,7 @@ struct ConectSuccessfulView: View {
     
     @State var isValid = false
     @State var isFalse = false
+    @State private var isNil = false
     
     var body: some View {
         
@@ -105,6 +106,18 @@ struct ConectSuccessfulView: View {
             }
             .navigationTitle(Text("家长监督"))
             
+        }
+        .alert(isPresented: $isNil, content: {
+            
+            Alert(title: Text("提示"), message: Text("第一次使用本软件，请确认您的手机绑定了Apple Watch。\n 若绑定请打开Watch端“守护”App进行第一次数据同步"))
+        })
+        .onAppear {
+            if DataManager.isFirstRuning(){
+                print("第一次运行软件")
+                isNil = true
+            }else{
+                isNil = false
+            }
         }
     }
 }

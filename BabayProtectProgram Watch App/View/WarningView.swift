@@ -23,6 +23,7 @@ struct WarningView: View {
             Button {
                 //这里后面要重新设计
                 callContact(phone)
+                print("dangerousType")
             } label: {
                 ZStack{
                     Rectangle().fill(Color(red: 66/255, green: 92/255, blue: 247/255))

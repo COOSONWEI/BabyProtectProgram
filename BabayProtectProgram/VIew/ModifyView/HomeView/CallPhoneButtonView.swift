@@ -9,6 +9,16 @@ import SwiftUI
 
 struct CallPhoneButtonView: View {
     
+    @State var enterAddDangerous = false
+    @State var enterIndoorDangerous = false
+    @State private var enterAddBabyphone = false
+    
+    @State var dataInfo = [DataInfo]()
+    @State var phone = ""
+    @State var notAddPhone = false
+    @State private var isNill = false
+    
+    
     var body: some View {
         ZStack{
             Rectangle()
@@ -27,7 +37,7 @@ struct CallPhoneButtonView: View {
                     
                     //创建拨打电话按钮
                     Button {
-                        
+                        enterAddBabyphone = true
                     } label: {
                             
                         Text("点击呼叫宝贝")
@@ -51,8 +61,33 @@ struct CallPhoneButtonView: View {
             }
         }
         .frame(maxHeight: 140)
+        .alert(isPresented: $isNill) {
+            Alert(title: Text("提示"), message: Text("请在Watch端打开“守护”App进行第一次数据同步"))
+        }
+        .alert(isPresented: $notAddPhone) {
+           
+            Alert(title: Text("提示"), message: Text("请添加宝贝的电话"))
+        }
+        .onAppear(perform: {
+            if DataManager.isFirstRuning() {
+                print("第一次运行程序")
+                isNill = true
+            }else{
+                isNill = false
+            }
+        })
+        .sheet(isPresented: $enterAddBabyphone) {
+            AddBabayPhone()
+                .presentationDetents([.medium,.large])
+        }
        
-       
+    }
+    private func readData() {
+        //读孩子的电话数据
+        dataInfo = DataManager.readData()
+        for info in dataInfo {
+            phone = info.phone ?? ""
+        }
     }
 }
 

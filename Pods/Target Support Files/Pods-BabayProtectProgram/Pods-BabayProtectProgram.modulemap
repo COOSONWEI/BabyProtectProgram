@@ -1,0 +1,6 @@
+framework module Pods_BabayProtectProgram {
+  umbrella header "Pods-BabayProtectProgram-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -122,6 +122,10 @@
 		2F5F14FC2A90711300C31F4B /* TransportButtonSyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F14FB2A90711300C31F4B /* TransportButtonSyle.swift */; };
 		2F5FD7C02A90A0D200F03E64 /* MapViewWaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5FD7BF2A90A0D200F03E64 /* MapViewWaper.swift */; };
 		2F5FD7C22A90A52000F03E64 /* Datamanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5FD7C12A90A52000F03E64 /* Datamanager.swift */; };
+		2F878AFE2A9B63D500557ED6 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F878AFD2A9B63D500557ED6 /* LottieView.swift */; };
+		2F878B032A9B684200557ED6 /* FindingAndSettingBeaconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F878B022A9B684200557ED6 /* FindingAndSettingBeaconView.swift */; };
+		2F878B072A9B776700557ED6 /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 2F878B062A9B776700557ED6 /* Loading.json */; };
+		2F878B092A9B77C200557ED6 /* Scaning.json in Resources */ = {isa = PBXBuildFile; fileRef = 2F878B082A9B77C200557ED6 /* Scaning.json */; };
 		2F8BF85E2A8BB7EA0036FFF1 /* GetBeaconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */; };
 		2F8BF8602A8BE0A20036FFF1 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF85F2A8BE0A20036FFF1 /* NotificationModel.swift */; };
 		2F8BF8622A8BF5FF0036FFF1 /* NotificationTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF8612A8BF5FF0036FFF1 /* NotificationTestView.swift */; };
@@ -148,6 +152,8 @@
 		2F8BF88E2A8D53A70036FFF1 /* ICloudTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */; };
 		2F8BF8902A8DAE190036FFF1 /* iPhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF88F2A8DAE190036FFF1 /* iPhoneViewModel.swift */; };
 		2FBA3EE12A8B78E2005CC22B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
+		556A6E2D6EAEAC0744D2F869 /* Pods_BabayProtectProgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6D29AAFC66F488DFAC9AF5 /* Pods_BabayProtectProgram.framework */; };
+		FB484DA7731F3E8A0C2DA2CC /* Pods_BabayProtectProgram_Watch_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81AB6D210C72BBE5D7C91A8A /* Pods_BabayProtectProgram_Watch_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +181,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0C438A194F1123034381DBA7 /* Pods-BabayProtectProgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabayProtectProgram.release.xcconfig"; path = "Target Support Files/Pods-BabayProtectProgram/Pods-BabayProtectProgram.release.xcconfig"; sourceTree = "<group>"; };
 		2F026A962A86726C005248EF /* OutDoorPositionEnterModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorPositionEnterModify.swift; sourceTree = "<group>"; };
 		2F026A992A874723005248EF /* HealthEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthEnterView.swift; sourceTree = "<group>"; };
 		2F026A9B2A87485A005248EF /* InDoorEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InDoorEnterView.swift; sourceTree = "<group>"; };
@@ -288,6 +295,10 @@
 		2F5F14FB2A90711300C31F4B /* TransportButtonSyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportButtonSyle.swift; sourceTree = "<group>"; };
 		2F5FD7BF2A90A0D200F03E64 /* MapViewWaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewWaper.swift; sourceTree = "<group>"; };
 		2F5FD7C12A90A52000F03E64 /* Datamanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datamanager.swift; sourceTree = "<group>"; };
+		2F878AFD2A9B63D500557ED6 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		2F878B022A9B684200557ED6 /* FindingAndSettingBeaconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingAndSettingBeaconView.swift; sourceTree = "<group>"; };
+		2F878B062A9B776700557ED6 /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading.json; sourceTree = "<group>"; };
+		2F878B082A9B77C200557ED6 /* Scaning.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Scaning.json; sourceTree = "<group>"; };
 		2F8BF85D2A8BB7EA0036FFF1 /* GetBeaconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBeaconModel.swift; sourceTree = "<group>"; };
 		2F8BF85F2A8BE0A20036FFF1 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		2F8BF8612A8BF5FF0036FFF1 /* NotificationTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTestView.swift; sourceTree = "<group>"; };
@@ -310,6 +321,11 @@
 		2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCloudStoreModel.swift; sourceTree = "<group>"; };
 		2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudTest.swift; sourceTree = "<group>"; };
 		2FBA3EE22A8B7B4B005CC22B /* BabayProtectProgram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BabayProtectProgram.entitlements; sourceTree = "<group>"; };
+		466D64AFEFC0FD9CD6A98416 /* Pods-BabayProtectProgram Watch App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabayProtectProgram Watch App.debug.xcconfig"; path = "Target Support Files/Pods-BabayProtectProgram Watch App/Pods-BabayProtectProgram Watch App.debug.xcconfig"; sourceTree = "<group>"; };
+		4D6D29AAFC66F488DFAC9AF5 /* Pods_BabayProtectProgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabayProtectProgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E3F70729476CF7DC880999F /* Pods-BabayProtectProgram Watch App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabayProtectProgram Watch App.release.xcconfig"; path = "Target Support Files/Pods-BabayProtectProgram Watch App/Pods-BabayProtectProgram Watch App.release.xcconfig"; sourceTree = "<group>"; };
+		81AB6D210C72BBE5D7C91A8A /* Pods_BabayProtectProgram_Watch_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabayProtectProgram_Watch_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE8413525E7D7B98689EDDCF /* Pods-BabayProtectProgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabayProtectProgram.debug.xcconfig"; path = "Target Support Files/Pods-BabayProtectProgram/Pods-BabayProtectProgram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +333,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				556A6E2D6EAEAC0744D2F869 /* Pods_BabayProtectProgram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +341,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB484DA7731F3E8A0C2DA2CC /* Pods_BabayProtectProgram_Watch_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +438,8 @@
 				2F07254A2A835FC9007A36CE /* BabayProtectProgram */,
 				2F07255C2A835FCB007A36CE /* BabayProtectProgram Watch App */,
 				2F0725492A835FC9007A36CE /* Products */,
+				DC2BC21530EC1F01814D8214 /* Pods */,
+				FE7442DBE45384D3801E743F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -435,6 +455,8 @@
 		2F07254A2A835FC9007A36CE /* BabayProtectProgram */ = {
 			isa = PBXGroup;
 			children = (
+				2F878AFC2A9B63C200557ED6 /* LottieView */,
+				2F878AFB2A9B5FA100557ED6 /* JSONFiles */,
 				2F1FE9F12A997ED80063A700 /* TeestModel */,
 				2F1FE9EE2A997E630063A700 /* TestView */,
 				2F5FD7BE2A90A0BD00F03E64 /* Data */,
@@ -657,6 +679,7 @@
 				2F1FE9AC2A95E0B70063A700 /* AddBeaconView.swift */,
 				2F1FEA002A9B28BC0063A700 /* BeaconView.swift */,
 				2F1FEA022A9B2EDD0063A700 /* BeaconStateView.swift */,
+				2F878B022A9B684200557ED6 /* FindingAndSettingBeaconView.swift */,
 			);
 			path = InDoorView;
 			sourceTree = "<group>";
@@ -749,6 +772,23 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		2F878AFB2A9B5FA100557ED6 /* JSONFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2F878B082A9B77C200557ED6 /* Scaning.json */,
+				2F878B062A9B776700557ED6 /* Loading.json */,
+			);
+			path = JSONFiles;
+			sourceTree = "<group>";
+		};
+		2F878AFC2A9B63C200557ED6 /* LottieView */ = {
+			isa = PBXGroup;
+			children = (
+				2F878AFD2A9B63D500557ED6 /* LottieView.swift */,
+			);
+			path = LottieView;
+			sourceTree = "<group>";
+		};
 		2F8BF85C2A8BB7DC0036FFF1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -815,6 +855,26 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		DC2BC21530EC1F01814D8214 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DE8413525E7D7B98689EDDCF /* Pods-BabayProtectProgram.debug.xcconfig */,
+				0C438A194F1123034381DBA7 /* Pods-BabayProtectProgram.release.xcconfig */,
+				466D64AFEFC0FD9CD6A98416 /* Pods-BabayProtectProgram Watch App.debug.xcconfig */,
+				5E3F70729476CF7DC880999F /* Pods-BabayProtectProgram Watch App.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FE7442DBE45384D3801E743F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D6D29AAFC66F488DFAC9AF5 /* Pods_BabayProtectProgram.framework */,
+				81AB6D210C72BBE5D7C91A8A /* Pods_BabayProtectProgram_Watch_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -822,10 +882,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F07256C2A835FCC007A36CE /* Build configuration list for PBXNativeTarget "BabayProtectProgram" */;
 			buildPhases = (
+				D7098E1F867DB1C4526DE63A /* [CP] Check Pods Manifest.lock */,
 				2F0725442A835FC9007A36CE /* Sources */,
 				2F0725452A835FC9007A36CE /* Frameworks */,
 				2F0725462A835FC9007A36CE /* Resources */,
 				2F07256B2A835FCC007A36CE /* Embed Watch Content */,
+				D7038CC1CA8835CD3F313116 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -841,6 +903,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F0725682A835FCC007A36CE /* Build configuration list for PBXNativeTarget "BabayProtectProgram Watch App" */;
 			buildPhases = (
+				B9216CDA99412DEE77FD0BBB /* [CP] Check Pods Manifest.lock */,
 				2F0725542A835FCB007A36CE /* Sources */,
 				2F0725552A835FCB007A36CE /* Frameworks */,
 				2F0725562A835FCB007A36CE /* Resources */,
@@ -899,7 +962,9 @@
 				2F1FE9FD2A9A3BAD0063A700 /* Localizable.strings in Resources */,
 				2F0725532A835FCB007A36CE /* Preview Assets.xcassets in Resources */,
 				2F5F14E32A8F06BD00C31F4B /* moveToApple.gpx in Resources */,
+				2F878B072A9B776700557ED6 /* Loading.json in Resources */,
 				2F0725502A835FCB007A36CE /* Assets.xcassets in Resources */,
+				2F878B092A9B77C200557ED6 /* Scaning.json in Resources */,
 				2F5F14F82A8FE04400C31F4B /* TestLocation_One.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -914,6 +979,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B9216CDA99412DEE77FD0BBB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BabayProtectProgram Watch App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7038CC1CA8835CD3F313116 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BabayProtectProgram/Pods-BabayProtectProgram-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BabayProtectProgram/Pods-BabayProtectProgram-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BabayProtectProgram/Pods-BabayProtectProgram-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7098E1F867DB1C4526DE63A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BabayProtectProgram-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2F0725442A835FC9007A36CE /* Sources */ = {
@@ -997,6 +1126,8 @@
 				2F4BDC362A88AC0000D9B447 /* HeartRateCard.swift in Sources */,
 				2F8BF88C2A8D53340036FFF1 /* BeaconModel.swift in Sources */,
 				2F1FE9BD2A97893E0063A700 /* TriviaDataModel.swift in Sources */,
+				2F878B032A9B684200557ED6 /* FindingAndSettingBeaconView.swift in Sources */,
+				2F878AFE2A9B63D500557ED6 /* LottieView.swift in Sources */,
 				2F59B0882A866ADA006DA2C8 /* WCSessionModel.swift in Sources */,
 				2F1FE9CB2A983AC40063A700 /* ChoseView.swift in Sources */,
 				2F59B0782A864A01006DA2C8 /* ConectWatchView.swift in Sources */,
@@ -1189,6 +1320,7 @@
 		};
 		2F0725692A835FCC007A36CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 466D64AFEFC0FD9CD6A98416 /* Pods-BabayProtectProgram Watch App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1230,6 +1362,7 @@
 		};
 		2F07256A2A835FCC007A36CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E3F70729476CF7DC880999F /* Pods-BabayProtectProgram Watch App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1272,6 +1405,7 @@
 		};
 		2F07256D2A835FCC007A36CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE8413525E7D7B98689EDDCF /* Pods-BabayProtectProgram.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1280,6 +1414,7 @@
 				CODE_SIGN_ENTITLEMENTS = BabayProtectProgram/BabayProtectProgram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"BabayProtectProgram/Preview Content\"";
 				DEVELOPMENT_TEAM = YPH9WA3Z7K;
 				ENABLE_PREVIEWS = YES;
@@ -1317,6 +1452,7 @@
 		};
 		2F07256E2A835FCC007A36CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C438A194F1123034381DBA7 /* Pods-BabayProtectProgram.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1325,6 +1461,7 @@
 				CODE_SIGN_ENTITLEMENTS = BabayProtectProgram/BabayProtectProgram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"BabayProtectProgram/Preview Content\"";
 				DEVELOPMENT_TEAM = YPH9WA3Z7K;
 				ENABLE_PREVIEWS = YES;

@@ -6,18 +6,21 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct BeaconView: View {
-    
     @StateObject var cloudBeaconModel = CloudBeaconModel()
+    
     @State private var showLoadingIndicator = false
+    
     @State private var networkFalse = false
+    
     var body: some View {
         ZStack{
             VStack{
                 
                 //设置按钮
-                HStack{
+                HStack(spacing:15){
                     Text("守护设备")
                         .font(.custom("PingFang SC", size: 28))
                         .fontWeight(.medium)
@@ -30,8 +33,8 @@ struct BeaconView: View {
                         Image(systemName: "bell")
                             .foregroundColor(Color(red: 0.09, green: 0.09, blue: 0.09))
                             
-
                     }
+                    .frame(width: 28, height: 29)
 
                    
                     Button {
@@ -40,8 +43,10 @@ struct BeaconView: View {
                         Image(systemName: "plus.circle")
                             .foregroundColor(Color(red: 0.09, green: 0.09, blue: 0.09))
                     }
+                    .frame(width: 29, height: 29)
                     
                 }
+                
                 
                 //获取实时动态
                 ZStack{
@@ -87,7 +92,6 @@ struct BeaconView: View {
                 }
                 .frame(maxHeight: 268)
                 
-             
                 ScrollView(.vertical,showsIndicators: false){
                     
                     //加载已添加的信标和它的状态
@@ -95,9 +99,11 @@ struct BeaconView: View {
                         GridItem(.flexible(), spacing: 16),
                         GridItem(.flexible(), spacing: 16)
                     ], spacing: 16) {
-                        ForEach(cloudBeaconModel.usefulBeaconNames.keys.sorted(), id: \.self) { item in
-                            BeaconStateView(isNear: .constant(false), name: "\(item)")
-                                .frame(height: 150) // Set the desired height for each grid item
+                        
+                        ForEach(Array(cloudBeaconModel.usefulBeaconNames.keys), id: \.self) { item in
+                           
+                            BeaconStateView(isNear: cloudBeaconModel.usefulBeaconNames[item] == 1 ? true : false, name: item)
+                            
                         }
                     }
                     .padding()
@@ -109,23 +115,37 @@ struct BeaconView: View {
                 
             }
             .task {
+                
                 do{
-                    try await cloudBeaconModel.fetchBeacons()
+                    try await cloudBeaconModel.startLoop()
                     showLoadingIndicator = false
+                    print("isNear: cloudBeaconModel.usefulBeaconNames[item]\( cloudBeaconModel.usefulBeaconNames)")
                 }catch {
                     print("Get False")
                     networkFalse = true
                 }
-                
             }
-            
             .onAppear {
                 showLoadingIndicator = true
+               
             }
+            .refreshable {
+                do{
+                    try await cloudBeaconModel.fetchBeacons()
+                    showLoadingIndicator = false
+                    
+                }catch {
+                    print("Get False")
+                    networkFalse = true
+                }
+            }
+            .padding(.leading)
+            .padding(.trailing)
             
             if showLoadingIndicator {
                 ProgressView()
             }
+            
         }
         
        

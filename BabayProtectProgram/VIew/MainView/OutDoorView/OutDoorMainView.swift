@@ -21,9 +21,9 @@ struct CustomTabsView: View {
     }
 }
 
-
 //先用自己的手机的Location 先进行测试一下
 struct OutDoorMainView: View {
+    
     @Environment(\.presentationMode) var presentationMode
     
     @State var back = false

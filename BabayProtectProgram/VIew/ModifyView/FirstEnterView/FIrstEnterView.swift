@@ -78,11 +78,9 @@ struct FIrstEnterView: View {
                         
                           .padding(.top)
                     }
-
-                    
                     
                 }
-                .padding(.bottom,150)
+                .padding(.bottom,100)
                 
             }
         }

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct BeaconStateView: View {
     
-    @Binding var isNear: Bool
+    var isNear: Bool
+    
     let name: String
     
     var body: some View {
@@ -30,14 +31,18 @@ struct BeaconStateView: View {
                     Image(isNear ? "Near" : "Far")
                     
                 }
+                
                 //传入信标名称和电量
                 Text("\(name)信标")
                   .font(
+                    
                     Font.custom("PingFang SC", size: 13)
                       .weight(.medium)
+                    
                   )
                   .multilineTextAlignment(.center)
                   .foregroundColor(Color(red: 0.05, green: 0.05, blue: 0.05))
+                
                 Text("连接正常｜电量98%")
                     .font(Font.custom("PingFang SC", size: 12))
                     .multilineTextAlignment(.center)
@@ -53,6 +58,6 @@ struct BeaconStateView: View {
 
 struct BeaconStateView_Previews: PreviewProvider {
     static var previews: some View {
-        BeaconStateView(isNear: .constant(false), name: "厨房")
+        BeaconStateView(isNear: false, name: "厨房")
     }
 }

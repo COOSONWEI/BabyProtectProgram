@@ -29,10 +29,12 @@ class Contacts: ObservableObject {
     
     @Published var contacts: [PhoneNumber] = []
     
+
     //测试用的数据
     let testContacts = [PhoneNumber(name: "", phoneNumber: ""),PhoneNumber(name: "爸爸", phoneNumber: "19184494122"),PhoneNumber(name: "妈妈", phoneNumber: "19184494122"),PhoneNumber(name: "110", phoneNumber: "110")]
     
     func fetchContacts() async throws {
+
         // Fetch data using Convenience API
         var cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
         

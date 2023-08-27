@@ -16,7 +16,9 @@ struct AddBeaconView: View {
     @State var isValid: Bool = false
     @State var isFalseEnter = false
     @Binding var showAlert:Bool
+    
     var body: some View {
+        
         ZStack{
             Rectangle()
               .foregroundColor(.clear)
@@ -141,8 +143,8 @@ struct AddBeaconView: View {
             
             isFalseEnter = true
             return true
-        }else{
             
+        }else{
             isValid = true
             
             isFalseEnter = false

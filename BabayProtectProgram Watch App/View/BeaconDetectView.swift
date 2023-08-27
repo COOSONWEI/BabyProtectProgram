@@ -43,10 +43,11 @@ struct BeaconDetectView: View {
             //                            print("beaconName:\(beacon.object(forKey: "beaconsName") as! String)")
             if bluetoothModel.peripheralNames.values.contains(beacon) {
                 vibrateWatch()
-                print("I Find It ")
-                try await save(beacon: beacon)
+                print("I Find It")
                 bluetoothModel.isStart = false
                 isContain = true
+                try await save(beacon: beacon)
+               
             } else {
                 bluetoothModel.isStart = true
                 isContain = false

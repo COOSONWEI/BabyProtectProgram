@@ -25,8 +25,8 @@ struct BabayProtectProgramApp: App {
         WindowGroup {
 //            CustomTabView()  //主视图
 //            DrawingHistoryView()  //地图测试视图
-//            NewCustomTabView()
-             FIrstEnterView()
+            NewCustomTabView()
+//             FIrstEnterView()
 //            NotificationTestView()//订阅测试视图
 //            BeaconDetectView(bluetoothModel: blueModel)
                 .onAppear {

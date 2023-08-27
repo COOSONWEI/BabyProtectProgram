@@ -47,6 +47,7 @@ class CloudPushNotificationViewModel:  ObservableObject {
     
     //订阅通知
     func subscribeToNotificatoin() {
+        
         let predicate = NSPredicate(value: true)
         //订阅通知的方式
         let subscription = CKQuerySubscription(recordType: "Beacons", predicate: predicate, subscriptionID: "chailds_near", options: .firesOnRecordUpdate)

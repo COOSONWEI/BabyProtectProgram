@@ -79,16 +79,18 @@ struct ChoseView: View {
                 )
                 
                 Text("滑动选择关卡")
-                    .font(.system(size: 35.74))
-                  .kerning(1.07213)
+                    .font(.system(size: 35))
+                    .kerning(1.05)
+                  .fontWeight(.bold)
                   .multilineTextAlignment(.center)
-                  .foregroundColor(Color(red: 0.32, green: 0.32, blue: 0.32))
+                  .foregroundColor(Color(red: 82/255, green: 82/255, blue: 82/255))
                 
                 Text("点击下方白色按钮进入")
                 .font(.system(size: 17))
-                  .kerning(11.05)
-                  .multilineTextAlignment(.center)
-                  .foregroundColor(Color(red: 0.32, green: 0.32, blue: 0.32))
+                .kerning(1.6)
+                .fontWeight(.bold)
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color(red: 0.32, green: 0.32, blue: 0.32))
                   .padding(.top)
                 
                 ZStack{

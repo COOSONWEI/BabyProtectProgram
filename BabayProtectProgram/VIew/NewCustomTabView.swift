@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewCustomTabView: View {
     var body: some View {
-        
+            
             TabView{
                 ConectSuccessfulView()
                     .tabItem {
@@ -35,6 +35,7 @@ struct NewCustomTabView: View {
                     .tabItem {
                       
                             Image(systemName: "sensor.tag.radiowaves.forward.fill")
+                        
                             Text("守护")
                         
                     }
