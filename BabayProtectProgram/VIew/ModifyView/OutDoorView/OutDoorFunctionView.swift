@@ -17,6 +17,7 @@ struct OutDoorFunctionView: View {
     @State var showAlert = false
     var body: some View {
         ZStack{
+            
             Capsule()
                 .foregroundColor(.white)
                 .shadow(radius: 5)

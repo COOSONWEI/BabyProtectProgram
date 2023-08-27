@@ -15,11 +15,15 @@ struct GameMainView: View {
             Image("MainBG")
                 .resizable()
                 .fixedSize()
-            
+        
           ChoseView()
+                .padding(.leading)
+                .padding(.trailing)
             
         }
+        
     }
+    
 }
 
 struct GameMainView_Previews: PreviewProvider {

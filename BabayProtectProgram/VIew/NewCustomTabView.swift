@@ -23,19 +23,19 @@ struct NewCustomTabView: View {
                     GameMainView()
                 }
                     .tabItem {
-                    
-                            Image(systemName: "gamecontroller")
-                            Text("游戏")
+                        
+                        Image(systemName: "gamecontroller")
+                        Text("游戏")
                     
                     }
                 
                 VStack{
-                    Text("信息")
+                    BeaconView()
                 }
                     .tabItem {
                       
-                            Image(systemName: "message")
-                            Text("信息")
+                            Image(systemName: "sensor.tag.radiowaves.forward.fill")
+                            Text("守护")
                         
                     }
                 
@@ -46,9 +46,9 @@ struct NewCustomTabView: View {
                        
                             Image(systemName: "bag")
                             Text("商店")
-                        
                     }
             }
+            .accentColor(Color(red: 1, green: 0.67, blue: 0.69))
         //设定颜色
 //            .tint(Color(.red))
            

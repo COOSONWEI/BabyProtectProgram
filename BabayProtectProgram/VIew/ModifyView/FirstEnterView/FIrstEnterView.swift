@@ -41,7 +41,7 @@ struct FIrstEnterView: View {
                     //注册页面
                     NavigationLink {
 //                        ConectSuccessfulView()
-                        
+                        RegisterView()
                     } label: {
                         
                         ZStack{

@@ -20,15 +20,15 @@ struct BabayProtectProgramApp: App {
     @StateObject var babyPhone = BabyPhoneModel()
     @StateObject var vm = CloudPushNotificationViewModel()
     @StateObject var blueModel = BluetoothModel()
+    
     var body: some Scene {
         WindowGroup {
 //            CustomTabView()  //主视图
 //            DrawingHistoryView()  //地图测试视图
 //            NewCustomTabView()
-//            FIrstEnterView()
+             FIrstEnterView()
 //            NotificationTestView()//订阅测试视图
-    
-            BeaconDetectView(bluetoothModel: blueModel)
+//            BeaconDetectView(bluetoothModel: blueModel)
                 .onAppear {
                     // 获取数据
                     vm.requestNotification()

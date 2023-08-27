@@ -19,6 +19,7 @@ struct InDoorDangerView: View {
     @State var isValid = false
     @State var isFalse = false
     @State var showAlert = false
+    
     //    @State private var addDangerous
     
     var body: some View {
@@ -33,7 +34,6 @@ struct InDoorDangerView: View {
                         InDoorDangerousCard(name: key, subView: cloudBeaconModel.usefulbeaconsubTitle[key] ?? "烧伤危险")
                         
                     }
-                    
                     .onDelete { offsets in
                         print("offsets = \(offsets)")
                         Task {
@@ -63,10 +63,6 @@ struct InDoorDangerView: View {
 //                    secondaryButton: .cancel()
 //                )
 //            }
-            
-            
-        
-            
             
         }
         .navigationBarBackButtonHidden(true)

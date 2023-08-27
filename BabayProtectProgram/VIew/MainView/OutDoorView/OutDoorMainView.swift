@@ -43,7 +43,7 @@ struct OutDoorMainView: View {
     @State var byCar = false
     @State var byBus = false
     
-    @State var showNavBar = true
+    @State var showNavBar = false
     @State var jumptotheLocation = false
     
     //it's test data
@@ -57,8 +57,11 @@ struct OutDoorMainView: View {
        
             ZStack{
                 LocationMapView(streeName: streeName, childLocation: lastLocation, mapViewWrapper: mapVieWrappr, zoomState: $zoomState, zoomChild: $zoomChild, jumptotheLocation: $jumptotheLocation,byWalking: $walking,byCar: $byCar,byBus: $byBus)
-                .ignoresSafeArea()
-                .alert(isPresented: $isNill) {
+                    .edgesIgnoringSafeArea(.top)
+//                    .edgesIgnoringSafeArea(.leading)
+//                    .edgesIgnoringSafeArea(.trailing)
+                
+                 .alert(isPresented: $isNill) {
                     Alert(title: Text("提示"), message: Text("请在Watch端打开“守护”App进行第一次数据同步"))
                 }
             
@@ -87,40 +90,41 @@ struct OutDoorMainView: View {
                     }
                     .padding(.trailing)
                     
+                    HStack{
+                        Spacer()
+                        Button {
+                            showNavBar.toggle()
+                        } label: {
+                            ZStack{
+                                
+                                Capsule()
+                                    .foregroundColor(.white)
+                                    .shadow(radius: 5)
+                                    .frame(maxWidth: 40,maxHeight: 40)
+                               
+                                Image(systemName: showNavBar ? "arrow.down.right.and.arrow.up.left" : "arrow.up.left.and.arrow.down.right")
+                                    .resizable()
+                                    .fixedSize()
+                                    .foregroundColor(Color(red: 108/255, green: 108/255, blue: 108/255))
+                            }
+                           
+                            
+                        }
+                    }
+                    .padding(.trailing)
+                   
+
+                
                     Spacer()
+                    
                     
                   
 
                 }
                 
                 //MARK: 地图导航界面
-                VStack{
-                    Spacer()
-                    if showNavBar {
-                        DanagerousListView(jumptotheLocation: $jumptotheLocation)
-                        .frame(height: 200)
-                        .background(Color.white)
-                        .transition(.move(edge: .bottom))
-                    }
-                }
-                .gesture(
-                    DragGesture()
-                        .onChanged { value in
-                            if value.translation.height < -50 {
-                                withAnimation {
-                                    showNavBar = true
-                                }
-                            } else if value.translation.height > 50 {
-                                withAnimation {
-                                    showNavBar = false
-                                }
-                            }
-                        }
-                )
-               
-        
+              
             }
-           
             .task {
                 do {
                     try await locationVM.fetchRecord()
@@ -139,6 +143,13 @@ struct OutDoorMainView: View {
             }
             .onAppear(perform: {
     //            locationVM.fetchPolling()
+            })
+        
+            .sheet(isPresented: $showNavBar, content: {
+                DanagerousListView(jumptotheLocation: $jumptotheLocation)
+                .background(Color.white)
+                .transition(.move(edge: .bottom))
+                .presentationDetents([.height(300)])
             })
            
         .navigationBarBackButtonHidden(true)
