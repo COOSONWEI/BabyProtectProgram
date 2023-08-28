@@ -152,8 +152,6 @@
 		2F8BF88E2A8D53A70036FFF1 /* ICloudTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */; };
 		2F8BF8902A8DAE190036FFF1 /* iPhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF88F2A8DAE190036FFF1 /* iPhoneViewModel.swift */; };
 		2FBA3EE12A8B78E2005CC22B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
-		556A6E2D6EAEAC0744D2F869 /* Pods_BabayProtectProgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6D29AAFC66F488DFAC9AF5 /* Pods_BabayProtectProgram.framework */; };
-		FB484DA7731F3E8A0C2DA2CC /* Pods_BabayProtectProgram_Watch_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81AB6D210C72BBE5D7C91A8A /* Pods_BabayProtectProgram_Watch_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,10 +176,29 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2FFBFCE62A9C9E9300047D5B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FFBFCF32A9CA09200047D5B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0C438A194F1123034381DBA7 /* Pods-BabayProtectProgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabayProtectProgram.release.xcconfig"; path = "Target Support Files/Pods-BabayProtectProgram/Pods-BabayProtectProgram.release.xcconfig"; sourceTree = "<group>"; };
 		2F026A962A86726C005248EF /* OutDoorPositionEnterModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorPositionEnterModify.swift; sourceTree = "<group>"; };
 		2F026A992A874723005248EF /* HealthEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthEnterView.swift; sourceTree = "<group>"; };
 		2F026A9B2A87485A005248EF /* InDoorEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InDoorEnterView.swift; sourceTree = "<group>"; };
@@ -321,11 +338,6 @@
 		2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCloudStoreModel.swift; sourceTree = "<group>"; };
 		2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudTest.swift; sourceTree = "<group>"; };
 		2FBA3EE22A8B7B4B005CC22B /* BabayProtectProgram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BabayProtectProgram.entitlements; sourceTree = "<group>"; };
-		466D64AFEFC0FD9CD6A98416 /* Pods-BabayProtectProgram Watch App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabayProtectProgram Watch App.debug.xcconfig"; path = "Target Support Files/Pods-BabayProtectProgram Watch App/Pods-BabayProtectProgram Watch App.debug.xcconfig"; sourceTree = "<group>"; };
-		4D6D29AAFC66F488DFAC9AF5 /* Pods_BabayProtectProgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabayProtectProgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E3F70729476CF7DC880999F /* Pods-BabayProtectProgram Watch App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabayProtectProgram Watch App.release.xcconfig"; path = "Target Support Files/Pods-BabayProtectProgram Watch App/Pods-BabayProtectProgram Watch App.release.xcconfig"; sourceTree = "<group>"; };
-		81AB6D210C72BBE5D7C91A8A /* Pods_BabayProtectProgram_Watch_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabayProtectProgram_Watch_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE8413525E7D7B98689EDDCF /* Pods-BabayProtectProgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabayProtectProgram.debug.xcconfig"; path = "Target Support Files/Pods-BabayProtectProgram/Pods-BabayProtectProgram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,7 +345,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				556A6E2D6EAEAC0744D2F869 /* Pods_BabayProtectProgram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +352,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB484DA7731F3E8A0C2DA2CC /* Pods_BabayProtectProgram_Watch_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,8 +448,6 @@
 				2F07254A2A835FC9007A36CE /* BabayProtectProgram */,
 				2F07255C2A835FCB007A36CE /* BabayProtectProgram Watch App */,
 				2F0725492A835FC9007A36CE /* Products */,
-				DC2BC21530EC1F01814D8214 /* Pods */,
-				FE7442DBE45384D3801E743F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -855,26 +863,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		DC2BC21530EC1F01814D8214 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DE8413525E7D7B98689EDDCF /* Pods-BabayProtectProgram.debug.xcconfig */,
-				0C438A194F1123034381DBA7 /* Pods-BabayProtectProgram.release.xcconfig */,
-				466D64AFEFC0FD9CD6A98416 /* Pods-BabayProtectProgram Watch App.debug.xcconfig */,
-				5E3F70729476CF7DC880999F /* Pods-BabayProtectProgram Watch App.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		FE7442DBE45384D3801E743F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4D6D29AAFC66F488DFAC9AF5 /* Pods_BabayProtectProgram.framework */,
-				81AB6D210C72BBE5D7C91A8A /* Pods_BabayProtectProgram_Watch_App.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -882,12 +870,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F07256C2A835FCC007A36CE /* Build configuration list for PBXNativeTarget "BabayProtectProgram" */;
 			buildPhases = (
-				D7098E1F867DB1C4526DE63A /* [CP] Check Pods Manifest.lock */,
 				2F0725442A835FC9007A36CE /* Sources */,
 				2F0725452A835FC9007A36CE /* Frameworks */,
 				2F0725462A835FC9007A36CE /* Resources */,
 				2F07256B2A835FCC007A36CE /* Embed Watch Content */,
-				D7038CC1CA8835CD3F313116 /* [CP] Embed Pods Frameworks */,
+				2FFBFCF32A9CA09200047D5B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -903,10 +890,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F0725682A835FCC007A36CE /* Build configuration list for PBXNativeTarget "BabayProtectProgram Watch App" */;
 			buildPhases = (
-				B9216CDA99412DEE77FD0BBB /* [CP] Check Pods Manifest.lock */,
 				2F0725542A835FCB007A36CE /* Sources */,
 				2F0725552A835FCB007A36CE /* Frameworks */,
 				2F0725562A835FCB007A36CE /* Resources */,
+				2FFBFCE62A9C9E9300047D5B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -979,70 +966,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		B9216CDA99412DEE77FD0BBB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BabayProtectProgram Watch App-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D7038CC1CA8835CD3F313116 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BabayProtectProgram/Pods-BabayProtectProgram-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BabayProtectProgram/Pods-BabayProtectProgram-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BabayProtectProgram/Pods-BabayProtectProgram-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D7098E1F867DB1C4526DE63A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BabayProtectProgram-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2F0725442A835FC9007A36CE /* Sources */ = {
@@ -1320,7 +1243,6 @@
 		};
 		2F0725692A835FCC007A36CE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 466D64AFEFC0FD9CD6A98416 /* Pods-BabayProtectProgram Watch App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1348,7 +1270,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lsy.shouhu.watchkitapp;
 				PRODUCT_NAME = "守护";
 				SDKROOT = watchos;
@@ -1362,7 +1284,6 @@
 		};
 		2F07256A2A835FCC007A36CE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5E3F70729476CF7DC880999F /* Pods-BabayProtectProgram Watch App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1390,7 +1311,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lsy.shouhu.watchkitapp;
 				PRODUCT_NAME = "守护";
 				SDKROOT = watchos;
@@ -1405,7 +1326,6 @@
 		};
 		2F07256D2A835FCC007A36CE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE8413525E7D7B98689EDDCF /* Pods-BabayProtectProgram.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1437,7 +1357,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lsy.shouhu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1452,7 +1372,6 @@
 		};
 		2F07256E2A835FCC007A36CE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C438A194F1123034381DBA7 /* Pods-BabayProtectProgram.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1484,7 +1403,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lsy.shouhu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;

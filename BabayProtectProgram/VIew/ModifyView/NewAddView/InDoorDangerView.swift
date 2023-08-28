@@ -7,19 +7,29 @@
 
 import SwiftUI
 
+
+enum StateType {
+    case addSuccess
+    case addFalse
+    case delete
+    
+}
 struct InDoorDangerView: View {
     
     @StateObject var cloudBeaconModel = CloudBeaconModel()
     
     @State private var items: [String] = ["Item 1", "Item 2", "Item 3"]
     
-//    @Environment(\.presentationMode) var presentationMode
+    //    @Environment(\.presentationMode) var presentationMode
     
     @State var show = false
     @State var isValid = false
     @State var isFalse = false
     @State var showAlert = false
-    @State var deleteItem = false
+    
+    @State var state: StateType = .addSuccess
+    
+    //    @State var deleteItem = false
     
     //    @State private var addDangerous
     
@@ -30,8 +40,8 @@ struct InDoorDangerView: View {
                 HStack{
                     Text("添加室内危险区，当您的孩子进入这些区域将通知您。")
                         .font(
-                        Font.custom("SF Pro Display", size: 15.6)
-                        .weight(.semibold)
+                            Font.custom("SF Pro Display", size: 15.6)
+                                .weight(.semibold)
                         )
                         .multilineTextAlignment(.leading)
                         .lineLimit(nil)
@@ -50,9 +60,9 @@ struct InDoorDangerView: View {
                         print("offsets = \(offsets)")
                         Task {
                             await self.deleteBeacons(at: offsets)
-                           
+                            
                         }
-                       
+                        
                     }
                     
                 }
@@ -61,16 +71,25 @@ struct InDoorDangerView: View {
                 AddDangerousButton(sheetView: $show)
                 
             }
-            AddBeaconView(show: $show, cloudModel: cloudBeaconModel,showAlert: $showAlert)
+            AddBeaconView(show: $show, cloudModel: cloudBeaconModel,showAlert: $showAlert, stateType: $state)
                 .opacity(show ? 1 : 0)
-        
+            
         }
-        .alert(isPresented: $deleteItem, content: {
-            Alert(title: Text("提示"), message: Text("删除成功，请退出当前界面再次进入以获取删除后的数据；切勿一直删除"))
+        .alert(isPresented: $showAlert, content: {
+            switch state {
+            case .addFalse:
+                return Alert(title: Text("提示"), message: Text("输入错误，请重新输入"))
+            case .addSuccess:
+                return  Alert(title: Text("提示"), message: Text("添加成功，请下拉刷新数据"))
+            case .delete:
+                return  Alert(title: Text("提示"), message: Text("删除成功，请退出当前界面再次进入以获取删除后的数据；切勿一直删除"))
+                
+            }
+            
         })
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading:
-                    BackButtonView()
+                                BackButtonView()
         )
         
         .task {
@@ -102,16 +121,17 @@ struct InDoorDangerView: View {
         print("cloudBeaconModel.beaconNamesCount1 = \(cloudBeaconModel.beaconNames.count)")
         
         do{
-           await cloudBeaconModel.deleteBeaconsWithNames(beaconNamesToDelete)
+            await cloudBeaconModel.deleteBeaconsWithNames(beaconNamesToDelete)
             
             withAnimation {
-                    deleteItem = true
-                       cloudBeaconModel.objectWillChange.send()
+                state = .delete
+                showAlert = true
+                cloudBeaconModel.objectWillChange.send()
             }
             print("cloudBeaconModel.beaconNamesCount2 = \(cloudBeaconModel.beaconNames.count)")
         }
         
-       
+        
         
     }
 }

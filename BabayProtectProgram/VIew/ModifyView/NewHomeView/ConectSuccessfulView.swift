@@ -41,22 +41,18 @@ struct ConectSuccessfulView: View {
                         Spacer()
                     }
                     
-                    ScrollView(.horizontal,showsIndicators: false) {
+                    HStack{
                         
-                        HStack(spacing: 33){
-                            
-                            Button {
-                                jumptoOutDoorView = true
-                            } label: {
-                                OutDoorPositionEnterModify()
-                            }
-
-                            NavigationLink {
-                                HealthView()
-                            } label: {
-                                HealthEnterView()
-                            }
-                            
+                        Button {
+                            jumptoOutDoorView = true
+                        } label: {
+                            OutDoorPositionEnterModify()
+                        }
+                        Spacer()
+                        NavigationLink {
+                            HealthView()
+                        } label: {
+                            HealthEnterView()
                         }
                         
                     }
@@ -73,7 +69,6 @@ struct ConectSuccessfulView: View {
                         Spacer()
                         
                     }
-                    
                         NavigationLink {
                             InDoorDangerView()
                                 .navigationTitle("室内危险")

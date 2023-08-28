@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Lottie
+//import Lottie
 
 struct BeaconView: View {
     
@@ -137,7 +137,7 @@ struct BeaconView: View {
                     
                 }catch {
                     print("Get False")
-                    
+                    showLoadingIndicator = false
                     networkFalse = true
                     isNil = true
                 }

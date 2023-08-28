@@ -25,6 +25,7 @@ struct MenuView: View {
     @StateObject var geoCloudStore = GeoCloudStoreModel()
     
     @State var noContact = false
+    @StateObject var nowBeaconName = NowBeaconName()
     
     var model = ViewModelWatch()
     
@@ -33,7 +34,7 @@ struct MenuView: View {
         NavigationStack{
             ZStack{
                 
-                BeaconDetectView(bluetoothModel: bluetool, beaconsNames: beaconModel, isContain: $isContain)
+                BeaconDetectView(bluetoothModel: bluetool, beaconsNames: beaconModel, isContain: $isContain, nowBeaconName: nowBeaconName)
                     .opacity(0)
                     .task {
                         do {
@@ -66,7 +67,7 @@ struct MenuView: View {
                 .padding(.top)
             }
             .sheet(isPresented: $isContain, content: {
-                WarningView(dangerousType: .beacon, phone: contactsModel.contacts.count > 0 ? contactsModel.contacts[0].phoneNumber : "请添加号码")
+                WarningView(dangerousType: .beacon, phone: contactsModel.contacts.count > 0 ? contactsModel.contacts[0].phoneNumber : "请添加号码", name: nowBeaconName.name)
                     .onDisappear(perform: {
                         isContain = false
                         bluetool.scanForPeripherals()

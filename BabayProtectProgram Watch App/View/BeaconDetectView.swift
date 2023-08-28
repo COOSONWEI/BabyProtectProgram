@@ -9,11 +9,17 @@ import SwiftUI
 import CoreBluetooth
 import WatchConnectivity
 
+class NowBeaconName: ObservableObject {
+    @Published var name = ""
+}
+
+
 struct BeaconDetectView: View {
     @Environment(\.managedObjectContext) var context
     @StateObject var bluetoothModel: BluetoothModel
     @StateObject var beaconsNames: CloudBeaconModel
     @Binding var isContain: Bool
+    @StateObject var nowBeaconName: NowBeaconName
     
     var body: some View {
         
@@ -42,8 +48,10 @@ struct BeaconDetectView: View {
         for (beacon,_) in beaconsNames.usefulBeaconNames {
             //                            print("beaconName:\(beacon.object(forKey: "beaconsName") as! String)")
             if bluetoothModel.peripheralNames.values.contains(beacon) {
+                
                 vibrateWatch()
                 print("I Find It")
+                nowBeaconName.name = beacon
                 bluetoothModel.isStart = false
                 isContain = true
                 try await save(beacon: beacon)
@@ -81,6 +89,6 @@ struct BeaconDetectView: View {
 
 struct BeaconDetectView_Previews: PreviewProvider {
     static var previews: some View {
-        BeaconDetectView(bluetoothModel: BluetoothModel(), beaconsNames: CloudBeaconModel(), isContain: .constant(false))
+        BeaconDetectView(bluetoothModel: BluetoothModel(), beaconsNames: CloudBeaconModel(), isContain: .constant(false), nowBeaconName: NowBeaconName())
     }
 }
