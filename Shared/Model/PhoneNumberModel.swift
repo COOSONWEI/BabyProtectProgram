@@ -96,10 +96,10 @@ class Contacts: ObservableObject {
                 let predicate = NSPredicate(format: "name == %@", beaconName)
                 let query = CKQuery(recordType: "ContactPerson", predicate: predicate)
                 
-                
                 // 执行查询操作
                 do {
                     let queryResults = try await publicDatabase.records(matching: query)
+                    print("queryResults.self = \(queryResults.matchResults.count)")
                     if let recordToDelete = try? queryResults.matchResults.first?.1.get() {
                         // 删除记录
                         print("recordToDelete == \(recordToDelete)")

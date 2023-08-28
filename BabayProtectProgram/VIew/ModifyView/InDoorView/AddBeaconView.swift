@@ -87,6 +87,7 @@ struct AddBeaconView: View {
                     }
                     
                     Button {
+
                         withAnimation {
                             showAlert = true
                             if  addBeacons(name: beaconName, subTitle: beaconSubName) {

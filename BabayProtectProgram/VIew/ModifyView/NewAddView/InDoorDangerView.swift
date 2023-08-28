@@ -19,6 +19,7 @@ struct InDoorDangerView: View {
     @State var isValid = false
     @State var isFalse = false
     @State var showAlert = false
+    @State var deleteItem = false
     
     //    @State private var addDangerous
     
@@ -63,12 +64,15 @@ struct InDoorDangerView: View {
             AddBeaconView(show: $show, cloudModel: cloudBeaconModel,showAlert: $showAlert)
                 .opacity(show ? 1 : 0)
         
-            
         }
+        .alert(isPresented: $deleteItem, content: {
+            Alert(title: Text("提示"), message: Text("删除成功，请退出当前界面再次进入以获取删除后的数据；切勿一直删除"))
+        })
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading:
                     BackButtonView()
         )
+        
         .task {
             do {
                 try await cloudBeaconModel.fetchBeacons()
@@ -99,7 +103,9 @@ struct InDoorDangerView: View {
         
         do{
            await cloudBeaconModel.deleteBeaconsWithNames(beaconNamesToDelete)
+            
             withAnimation {
+                    deleteItem = true
                        cloudBeaconModel.objectWillChange.send()
             }
             print("cloudBeaconModel.beaconNamesCount2 = \(cloudBeaconModel.beaconNames.count)")

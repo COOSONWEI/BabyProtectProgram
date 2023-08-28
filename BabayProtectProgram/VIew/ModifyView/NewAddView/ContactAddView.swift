@@ -14,7 +14,7 @@ struct ContactAddView: View {
     @State private var items: [String] = ["Item 1", "Item 2", "Item 3"]
     
     @State var show = false
-    
+    @State private var deleteItem = false
     
     //    @State private var addDangerous
     
@@ -67,6 +67,9 @@ struct ContactAddView: View {
             //                    .opacity(show ? 1 : 0)
             
         }
+        .alert(isPresented: $deleteItem, content: {
+            Alert(title: Text("提示"), message: Text("删除成功，请退出当前界面再次进入以获取删除后的数据"))
+        })
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading:
                     BackButtonView()
@@ -97,8 +100,16 @@ struct ContactAddView: View {
     
     func deleteContacts(at offsets: IndexSet) async {
         let contactNamesToDelete = offsets.map { contacts.contanctsData[$0].object(forKey: "name") as! String}
-        
-        await contacts.deleteContactsNames(contactNamesToDelete)
+        do{
+            await contacts.deleteContactsNames(contactNamesToDelete)
+            withAnimation {
+                deleteItem = true
+                contacts.objectWillChange.send()
+            }
+        }catch{
+            
+        }
+       
     }
     
 }
@@ -119,7 +130,6 @@ struct AddContactButton: View {
     var body: some View {
         NavigationView{
             VStack{
-                
                 List{
                     
                     TextField("姓名", text: $name)
@@ -134,10 +144,6 @@ struct AddContactButton: View {
                 .listStyle(.plain)
                 
             }
-            .alert(isPresented: $isFalseEnter) {
-                Alert(title: Text("提示"),message: Text("添加失败,请重新输入"))
-            }
-            
             .navigationBarItems(
                 leading: Button(action: {
                     //取消返回
@@ -154,12 +160,14 @@ struct AddContactButton: View {
                     if isFalseEnter == false {
                         presentationMode.wrappedValue.dismiss()
                     }
+                    isFalseEnter = true
                     
                 }) {
                     Text("完成")
                 }.disabled(!validatePhoneNumber(phoneNumber))
-                   
-                
+                .alert(isPresented: $isFalseEnter) {
+                        Alert(title: Text("提示"),message: Text("添加成功，请下滑刷新数据"))
+                }
                 
             )
             
