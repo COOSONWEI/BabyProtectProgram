@@ -37,7 +37,18 @@ struct CallPhoneButtonView: View {
                     
                     //创建拨打电话按钮
                     Button {
-                        enterAddBabyphone = true
+                        readData()
+                        print("phone = \(phone)")
+                        if phone == "" {
+                            print("lalala")
+                            notAddPhone = true
+                        }else{
+                            notAddPhone = false
+                            callContact(phone)
+                        }
+                      
+                      
+                        
                     } label: {
                             
                         Text("点击呼叫宝贝")
@@ -66,7 +77,10 @@ struct CallPhoneButtonView: View {
         }
         .alert(isPresented: $notAddPhone) {
            
-            Alert(title: Text("提示"), message: Text("请添加宝贝的电话"))
+            Alert(title: Text("提示"), message: Text("请添加宝贝的电话"), primaryButton: .default(Text("OK"), action: {
+                enterAddBabyphone = true
+            }), secondaryButton: .cancel())
+           
         }
         .onAppear(perform: {
             if DataManager.isFirstRuning() {

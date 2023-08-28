@@ -8,29 +8,32 @@
 import SwiftUI
 
 struct NewCustomTabView: View {
+    @StateObject var cloudBeaconModel = CloudBeaconModel()
     var body: some View {
-            
+       
             TabView{
-                ConectSuccessfulView()
+                ConectSuccessfulView(cloudBeaconModel: cloudBeaconModel)
                     .tabItem {
                
                             Image(systemName: "house")
                             Text("首页")
                         
                     }
+                    .background(.white)
+                
+//                VStack{
+//                    GameMainView()
+//                }
+//                    .tabItem {
+//
+//                        Image(systemName: "gamecontroller")
+//                        Text("游戏")
+//
+//                    }
+//                    .background(.white)
                 
                 VStack{
-                    GameMainView()
-                }
-                    .tabItem {
-                        
-                        Image(systemName: "gamecontroller")
-                        Text("游戏")
-                    
-                    }
-                
-                VStack{
-                    BeaconView()
+                    BeaconView(cloudBeaconModel: cloudBeaconModel)
                 }
                     .tabItem {
                       
@@ -39,6 +42,7 @@ struct NewCustomTabView: View {
                             Text("守护")
                         
                     }
+                    .background(.white)
                 
                 VStack{
                     ShoppingView()
@@ -48,13 +52,18 @@ struct NewCustomTabView: View {
                             Image(systemName: "bag")
                             Text("商店")
                     }
+                    .background(.white)
             }
-            .accentColor(Color(red: 1, green: 0.67, blue: 0.69))
+//            .background(.clear)
+//            .accentColor(Color(red: 1, green: 0.67, blue: 0.69))
+            .tint(Color(red: 1, green: 0.67, blue: 0.69))
+        
+           
         //设定颜色
 //            .tint(Color(.red))
            
         
-        
+
     }
 }
 

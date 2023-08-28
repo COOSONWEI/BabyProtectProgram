@@ -24,27 +24,20 @@ class CloudBeaconModel: ObservableObject {
     @Published var beaconNames: [CKRecord] = []
     @Published var usefulBeaconNames: [String:Int] = [:]
     @Published var usefulbeaconsubTitle: [String:String] =  [:]
+    @Published var penalizedDeviceName: String? = nil
+    
+    @Published var modifiedDate: String? = nil
     
     private var timer: Timer?
     //轮询数据
-    func startLoop() async {
-        
+    func startLoop() {
         timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
-            
-            Task{
-                do{
-                    try await self?.fetchBeacons()
-                    
-                } catch {
-                    print("loading Error")
-                }
-            }
+            self?.loopBeacons()
+            print("lopping the beacons...")
         }
-        
     }
-    
-    
-    
+        
+
     func fetchBeacons() async throws {
         // Fetch data using Convenience API
         let cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
@@ -55,28 +48,85 @@ class CloudBeaconModel: ObservableObject {
         let results = try await publicDatabase.records(matching: query)
         
         for record in results.matchResults {
-            self.beaconNames.append(try record.1.get())
+            let recordID = record.0 // Get the record ID
+            let recordData = record.1 // Get the record data
+            if !self.beaconNames.contains(where: { $0.recordID == recordID }) {
+                self.beaconNames.append(try record.1.get())
+            }
         }
-        
-        print("beaconNames\(beaconNames)")
+        print("beaconNames.count\(beaconNames.count)")
         
         DispatchQueue.main.async {
             
             for beaconName in self.beaconNames {
-                
+                print("beaconName == \(beaconName)")
                 self.usefulBeaconNames.updateValue(beaconName.object(forKey: "near") as! Int, forKey: beaconName.object(forKey: "beaconsName") as! String)
+                self.usefulbeaconsubTitle.updateValue(beaconName.object(forKey: "subName") as! String, forKey: beaconName.object(forKey: "beaconsName") as! String)
+                print("usefulbeaconsubTitle1\(self.usefulbeaconsubTitle)")
                 
-                if beaconName.object(forKey: "subName") as? String != nil {
-                    self.usefulbeaconsubTitle.updateValue(beaconName.object(forKey: "subName") as! String, forKey: beaconName.object(forKey: "beaconsName") as! String)
-                    print("usefulbeaconsubTitle\(self.usefulbeaconsubTitle)")
-                }
                 
                 //                self.usefulbeaconsubTitle.updateValue(beaconName.object(forKey: "subName") as! String, forKey: beaconName.object(forKey: "beaconsName") as! String)
             }
-            
         }
-        print("lalllalalallal")
+        print("fetching...")
+    }
+    
+    func loopBeacons() {
         
+        let cloudContainer = CKContainer(identifier: "iCloud.com.lsy.shouhu")
+        let publicDatabase = cloudContainer.privateCloudDatabase
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "Beacons", predicate: predicate)
+        
+        publicDatabase.perform(query, inZoneWith: nil) { (results, error) in
+            print("resultsCount = \(results?.count)")
+                if let error = error {
+                    print("Error fetching data from CloudKit: \(error.localizedDescription)")
+                } else if let results = results {
+                    DispatchQueue.main.async {
+                        self.beaconNames = results
+                        print("looping...")
+                        
+                        self.beaconNames.sort(by: { (record1, record2) -> Bool in
+                            guard let creationDate1 = record1.creationDate, let creationDate2 = record2.creationDate else {
+                                return false
+                            }
+                            return creationDate1 > creationDate2
+                        })
+                        
+                        if self.beaconNames.count > 0 {
+                            
+                            for beaconName in self.beaconNames {
+                                
+                                if beaconName.object(forKey: "subName") as? String != nil {
+                                    self.usefulbeaconsubTitle.updateValue(beaconName.object(forKey: "subName") as! String, forKey: beaconName.object(forKey: "beaconsName") as! String)
+                                    print("usefulbeaconsubTitle2\(self.usefulbeaconsubTitle)")
+                                }
+
+                                self.usefulBeaconNames.updateValue(beaconName.object(forKey: "near") as! Int, forKey: beaconName.object(forKey: "beaconsName") as! String)
+                                //判断是否被触发过
+                                if beaconName.object(forKey: "near") as! Int == 1 {
+                                    //设备名称
+                                    self.penalizedDeviceName = beaconName.object(forKey: "beaconsName") as! String
+                                    //日期
+                                    if let date = beaconName.modificationDate {
+                                        let dateFormatter = DateFormatter()
+                                            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" // 设置您想要的日期格式
+                                        self.modifiedDate = dateFormatter.string(from: date)
+                                    }
+                                    
+                                }
+                                if beaconName.object(forKey: "subName") as? String != nil {
+                                    self.usefulbeaconsubTitle.updateValue(beaconName.object(forKey: "subName") as! String, forKey: beaconName.object(forKey: "beaconsName") as! String)
+                                    print("usefulbeaconsubTitle\(self.usefulbeaconsubTitle)")
+                                }
+                                
+                                //                self.usefulbeaconsubTitle.updateValue(beaconName.object(forKey: "subName") as! String, forKey: beaconName.object(forKey: "beaconsName") as! String)
+                            }
+                        }
+                    }
+                }
+            }
     }
     
     func changeBeaconRecordToCloud(beacon: BeaconModel, name: String) {
@@ -125,8 +175,20 @@ class CloudBeaconModel: ObservableObject {
                 do {
                     try await publicDatabase.save(result) // 使用 await 等待保存操作完成
                     print("Record updated successfully.")
+                    if let penalizedDeviceName = result.object(forKey: "beaconsName") as? String  {
+                        let date = Date() // Your Date object
+                        let calendar = Calendar.current
+                        let year = calendar.component(.year, from: date)
+                        let month = calendar.component(.month, from: date)
+                        let day = calendar.component(.day, from: date)
+                        let hour = calendar.component(.hour, from: date)
+                        let minutes = calendar.component(.minute, from: date)
+                        modifiedDate = "\(year).\(month).\(day) \(hour):\(minutes)"
+                    }
+                  
                 } catch {
                     print("save False: \(error)")
+                    
                 }
                 
                 // 构建谓词，排除当前记录
@@ -177,9 +239,8 @@ class CloudBeaconModel: ObservableObject {
             }else{
                 print("信标储存成功")
             }
-            
             // Remove temp file
-            
+
         })
     }
     
@@ -199,10 +260,16 @@ class CloudBeaconModel: ObservableObject {
                 if let recordToDelete = try? queryResults.matchResults.first?.1.get() {
                     // 删除记录
                     do {
-                        
                         try await publicDatabase.deleteRecord(withID: recordToDelete.recordID)
-                        
+                        DispatchQueue.main.async {
+                            let key = recordToDelete.object(forKey: "beaconsName") as! String
+                            print("self.usefulbeaconsubTitle1\(self.usefulbeaconsubTitle)")
+                            self.usefulbeaconsubTitle.removeAll()
+                        }
                         print("Record deleted successfully for beacon: \(beaconName)")
+                        try await self.fetchBeacons()
+                        print("self.usefulbeaconsubTitle2\(self.usefulbeaconsubTitle)")
+                        
                     } catch {
                         print("Failed to delete record for beacon: \(beaconName), error: \(error)")
                     }
@@ -213,6 +280,8 @@ class CloudBeaconModel: ObservableObject {
                 print("Error querying records for beacon: \(beaconName), error: \(error)")
             }
         }
+        
+        print("beaconames2 = \(beaconNames.count)")
     }
     
     

@@ -12,6 +12,8 @@ struct ConectSuccessfulView: View {
     @State var isValid = false
     @State var isFalse = false
     @State private var isNil = false
+    @State var jumptoOutDoorView = false
+    @StateObject var cloudBeaconModel: CloudBeaconModel
     
     var body: some View {
         
@@ -43,12 +45,12 @@ struct ConectSuccessfulView: View {
                         
                         HStack(spacing: 33){
                             
-                            NavigationLink {
-                                OutDoorMainView()
+                            Button {
+                                jumptoOutDoorView = true
                             } label: {
                                 OutDoorPositionEnterModify()
                             }
-                            
+
                             NavigationLink {
                                 HealthView()
                             } label: {
@@ -72,7 +74,6 @@ struct ConectSuccessfulView: View {
                         
                     }
                     
-                 
                         NavigationLink {
                             InDoorDangerView()
                                 .navigationTitle("室内危险")
@@ -83,6 +84,7 @@ struct ConectSuccessfulView: View {
 
                     
                     Divider()
+                    
                         NavigationLink {
                             
                             ContactAddView()
@@ -92,13 +94,6 @@ struct ConectSuccessfulView: View {
                             AddButton(name: "添加联系人")
                         }
                         .frame(maxHeight: 50)
-                        
-                        
-                        
-                    
-                   
-                    
-                    
                 }
                 .padding(.leading,22)
                 .padding(.trailing,22)
@@ -119,11 +114,16 @@ struct ConectSuccessfulView: View {
                 isNil = false
             }
         }
+        .fullScreenCover(isPresented: $jumptoOutDoorView) {
+            OutDoorMainView()
+        }
     }
+    
+   
 }
 
 struct ConectSuccessfulView_Previews: PreviewProvider {
     static var previews: some View {
-        ConectSuccessfulView()
+        ConectSuccessfulView(cloudBeaconModel: CloudBeaconModel())
     }
 }

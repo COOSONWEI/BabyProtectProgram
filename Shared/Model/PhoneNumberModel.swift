@@ -60,10 +60,6 @@ class Contacts: ObservableObject {
         }
     }
 
-    
-    
-    
-    
     func saveRecordToCloud(contact: phoneNumberModel) {
 //        print("contact Name: \(contact.name)")
         // Prepare the record to save

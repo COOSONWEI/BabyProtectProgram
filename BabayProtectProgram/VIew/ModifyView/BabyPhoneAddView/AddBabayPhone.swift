@@ -20,9 +20,10 @@ struct AddBabayPhone: View {
     @State private var isValid: Bool = false
     @State private var enterRight: Bool = false
     @State private var enterFalse: Bool = false
+    @State private var showAlert = false
+    
     var body: some View {
         VStack(spacing: 20) {
-            
             Image(systemName: "phone.fill")
                 .font(.largeTitle)
                 .foregroundColor(.pink.opacity(0.2))
@@ -35,8 +36,10 @@ struct AddBabayPhone: View {
             
             Button(action: {
                 // 添加按钮点击事件
+//                enterFalse = !validatePhoneNumber(phone)
+//                enterRight = validatePhoneNumber(phone)
                 addContacts(phone: phone)
-                
+                showAlert = true
             }) {
                 Text("添加")
                     .foregroundColor(.white)
@@ -46,14 +49,23 @@ struct AddBabayPhone: View {
                     .cornerRadius(20)
                     .shadow(radius: 3)
             }
-            .alert(isPresented: $enterFalse) {
-                Alert(title: Text("提示"),message: Text("手机号输入不规范请重新输入"))
-            }
-            .alert(isPresented: $enterRight) {
-                Alert(title: Text("添加成功"),message: Text("目前的手机号为：\(phone)"))
-                }
+//            .alert(isPresented: $enterRight, content: {
+//
+//                Alert(title: Text("添加成功"),message: Text("目前的手机号为：\(phone)"))
+//            })
+//
+//            .alert(isPresented: $enterFalse) {
+//                Alert(title: Text("提示"),message: Text("手机号输入不规范请重新输入"))
+//            }
+        }
+        .onTapGesture {
+            print("enterRight === \(enterRight)")
         }
         .padding()
+        .alert(isPresented: $showAlert) {
+           Alert(title: Text(enterRight ? "添加成功" : "提示"), message: Text(enterRight ? "目前的手机号为：\(phone)" : "手机号输入不规范请重新输入"))
+        }
+        
     }
     
     func addContacts(phone: String) {
@@ -72,7 +84,6 @@ struct AddBabayPhone: View {
                         phoneNumber.phone = babyPhone.phone
                     }
                 }
-                
                 DataManager.writeDate(dataInfoArr: babyPhoneArry)
                 print("添加联系人成功")
                 isValid = false
@@ -87,11 +98,17 @@ struct AddBabayPhone: View {
         let phonePredicate = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
         isValid = phonePredicate.evaluate(with: number)
         print("judge\(isValid)")
+        
         return isValid
     }
     
     
-    
+}
+
+struct Hobby:Identifiable {
+    let id = UUID()
+    let title: String
+    let Message: String
 }
 
 struct AddBabayPhone_Previews: PreviewProvider {

@@ -26,6 +26,17 @@ struct InDoorDangerView: View {
         
         ZStack {
             VStack{
+                HStack{
+                    Text("添加室内危险区，当您的孩子进入这些区域将通知您。")
+                        .font(
+                        Font.custom("SF Pro Display", size: 15.6)
+                        .weight(.semibold)
+                        )
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(nil)
+                        .foregroundColor(Color(red: 0.53, green: 0.53, blue: 0.51))
+                        .padding(.leading)
+                }
                 
                 List{
                     //                        cloudBeaconModel.usefulBeaconNames.keys.sorted()
@@ -38,7 +49,9 @@ struct InDoorDangerView: View {
                         print("offsets = \(offsets)")
                         Task {
                             await self.deleteBeacons(at: offsets)
+                           
                         }
+                       
                     }
                     
                 }
@@ -50,19 +63,6 @@ struct InDoorDangerView: View {
             AddBeaconView(show: $show, cloudModel: cloudBeaconModel,showAlert: $showAlert)
                 .opacity(show ? 1 : 0)
         
-//            Button("Show Alert") {
-////                showAlert = true
-//            }
-//            .background(.black)
-//            .padding()
-//            .alert(isPresented: $showAlert) {
-//                Alert(
-//                    title: Text("Alert Title"),
-//                    message: Text("This is an alert message."),
-//                    primaryButton: .default(Text("OK")),
-//                    secondaryButton: .cancel()
-//                )
-//            }
             
         }
         .navigationBarBackButtonHidden(true)
@@ -70,7 +70,6 @@ struct InDoorDangerView: View {
                     BackButtonView()
         )
         .task {
-            
             do {
                 try await cloudBeaconModel.fetchBeacons()
                 
@@ -87,9 +86,6 @@ struct InDoorDangerView: View {
             }
         }
         
-        
-        
-        
     }
     
     func deleteItem(at offsets: IndexSet) {
@@ -98,8 +94,19 @@ struct InDoorDangerView: View {
     
     func deleteBeacons(at offsets: IndexSet) async {
         let beaconNamesToDelete = offsets.map { cloudBeaconModel.beaconNames[$0].object(forKey: "beaconsName") as? String ?? "" }
+        print("beaconNamesToDelete == \(beaconNamesToDelete)")
+        print("cloudBeaconModel.beaconNamesCount1 = \(cloudBeaconModel.beaconNames.count)")
         
-        await cloudBeaconModel.deleteBeaconsWithNames(beaconNamesToDelete)
+        do{
+           await cloudBeaconModel.deleteBeaconsWithNames(beaconNamesToDelete)
+            withAnimation {
+                       cloudBeaconModel.objectWillChange.send()
+            }
+            print("cloudBeaconModel.beaconNamesCount2 = \(cloudBeaconModel.beaconNames.count)")
+        }
+        
+       
+        
     }
 }
 
@@ -111,9 +118,7 @@ struct AddDangerousButton: View {
         
         ZStack{
             
-            
             Button {
-                
                 withAnimation {
                     sheetView = true
                 }
@@ -167,6 +172,6 @@ struct AddDangerousButton: View {
 
 struct InDoorDangerView_Previews: PreviewProvider {
     static var previews: some View {
-        InDoorDangerView()
+        InDoorDangerView(cloudBeaconModel: CloudBeaconModel())
     }
 }

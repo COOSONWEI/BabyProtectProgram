@@ -10,11 +10,18 @@ import WatchConnectivity
 
 @main
 struct BabayProtectProgramApp: App {
-    
+
     init() {
             // 修改全局的 List 样式
             UITableView.appearance().backgroundColor = .clear
+        // 设置 TabBar 的外观
+        let tabBarAppearance = UITabBar.appearance()
+        tabBarAppearance.barTintColor = UIColor.white // 设置背景色
+        print("Inite success")
+//        tabBarAppearance.tintColor = UIColor.white // 设置选中项的颜色
     }
+    
+    
     
     @StateObject var healthModel = HealthModel()
     @StateObject var babyPhone = BabyPhoneModel()

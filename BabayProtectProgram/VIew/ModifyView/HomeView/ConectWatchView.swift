@@ -80,12 +80,14 @@ struct ConectWatchView: View {
                         notAddPhone = false
                         callContact(phone)
                     }
-                  
+                    
                 } label: {
+                    
                     Image(systemName: "phone.circle")
                         .resizable()
                         .frame(maxWidth: 65, maxHeight: 65)
                         .foregroundColor(.white)
+                    
                 }
                 
                 

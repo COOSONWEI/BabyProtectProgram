@@ -14,7 +14,7 @@ struct AddBeaconView: View {
     @Binding var show: Bool
     @StateObject var cloudModel: CloudBeaconModel
     @State var isValid: Bool = false
-    @State var isFalseEnter = false
+    @State var isTrueEnter = false
     @Binding var showAlert:Bool
     
     var body: some View {
@@ -68,7 +68,7 @@ struct AddBeaconView: View {
                             
                             show = false
                             isValid = true
-                            showAlert = true
+//                            showAlert = true
                         }
                       
                       print("isValid\(isValid)")
@@ -87,17 +87,17 @@ struct AddBeaconView: View {
                     }
                     
                     Button {
-                        
                         withAnimation {
+                            showAlert = true
                             if  addBeacons(name: beaconName, subTitle: beaconSubName) {
                                 show = false
-                                isFalseEnter = true
+                                isTrueEnter = true
+                               
                             }else{
                                 isValid = true
                             }
                         }
-                       
-                        print("isFalseEnter\(isFalseEnter)")
+                        print("isFalseEnter\(isTrueEnter)")
                        
                         
                     } label: {
@@ -110,20 +110,14 @@ struct AddBeaconView: View {
                     }
                     
                 }
-//                .alert(isPresented: $isValid) {
-//                    Alert(title: Text("提示"),message: Text("信标名称输入不规范请重新输入"))
-//                }
-//                .alert(isPresented: $isFalseEnter) {
-//                    Alert(title: Text("提示"),message: Text("信标添加成功,请下滑刷新一下界面，同步数据"))
-//                }
+                
+
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("提示"),message: Text(isTrueEnter ? "信标添加成功,请下滑刷新一下界面，同步数据" : "输入错误请从重新输入"))
+                }
                
             }
-            .alert(isPresented: $isValid) {
-                Alert(title: Text("提示"),message: Text("信标名称输入不规范请重新输入"))
-            }
-            .alert(isPresented: $isFalseEnter) {
-                Alert(title: Text("提示"),message: Text("信标添加成功,请下滑刷新一下界面，同步数据"))
-            }
+           
         }
        
         .frame(maxWidth: 334, maxHeight: 418)
@@ -141,13 +135,13 @@ struct AddBeaconView: View {
             cloudStore.saveNewBeaconToCloud(beaconModel: beaconModel)
             print("add True")
             
-            isFalseEnter = true
+            isTrueEnter = true
             return true
             
         }else{
             isValid = true
             
-            isFalseEnter = false
+            isTrueEnter = false
             
             return false
         }

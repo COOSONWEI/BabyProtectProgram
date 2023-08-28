@@ -17,7 +17,7 @@ struct HealthView: View {
     @State private var showLoadingIndicator = false
     
 
-    @State var fetchTrue = true
+    @State var fetchTrue = false
     
     var body: some View {
         ZStack{
@@ -85,37 +85,7 @@ struct HealthView: View {
                           
                     }
             }
-            .task {
-                do {
-                        try await healthDataModel.fetchRestaurants()
-                    if healthDataModel.heartRate > 0 {
-                        fetchTrue = false
-                    }else{
-                        fetchTrue = true
-                    }
-                        showLoadingIndicator = false
-                       
-                    
-                    } catch {
-                        // 在这里处理错误，例如打印错误信息或者显示错误提示给用户
-                        print("Error fetching restaurants: \(error)")
-                        showLoadingIndicator = false
-                    }
-            }
-            .onAppear() {
-                showLoadingIndicator = true
-            }
-            .refreshable {
-                do {
-                        try await healthDataModel.fetchRestaurants()
-                        showLoadingIndicator = false
-                    } catch {
-                        // 在这里处理错误，例如打印错误信息或者显示错误提示给用户
-                        print("Error fetching restaurants: \(error)")
-                        showLoadingIndicator = false
-                    }
-                
-            }
+           
             
             if showLoadingIndicator {
                 ProgressView()
@@ -123,6 +93,44 @@ struct HealthView: View {
            
         }
         .navigationBarBackButtonHidden(true)
+        .task {
+            do {
+                try await healthDataModel.fetchRestaurants()
+                print("healthDataModel.health.count\(healthDataModel.health.count)")
+                if healthDataModel.health.count > 0 {
+                    
+                    fetchTrue = false
+                    
+                }else{
+                    DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                        fetchTrue = true
+                    }
+                   
+//                        print("is error")
+                }
+                showLoadingIndicator = false
+                   
+                } catch {
+                    // 在这里处理错误，例如打印错误信息或者显示错误提示给用户
+                    print("Error fetching restaurants: \(error)")
+                    showLoadingIndicator = false
+                }
+        }
+        .onAppear() {
+            showLoadingIndicator = true
+        }
+        .refreshable {
+            do {
+                    try await healthDataModel.fetchRestaurants()
+                    showLoadingIndicator = false
+                } catch {
+                    // 在这里处理错误，例如打印错误信息或者显示错误提示给用户
+                    print("Error fetching restaurants: \(error)")
+                    showLoadingIndicator = false
+                }
+            
+        }
+       
     }
 
     }

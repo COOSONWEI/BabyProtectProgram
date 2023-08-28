@@ -78,6 +78,7 @@ extension BluetoothModel: CBCentralManagerDelegate {
             self.rssi.updateValue(RSSI, forKey: peripheral.identifier)
             if let rawData = advertisementData[CBAdvertisementDataServiceDataKey] as? String {
                 print("rawData\(rawData)")
+                
                 self.raweData.updateValue(String(rawData), forKey: peripheral.identifier)
 //                    let rawDataString = rawData.map { String(format: "%02x", $0) }.joined()
 //                   self.raweData.updateValue(rawDataString, forKey: peripheral.identifier)
@@ -107,6 +108,7 @@ extension BluetoothModel: CBCentralManagerDelegate {
     func sendATCommand(_ command: String) {
         for peripheral in peripherals {
             if let characteristic = peripheral.services?.first?.characteristics?.first(where: { $0.uuid == TransferService.characteristicUUID }) {
+                
                             if characteristic.properties.contains(.write) {
                                 if let data = command.data(using: .utf8) {
                                     peripheral.writeValue(data, for: characteristic, type: .withResponse)
@@ -119,7 +121,9 @@ extension BluetoothModel: CBCentralManagerDelegate {
                         } else {
                             print("Characteristic not found")
                         }
+            
         }
+        
     }
     
     func connectedTheDevice(name: String) -> Bool {

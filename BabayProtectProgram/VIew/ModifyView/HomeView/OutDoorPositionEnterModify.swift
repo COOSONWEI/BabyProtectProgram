@@ -9,7 +9,7 @@ import SwiftUI
 
 //MARK: -户外检测进入按钮
 struct OutDoorPositionEnterModify: View {
-    @State var enterOutDoor = false
+//    @State var enterOutDoor = false
     var body: some View {
        
             ZStack{
@@ -39,13 +39,7 @@ struct OutDoorPositionEnterModify: View {
                 
             }
             .frame(width: 144, height: 144)
-        
-
-         
     
-        
-
-               
         
     }
 }

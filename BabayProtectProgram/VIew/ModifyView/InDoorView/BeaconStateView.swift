@@ -43,7 +43,7 @@ struct BeaconStateView: View {
                   .multilineTextAlignment(.center)
                   .foregroundColor(Color(red: 0.05, green: 0.05, blue: 0.05))
                 
-                Text("连接正常｜电量98%")
+                Text("连接正常")
                     .font(Font.custom("PingFang SC", size: 12))
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color(red: 0.64, green: 0.64, blue: 0.64))

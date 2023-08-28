@@ -9,12 +9,14 @@ import SwiftUI
 
 //MARK: -地图的按钮功能
 struct OutDoorFunctionView: View {
-//    var locationModel: LocationModel
+    //    var locationModel: LocationModel
     @Binding var zoomLocation: Bool
     @Binding var zoomChild: Bool
     @StateObject var locatinoModel: LocationCloudStroe
+    @Binding var showNavBar: Bool
     let action: () -> Void
     @State var showAlert = false
+    
     var body: some View {
         ZStack{
             
@@ -26,14 +28,14 @@ struct OutDoorFunctionView: View {
                 Button {
                     print("locatinoModel.locationRecord.count:--\(locatinoModel.locationRecord.count)")
                     if locatinoModel.locationRecord.count > 0 {
-                            zoomChild = true
+                        zoomChild = true
                         DispatchQueue.main.asyncAfter(deadline: .now()+1){
                             zoomChild = false
                         }
                     }else{
                         showAlert = true
                     }
-                   
+                    
                 } label: {
                     Image("location")
                         .resizable()
@@ -43,16 +45,15 @@ struct OutDoorFunctionView: View {
                 .alert(isPresented: $showAlert) {
                     Alert(title: Text("提示"), message: Text("您还未绑定AppleWatch传递位置信息，请您先绑定AppleWatch后打开'守护'App，会自动进行第一次数据同步"))
                 }
-
+                
                 Text("孩子位置")
                     .font(.system(size: 9))
                     .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
                     .minimumScaleFactor(0.2)
-                  
+                
                 Divider()
                 
                 Button {
-                    
                     zoomLocation=true
                     DispatchQueue.main.asyncAfter(deadline: .now()+1){
                         zoomLocation = false
@@ -72,7 +73,7 @@ struct OutDoorFunctionView: View {
                     .font(.system(size: 9))
                     .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
                     .minimumScaleFactor(0.2)
-
+                
                 Divider()
                 
                 Button(action: action) {
@@ -86,25 +87,35 @@ struct OutDoorFunctionView: View {
                     .font(.system(size: 9))
                     .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
                     .lineLimit(nil)
-               
+                
+                
+                Divider()
+                
+                
+                Button {
                     
-
-                
-//                Image("battery")
-//                    .resizable()
-//                    .frame(maxWidth: 32, maxHeight: 32)
-//                    .fixedSize()
-//
-//                Text("0")
-//                    .font(.system(size: 9))
-//                    .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
-//                    .minimumScaleFactor(0.2)
-                
-                
+                    withAnimation(.spring()){
+                        showNavBar.toggle()
+                    }
+                    
+                } label: {
+                    VStack{
+                        Image(systemName: showNavBar ? "arrow.down.right.and.arrow.up.left" : "arrow.up.left.and.arrow.down.right"  )
+                            .resizable()
+                            .fixedSize()
+                            .foregroundColor(Color(red: 108/255, green: 108/255, blue: 108/255))
+                        Text(showNavBar ? "收起" : "展开" )
+                            .font(.system(size: 9))
+                            .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
+                            .lineLimit(nil)
+                    }
+                   
+                }
+               
             }
         }
-        .frame(maxWidth: 40, maxHeight: 193)
-       
+        .frame(maxWidth: 40, maxHeight: 250)
+        
     }
 }
 

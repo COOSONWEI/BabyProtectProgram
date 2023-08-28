@@ -58,6 +58,7 @@ struct OutDoorMainView: View {
             ZStack{
                 LocationMapView(streeName: streeName, childLocation: lastLocation, mapViewWrapper: mapVieWrappr, zoomState: $zoomState, zoomChild: $zoomChild, jumptotheLocation: $jumptotheLocation,byWalking: $walking,byCar: $byCar,byBus: $byBus)
                     .edgesIgnoringSafeArea(.top)
+//                    .padding(.bottom,60)
 //                    .edgesIgnoringSafeArea(.leading)
 //                    .edgesIgnoringSafeArea(.trailing)
                 
@@ -83,35 +84,15 @@ struct OutDoorMainView: View {
                     
                     HStack{
                         Spacer()
-                        OutDoorFunctionView(zoomLocation: $zoomState,zoomChild: $zoomChild,locatinoModel: locationVM){
+                        OutDoorFunctionView(zoomLocation: $zoomState,zoomChild: $zoomChild,locatinoModel: locationVM,showNavBar: $showNavBar){
                             openMapsNavigation(destination: lastLocation.lastCoordinate.center)
                         }
                             .padding(.top,28)
                     }
                     .padding(.trailing)
                     
-                    HStack{
-                        Spacer()
-                        Button {
-                            showNavBar.toggle()
-                        } label: {
-                            ZStack{
-                                
-                                Capsule()
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 5)
-                                    .frame(maxWidth: 40,maxHeight: 40)
-                               
-                                Image(systemName: showNavBar ? "arrow.down.right.and.arrow.up.left" : "arrow.up.left.and.arrow.down.right")
-                                    .resizable()
-                                    .fixedSize()
-                                    .foregroundColor(Color(red: 108/255, green: 108/255, blue: 108/255))
-                            }
-                           
-                            
-                        }
-                    }
-                    .padding(.trailing)
+                   
+                    
                    
 
                 
@@ -121,9 +102,17 @@ struct OutDoorMainView: View {
                   
 
                 }
-                
                 //MARK: 地图导航界面
-              
+                .sheet(isPresented: $showNavBar) {
+                    DanagerousListView(jumptotheLocation: $jumptotheLocation)
+                    .background(Color.white)
+                    .transition(.move(edge: .bottom))
+                    .presentationDetents([.height(300)])
+//                    .offset(y: showNavBar ? 1000 : 400)
+                }
+                   
+                
+                
             }
             .task {
                 do {
@@ -144,13 +133,7 @@ struct OutDoorMainView: View {
             .onAppear(perform: {
     //            locationVM.fetchPolling()
             })
-        
-            .sheet(isPresented: $showNavBar, content: {
-                DanagerousListView(jumptotheLocation: $jumptotheLocation)
-                .background(Color.white)
-                .transition(.move(edge: .bottom))
-                .presentationDetents([.height(300)])
-            })
+            
            
         .navigationBarBackButtonHidden(true)
     }
