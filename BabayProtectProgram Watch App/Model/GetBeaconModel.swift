@@ -36,6 +36,16 @@ class CloudBeaconModel: ObservableObject {
             print("lopping the beacons...")
         }
     }
+    
+    
+    func pauseLoop() {
+        timer?.invalidate()
+        timer = nil
+    }
+  
+    func resumeLoop() {
+        startLoop()
+    }
         
 
     func fetchBeacons() async throws {

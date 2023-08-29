@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
-
 import CoreBluetooth
 import WatchConnectivity
 
-struct BeaconDetectView: View {
+struct BeaconConectTestView: View {
     @Environment(\.managedObjectContext) var context
     @StateObject var bluetoothModel: BluetoothModel
     
@@ -83,9 +82,9 @@ struct BeaconDetectView: View {
 
 }
 
-struct BeaconDetectView_Previews: PreviewProvider {
+struct BeaconConectTestView_Previews: PreviewProvider {
     static var previews: some View {
-        BeaconDetectView(bluetoothModel: BluetoothModel())
+        BeaconConectTestView(bluetoothModel: BluetoothModel())
     }
 }
 
