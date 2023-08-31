@@ -30,7 +30,7 @@ struct ConectSuccessfulView: View {
                     CallPhoneButtonView()
                     
                     HStack{
-                        Text("功能概览")
+                        Text("户外实时定位")
                             .font(
                                 .system(size: 20)
                             )
@@ -41,54 +41,81 @@ struct ConectSuccessfulView: View {
                         Spacer()
                     }
                     
-                    HStack{
-                        
-                        Button {
-                            jumptoOutDoorView = true
-                        } label: {
-                            OutDoorPositionEnterModify()
-                        }
-                        Spacer()
-                        NavigationLink {
-                            HealthView()
-                        } label: {
-                            HealthEnterView()
-                        }
-                        
-                    }
                     
-                    HStack{
-                        Text("添加")
-                            .font(
-                                .system(size: 20)
-                            )
-                            .fontWeight(.bold)
-                            .kerning(6)
-                            .foregroundColor(Color(red: 1, green: 0.56, blue: 0.6))
-                            .frame(width: 163, alignment: .topLeading)
-                        Spacer()
-                        
+                    Button {
+                        jumptoOutDoorView = true
+                    } label: {
+
+                        Rectangle()
+                          .foregroundColor(.clear)
+                          .frame(width: 338, height: 151)
+                          .background(
+                            Image("OutDoorsView")
+                              .resizable()
+                              .aspectRatio(contentMode: .fill)
+                              .frame(width: 338, height: 151)
+                              .clipped()
+                          )
+                          .cornerRadius(15)
                     }
-                        NavigationLink {
-                            InDoorDangerView()
-                                .navigationTitle("室内危险")
-                        } label: {
-                            AddButton(name: "添加室内信标")
-                        }
-                        .frame(maxHeight: 50)
 
                     
+//                    HStack{
+//
+//                        Spacer()
+//                        NavigationLink {
+//                            HealthView()
+//                        } label: {
+//                            HealthEnterView()
+//                        }
+//
+//                    }
+                    
+                    HStack{
+                        Text("功能概述")
+                            .font(
+                                .system(size: 20)
+                            )
+                            .fontWeight(.bold)
+                            .kerning(6)
+                            .foregroundColor(Color(red: 1, green: 0.56, blue: 0.6))
+                            .frame(width: 163, alignment: .topLeading)
+                        Spacer()
+                        
+                    }
+                    
+                    NavigationLink {
+                        
+                        ContactAddView()
+                            .navigationTitle("联系人")
+                        
+                    } label: {
+                        AddButton(name: "添加联系人")
+                    }
+                    .frame(maxHeight: 50)
+
                     Divider()
                     
-                        NavigationLink {
-                            
-                            ContactAddView()
-                                .navigationTitle("联系人")
-                            
-                        } label: {
-                            AddButton(name: "添加联系人")
-                        }
-                        .frame(maxHeight: 50)
+                    NavigationLink {
+                    
+                        HealthView()
+                            .navigationBarBackButtonHidden(true)
+                
+                    } label: {
+                        AddButton(name: "健康检测")
+                    }
+                    .frame(maxHeight: 50)
+                    
+                 
+                    
+//                    NavigationLink {
+//                        InDoorDangerView()
+//                            .navigationTitle("室内危险")
+//                    } label: {
+//                        AddButton(name: "添加室内信标")
+//                    }
+//                    .frame(maxHeight: 50)
+                       
                 }
                 .padding(.leading,22)
                 .padding(.trailing,22)

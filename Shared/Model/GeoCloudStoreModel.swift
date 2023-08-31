@@ -26,7 +26,7 @@ class GeoCloudStoreModel: ObservableObject {
         let query = CKQuery(recordType: "GeoDangers", predicate: predicate)
         
         let results = try await publicDatabase.records(matching: query)
-//        print("results is \(results)")
+        print("results is \(results.matchResults.count)")
         for record in results.matchResults {
             self.isentry.append(try record.1.get())
         }
@@ -36,7 +36,7 @@ class GeoCloudStoreModel: ObservableObject {
         DispatchQueue.main.async {
             for beaconName in self.isentry {
                 print("\(beaconName.object(forKey: "isEnter"))")
-                //                print(self.usefulBeaconNames)
+                
             }
         }
         print("lalllalalallal")

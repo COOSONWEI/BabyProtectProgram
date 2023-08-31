@@ -61,7 +61,6 @@ struct MenuView: View {
                         }
                         .frame(width: 75, height:75)
                     }
-                   
 
                 }
                 .padding(.top)
@@ -74,13 +73,12 @@ struct MenuView: View {
                     })
             })
             
-//            .sheet(isPresented: $locationManager.reginLocation.isEnter) {
-//                WarningView(dangerousType: .geofencation, phone: contactsModel.contacts.count > 0 ? contactsModel.contacts[0].phoneNumber : "请添加号码")
-//                    .onAppear {
-//                        geoCloudStore.sendTheInformation(locationManager: locationManager)
-//
-//                    }
-//            }
+            .sheet(isPresented: $locationManager.reginLocation.isEnter) {
+                WarningView(dangerousType: .geofencation, phone: contactsModel.contacts.count > 0 ? contactsModel.contacts[0].phoneNumber : "请添加号码", name: "危险区")
+                    .onAppear {
+                        geoCloudStore.sendTheInformation(locationManager: locationManager)
+                    }
+            }
         }
         .task {
             do {
@@ -131,6 +129,8 @@ struct MenuView: View {
         locations.location.latitude = locationModel.userLocation?.latitude ?? 0.0
         locations.location.longitude = locationModel.userLocation?.longitude ?? 0.0
         locations.location.street_name = locationModel.locationName ?? "上海南站"
+        print("locations.location.street_name \(locations.location.street_name)")
+        
         print("lastLocation \(locations.location)")
         dataInfo.location = CLLocationCoordinate2D(latitude: locations.location.latitude, longitude: locations.location.longitude)
         dataInfos.append(dataInfo)

@@ -31,111 +31,154 @@ struct ChoseView: View {
     
     var body: some View {
 
-            VStack{
-                HStack{
-                    
-                    Image("\(Images[(selectedImage - 1) < 0 ? 2 : selectedImage - 1].imageName)")
-                        .opacity(0.5)
-                    
-                    Image("\(Images[selectedImage].imageName)")
-                    
-                    
-                    Image("\(Images[selectedImage + 1 > 2 ? 0 : selectedImage + 1].imageName)")
-                        .opacity(0.5)
-                    
-                }
-                .gesture(
-                    DragGesture()
-                        .onEnded { value in
-                            
-                            if value.translation.width < 0 {
-                                // Swiped left
-                                withAnimation(.linear) {
-                                    
-                                    if selectedImage + 1 > 2 {
-                                        selectedImage = 0
-                                    }else{
-                                        selectedImage = selectedImage + 1
-                                    }
-                                  
-                                }
-                                print("selectedImage = \(selectedImage)")
-                                
-                                
-                            } else if value.translation.width > 0 {
-                                // Swiped right
-                               
-                                withAnimation(.linear){
-                                    
-                                    if selectedImage - 1 < 0 {
-                                        selectedImage = 2
-                                    }else{
-                                        selectedImage = selectedImage - 1
-                                    }
-                                }
-                                print("selectedImage = \(selectedImage)")
-                            }
-                        }
-                )
-                
-                Text("滑动选择关卡")
-                    .font(.system(size: 35))
-                    .kerning(1.05)
-                  .fontWeight(.bold)
-                  .multilineTextAlignment(.center)
-                  .foregroundColor(Color(red: 82/255, green: 82/255, blue: 82/255))
-                
-                Text("点击下方白色按钮进入")
-                .font(.system(size: 17))
-                .kerning(1.6)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.center)
-                .foregroundColor(Color(red: 0.32, green: 0.32, blue: 0.32))
-                  .padding(.top)
-                
+           
+            NavigationView{
                 ZStack{
                     
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .background(.white.opacity(0.68))
-                            .cornerRadius(31.33876)
-                            .shadow(color: .black.opacity(0.07), radius: 2.5071, x: 5.0142, y: 5.0142)
-                        
-                    //移动位置
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .frame(maxWidth: 110, maxHeight: 110)
-                        .background(.white.opacity(0.8))
-                        .cornerRadius(20)
-                        .shadow(color: .black.opacity(0.07), radius: 2.5071, x: 5.0142, y: 5.0142)
-
-                        .offset(x: CGFloat(CGFloat((selectedImage - 1)) * screenWidth))
+                    Image("MainBG")
+                        .resizable()
+                        .fixedSize()
                     
+                    VStack{
+                        HStack{
+                            Image("\(Images[(selectedImage - 1) < 0 ? 2 : selectedImage - 1].imageName)")
+                                .opacity(0.5)
+                            
+                            Image("\(Images[selectedImage].imageName)")
+                            
+                            
+                            Image("\(Images[selectedImage + 1 > 2 ? 0 : selectedImage + 1].imageName)")
+                                .opacity(0.5)
+                            
+                        }
+                        .gesture(
+                            DragGesture()
+                                .onEnded { value in
+                                    
+                                    if value.translation.width < 0 {
+                                        // Swiped left
+                                        withAnimation(.linear) {
+                                            
+                                            if selectedImage + 1 > 2 {
+                                                selectedImage = 0
+                                            }else{
+                                                selectedImage = selectedImage + 1
+                                            }
+                                            
+                                        }
+                                        print("selectedImage = \(selectedImage)")
+                                        
+                                        
+                                    } else if value.translation.width > 0 {
+                                        // Swiped right
+                                        
+                                        withAnimation(.linear){
+                                            
+                                            if selectedImage - 1 < 0 {
+                                                selectedImage = 2
+                                            }else{
+                                                selectedImage = selectedImage - 1
+                                            }
+                                        }
+                                        print("selectedImage = \(selectedImage)")
+                                    }
+                                }
+                        )
                         
-                    HStack(alignment: .center,spacing:50){
+                        Text("滑动选择关卡")
+                            .font(.system(size: 35))
+                            .kerning(1.05)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(Color(red: 82/255, green: 82/255, blue: 82/255))
                         
-                        VStack{
-                            Image("Pass_1")
-                            Text("游戏冒险")
+                        Text("SLIDE TO SELECT LEVEL")
+                            .font(
+                                Font.custom("Amiko", size: 20)
+                                    .weight(.bold)
+                            )
+                            .kerning(1.6)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(Color(red: 0.32, green: 0.32, blue: 0.32))
+                            .frame(width: 356, height: 25, alignment: .top)
+                        
+                        NavigationLink {
+                            //进入不同的界面
+                            switch selectedImage {
+                                //找茬界面
+                            case 0:
+                                StumbleView()
+                                    .navigationBarBackButtonHidden(true)
+                                //知识问答界面
+                            case 1:
+                                QAGameView()
+                                    .navigationBarBackButtonHidden(true)
+                                //AR互动界面
+                            case 2:
+                                ARTouchView()
+                                    .navigationBarBackButtonHidden(true)
+                                
+                            default:
+                                EmptyView()
+                            }
+                        } label: {
+                            ZStack{
+                                Rectangle()
+                                    .foregroundColor(.clear)
+                                    .background(.white.opacity(0.68))
+                                    .cornerRadius(31.33876)
+                                    .shadow(color: .black.opacity(0.07), radius: 2.5071, x: 5.0142, y: 5.0142)
+                                
+                                //移动位置
+                                Rectangle()
+                                    .foregroundColor(.clear)
+                                    .frame(maxWidth: 110, maxHeight: 110)
+                                    .background(.white.opacity(0.8))
+                                    .cornerRadius(20)
+                                    .shadow(color: .black.opacity(0.07), radius: 2.5071, x: 5.0142, y: 5.0142)
+                                
+                                    .offset(x: CGFloat(CGFloat((selectedImage - 1)) * screenWidth))
+                                
+                                
+                                HStack(alignment: .center,spacing:50){
+                                    
+                                    VStack{
+                                        Image("Pass_1")
+                                        Text("游戏冒险")
+                                    }
+                                    
+                                    VStack{
+                                        Image("Pass_2")
+                                        Text("知识问答")
+                                    }
+                                    
+                                    VStack{
+                                        Image("Pass_3")
+                                        Text("AR互动")
+                                    }
+                                    
+                                }
+                                
+                            }
+                            .frame(maxHeight: 153)
+                            .padding(.leading)
+                            .padding(.trailing)
                         }
                         
-                        VStack{
-                            Image("Pass_2")
-                            Text("知识问答")
-                        }
-                        
-                        VStack{
-                            Image("Pass_3")
-                            Text("AR互动")
-                        }
-                
+                        Text("点击上方白色按钮进入")
+                            .font(Font.custom("Abhaya Libre ExtraBold", size: 14))
+                            .kerning(4.9)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(Color(red: 0.53, green: 0.53, blue: 0.53))
                     }
-                
+                    .padding(.leading)
+                    .padding(.trailing)
                 }
-                .frame(maxHeight: 153)
-                .padding(.leading)
-                .padding(.trailing)
             }
+        
+    
+           
+            
         
     }
     

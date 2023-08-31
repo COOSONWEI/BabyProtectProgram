@@ -20,6 +20,11 @@ struct QAGameView: View {
     var body: some View {
         VStack(alignment:.center,spacing: 20){
             
+            HStack{
+                BackButtonView()
+                Spacer()
+            }
+            
             Text("SECURITY\nQ&A")
                 .font(.system(size:  34))
                 .fontWeight(.bold)

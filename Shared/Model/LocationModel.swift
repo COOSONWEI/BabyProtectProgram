@@ -7,6 +7,7 @@
 
 import Foundation
 import MapKit
+import SwiftUI
 
 //获取设备的地理位置
 class LocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
@@ -14,7 +15,7 @@ class LocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     var locationManager: CLLocationManager?
     @Published var userLocation: CLLocationCoordinate2D?
     @Published var locationName: String?
-    
+    @StateObject var lastLocationName = LastLocation()
     @Published var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.1, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
     
     func checkIfLocationServiesIsEnabled(){
@@ -51,8 +52,16 @@ class LocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
             if let userLocation = locations.last?.coordinate {
                 self.userLocation = userLocation
                 print("userLocation is \(userLocation)")
+                
                 let geocoder = CLGeocoder()
-                let location = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
+                let newLatitude = formatDecimalNumber(userLocation.latitude)
+                let newLongitude = formatDecimalNumber(userLocation.longitude)
+                
+                print("DubleLatitude = \(Double(newLatitude))")
+                print("DoubleLongitude = \(Double(newLongitude))")
+                
+                let location = CLLocation(latitude: Double(newLatitude) ?? 0.0, longitude: Double(newLongitude) ?? 0.0)
+                
                 geocoder.reverseGeocodeLocation(location) { placemarks, error in
                     if let error = error {
                            print("Error calculating directions: \(error.localizedDescription)")
@@ -62,7 +71,9 @@ class LocationModel: NSObject, ObservableObject, CLLocationManagerDelegate {
                         print("placemark: \(placemark)")
                         if let street = placemark.thoroughfare, let city = placemark.locality {
                             self.locationName = "\(street), \(city)"
+                          
                             print("locationName\(street),\(city)")
+                           
                         } else {
                             self.locationName = "\(placemark)"
                         }

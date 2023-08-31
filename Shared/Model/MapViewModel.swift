@@ -43,7 +43,6 @@ class LocationCloudStroe: ObservableObject {
         Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
             self.fetchLocation()
         }
-        
     }
     
     //匹配数据从云端
@@ -59,7 +58,7 @@ class LocationCloudStroe: ObservableObject {
         for record in results.matchResults {
             self.locationRecord.append(try record.1.get())
         }
-
+        
         //将最新的数据存储到另一个数组中（通过主线程来完成该操作）
         DispatchQueue.main.async {
             self.locationRecord.sort(by: { (record1, record2) -> Bool in
@@ -69,10 +68,12 @@ class LocationCloudStroe: ObservableObject {
                 }
                 return creationDate1 > creationDate2 })
            
+          
             if self.locationRecord.count > 0 {
                 self.lastLocation = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Double(self.locationRecord[0].object(forKey: "latitude") as! String) ?? 0.0, longitude: Double(self.locationRecord[0].object(forKey: "longitude") as! String) ?? 0.0), latitudinalMeters: 0.5, longitudinalMeters: 0.5)
                 self.streeName = self.locationRecord[0].object(forKey: "street_name") as! String
                 print("streeName:\(self.streeName)")
+                print("self.lastLocation = \(self.lastLocation)")
             }
         }
         print("lalllalalallal")
@@ -114,27 +115,30 @@ class LocationCloudStroe: ObservableObject {
         // Prepare the record to save
         print("location is \(location)")
         let record = CKRecord(recordType: "CoreLocations")
-        record.setValue(String(location.location.latitude), forKey: "latitude")
-        record.setValue(String(location.location.longitude), forKey: "longitude")
-        record.setValue(String(location.location.street_name), forKey: "street_name")
+        let newLatitude = formatDecimalNumber(location.location.latitude)
+        let newLongitude = formatDecimalNumber(location.location.longitude)
         
+        record.setValue(newLatitude, forKey: "latitude")
+        record.setValue(newLongitude, forKey: "longitude")
+        record.setValue(String(location.location.street_name), forKey: "street_name")
+        print("lastlocation = \(location.location.latitude), \(location.location.longitude)")
         // Get the Public iCloud Database
         let publicDatabase = CKContainer(identifier: "iCloud.com.lsy.shouhu").privateCloudDatabase
 
         // Save the record to iCloud
         publicDatabase.save(record, completionHandler: { (record, error) -> Void  in
-            
             if error != nil {
                 print("无法完成保存")
                 print(error.debugDescription)
-                
             }else{
                 print("位置储存成功")
-               
             }
-
             // Remove temp file
+            
            
         })
     }
+    
+   
+    
 }

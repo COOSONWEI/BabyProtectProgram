@@ -14,8 +14,19 @@ struct AddButton: View {
     var body: some View {
         HStack{
             
-            Image(name == "添加室内信标" ? "sensor.tag.radiowaves.forward 3" : "person.fill.badge 3")
-            
+            if name == "健康检测" {
+                Image(systemName: "figure.run")
+                    .resizable()
+                    .frame(maxWidth: 29.08, maxHeight: 35.32)
+                    .foregroundColor(.blue)
+                    
+            }else{
+                Image("person.fill.badge 3")
+                    .resizable()
+                    .frame(maxWidth: 29.08, maxHeight: 35.32)
+                   
+            }
+    
             Text("\(name)")
                 .font(.system(size: 18.01363))
                 .fontWeight(.bold)
@@ -24,16 +35,18 @@ struct AddButton: View {
 //                .frame(maxWidth: 297.94019, alignment: .topLeading)
             
             Spacer()
-            
-            Image(systemName: "plus")
+
+            Image(systemName: name == "健康检测" ?  "chevron.right": "plus")
                 .resizable()
                 .fixedSize()
                 .padding()
+                .foregroundColor(Color(red: 0.2, green: 0.58, blue: 1))
                 .background(Circle().foregroundColor(.white)
                     .frame(maxWidth: 26, maxHeight: 26)
                     )
                 .shadow(color: .black.opacity(0.05), radius: 2, x: 4, y: 4)
                 .shadow(color: .black.opacity(0.05), radius: 5, x: 1, y: 1)
+            
 
             
         }

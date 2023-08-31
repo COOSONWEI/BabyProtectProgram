@@ -10,18 +10,11 @@ import SwiftUI
 struct GameMainView: View {
     
     var body: some View {
-        ZStack{
+           
+           ChoseView()
+ 
+                .edgesIgnoringSafeArea(.all)
             
-            Image("MainBG")
-                .resizable()
-                .fixedSize()
-        
-          ChoseView()
-                .padding(.leading)
-                .padding(.trailing)
-            
-        }
-        
     }
     
 }

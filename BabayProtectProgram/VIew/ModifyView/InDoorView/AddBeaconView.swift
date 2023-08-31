@@ -123,7 +123,7 @@ struct AddBeaconView: View {
     }
     
     func addBeacons(name: String, subTitle: String) -> Bool {
-        
+
         if name != "" {
             
             let beaconModel = BeaconModel()

@@ -44,28 +44,38 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             userLocation = location
             print("userLocation:\(userLocation)")
             
-            //            let coordinate1 = CLLocationCoordinate2D(latitude: 31.14550982027449, longitude: -121.31598035555947)
-            //            let coordinate2 = CLLocationCoordinate2D(latitude: userLocation?.latitude ?? 0, longitude: userLocation?.longitude ?? 0)
-            //
-            //            let location1 = CLLocation(latitude: coordinate1.latitude, longitude: coordinate1.longitude)
-            //            let location2 = CLLocation(latitude: coordinate2.latitude, longitude: coordinate2.longitude)
-            //
-            //            reginLocation.distance = location1.distance(from: location2)
-            //            print("Distance: \(reginLocation.distance) meters")
-            
             let distance = CLLocation(latitude: userLocation?.latitude ?? 0, longitude: userLocation?.longitude ?? 0).distance(from: CLLocation(latitude: 31.145530673235918, longitude: 121.31602902405824))
             
             reginLocation.distance = distance
             print("reginLocation:\(reginLocation.distance)")
             print("distance\(distance)")
+            
             if  distance < 100 {
                 print("I am enter the dangerous")
                 reginLocation.isEnter = true
-               
+                return
             }else{
                 print("I am leave the dangerous")
                 reginLocation.isEnter = false
             }
+            
+            for geoDistance in GeoData {
+                let newDistance = CLLocation(latitude: userLocation?.latitude ?? 0, longitude: userLocation?.longitude ?? 0).distance(from: CLLocation(latitude: geoDistance.latitude, longitude: geoDistance.longitude))
+                
+                reginLocation.distance = newDistance
+                print("reginLocation:\(reginLocation.distance)")
+                print("distance\(newDistance)")
+                
+                if  newDistance < 100 {
+                    print("I am enter the dangerous")
+                    reginLocation.isEnter = true
+                    return
+                }else{
+                    print("I am leave the dangerous")
+                    reginLocation.isEnter = false
+                }
+            }
+           
         }
     }
     

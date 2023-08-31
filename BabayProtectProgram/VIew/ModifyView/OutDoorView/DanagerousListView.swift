@@ -7,8 +7,15 @@
 
 import SwiftUI
 
+
+
 struct DanagerousListView: View {
+    
     @Binding var jumptotheLocation: Bool
+    let dangerous = DangerousNameAndStree.dangerous
+    @Binding var selectied: Int
+    //危险区名称和数据
+    
     var body: some View {
         NavigationView{
             VStack{
@@ -28,15 +35,18 @@ struct DanagerousListView: View {
             
 
                 List{
-                    DangerousListCard()
-                        .onTapGesture {
-                            withAnimation {
-                                jumptotheLocation = true
+                    ForEach(0..<dangerous.count,id: \.self) { index in
+                        DangerousListCard(image: dangerous[index].image, street: dangerous[index].street)
+                            .onTapGesture {
+                                withAnimation {
+                                    selectied = index
+                                    jumptotheLocation = true
+                                }
+                                DispatchQueue.main.asyncAfter(deadline: .now()+1){
+                                    jumptotheLocation = false
+                                }
                             }
-                            DispatchQueue.main.asyncAfter(deadline: .now()+1){
-                                jumptotheLocation = false
-                            }
-                        }
+                    }
                 }
                 .listStyle(.plain)
                 .navigationTitle(Text("危险水域"))
@@ -44,14 +54,12 @@ struct DanagerousListView: View {
            
             
         }
-        
-       
-        
+    
     }
 }
 
 struct DanagerousListView_Previews: PreviewProvider {
     static var previews: some View {
-        DanagerousListView(jumptotheLocation: .constant(false))
+        DanagerousListView(jumptotheLocation: .constant(false), selectied: .constant(0))
     }
 }

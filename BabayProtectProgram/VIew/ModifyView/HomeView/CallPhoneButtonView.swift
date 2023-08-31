@@ -66,6 +66,8 @@ struct CallPhoneButtonView: View {
                     Image("CallBaby")
                     Image("Compass")
                         .offset(x: 60, y: -70)
+                    Image("Compass_2")
+                        .offset(x: -50, y: 70)
                 }
               
                 

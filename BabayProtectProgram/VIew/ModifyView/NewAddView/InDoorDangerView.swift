@@ -14,6 +14,7 @@ enum StateType {
     case delete
     
 }
+
 struct InDoorDangerView: View {
     
     @StateObject var cloudBeaconModel = CloudBeaconModel()
@@ -62,15 +63,15 @@ struct InDoorDangerView: View {
                             await self.deleteBeacons(at: offsets)
                             
                         }
-                        
+
                     }
-                    
                 }
                 .listStyle(.plain)
-                
+        
                 AddDangerousButton(sheetView: $show)
-                
+
             }
+            
             AddBeaconView(show: $show, cloudModel: cloudBeaconModel,showAlert: $showAlert, stateType: $state)
                 .opacity(show ? 1 : 0)
             

@@ -21,16 +21,16 @@ struct NewCustomTabView: View {
                     }
                     .background(.white)
                 
-//                VStack{
-//                    GameMainView()
-//                }
-//                    .tabItem {
-//
-//                        Image(systemName: "gamecontroller")
-//                        Text("游戏")
-//
-//                    }
-//                    .background(.white)
+                VStack{
+                    GameMainView()
+                }
+                    .tabItem {
+
+                        Image(systemName: "gamecontroller")
+                        Text("游戏")
+
+                    }
+                    .background(.white)
                 
                 VStack{
                     BeaconView(cloudBeaconModel: cloudBeaconModel)

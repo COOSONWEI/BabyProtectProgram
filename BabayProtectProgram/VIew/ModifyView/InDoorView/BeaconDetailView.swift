@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+//添加界面的状态
+enum DetailState {
+    //添加至设备
+    case addSuccess
+    
+    //保存设备
+    case saveBeacon
+    
+    //修改设备
+    case settingBeacon
+}
+
 struct BeaconDetailView: View {
     
     @Binding var uuid: String
@@ -15,6 +27,9 @@ struct BeaconDetailView: View {
     @StateObject var bluetoolth: BluetoothModel
     @State private var showAlert = false
     @State private var settingSuccess = false
+    
+    @State var state: DetailState = .addSuccess
+    
     
     var body: some View {
         VStack(spacing:10){
@@ -142,6 +157,7 @@ struct BeaconDetailView: View {
             //添加按钮
             Button {
                 showAlert = true
+                state = .settingBeacon
             } label: {
                 ZStack{
                     Rectangle()
@@ -149,7 +165,6 @@ struct BeaconDetailView: View {
                       .background(.white)
                       .cornerRadius(15)
                       .shadow(color: Color(red: 0.85, green: 0.85, blue: 0.85).opacity(0.2), radius: 5, x: 0, y: 4)
-                    
                     
                     HStack{
                         Text("自定义名称")
@@ -184,64 +199,191 @@ struct BeaconDetailView: View {
 
             Spacer()
             
-            //保存设置按钮
-            Button {
+            
+            HStack{
                 
-                //发送AT指令
-                if newName != "" {
-                    bluetoolth.sendATCommand("AT+NAME=\(newName)")
-                    settingSuccess = true
+                //保存设置按钮
+                Button {
+                    
+                    //发送AT指令
+                    if newName != "" {
+                        bluetoolth.sendATCommand("AT+NAME=\(newName)")
+                        settingSuccess = true
+                        state = .saveBeacon
+                        showAlert = true
+                        
+                    }
+                    
+                } label: {
+                    HStack() {
+                        
+                       
+                        
+                        Text("保存设备")
+                          .font(
+                            Font.custom("Inter", size: 16)
+                              .weight(.semibold)
+                          )
+                          .foregroundColor(Color(red: 0.6, green: 0.6, blue: 0.6))
+                        
+                       
+                    }
+                    .frame(maxWidth: 164, maxHeight: 41, alignment: .center)
+                    .background(.white)
+                    .cornerRadius(38.54166)
+                    .shadow(color: Color(red: 0.1, green: 0.11, blue: 0.2).opacity(0.06), radius: 2, x: 4, y: 4)
+                    .shadow(color: .black.opacity(0.05), radius: 5, x: 1, y: 1)
+                    
+                }
+                
+                //添加设备
+                Button {
+                    state = .addSuccess
                     showAlert = true
                     
+                    //发送AT指令
+//                    if newName != "" {
+//                        bluetoolth.sendATCommand("AT+NAME=\(newName)")
+//                        settingSuccess = true
+//                        showAlert = true
+//
+//                    }
+                    
+                    let add = addBeacons(name: newName)
+                    
+                } label: {
+                    HStack() {
+                       
+                        Text("添加至设备")
+                          .font(
+                            Font.custom("Inter", size: 16)
+                              .weight(.semibold)
+                          )
+                          .foregroundColor(.white)
+                         
+                       
+                    }
+                    .frame(maxWidth: 164, maxHeight: 41, alignment: .center)
+                    .background(Color(red: 1, green: 0.76, blue: 0.78))
+                    .cornerRadius(38.54166)
+                    .shadow(color: Color(red: 0.1, green: 0.11, blue: 0.2).opacity(0.06), radius: 2, x: 4, y: 4)
+                    .shadow(color: .black.opacity(0.05), radius: 3.5, x: 1, y: 1)
+                    
                 }
-                
-            } label: {
-                HStack(alignment: .center) {
-                    
-                    
-                    Spacer()
-                    
-                    Text("保存设置")
-                        .foregroundColor(.white)
-                    Spacer()
-                    
-                    
-                }
-                .padding(.horizontal, 69)
-                .padding(.vertical, 7)
-                .frame(maxWidth: 276, alignment: .center)
-                .background(Color(red: 0.39, green: 0.57, blue: 0.76))
-                .cornerRadius(38.54166)
-                .shadow(color: Color(red: 0.1, green: 0.11, blue: 0.2).opacity(0.1), radius: 11.5625, x: 0, y: 15.41667)
             }
+
         }
         .padding(.leading)
         .padding(.trailing)
-        .alert( settingSuccess ? "保存成功":"自定义新名称",isPresented: $showAlert) {
-            if !settingSuccess {
-                TextField("添加新名称", text: $newName)
+        .alert("提示",isPresented: $showAlert) {
+            switch state {
+            case .addSuccess:
                 
-                HStack{
+                VStack{
+
+                    Button {
+                        
+                    } label: {
+                        Text("添加成功，请前往‘守护设备界面查看新添加的设备").foregroundColor(.gray)
+                    }
+
+                    Button {
+                        
+                    } label: {
+                        Text("OK")
+                    }
                     
+                }
+                  
+            case .saveBeacon:
+                
+                VStack{
+                    Button {
+                        
+                    } label: {
+                        Text("保存成功")
+                            .foregroundColor(.gray)
+                    }
+                    
+                    Button {
+                        
+                    } label: {
+                        Text("OK")
+                    }
+
+
+                }
+                    
+                
+            case .settingBeacon:
+                TextField("添加新名称", text: $newName)
+                HStack{
+
                     Button("取消"){
                         newName = ""
                     }
-                    
+
                     Button("确认修改",action: {
-                        
+
                     })
                 }
-            }else{
-                Button {
-                    settingSuccess = false
-                } label: {
-                    Text("OK")
-                }
-
             }
-           
+        }
+        
+//        .alert( settingSuccess ? "保存成功":"自定义新名称",isPresented: $showAlert) {
+//            if !settingSuccess {
+//                TextField("添加新名称", text: $newName)
+//
+//                HStack{
+//
+//                    Button("取消"){
+//                        newName = ""
+//                    }
+//
+//                    Button("确认修改",action: {
+//
+//                    })
+//                }
+//            }else{
+//                Button {
+//                    settingSuccess = false
+//                } label: {
+//                    Text("OK")
+//                }
+//
+//            }
+//
+//        }
+    }
+    
+}
+
+
+extension BeaconDetailView {
+    
+    func addBeacons(name: String) -> Bool {
+
+        if name != "" {
+            
+            let beaconModel = BeaconModel()
+            beaconModel.beaconName = Beacon(name: name, subTitle: "")
+            
+            let cloudStore = CloudBeaconModel()
+            cloudStore.saveNewBeaconToCloud(beaconModel: beaconModel)
+            print("add True")
+            
+            state = .addSuccess
+            return true
+            
+        }else{
+//            isValid = true
+            
+//            state = .addFalse
+            
+            return false
         }
     }
+    
 }
 
 struct BeaconDetailView_Previews: PreviewProvider {

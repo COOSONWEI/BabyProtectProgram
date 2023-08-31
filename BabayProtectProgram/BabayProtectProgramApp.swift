@@ -33,6 +33,7 @@ struct BabayProtectProgramApp: App {
 //            CustomTabView()  //主视图
 //            DrawingHistoryView()  //地图测试视图
             NewCustomTabView()
+            
 //             FIrstEnterView()
 //            NotificationTestView()//订阅测试视图
 //            BeaconDetectView(bluetoothModel: blueModel)
