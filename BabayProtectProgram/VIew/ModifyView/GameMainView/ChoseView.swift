@@ -110,10 +110,12 @@ struct ChoseView: View {
                                 StumbleView()
                                     .navigationBarBackButtonHidden(true)
                                 //知识问答界面
+                                
                             case 1:
                                 QAGameView()
                                     .navigationBarBackButtonHidden(true)
                                 //AR互动界面
+                                
                             case 2:
                                 ARTouchView()
                                     .navigationBarBackButtonHidden(true)
@@ -123,6 +125,7 @@ struct ChoseView: View {
                             }
                         } label: {
                             ZStack{
+                                
                                 Rectangle()
                                     .foregroundColor(.clear)
                                     .background(.white.opacity(0.68))
@@ -136,7 +139,6 @@ struct ChoseView: View {
                                     .background(.white.opacity(0.8))
                                     .cornerRadius(20)
                                     .shadow(color: .black.opacity(0.07), radius: 2.5071, x: 5.0142, y: 5.0142)
-                                
                                     .offset(x: CGFloat(CGFloat((selectedImage - 1)) * screenWidth))
                                 
                                 

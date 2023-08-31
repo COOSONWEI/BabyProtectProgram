@@ -33,7 +33,6 @@ struct MenuView: View {
         
         NavigationStack{
             ZStack{
-                
                 BeaconDetectView(bluetoothModel: bluetool, beaconsNames: beaconModel, isContain: $isContain, nowBeaconName: nowBeaconName)
                     .opacity(0)
                     .task {
@@ -43,7 +42,7 @@ struct MenuView: View {
                             print("fail to loaded")
                         }
                     }
-                    
+
                 VStack(spacing: 15){
                     HStack(spacing: 18){
                         NavigationLink {
@@ -61,14 +60,29 @@ struct MenuView: View {
                         }
                         .frame(width: 75, height:75)
                     }
+                    
+//                    NavigationLink {
+//                        GeoTest()
+//                    } label: {
+//                        Text("MAP")
+//                    }
+
 
                 }
                 .padding(.top)
             }
             .sheet(isPresented: $isContain, content: {
                 WarningView(dangerousType: .beacon, phone: contactsModel.contacts.count > 0 ? contactsModel.contacts[0].phoneNumber : "请添加号码", name: nowBeaconName.name)
+                    .onAppear(perform: {
+                        //暂停搜索
+                        bluetool.stopScan()
+                        
+                    })
                     .onDisappear(perform: {
-                        isContain = false
+                        DispatchQueue.main.asyncAfter(deadline: .now()){
+                            isContain = false
+                        }
+//                        isContain = false
                         bluetool.scanForPeripherals()
                     })
             })
@@ -80,6 +94,7 @@ struct MenuView: View {
                     }
             }
         }
+        
         .task {
             do {
                 try await contactsModel.fetchContacts()
@@ -99,9 +114,11 @@ struct MenuView: View {
             } catch {
                 print("Error fetching geo information: \(error)")
             }
+            
         }
        
         .onAppear {
+//            bluetool.startScanningTimer()
             Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { tiemr in
                 sendLocationData()
             }
@@ -140,8 +157,7 @@ struct MenuView: View {
         
         DataManager.writeDate(dataInfoArr: dataInfos)
         print("DataManagerCount: -- \(dataInfos.count)")
-        
-       
+
     }
     
 }

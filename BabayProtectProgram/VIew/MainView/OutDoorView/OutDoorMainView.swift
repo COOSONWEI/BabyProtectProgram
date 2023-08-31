@@ -23,7 +23,7 @@ struct CustomTabsView: View {
 
 //先用自己的手机的Location 先进行测试一下
 struct OutDoorMainView: View {
-    
+//    var locationModel =  LocationManager()
     @Environment(\.presentationMode) var presentationMode
     
     @State var back = false
@@ -67,6 +67,7 @@ struct OutDoorMainView: View {
                 }
             
             
+          
             VStack{
                 HStack(alignment:.center){
                     Button {
@@ -103,11 +104,14 @@ struct OutDoorMainView: View {
                 //                    .offset(y: showNavBar ? 1000 : 400)
             }
             
+//            Text("Iam enter  === \(String(locationModel.reginLocation.isEnter))")
+            
         }
         .task {
             do {
                 try await locationVM.fetchRecord()
                 print("locationVM.locationRecord.count\(locationVM.locationRecord.count)")
+                
                 if locationVM.locationRecord.count < 1 {
                     isNill = true
                 }else{
@@ -122,19 +126,20 @@ struct OutDoorMainView: View {
         }
         .onAppear(perform: {
             locationVM.fetchPolling()
+
         })
-        
-        
         .navigationBarBackButtonHidden(true)
+        
     }
     
     func openMapsNavigation(destination coordinate: CLLocationCoordinate2D) {
         let destinationPlacemark = MKPlacemark(coordinate: coordinate)
         let destinationItem = MKMapItem(placemark: destinationPlacemark)
         destinationItem.name = "您孩子的位置"
-        
+    
         let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
         MKMapItem.openMaps(with: [destinationItem], launchOptions: options)
+    
     }
     
 }
@@ -159,15 +164,19 @@ struct LocationMapView: UIViewControllerRepresentable {
     
     let geofencations = [
         
-        GeoFencingViewModel(coordinate: CLLocationCoordinate2D(latitude:  31.23856, longitude: 121.50623), radius: 100, identifier: "lujiazui", note: "Enter", eventType: .onEnter),
+//        GeoFencingViewModel(coordinate: CLLocationCoordinate2D(latitude:  31.23856, longitude: 121.50623), radius: 100, identifier: "lujiazui", note: "Enter", eventType: .onEnter),
+//        
+//        GeoFencingViewModel(coordinate: CLLocationCoordinate2D(latitude: 30.30713, longitude: 120.087473), radius: 40, identifier: "zheda", note: "Enter", eventType: .onEnter),
+//        
+//        GeoFencingViewModel(coordinate: CLLocationCoordinate2D(latitude: 30.305815, longitude: 120.087226), radius: 50, identifier: "zhe", note: "Enter", eventType: .onEnter),
         
-        GeoFencingViewModel(coordinate: CLLocationCoordinate2D(latitude:   30.30337, longitude: 120.08705), radius: 100, identifier: "lujiazui", note: "Enter", eventType: .onEnter)
+        //最终位置！！！
+        GeoFencingViewModel(coordinate: CLLocationCoordinate2D(latitude: 30.305991, longitude: 120.087237), radius: 65, identifier: "zhe", note: "Enter", eventType: .onEnter)
+        
         
     ]
 
-
-    
-    let geos = [
+    let geos = [[CLLocationCoordinate2D(latitude: 30.30713, longitude: 120.087473)],
         [CLLocationCoordinate2D(latitude: 31.23827, longitude:  121.50628),
          CLLocationCoordinate2D(latitude: 31.23830, longitude:  121.50583),
          CLLocationCoordinate2D(latitude: 31.23817, longitude: 121.50550),
@@ -311,8 +320,8 @@ struct LocationMapView: UIViewControllerRepresentable {
         context.coordinator.mapView = mapViewWrapper.mapVew
         context.coordinator.checkIfLocationServiesIsEnabled()
         context.coordinator.addChildAnnotaion(childLocation: childLocation.lastCoordinate.center)
+        context.coordinator.addRadiusOverlay(forGeotification: geofencations)
         context.coordinator.addPolylineOverlay(forGeotification: geos)
-        
         context.coordinator.checkLocationAuthorization()
         context.coordinator.loadUI()
         

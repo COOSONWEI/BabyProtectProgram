@@ -161,6 +161,8 @@
 		2F8BF88E2A8D53A70036FFF1 /* ICloudTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */; };
 		2F8BF8902A8DAE190036FFF1 /* iPhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BF88F2A8DAE190036FFF1 /* iPhoneViewModel.swift */; };
 		2FBA3EE12A8B78E2005CC22B /* HealthCloudStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */; };
+		2FF6392A2AA0845000BDCE9D /* GeoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E53682A9EDF6100D4BD53 /* GeoData.swift */; };
+		2FF6392C2AA0856700BDCE9D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6392B2AA0856700BDCE9D /* LocationManager.swift */; };
 		2FFBFD172A9D858200047D5B /* BeaconDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBFD162A9D858200047D5B /* BeaconDetailView.swift */; };
 		2FFBFD192A9D8B8B00047D5B /* BeaconCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBFD182A9D8B8B00047D5B /* BeaconCardView.swift */; };
 /* End PBXBuildFile section */
@@ -357,6 +359,7 @@
 		2FBA3EDD2A8B7173005CC22B /* HealthCloudStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCloudStoreModel.swift; sourceTree = "<group>"; };
 		2FBA3EDF2A8B7354005CC22B /* ICloudTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudTest.swift; sourceTree = "<group>"; };
 		2FBA3EE22A8B7B4B005CC22B /* BabayProtectProgram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BabayProtectProgram.entitlements; sourceTree = "<group>"; };
+		2FF6392B2AA0856700BDCE9D /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2FFBFD162A9D858200047D5B /* BeaconDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetailView.swift; sourceTree = "<group>"; };
 		2FFBFD182A9D8B8B00047D5B /* BeaconCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -565,6 +568,7 @@
 				2F5F14F02A8F8A0C00C31F4B /* GeoCloudStoreModel.swift */,
 				2F8BF8812A8CC9FD0036FFF1 /* MapViewModel.swift */,
 				2F5F14D92A8E2B0B00C31F4B /* GeofencingModel.swift */,
+				2FF6392B2AA0856700BDCE9D /* LocationManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1038,6 +1042,7 @@
 				2F1FE9F52A99DD690063A700 /* NewBeaconTestView.swift in Sources */,
 				2F026AB32A8867F1005248EF /* DangerButtonView.swift in Sources */,
 				2F8BF87A2A8CB8F20036FFF1 /* AddBabayPhone.swift in Sources */,
+				2FF6392C2AA0856700BDCE9D /* LocationManager.swift in Sources */,
 				2F026AB12A87C3C7005248EF /* AddDangerView.swift in Sources */,
 				2F2E53712A9F404000D4BD53 /* StumbleModel.swift in Sources */,
 				2F8BF8902A8DAE190036FFF1 /* iPhoneViewModel.swift in Sources */,
@@ -1071,6 +1076,7 @@
 				2F2E536D2A9F3E1700D4BD53 /* PuzzleView.swift in Sources */,
 				2F59B07B2A864A4D006DA2C8 /* TextModify.swift in Sources */,
 				2F07257F2A83794E007A36CE /* GetContacts.swift in Sources */,
+				2FF6392A2AA0845000BDCE9D /* GeoData.swift in Sources */,
 				2F5F14DA2A8E2B0B00C31F4B /* GeofencingModel.swift in Sources */,
 				2F8BF87F2A8CBEF80036FFF1 /* CallContact.swift in Sources */,
 				2F5F14FA2A90483B00C31F4B /* HistoryPathViewController.swift in Sources */,

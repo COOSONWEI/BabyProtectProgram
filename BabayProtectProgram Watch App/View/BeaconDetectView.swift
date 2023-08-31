@@ -14,6 +14,7 @@ class NowBeaconName: ObservableObject {
 }
 
 
+
 struct BeaconDetectView: View {
     @Environment(\.managedObjectContext) var context
     @StateObject var bluetoothModel: BluetoothModel
@@ -22,27 +23,48 @@ struct BeaconDetectView: View {
     @StateObject var nowBeaconName: NowBeaconName
     
     var body: some View {
-        
         NavigationView {
-            List{
-                ForEach(Array(bluetoothModel.peripheralNames.keys),id:\.self){ key in
-                    VStack{
-                        Text("name:\(bluetoothModel.peripheralNames[key] ?? "")")
-                        Text("UUID:\(key)")
-                        Text("Rssi: \(bluetoothModel.rssi[key] ?? 0)")
-                    }
-                    .task {
-                        do{
-                           try await respondBeacon()
-                        }catch{
-                            print("加载错误")
+            ScrollViewReader { scrollViewProxy in
+                List {
+                    let keysArray = Array(bluetoothModel.peripheralNames.keys) // 将键集合转换为数组
+                    ForEach(keysArray, id: \.self) { key in
+                        VStack {
+                            Text("name: \(bluetoothModel.peripheralNames[key] ?? "")")
+                            Text("UUID: \(key)")
+                            Text("Rssi: \(bluetoothModel.rssi[key] ?? 0)")
+                        }
+                        .id(UUID()) // 为每个 VStack 添加唯一标识符
+                        .task {
+                            do {
+                                try await respondBeacon()
+                            } catch {
+                                print("加载错误")
+                            }
+                        }
+                        .onAppear {
+                            // 在最后一个元素出现时滚动到底部
+                            if key == keysArray.last {
+                                withAnimation {
+                                    scrollViewProxy.scrollTo(UUID(), anchor: .bottom)
+                                }
+                            }
+                            print("listscroller")
+                        }
+                        .onDisappear {
+                            // 在第一个元素消失时滚动到顶部
+                            if key == keysArray.first {
+                                withAnimation {
+                                    scrollViewProxy.scrollTo(UUID(), anchor: .top)
+                                }
+                            }
                         }
                     }
                 }
+                .navigationTitle("菜单")
             }
-            .navigationTitle("菜单")
         }
     }
+    
     
     func respondBeacon() async throws{
         for (beacon,_) in beaconsNames.usefulBeaconNames {
@@ -56,7 +78,7 @@ struct BeaconDetectView: View {
                 isContain = true
                 try await save(beacon: beacon)
                
-            } else {
+            }else {
                 bluetoothModel.isStart = true
                 isContain = false
             }

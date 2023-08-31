@@ -35,13 +35,12 @@ struct ConectSuccessfulView: View {
                                 .system(size: 20)
                             )
                             .fontWeight(.bold)
-                            .kerning(6)
+                            .kerning(1)
                             .foregroundColor(Color(red: 1, green: 0.56, blue: 0.6))
                             .frame(width: 163, alignment: .topLeading)
                         Spacer()
                     }
-                    
-                    
+
                     Button {
                         jumptoOutDoorView = true
                     } label: {

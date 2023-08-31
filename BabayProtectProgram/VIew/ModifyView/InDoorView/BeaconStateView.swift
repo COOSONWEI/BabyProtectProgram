@@ -12,6 +12,9 @@ struct BeaconStateView: View {
     var isNear: Bool
     
     let name: String
+  
+    @Binding var isDelete: Bool
+    @Binding var state: DeleteState
     
     var body: some View {
         
@@ -24,29 +27,54 @@ struct BeaconStateView: View {
             VStack(alignment:.leading){
                 
                 //通过一个状态来控制颜色的变化
-                HStack(alignment:.center){
-                    
-                    Image("BeaconiCon")
-                    Spacer()
-                    Image(isNear ? "Near" : "Far")
+                VStack{
+                    HStack(alignment:.center){
+                        
+                        Image("BeaconiCon")
+                        Spacer()
+                        Image(isNear ? "Near" : "Far")
+                        
+                    }
                     
                 }
+               
                 
-                //传入信标名称和电量
-                Text("\(name)信标")
-                  .font(
+                HStack{
                     
-                    Font.custom("PingFang SC", size: 13)
-                      .weight(.medium)
+                    VStack{
+                        //传入信标名称和电量
+                        Text("\(name)信标")
+                          .font(
+                            
+                            Font.custom("PingFang SC", size: 13)
+                              .weight(.medium)
+                            
+                          )
+                          .multilineTextAlignment(.center)
+                          .foregroundColor(Color(red: 0.05, green: 0.05, blue: 0.05))
+                        
+                        Text("连接正常")
+                            .font(Font.custom("PingFang SC", size: 12))
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(Color(red: 0.64, green: 0.64, blue: 0.64))
+                    }
                     
-                  )
-                  .multilineTextAlignment(.center)
-                  .foregroundColor(Color(red: 0.05, green: 0.05, blue: 0.05))
+                    Spacer()
+                    Button(action: {
+                        
+                        isDelete = true
+                        state = .isdelete
+                        
+                        print("isdelete ？？")
+                                       
+                    }) {
+                        Image(systemName: "trash")
+                            .foregroundColor(.red)
+                    }
+
+                }
+                .padding(.trailing,5)
                 
-                Text("连接正常")
-                    .font(Font.custom("PingFang SC", size: 12))
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color(red: 0.64, green: 0.64, blue: 0.64))
             }
             .padding()
            
@@ -58,6 +86,7 @@ struct BeaconStateView: View {
 
 struct BeaconStateView_Previews: PreviewProvider {
     static var previews: some View {
-        BeaconStateView(isNear: false, name: "厨房")
+        BeaconStateView(isNear: false, name: "厨房", isDelete: .constant(false), state: .constant(.isdelete))
+
     }
 }

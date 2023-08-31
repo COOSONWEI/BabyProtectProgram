@@ -14,6 +14,8 @@ class BluetoothModel: NSObject, ObservableObject {
     private var peripherals: [CBPeripheral] = []
     private var timer: Timer?
     
+    @StateObject var beaconsNames = CloudBeaconModel()
+    
     @Published var peripheralNames: [UUID: String] = [:]
     @Published var rssi: [UUID: NSNumber] = [:]
     @Published var isStart = true
@@ -47,6 +49,9 @@ class BluetoothModel: NSObject, ObservableObject {
     }
     
     
+    func stopScan() {
+        self.centralManager?.stopScan()
+    }
     deinit {
         // Invalidate the timer when the BluetoothModel is deallocated
         timer?.invalidate()
@@ -70,6 +75,7 @@ extension BluetoothModel: CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        
         if  !peripherals.contains(peripheral){
             
             self.peripherals.append(peripheral)

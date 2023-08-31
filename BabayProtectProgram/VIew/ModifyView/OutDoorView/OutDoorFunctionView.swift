@@ -9,7 +9,7 @@ import SwiftUI
 
 //MARK: -地图的按钮功能
 struct OutDoorFunctionView: View {
-    //    var locationModel: LocationModel
+    
     @Binding var zoomLocation: Bool
     @Binding var zoomChild: Bool
     @StateObject var locatinoModel: LocationCloudStroe
@@ -23,6 +23,7 @@ struct OutDoorFunctionView: View {
             Capsule()
                 .foregroundColor(.white)
                 .shadow(radius: 5)
+            
             
             VStack{
                 Button {
@@ -46,6 +47,8 @@ struct OutDoorFunctionView: View {
                     Alert(title: Text("提示"), message: Text("您还未绑定AppleWatch传递位置信息，请您先绑定AppleWatch后打开'守护'App，会自动进行第一次数据同步"))
                 }
                 
+                
+              
                 Text("孩子位置")
                     .font(.system(size: 9))
                     .foregroundColor(Color(red: 0.46, green: 0.46, blue: 0.46))
@@ -66,7 +69,6 @@ struct OutDoorFunctionView: View {
                         .foregroundColor(Color(red: 108/255, green: 108/255, blue: 108/255))
                         .frame(maxWidth: 32, maxHeight: 32)
                         .fixedSize()
-                    
                 }
                 
                 Text("您的位置")
@@ -113,6 +115,7 @@ struct OutDoorFunctionView: View {
                 }
                
             }
+           
         }
         .frame(maxWidth: 40, maxHeight: 250)
         

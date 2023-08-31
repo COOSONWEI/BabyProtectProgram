@@ -77,16 +77,15 @@ struct QAGameView: View {
                                     Spacer()
                                 }
                                 .padding(.leading)
-                               
+                                
                             }
                         }
                         if model < 3 {
                             Divider()
                         }
-                      
-                        
+                
                     }
-                   
+                    
                 }
                 .padding()
                 
@@ -94,9 +93,9 @@ struct QAGameView: View {
             .frame(maxHeight: 288)
             
             Button {
-                
+            
                 isTrue = checkTheAnswer(selected: selectedOption ?? -1 )
-                
+        
             } label: {
                 Text("提交答案")
                     .font(.system(size: 15.6213))
@@ -114,10 +113,14 @@ struct QAGameView: View {
         }
         .padding(.leading)
         .padding(.trailing)
-        
+        .fullScreenCover(isPresented: $isSuccess, content: {
+            SuccessView()
+        })
         .background(
             Image("QABG")
         )
+        
+        
     }
     
     func optionTapped(_ index: Int) {

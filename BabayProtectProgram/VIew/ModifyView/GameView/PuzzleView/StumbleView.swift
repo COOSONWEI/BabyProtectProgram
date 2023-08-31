@@ -24,6 +24,7 @@ struct StumbleView: View {
                 Image("PuzzleBG")
                     .offset(x:10,y:10)
                 PuzzleView(right: $right)
+                
             }
             
             VStack{

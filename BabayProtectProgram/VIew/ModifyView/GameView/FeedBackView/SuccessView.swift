@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SuccessView: View {
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         
@@ -19,7 +20,7 @@ struct SuccessView: View {
                 //成功时候的设计
                 HStack{
                     Button {
-                        
+                        presentationMode.wrappedValue.dismiss()
                     } label: {
                         Image("backBT")
                     }

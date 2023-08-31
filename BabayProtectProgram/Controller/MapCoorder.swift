@@ -30,17 +30,18 @@ class MapViewCoordinator: NSObject, CLLocationManagerDelegate {
     }
     
     func loadUI() {
-        
+    
         mapView.showsUserLocation = true
         lastLocation = mapView.userLocation.coordinate
         viewController?.view.addSubview(mapView)
         print("loadUI success")
-        
+    
     }
     
     
     //创建一个方法为所有的围栏添加半圆颜色
     func addRadiusOverlay(forGeotification geotification: [GeoFencingViewModel]) {
+        
         for geofencing in geofencings {
             mapView.addOverlay(MKCircle(center: geofencing.coordinate, radius: geofencing.radius))
          

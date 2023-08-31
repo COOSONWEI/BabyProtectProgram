@@ -8,6 +8,12 @@
 import SwiftUI
 //import Lottie
 
+
+enum DeleteState {
+    case isdelete
+    case netFalse
+}
+
 struct BeaconView: View {
     
     @StateObject var cloudBeaconModel: CloudBeaconModel
@@ -16,8 +22,12 @@ struct BeaconView: View {
     @State private var showLoadingIndicator = false
     
     @State private var networkFalse = false
-    
+    @State var dataState: DeleteState = .netFalse
     @State var isNil = false
+    @State private var showDeleteButton = false
+    @State private var selectedItem: String? // 用于记录长按的元素
+    
+    @State var showAlert = false
     
     var body: some View {
         
@@ -35,14 +45,14 @@ struct BeaconView: View {
                         
                         //通知设置
                         Button {
-
+                            
                         } label: {
                             Image(systemName: "bell")
                                 .foregroundColor(Color(red: 0.09, green: 0.09, blue: 0.09))
-
+                            
                         }
                         .frame(width: 28, height: 29)
-
+                        
                         //添加修改设备
                         NavigationLink {
                             FindingAndSettingBeaconView(bluetoothModel: bluetoolthModel)
@@ -52,10 +62,10 @@ struct BeaconView: View {
                         } label: {
                             Image(systemName: "plus.circle")
                                 .foregroundColor(Color(red: 0.09, green: 0.09, blue: 0.09))
-                                
+                            
                                 .frame(width: 29, height: 29)
                         }
-
+                        
                     }
                     
                     
@@ -113,24 +123,69 @@ struct BeaconView: View {
                         .font(.custom("PingFang SC", size: 12))
                         .foregroundColor(Color(red: 0.64, green: 0.64, blue: 0.64))
                     
-                    ScrollView(.vertical,showsIndicators: false){
-                        
-                        //加载已添加的信标和它的状态
+                    //MARK: -这里是之前的代码
+                    //                    ScrollView(.vertical,showsIndicators: false){
+                    //
+                    //                        //加载已添加的信标和它的状态
+                    //                        LazyVGrid(columns: [
+                    //                            GridItem(.flexible(), spacing: 16),
+                    //                            GridItem(.flexible(), spacing: 16)
+                    //                        ], spacing: 23) {
+                    //
+                    //                            ForEach(Array(cloudBeaconModel.usefulBeaconNames.keys), id: \.self) { item in
+                    //
+                    //                                BeaconStateView(isNear: cloudBeaconModel.usefulBeaconNames[item] == 1 ? true : false, name: item)
+                    //                            }
+                    //                        }
+                    //                        .padding()
+                    //                    }
+                    
+                    ScrollView(.vertical, showsIndicators: false) {
                         LazyVGrid(columns: [
                             GridItem(.flexible(), spacing: 16),
                             GridItem(.flexible(), spacing: 16)
                         ], spacing: 23) {
-                            
                             ForEach(Array(cloudBeaconModel.usefulBeaconNames.keys), id: \.self) { item in
+                                VStack {
+                                    BeaconStateView(isNear: cloudBeaconModel.usefulBeaconNames[item] == 1 ? true : false, name: item,isDelete: $showAlert,state: $dataState)
+                                        .alert(isPresented: $showAlert) {
+                                            switch dataState {
+                                            case .isdelete:
+                                              return  Alert(title: Text("提示"), message: Text("您确定要删除吗？若删除后还存在您删除后的信标可退出程序后再回到该界面即可刷新成功！"), primaryButton: .cancel(Text("取消")), secondaryButton: .default(Text("确认删除"), action: {
+                                                    Task{
+                                                        print("Delete ")
+                                                       await cloudBeaconModel.deleteBeaconsWithNames([item])
+                                                        cloudBeaconModel.usefulBeaconNames.removeValue(forKey: item)
+                                                    }
+                                                   
+                                                }))
+                                            case .netFalse:
+                                               return Alert(title: Text("获取数据失败"), message: Text("请检查网络后，下滑刷新界面，以重新获取数据"))
+                                            }
+                                            
+                                        }
+//                                    Button(action: {
+//                                        // 在这里处理删除操作
+//                                        print("item = \(item)")
+////                                        Task{
+////                                            try await cloudBeaconModel.deleteBeaconsWithNames([item])
+////                                        }
+//
+////                                        cloudBeaconModel.usefulBeaconNames[item] = nil // 删除对应的数据
+//                                    }) {
+//                                        Image(systemName: "trash")
+//                                            .foregroundColor(.red)
+//                                    }
+                                }
+                            
                                 
-                                BeaconStateView(isNear: cloudBeaconModel.usefulBeaconNames[item] == 1 ? true : false, name: item)
+                                }
                             }
+                            
                         }
                         .padding()
                     }
-                    .alert(isPresented: $networkFalse) {
-                        Alert(title: Text("获取数据失败"), message: Text("请检查网络后，下滑刷新界面，以重新获取数据"))
-                    }
+                    
                     
                 }
                 .task {
@@ -147,13 +202,14 @@ struct BeaconView: View {
                     }catch {
                         print("Get False")
                         showLoadingIndicator = false
-                        networkFalse = true
+                        dataState = .netFalse
+                        showAlert = true
                         isNil = true
                     }
                 }
                 .onAppear {
                     showLoadingIndicator = true
-                    cloudBeaconModel.resumeLoop()
+//                    cloudBeaconModel.resumeLoop()
                 }
                 .onDisappear(perform: {
                     print("I am Disappear...")
@@ -177,13 +233,16 @@ struct BeaconView: View {
                 }
                 
             }
-           
+            
         }
-       
         
-       
+        
+        
     }
-}
+    
+    
+
+
 
 struct BeaconView_Previews: PreviewProvider {
     static var previews: some View {

@@ -1,9 +1,10 @@
 //
 //  LocationManager.swift
-//  BabayProtectProgram Watch App
+//  BabayProtectProgram
 //
-//  Created by 韦小新 on 2023/8/18.
+//  Created by 韦小新 on 2023/8/31.
 //
+
 
 import Foundation
 import CoreLocation
@@ -43,9 +44,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         if let location = locations.last?.coordinate {
             userLocation = location
             print("userLocation:\(userLocation)")
-//            CLLocationCoordinate2D(latitude: 30.305991, longitude: 120.087237)
-            let distance = CLLocation(latitude: userLocation?.latitude ?? 0, longitude: userLocation?.longitude ?? 0).distance(from: CLLocation(latitude: 30.305991, longitude: 120.087237))
-//            CLLocationCoordinate2D(latitude: , longitude: )
+            
+            let distance = CLLocation(latitude: userLocation?.latitude ?? 0, longitude: userLocation?.longitude ?? 0).distance(from: CLLocation(latitude: 31.145530673235918, longitude: 121.31602902405824))
+            
             reginLocation.distance = distance
             print("reginLocation:\(reginLocation.distance)")
             print("distance\(distance)")
