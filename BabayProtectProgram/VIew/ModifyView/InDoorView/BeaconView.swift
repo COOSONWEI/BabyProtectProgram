@@ -12,13 +12,14 @@ import SwiftUI
 enum DeleteState {
     case isdelete
     case netFalse
+//    case unsubscripte
 }
 
 struct BeaconView: View {
     
     @StateObject var cloudBeaconModel: CloudBeaconModel
     @StateObject var bluetoolthModel = BluetoothModel()
-    
+    @StateObject private var vm = CloudPushNotificationViewModel()
     @State private var showLoadingIndicator = false
     
     @State private var networkFalse = false
@@ -43,13 +44,14 @@ struct BeaconView: View {
                             .foregroundColor(Color(red: 0.32, green: 0.32, blue: 0.32))
                         Spacer()
                         
-                        //通知设置
+                       // 通知设置
                         Button {
-                            
+//                            dataState = .unsubscripte
+                            showAlert = true
                         } label: {
                             Image(systemName: "bell")
                                 .foregroundColor(Color(red: 0.09, green: 0.09, blue: 0.09))
-                            
+
                         }
                         .frame(width: 28, height: 29)
                         
@@ -153,7 +155,7 @@ struct BeaconView: View {
                                             case .isdelete:
                                               return  Alert(title: Text("提示"), message: Text("您确定要删除吗？若删除后还存在您删除后的信标可退出程序后再回到该界面即可刷新成功！"), primaryButton: .cancel(Text("取消")), secondaryButton: .default(Text("确认删除"), action: {
                                                     Task{
-                                                        print("Delete ")
+                                                        print("Delete")
                                                        await cloudBeaconModel.deleteBeaconsWithNames([item])
                                                         cloudBeaconModel.usefulBeaconNames.removeValue(forKey: item)
                                                     }
@@ -161,6 +163,8 @@ struct BeaconView: View {
                                                 }))
                                             case .netFalse:
                                                return Alert(title: Text("获取数据失败"), message: Text("请检查网络后，下滑刷新界面，以重新获取数据"))
+//                                            case .unsubscripte:
+//                                                return Alert(title: Text("提示"), message: Text("您确定要取消订阅通知内容吗？后续想开启，请前往‘设置’里打开设置"), primaryButton: <#T##Alert.Button#>, secondaryButton: <#T##Alert.Button#>)
                                             }
                                             
                                         }
@@ -177,6 +181,9 @@ struct BeaconView: View {
 //                                            .foregroundColor(.red)
 //                                    }
                                 }
+                                .onAppear {
+                                    print("usefulBeaconNames = \(item)")
+                                }
                             
                                 
                                 }
@@ -185,6 +192,10 @@ struct BeaconView: View {
                         }
                         .padding()
                     }
+                .onAppear {
+                    print("Scrollerview On Appear...")
+                    cloudBeaconModel.resumeLoop()
+                }
                     
                     
                 }
@@ -209,6 +220,7 @@ struct BeaconView: View {
                 }
                 .onAppear {
                     showLoadingIndicator = true
+                    print("I am Appear...")
 //                    cloudBeaconModel.resumeLoop()
                 }
                 .onDisappear(perform: {

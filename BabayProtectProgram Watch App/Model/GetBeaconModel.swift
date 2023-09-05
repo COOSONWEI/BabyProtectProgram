@@ -41,6 +41,7 @@ class CloudBeaconModel: ObservableObject {
     func pauseLoop() {
         timer?.invalidate()
         timer = nil
+        print("pauseLoop....")
     }
   
     func resumeLoop() {

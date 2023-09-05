@@ -55,7 +55,7 @@ struct FindingAndSettingBeaconView: View {
                                 uuid = key.uuidString
                                 name = bluetoothModel.peripheralNames[key] ?? "nil"
                                 
-                                connectSuccess = bluetoothModel.connectedTheDevice(name: bluetoothModel.peripheralNames[key] ?? "")
+//                                connectSuccess = bluetoothModel.connectedTheDevice(name: bluetoothModel.peripheralNames[key] ?? "")
                             }, label: {Text("")}).opacity(0) //覆盖掉默认的箭头
                     }
                    
@@ -68,6 +68,7 @@ struct FindingAndSettingBeaconView: View {
             bluetoothModel.scanForPeripherals()
         }
         .onDisappear {
+            print("disappear！！！")
             bluetoothModel.stopScan()
         }
         

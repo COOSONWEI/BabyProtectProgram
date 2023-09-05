@@ -9,6 +9,7 @@ import SwiftUI
 import WatchKit
 
 struct MenuView: View {
+    
     @StateObject var healthModel: HealthModel
     @StateObject var bluetool = BluetoothModel()
     @StateObject var beaconModel = CloudBeaconModel()

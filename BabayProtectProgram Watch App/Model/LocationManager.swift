@@ -50,7 +50,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             print("reginLocation:\(reginLocation.distance)")
             print("distance\(distance)")
             
-            if  distance < 100 {
+            if  distance < 65 {
                 print("I am enter the dangerous")
                 reginLocation.isEnter = true
                 return

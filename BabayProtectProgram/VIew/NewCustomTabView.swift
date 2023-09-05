@@ -14,10 +14,8 @@ struct NewCustomTabView: View {
             TabView{
                 ConectSuccessfulView(cloudBeaconModel: cloudBeaconModel)
                     .tabItem {
-               
                             Image(systemName: "house")
                             Text("首页")
-                        
                     }
                     .background(.white)
                 

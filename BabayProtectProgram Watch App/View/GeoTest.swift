@@ -9,6 +9,7 @@ import CoreLocation
 import MapKit
 
 struct GeoTest: View {
+    
     @StateObject var locationManager = LocationManager()
     @State private var showAlert = false
     @StateObject  var regin = ReginLocation()

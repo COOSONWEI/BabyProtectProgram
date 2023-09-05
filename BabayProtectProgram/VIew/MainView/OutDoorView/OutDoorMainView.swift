@@ -320,7 +320,7 @@ struct LocationMapView: UIViewControllerRepresentable {
         context.coordinator.mapView = mapViewWrapper.mapVew
         context.coordinator.checkIfLocationServiesIsEnabled()
         context.coordinator.addChildAnnotaion(childLocation: childLocation.lastCoordinate.center)
-        context.coordinator.addRadiusOverlay(forGeotification: geofencations)
+//        context.coordinator.addRadiusOverlay(forGeotification: geofencations)
         context.coordinator.addPolylineOverlay(forGeotification: geos)
         context.coordinator.checkLocationAuthorization()
         context.coordinator.loadUI()

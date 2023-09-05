@@ -23,7 +23,7 @@ class BluetoothModel: NSObject, ObservableObject {
         super.init()
         self.centralManager = CBCentralManager(delegate: self, queue: .main)
         // Start the timer when the BluetoothModel is initialized
-        startScanningTimer()
+//        startScanningTimer()
     }
     
     private func startScanningTimer() {
@@ -44,6 +44,7 @@ class BluetoothModel: NSObject, ObservableObject {
             rssi.removeAll()
             // Start scanning for peripherals
             self.centralManager?.scanForPeripherals(withServices: nil)
+            print("Start Scaning")
         }
     }
     

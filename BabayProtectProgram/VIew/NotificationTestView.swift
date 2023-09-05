@@ -25,7 +25,7 @@ struct NotificationTestView: View {
             
             Button {
                 vm.subscribeToNotificatoin()
-                vm.sendNotification(title: "您的孩子正在危险水域附近", subtitle: "", body: "是否检查打开App查看孩子目前的位置和情况")
+                vm.sendNotification(title: "您的孩子接近危险物品！！！", subtitle: "", body: "是否要打开App给孩子打个电话确认情况？")
             } label: {
                 Text("subscribe the notification")
             }
